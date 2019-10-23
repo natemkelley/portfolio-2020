@@ -41,7 +41,7 @@ export default {
       height: "69vh",
       boxColor: colors.white,
       buttonColor: colors.green[600],
-      duration: 275,
+      duration: 365,
       durationOffset: 50
     };
   },
@@ -131,7 +131,6 @@ export default {
       this.menuAnime.finished.then(() => {
         this.menuAnime.reverse();
       });
-      //event listener for off
     }
   }
 };
