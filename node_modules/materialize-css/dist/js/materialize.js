@@ -1,5 +1,5 @@
 /*!
- * Materialize v1.0.0 (http://materializecss.com)
+ * Materialize v1.0.0-rc.2 (http://materializecss.com)
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
@@ -1083,8 +1083,6 @@ if (typeof define === 'function' && define.amd) {
   }
   exports.default = M;
 }
-
-M.version = '1.0.0';
 
 M.keys = {
   TAB: 9,
@@ -2509,11 +2507,7 @@ $jscomp.polyfill = function (e, r, p, m) {
           var $activatableElement = $(focusedElement).find('a, button').first();
 
           // Click a or button tag if exists, otherwise click li tag
-          if (!!$activatableElement.length) {
-            $activatableElement[0].click();
-          } else if (!!focusedElement) {
-            focusedElement.click();
-          }
+          !!$activatableElement.length ? $activatableElement[0].click() : focusedElement.click();
 
           // Close dropdown on ESC
         } else if (e.which === M.keys.ESC && this.isOpen) {
@@ -2693,7 +2687,8 @@ $jscomp.polyfill = function (e, r, p, m) {
 
             // onOpenEnd callback
             if (typeof _this11.options.onOpenEnd === 'function') {
-              _this11.options.onOpenEnd.call(_this11, _this11.el);
+              var elem = anim.animatables[0].target;
+              _this11.options.onOpenEnd.call(elem, _this11.el);
             }
           }
         });
@@ -2724,6 +2719,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
             // onCloseEnd callback
             if (typeof _this12.options.onCloseEnd === 'function') {
+              var elem = anim.animatables[0].target;
               _this12.options.onCloseEnd.call(_this12, _this12.el);
             }
           }
@@ -2853,7 +2849,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
   Dropdown._dropdowns = [];
 
-  M.Dropdown = Dropdown;
+  window.M.Dropdown = Dropdown;
 
   if (M.jQueryLoaded) {
     M.initializeJqueryWrapper(Dropdown, 'dropdown', 'M_Dropdown');
@@ -4424,7 +4420,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     return Tabs;
   }(Component);
 
-  M.Tabs = Tabs;
+  window.M.Tabs = Tabs;
 
   if (M.jQueryLoaded) {
     M.initializeJqueryWrapper(Tabs, 'tabs', 'M_Tabs');
@@ -6094,7 +6090,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
   Sidenav._sidenavs = [];
 
-  M.Sidenav = Sidenav;
+  window.M.Sidenav = Sidenav;
 
   if (M.jQueryLoaded) {
     M.initializeJqueryWrapper(Sidenav, 'sidenav', 'M_Sidenav');
@@ -11837,20 +11833,10 @@ $jscomp.polyfill = function (e, r, p, m) {
           // Add callback for centering selected option when dropdown content is scrollable
           dropdownOptions.onOpenEnd = function (el) {
             var selectedOption = $(_this71.dropdownOptions).find('.selected').first();
-
-            if (selectedOption.length) {
-              // Focus selected option in dropdown
-              M.keyDown = true;
-              _this71.dropdown.focusedIndex = selectedOption.index();
-              _this71.dropdown._focusFocusedItem();
-              M.keyDown = false;
-
-              // Handle scrolling to selected option
-              if (_this71.dropdown.isScrollable) {
-                var scrollOffset = selectedOption[0].getBoundingClientRect().top - _this71.dropdownOptions.getBoundingClientRect().top; // scroll to selected option
-                scrollOffset -= _this71.dropdownOptions.clientHeight / 2; // center in dropdown
-                _this71.dropdownOptions.scrollTop = scrollOffset;
-              }
+            if (_this71.dropdown.isScrollable && selectedOption.length) {
+              var scrollOffset = selectedOption[0].getBoundingClientRect().top - _this71.dropdownOptions.getBoundingClientRect().top; // scroll to selected option
+              scrollOffset -= _this71.dropdownOptions.clientHeight / 2; // center in dropdown
+              _this71.dropdownOptions.scrollTop = scrollOffset;
             }
           };
 

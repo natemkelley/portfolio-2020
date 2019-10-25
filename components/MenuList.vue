@@ -7,9 +7,15 @@
         </div>
       </li>
       <li v-for="(n) in 5" :key="n">
-        <div class="collapsible-header">First {{n}}</div>
+        <div class="collapsible-header waves-effect waves-green">First {{n}}</div>
         <div class="collapsible-body">
-          <span>Lorem ipsum dolor sit amet.</span>
+          <div class="collapsible-body-overlay-video-blur">
+            <video width="100%" autoplay muted loop preload="auto" :poster="require('~/assets/slc_skyline.jpg')">
+              <source src="~/assets/testvideo.mp4" type="video/mp4" />
+              <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg" />Your browser does not support HTML5 video.
+            </video>
+            <div class="collapsible-body-overlay"></div>
+          </div>
         </div>
       </li>
       <div class="mouse" ref="mouse">
@@ -30,7 +36,7 @@ export default {
   },
   mounted() {
     M.Collapsible.init(this.$el.querySelectorAll(".collapsible"), {
-      accordion: false
+      accordion: true
     });
   },
   methods: {
@@ -57,6 +63,32 @@ export default {
   border: none !important;
   color: gray;
   margin-bottom: 0;
+}
+
+.collapsible-body {
+  display: none;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  padding: 0rem;
+  line-height: 0;
+  position: relative;
+}
+
+.collapsible-body-overlay-video-blur {
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' ><filter id='svgMask'><feGaussianBlur stdDeviation='3' /></filter></svg>#svgMask");
+  margin: -12px;
+}
+.collapsible-body-overlay {
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.583);
+  width: 100%;
+  height: 100%;
 }
 
 .mouse {
@@ -86,7 +118,6 @@ export default {
   -moz-animation: 1.6s ease infinite wheel-up-down;
   animation: 1.6s ease infinite wheel-up-down;
 }
-
 .hidden {
   display: none;
 }

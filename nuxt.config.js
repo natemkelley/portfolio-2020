@@ -28,7 +28,8 @@ export default {
    */
   css: [
     "materialize-css/dist/css/materialize.min.css",
-    "material-icons/iconfont/material-icons.css"
+    "material-icons/iconfont/material-icons.css",
+    "@/css/main.css"
   ],
   /*
    ** Plugins to load before mounting the App
@@ -38,7 +39,8 @@ export default {
       return ["script", "style", "font"].includes(type);
     }
   },
-  plugins: [],
+  plugins: [  { src: '@/node_modules/materialize-css/js/waves.js'}
+],
   /*
   { src: '@/node_modules/materialize-css/dist/js/materialize.min.js'}
    ** Nuxt.js dev-modules
@@ -56,13 +58,13 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'));
- 
+      const svgRule = config.module.rules.find(rule => rule.test.test(".svg"));
+
       svgRule.test = /\.(png|jpe?g|gif|webp)$/;
- 
+
       config.module.rules.push({
         test: /\.svg$/,
-        loader: 'vue-svg-loader',
+        loader: "vue-svg-loader"
       });
     }
   }

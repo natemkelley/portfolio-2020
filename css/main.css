@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #41b883;
+    --primary-border: 1px solid #318b63;;
+}
+  
+.primary-btn{
+    background: var(--primary-color);
+    border: var(--primary-border);
+}
+.primary-btn:hover{
+    background: var(--primary-color);
+    border: var(--primary-border);
+}
+
+.squared-btn{
+    border-radius: 10%;
+}
