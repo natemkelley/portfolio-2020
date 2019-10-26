@@ -11,6 +11,7 @@
     "generate": "nuxt generate && cp -a dist/. ../natemkelley.github.io/"
   },
   "dependencies": {
+    "@mdi/js": "^4.5.95",
     "@nuxtjs/pwa": "^3.0.0-0",
     "animejs": "^3.1.0",
     "material-colors": "^1.2.6",

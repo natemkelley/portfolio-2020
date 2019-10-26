@@ -25,12 +25,9 @@
             <div class="collapsible-body-overlay"></div>
           </div>
           <div class="collapsible-body-content">
-            <div class="row">
-                                      <p >This is a test</p>
-                            <p >This is a test</p>
-              <p >This is a test</p>
-              <p >This is a test</p>
-            </div>
+            <h1>This</h1>
+            <h1>This</h1>
+            <h1>This</h1>
           </div>
         </div>
       </li>
@@ -77,6 +74,7 @@ export default {
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
   padding: 0rem;
+  line-height: 0;
   position: relative;
 }
 
@@ -86,17 +84,9 @@ export default {
   -moz-filter: blur(10px);
   -o-filter: blur(10px);
   -ms-filter: blur(10px);
-  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' ><filter id='svgMask'><feGaussianBlur stdDeviation='1.5' /></filter></svg>#svgMask");
-  position: absolute;
-  height: 100%;
-  z-index: -1;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' ><filter id='svgMask'><feGaussianBlur stdDeviation='3' /></filter></svg>#svgMask");
+  margin: -12px;
 }
-.collapsible-body-overlay-video-blur video {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
 .collapsible-body-overlay {
   position: absolute;
   top: 0;
@@ -106,7 +96,7 @@ export default {
 }
 
 .collapsible-body-content {
-  color: white;
+
 }
 
 .topcell {

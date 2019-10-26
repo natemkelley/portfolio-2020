@@ -5,9 +5,11 @@
         class="dat-btn btn-floating btn-large z-depth-1 primary-btn waves-effect waves-light squared-btn"
         ref="button"
       >
-        <i class="material-icons menu-icon" ref="icon" @click="toggleMenuOpen">menu</i>
+        <div @click="toggleMenuOpen">
+          <mdi-icons class="menu-icon" icon="menu" ref="icon" />
+        </div>
         <div class="menu-item" ref="menuItems">
-          <MenuList />
+          <MenuList :opened="opened" />
         </div>
       </a>
       <div class="dat-bar">
@@ -16,26 +18,52 @@
     </div>
     <div class="underlay" ref="underlay" @click="toggleMenuOpen">
       <div class="blackbox"></div>
-      <a class="btn-floating btn-large close-btn waves-effect waves-light squared-btn">
-        <i class="material-icons">close</i>
-      </a>
+      <div class="socialLinks">
+        <div class="row">
+          <a class="btn-floating btn-large socialLinks-btn waves-effect waves-light squared-btn">
+            <mdi-icons icon="close" />
+          </a>
+        </div>
+        <div class="row" v-for="button in socialLinks" :key="button.icon">
+          <a class="btn-floating btn-large socialLinks-btn waves-effect waves-light squared-btn" :href="button.src" target="_blank">
+            <mdi-icons :icon="button.icon" />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import anime from "animejs";
-import colors from "material-colors";
-import M from "materialize-css";
 import MenuList from "@/components/MenuList";
 import ProgressBar from "@/components/ProgressBar";
+import M from "materialize-css";
+import MdiIcons from "@/components/mdi-icons";
 
 export default {
   name: "Menu",
-  components: { MenuList, ProgressBar },
+  components: { MenuList, ProgressBar, MdiIcons },
   data() {
     return {
-      clicked: false
+      clicked: false,
+      socialLinks: [
+        {
+          src: "https://www.linkedin.com/in/nate-kelley/",
+          icon: "linkedin",
+          color: ""
+        },
+        {
+          src: "https://github.com/natemkelley",
+          icon: "github-Circle",
+          color: ""
+        },
+        {
+          src: "https://www.instagram.com/n8kel/",
+          icon: "instagram",
+          color: ""
+        }
+      ],
+      opened: false
     };
   },
   methods: {
@@ -52,6 +80,7 @@ export default {
         document.body.style.overflow = "auto";
       }
       this.clicked = !this.clicked;
+      this.opened = true;
     }
   }
 };
@@ -96,7 +125,7 @@ export default {
   background: #fff !important;
   overflow-y: scroll;
   scrollbar-width: none;
-      border: none;
+  border: none;
 }
 
 .underlay {
@@ -121,20 +150,24 @@ export default {
   width: 100%;
 }
 
-.close-btn {
+.socialLinks {
   position: absolute;
   top: 0;
   left: 0;
   margin: 25px;
-  margin-left: 25px;
+  margin-left: 350px;
+  height: 100%;
+}
+
+.socialLinks-btn {
   background: rgba(255, 255, 255, 0.274);
   box-shadow: none;
   border: 1px solid;
-  margin-left: 350px;
   transition: all 200ms ease;
+  margin-bottom: -5px;
 }
 
-.close-btn:hover {
+.socialLinks-btn:hover {
   background: rgba(255, 255, 255, 0.474);
 }
 
@@ -158,7 +191,7 @@ export default {
     height: 85vh;
     max-height: 750px;
   }
-  .close-btn {
+  .socialLinks {
     margin-left: 82.5vw;
   }
 }

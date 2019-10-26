@@ -24,14 +24,14 @@ export default {
   computed: {
     from() {
       if (!this.color1) {
-        return "#c2c2c2";
+        return "#78d434";
       } else {
         this.color1;
       }
     },
     to() {
       if (!this.color2) {
-        return "#8e8e8e";
+        return "#318b63";
       } else {
         this.color2;
       }
