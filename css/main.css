@@ -3,6 +3,10 @@
     --primary-border: 1px solid #318b63;
     --dark-background: #3A3A3A;
 }
+
+body{
+    background-color: #f1f1f1;
+}
   
 .primary-btn{
     background: var(--primary-color);
