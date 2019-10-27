@@ -120,9 +120,10 @@ export default {
 .dat-box {
   width: 310px;
   border-radius: 7px;
-  height: 75vh;
+  height: 78vh;
   max-height: 525px;
-  background: #fff !important;
+  background: #fff ;
+  background: var(--dark-background);
   overflow-y: scroll;
   scrollbar-width: none;
   border: none;
@@ -145,7 +146,7 @@ export default {
 
 .underlay .blackbox {
   background-color: black;
-  opacity: 0.64;
+  opacity: 0.54;
   height: 100%;
   width: 100%;
 }

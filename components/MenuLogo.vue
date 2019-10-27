@@ -31,13 +31,15 @@ export default {
     this.timeline.add({
       targets: this.$refs.logo.querySelectorAll(".lines path"),
       strokeDashoffset: [anime.setDashoffset, 0],
+      stroke: ["#fff", "#fff"],
       delay: function(el, i) {
         return i * 250;
       }
     });
     this.timeline.add({
       targets: this.$refs.logo.querySelectorAll(".lines path"),
-      fill: ["#fff", "#41b883"]
+      fill: ["#fff0", "#41b883"],
+      stroke: ["#fff", "#41b883"]
     });
   },
   methods: {

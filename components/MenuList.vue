@@ -7,7 +7,7 @@
         </div>
       </li>
       <li v-for="(n) in 5" :key="n">
-        <div class="collapsible-header waves-effect waves-green">First {{n}}</div>
+        <div class="collapsible-header waves-effect waves-white">First {{n}}</div>
 
         <div class="collapsible-body">
           <div class="collapsible-body-overlay-video-blur">
@@ -70,6 +70,11 @@ export default {
   border: none !important;
   color: gray;
   margin-bottom: 0;
+}
+
+.collapsible-header {
+  background-color: #fff0;
+  color:#fff;
 }
 
 .collapsible-body {
