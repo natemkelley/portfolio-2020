@@ -9,8 +9,6 @@ import {
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '../node_modules/materialize-css/dist/css/materialize.min.css'
-
 import '../css/main.css'
 
 import _6f6c098b from '../layouts/default.vue'
@@ -18,7 +16,7 @@ import _6f6c098b from '../layouts/default.vue'
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"title":"Nate Kelley Portfolio","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"Nate Kelley","content":"My dazzling Nuxt.js project"},{"hid":"mobile-web-app-capable","name":"mobile-web-app-capable","content":"yes"},{"hid":"apple-mobile-web-app-title","name":"apple-mobile-web-app-title","content":"portfolio-2020"},{"hid":"author","name":"author","content":"nmkelley"},{"hid":"description","name":"description","content":"My dazzling Nuxt.js project"},{"hid":"theme-color","name":"theme-color","content":"#fff"},{"hid":"og:type","name":"og:type","property":"og:type","content":"website"},{"hid":"og:title","name":"og:title","property":"og:title","content":"portfolio-2020"},{"hid":"og:site_name","name":"og:site_name","property":"og:site_name","content":"portfolio-2020"},{"hid":"og:description","name":"og:description","property":"og:description","content":"My dazzling Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.8697cedc.json"}],"style":[],"script":[],"htmlAttrs":{"lang":"en"}},
+  head: {"title":"Nate Kelley Portfolio","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"Nate Kelley","content":"My dazzling Nuxt.js project"},{"hid":"mobile-web-app-capable","name":"mobile-web-app-capable","content":"yes"},{"hid":"apple-mobile-web-app-title","name":"apple-mobile-web-app-title","content":"portfolio-2020"},{"hid":"author","name":"author","content":"nmkelley"},{"hid":"description","name":"description","content":"My dazzling Nuxt.js project"},{"hid":"theme-color","name":"theme-color","content":"#fff"},{"hid":"og:type","name":"og:type","property":"og:type","content":"website"},{"hid":"og:title","name":"og:title","property":"og:title","content":"portfolio-2020"},{"hid":"og:site_name","name":"og:site_name","property":"og:site_name","content":"portfolio-2020"},{"hid":"og:description","name":"og:description","property":"og:description","content":"My dazzling Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Fnklogosvg.ico"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.8697cedc.json"}],"style":[],"script":[],"htmlAttrs":{"lang":"en"}},
 
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })

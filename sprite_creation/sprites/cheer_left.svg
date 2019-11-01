@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157 180">
+  <title>Nate_Sprites</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g>
+      <rect x="87.5" y="133" width="14" height="40" transform="translate(189 306) rotate(-180)" style="fill: #1b1464"/>
+      <rect x="87.5" y="160" width="30" height="13" transform="translate(205 333) rotate(-180)" style="fill: #8c6239"/>
+      <rect x="62.5" y="134" width="14" height="39" transform="translate(139 307) rotate(-180)" style="fill: #1b1464"/>
+      <rect x="47.5" y="160" width="29" height="13" transform="translate(124 333) rotate(-180)" style="fill: #8c6239"/>
+    </g>
+    <g>
+      <path d="M62.5,92v44h39V91h0C139,67.5,137,43.5,137,43.5H125c-9,17-23.5,30.5-23.5,30.5h0L74,74.5,61.5,75h0A63.92,63.92,0,0,1,38,43.5l-12,2S39,87.5,62.5,92" style="fill: #fff"/>
+      <circle cx="131.5" cy="38" r="9.5" style="fill: #f9d0a7"/>
+      <circle cx="31.5" cy="38" r="9.5" style="fill: #f9d0a7"/>
+    </g>
+    <g>
+      <polygon points="87.01 74 82.5 84 77.5 84 71.5 74 87.01 74" style="fill: #006837"/>
+      <path d="M82.5,84l3,41-5.59,7.34a.53.53,0,0,1-.88,0L74.5,125l3-41Z" style="fill: #009245"/>
+      <path d="M87.5,74l-4.42,8.07a.8.8,0,0,0,1.17.91L100,74Z" style="fill: #e6e6e6"/>
+      <path d="M76.93,82,72,74H62.5l14,8.42A.32.32,0,0,0,76.93,82Z" style="fill: #e6e6e6"/>
+    </g>
+    <g>
+      <ellipse cx="81.39" cy="44.64" rx="32.39" ry="32.14" style="fill: #f9d0a7"/>
+      <circle cx="112.05" cy="51.28" r="6.45" style="fill: #f9d0a7"/>
+      <path d="M64,63.73c0,2.63,2.36,4.77,6.5,4.77S77,66.36,77,63.73s-2.86-5.23-7-5.23S64,61.09,64,63.73Z" style="fill: #fff"/>
+    </g>
+    <g>
+      <path d="M49.64,39.81C50.14,34.34,51,33,51.9,28a1.09,1.09,0,0,1,.58-.78L75.24,15.65a1,1,0,0,1,.63-.11l22.37,2.81h10.3a1.09,1.09,0,0,1,.81,1.81h0a1.08,1.08,0,0,0,.24,1.64c2,1.21,5.73,4.39,3.93,10.72a1.17,1.17,0,0,1-.09.24c-.44.8.73,4.45-.47,17.23a1.37,1.37,0,0,1-2.71.15C108.14,40,100.61,28.4,96.18,24.42a1.06,1.06,0,0,0-.92-.23L55.51,29.62a1.08,1.08,0,0,0-.51.26c-.54.51-1.72,5.17-2.76,10.3A1.31,1.31,0,0,1,49.64,39.81Z" style="fill: #d1a44a"/>
+      <path d="M80.41,35.32C83,35.15,103.32,31.58,109,21.5c0,0-6-17-23-20,0,0-10.46-1.7-23.2,7.7-.37.28-5.86,6.35-6.12,6.73-1.92,2.73-6.2,9.82-11.94,11.87a.3.3,0,0,0,.06.58c5,.54,21,2,29.24-.84l-9.36,5.22a.2.2,0,0,0,.1.38c4.14-.39,20.88-2,23.17-3.79l-7.6,5.79A.1.1,0,0,0,80.41,35.32Z" style="fill: #ddae47"/>
+    </g>
+    <g>
+      <g>
+        <rect x="50" y="35.5" width="20" height="16" rx="8" transform="translate(120 87) rotate(180)" style="fill: #f9d0a7;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <rect x="75" y="35.5" width="20" height="16" rx="8" transform="translate(170 87) rotate(-180)" style="fill: #f9d0a7;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <line x1="75" y1="43.5" x2="70" y2="43.5" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+      </g>
+      <line x1="94.5" y1="44" x2="76" y2="43.5" style="stroke: #b79274;stroke-miterlimit: 10"/>
+      <line x1="69" y1="44" x2="51" y2="44" style="stroke: #b79274;stroke-miterlimit: 10"/>
+    </g>
+  </g>
+</svg>

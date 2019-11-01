@@ -2,7 +2,7 @@
   <div class="sit-on-top">
     <div class="menu-btn">
       <a
-        class="dat-btn btn-floating btn-large z-depth-1 primary-btn waves-effect waves-light squared-btn"
+        class="dat-btn btn-floating btn-large z-depth-1 primary-btn squared-btn"
         ref="button"
       >
         <div @click="toggleMenuOpen">
