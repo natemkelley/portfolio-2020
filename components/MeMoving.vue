@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Me</h1>
-    <svg-icon :name="svgNameFinal" ref="nate" />
+    <svg-icon :name="svgNameFinal" ref="nate" :style="{ marginBottom: groundElevation }" />
   </div>
 </template>
 
@@ -14,7 +14,11 @@ export default {
   data() {
     return {
       blink: "",
-      blinkDuration: 330
+      blinkDuration: 330,
+      position: "standing",
+      moveDuration: 220,
+      lockMovement: false,
+      movingTimeoutVar: null
     };
   },
   mounted() {
@@ -31,20 +35,53 @@ export default {
         }, this.blinkDuration);
       }, randomTime);
     },
-    startMove() {
-
+    async moving() {
+      if (this.stillMoving) {
+        await this.startWalking();
+      } else {
+        await this.stopWalking();
+      }
+    },
+    startWalking() {
+      return new Promise((resolve, reject) => {
+        //check if moving > walk > check if moving > stand > repeat
+        if (this.stillMoving) {
+          this.position = "walking";
+          this.movingTimeoutVar = setTimeout(() => {
+            if (this.stillMoving === true) {
+              this.position = "standing";
+              this.movingTimeoutVar = setTimeout(() => {
+                this.startWalking();
+              }, this.moveDuration);
+            }
+            resolve(true);
+          }, this.moveDuration);
+        }
+      });
+    },
+    stopWalking() {
+      return new Promise((resolve, reject) => {
+        this.position = "facing";
+        this.movingTimeoutVar = setTimeout(() => {
+          this.position = "standing";
+          resolve(true);
+        }, this.moveDuration);
+      });
     }
   },
   computed: {
     svgNameFinal() {
-      return "nate/standing_" + this.directionX + this.blink;
+      return "nate/" + this.position + "_" + this.directionX + this.blink;
     }
   },
   watch: {
-    stillMoving(newVal, oldVal){
-      console.log(newVal)
+    stillMoving(newVal, oldVal) {
+      this.moving();
+    },
+    groundElevation(newVal, oldVal){
+
     }
-  },
+  }
 };
 </script>
 
