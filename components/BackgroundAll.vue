@@ -1,25 +1,27 @@
 <template>
-  <div>
-    <!--<svg-icon class="ground" name="Ground" ref="ground" />-->
-    <Ground class="ground" ref="ground" />
+  <div class="ground-container" ref="ground">
+    <!--<svg-icon class="ground" name="Ground" ref="ground" 
+/>-->
+    <Ground class="ground-item" ref="grass" />
   </div>
 </template>
 
 <script>
 import anime from "animejs";
-import Ground from "~/assets/sprite/svg/GroundComp.svg?inline";
+import Ground from "~/assets/sprite/svg/Ground_Grass.svg?inline";
+import Sea from "~/assets/sprite/svg/Ground_Sea.svg?inline";
 
 export default {
   name: "BackgroundAll",
-  components: { Ground },
+  components: { Ground, Sea },
   props: [
     "previousScrollPos",
     "groundElevationGround",
     "initialGroundElevationGround"
   ],
   mounted() {
-    this.$refs.ground.style.marginBottom = `${this.initialGroundElevationGround}`;
-    let viewbox = this.$refs.ground.getAttribute("viewBox").split(/\s+|,/)[2];
+    this.$refs.grass.style.marginBottom = `${this.initialGroundElevationGround}`;
+    let viewbox = this.$refs.grass.getAttribute("viewBox").split(/\s+|,/)[2]; //width of grass
     this.$emit("informheight", Number(viewbox) + 1000); //buffer
   },
   methods: {
@@ -57,11 +59,13 @@ export default {
 </script>
 
 <style scoped>
-.ground {
-  width: 5754.43px;
-  height: 1531.51px;
+.ground-container{
   position: fixed;
   bottom: 0;
   left: 0;
+}
+
+.ground-item {
+position: relative;
 }
 </style>

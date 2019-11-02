@@ -30,9 +30,9 @@ export default {
     return {
       previousScrollPos: 0,
       directionX: "right",
-      initialGroundElevation: 110,
+      initialGroundElevation: 130,
       groundElevation: 0,
-      initialGroundElevationGround: -1035,
+      initialGroundElevationGround: -930,
       groundElevationGround: 0,
       stillMoving: false,
       stillMovingTimeout: 200,
@@ -40,8 +40,8 @@ export default {
       checkElevationChange: true,
       elevationChangePositionsNate: [
         { positionX: 0, positionY: 0 },
-        { positionX: 824, positionY: 121 },
-        { positionX: 1860, positionY: 0 },
+        { positionX: 1016, positionY: 142 },
+        { positionX: 2240, positionY: 0 },
         { positionX: 4740, positionY: -10 },
         { positionX: 12000, positionY: 125 }
       ],
@@ -96,7 +96,7 @@ export default {
             this.elevationChangePositionsGround[i].positionX >
             Math.max(0,this.previousScrollPos+this.offsetLeft)
           ) {
-            console.log('positionX',this.elevationChangePositionsGround[i].positionX,'scrollpos', this.previousScrollPos,'offset',this.offsetLeft,'diff',Math.max(0,this.previousScrollPos+this.offsetLeft))
+            //console.log('positionX',this.elevationChangePositionsGround[i].positionX,'scrollpos', this.previousScrollPos,'offset',this.offsetLeft,'diff',Math.max(0,this.previousScrollPos+this.offsetLeft))
             resolve(this.elevationChangePositionsGround[i - 1].positionY);
             break;
           }
@@ -110,7 +110,7 @@ export default {
             (this.elevationChangePositionsNate[i].positionX) >
             (Math.max(0,this.previousScrollPos+this.offsetLeft))
           ) {
-            //console.log('positionX',this.elevationChangePositionsNate[i].positionX,'scrollpos', this.previousScrollPos,'offset',this.offsetLeft,'diff',Math.max(0,this.previousScrollPos+this.offsetLeft))
+            console.log('positionX',this.elevationChangePositionsNate[i].positionX,'scrollpos', this.previousScrollPos,'offset',this.offsetLeft,'diff',Math.max(0,this.previousScrollPos+this.offsetLeft))
             //console.log('elevation',this.elevationChangePositionsNate[i - 1].positionY, 'at x',this.elevationChangePositionsNate[i - 1].positionX)
             resolve(this.elevationChangePositionsNate[i - 1].positionY);
             break;

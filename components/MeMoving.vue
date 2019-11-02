@@ -34,7 +34,7 @@ export default {
   mounted() {
     this.startBlinking();
     this.offsetLeftPosition = this.$refs.nate.getBoundingClientRect().left;
-    console.log(this.$refs.nate.getBoundingClientRect())
+    //console.log(this.$refs.nate.getBoundingClientRect())
     this.$emit("informoffsetleft", this.offsetLeftPosition);
     this.$refs.nate.style.marginBottom = `${this.initialGroundElevation}px`;
   },
