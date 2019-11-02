@@ -27,6 +27,7 @@ export default {
   },
   mounted() {
     this.startBlinking();
+    this.$refs.nate.style.transform = `translateY(${-this.groundElevation}px)`
   },
   methods: {
     startBlinking() {
@@ -81,9 +82,13 @@ export default {
         duration: 350,
         begin: () => {
           this.position = "jumping";
+            console.log('start jump')
+
         },
         complete: anim => {
           let jumpedHeight = -parseInt(anim.animations[0].currentValue);
+                      console.log('complete jump')
+
           if (-parseInt(anim.animations[0].currentValue) < this.newElevation) {
             this.startJump();
           } else {
@@ -102,10 +107,13 @@ export default {
         delay: 50,
         begin: () => {
           this.position = "falling";
+            console.log('start fall')
+
         },
         complete: anim => {
+                      this.elevationChanging = false;
+  console.log('complete fall')
           setTimeout(() => {
-            this.elevationChanging = false;
             this.position = "standing";
           }, 150);
         }
@@ -126,6 +134,7 @@ export default {
     groundElevation(newVal, oldVal) {
       this.newElevation = newVal;
       this.oldElevation = oldVal;
+      console.log(newVal,oldVal)
 
       if (!this.elevationChanging) {
         if (newVal > oldVal) {
