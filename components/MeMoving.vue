@@ -9,7 +9,12 @@ import anime from "animejs";
 
 export default {
   name: "MeMoving",
-  props: ["directionX", "groundElevation","initialGroundElevation", "stillMoving"],
+  props: [
+    "directionX",
+    "groundElevation",
+    "initialGroundElevation",
+    "stillMoving"
+  ],
   data() {
     return {
       blink: "",
@@ -22,11 +27,15 @@ export default {
       movingTimeoutVar: null,
       elevationChanging: false,
       newElevation: 0,
-      oldElevation: 0
+      oldElevation: 0,
+      offsetLeftPosition: 0
     };
   },
   mounted() {
     this.startBlinking();
+    this.offsetLeftPosition = this.$refs.nate.getBoundingClientRect().left;
+    console.log(this.$refs.nate.getBoundingClientRect())
+    this.$emit("informoffsetleft", this.offsetLeftPosition);
     this.$refs.nate.style.marginBottom = `${this.initialGroundElevation}px`;
   },
   methods: {
@@ -58,7 +67,7 @@ export default {
         );
 
         if (currentElevation != this.newElevation) {
-          this.handleElevationChange(this.newElevation,currentElevation)
+          this.handleElevationChange(this.newElevation, currentElevation);
         }
 
         //check if moving > walk > check if moving > stand > repeat
@@ -128,7 +137,7 @@ export default {
         }
       });
     },
-    handleElevationChange(newElevation,oldElevation){
+    handleElevationChange(newElevation, oldElevation) {
       if (!this.elevationChanging) {
         //console.log('newElevation', newElevation,'oldElevation', oldElevation)
         if (newElevation > oldElevation) {

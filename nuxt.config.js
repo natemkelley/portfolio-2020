@@ -14,7 +14,7 @@ export default {
         content:  "Portfolio of Nate Kelley 2020" ||process.env.npm_package_description 
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/nklogosvg.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
   router: { base: "/" },
@@ -32,7 +32,7 @@ export default {
    */
   bundleRenderer: {
     shouldPreload: (file, type) => {
-      return ["script", "style", "font"].includes(type);
+      return ["script", "font"].includes(type);
     }
   },
   /*
@@ -45,10 +45,8 @@ export default {
   plugins: [
   ],
   /*
-      { src: "@/node_modules/materialize-css/js/waves.js"}
 
   src: "~/plugins/snap" 
-  { src: '@/node_modules/materialize-css/dist/js/materialize.min.js'}
 
    ** Nuxt.js dev-modules
    */

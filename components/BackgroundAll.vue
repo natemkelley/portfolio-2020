@@ -7,7 +7,7 @@
 
 <script>
 import anime from "animejs";
-import Ground from "~/assets/sprite/svg/Ground.svg?inline";
+import Ground from "~/assets/sprite/svg/GroundComp.svg?inline";
 
 export default {
   name: "BackgroundAll",
@@ -20,7 +20,7 @@ export default {
   mounted() {
     this.$refs.ground.style.marginBottom = `${this.initialGroundElevationGround}`;
     let viewbox = this.$refs.ground.getAttribute("viewBox").split(/\s+|,/)[2];
-    this.$emit("informheight", Number(viewbox)+1000); //buffer
+    this.$emit("informheight", Number(viewbox) + 1000); //buffer
   },
   methods: {
     handleMovement(value) {
@@ -28,7 +28,7 @@ export default {
       this.$refs.ground.style.marginLeft = `${-value + "px"}`;
     },
     handleMovementY(value) {
-        console.log('y value', value)
+      console.log("y value", value);
       anime({
         targets: this.$refs.ground,
         translateY: -value,
