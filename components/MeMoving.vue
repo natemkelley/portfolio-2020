@@ -130,7 +130,7 @@ export default {
     },
     handleElevationChange(newElevation,oldElevation){
       if (!this.elevationChanging) {
-        console.log('newElevation', newElevation,'oldElevation', oldElevation)
+        //console.log('newElevation', newElevation,'oldElevation', oldElevation)
         if (newElevation > oldElevation) {
           this.startJump();
         } else {

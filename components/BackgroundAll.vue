@@ -28,6 +28,7 @@ export default {
       this.$refs.ground.style.marginLeft = `${-value + "px"}`;
     },
     handleMovementY(value) {
+        console.log('y value', value)
       anime({
         targets: this.$refs.ground,
         translateY: -value,
