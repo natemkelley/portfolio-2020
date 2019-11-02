@@ -9,7 +9,7 @@ import anime from "animejs";
 
 export default {
   name: "MeMoving",
-  props: ["directionX", "groundElevation", "stillMoving"],
+  props: ["directionX", "groundElevation","initialGroundElevation", "stillMoving"],
   data() {
     return {
       blink: "",
@@ -27,7 +27,7 @@ export default {
   },
   mounted() {
     this.startBlinking();
-    this.$refs.nate.style.transform = `translateY(${-this.groundElevation}px)`;
+    this.$refs.nate.style.marginBottom = `${this.initialGroundElevation}px`;
   },
   methods: {
     startBlinking() {
@@ -49,6 +49,18 @@ export default {
     },
     startWalking() {
       return new Promise((resolve, reject) => {
+        //check if elevation is correct
+        let transformObject = this.$refs.nate.style.transform
+          ? this.$refs.nate.style.transform
+          : "translateX(0px)";
+        let currentElevation = -parseInt(
+          transformObject.substring(11, transformObject.length - 3)
+        );
+
+        if (currentElevation != this.newElevation) {
+          this.handleElevationChange(this.newElevation,currentElevation)
+        }
+
         //check if moving > walk > check if moving > stand > repeat
         if (this.stillMoving) {
           this.position = "walking";
@@ -111,11 +123,21 @@ export default {
           this.elevationChanging = false;
           console.log("complete fall");
           setTimeout(() => {
-            //this.position = "standing";
-                        this.moving();
+            this.moving();
           }, 150);
         }
       });
+    },
+    handleElevationChange(newElevation,oldElevation){
+      if (!this.elevationChanging) {
+        console.log('newElevation', newElevation,'oldElevation', oldElevation)
+        if (newElevation > oldElevation) {
+          this.startJump();
+        } else {
+          this.startFall();
+        }
+      }
+      this.elevationChanging = true;
     }
   },
   computed: {
@@ -131,17 +153,7 @@ export default {
     },
     groundElevation(newVal, oldVal) {
       this.newElevation = newVal;
-      this.oldElevation = oldVal;
-      console.log(newVal, oldVal);
-
-      if (!this.elevationChanging) {
-        if (newVal > oldVal) {
-          this.startJump();
-        } else {
-          this.startFall();
-        }
-      }
-      this.elevationChanging = true;
+      this.handleElevationChange(newVal, oldVal);
     }
   }
 };
@@ -149,7 +161,7 @@ export default {
 
 <style  scoped>
 .sprite-nate {
-  height: 240px;
+  height: 200px;
   width: 200px;
   position: fixed;
   bottom: 0;
