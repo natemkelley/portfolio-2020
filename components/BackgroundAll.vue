@@ -1,8 +1,11 @@
 <template>
-  <div class="ground-container" ref="ground">
-    <!--<svg-icon class="ground" name="Ground" ref="ground" 
-/>-->
-    <Ground class="ground-item" ref="grass" />
+  <div>
+    <div class="ground-container" ref="ground">
+      <!--<svg-icon class="ground" name="Ground" ref="ground" 
+      />-->
+      <Ground class="ground-item" ref="grass" />
+      <Sea class="ground-item" ref="sea" />
+    </div>
   </div>
 </template>
 
@@ -20,11 +23,21 @@ export default {
     "initialGroundElevationGround"
   ],
   mounted() {
-    this.$refs.grass.style.marginBottom = `${this.initialGroundElevationGround}`;
-    let viewbox = this.$refs.grass.getAttribute("viewBox").split(/\s+|,/)[2]; //width of grass
-    this.$emit("informheight", Number(viewbox) + 1000); //buffer
+    this.$refs.ground.style.marginBottom =
+      this.initialGroundElevationGround + "px";
+    let grassWidth = this.$refs.grass.getAttribute("viewBox").split(/\s+|,/)[2]; //width of grass
+    this.$refs.sea.style.marginLeft = grassWidth + "px";
+    this.calculateAndEmitPageHeight();
   },
   methods: {
+    calculateAndEmitPageHeight() {
+      var items = this.$el.querySelectorAll('.ground-item');
+      var totalHeight = 0;
+      items.forEach(element => {
+          totalHeight+= Number(element.getAttribute("viewBox").split(/\s+|,/)[2]);
+      });
+      this.$emit("informheight", totalHeight); //shorten actual emit
+    },
     handleMovement(value) {
       //this.$refs.ground.style.transform = `translateX(${-value + "px"})`;
       this.$refs.ground.style.marginLeft = `${-value + "px"}`;
@@ -59,13 +72,15 @@ export default {
 </script>
 
 <style scoped>
-.ground-container{
+.ground-container {
   position: fixed;
   bottom: 0;
   left: 0;
 }
 
 .ground-item {
-position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 </style>

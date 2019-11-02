@@ -42,12 +42,12 @@ export default {
         { positionX: 0, positionY: 0 },
         { positionX: 1016, positionY: 142 },
         { positionX: 2240, positionY: 0 },
-        { positionX: 4740, positionY: -10 },
+        { positionX: 5698, positionY: -10 },
         { positionX: 12000, positionY: 125 }
       ],
       elevationChangePositionsGround: [
         { positionX: 0, positionY: 0 },
-        { positionX: 4735, positionY: 765 },
+        { positionX: 5698, positionY: 919 },
         { positionX: 12000, positionY: 125 }
       ],
       height: 0,
@@ -56,17 +56,18 @@ export default {
   },
   methods: {
     updatePageHeight(val) {
-      this.height += Number(val);
+      this.height += Number(val); //is modified by offsetLeft
       console.log("incoming height", Number(val), "total height", this.height);
     },
     updateOffsetLeft(val) {
       console.log("offsetSetLeft", val);
       this.offsetLeft = val;
+      this.height -= val;
     },
     handleScroll() {
       //handle direction of man
       this.directionX =
-        this.previousScrollPos > (window.scrollY) ? "left" : "right";
+        this.previousScrollPos > window.scrollY ? "left" : "right";
       this.previousScrollPos = window.scrollY;
 
       //handle elevation change function which use previous scroll position
@@ -94,7 +95,7 @@ export default {
         for (var i = 0; i < this.elevationChangePositionsGround.length; i++) {
           if (
             this.elevationChangePositionsGround[i].positionX >
-            Math.max(0,this.previousScrollPos+this.offsetLeft)
+            Math.max(0, this.previousScrollPos + this.offsetLeft)
           ) {
             //console.log('positionX',this.elevationChangePositionsGround[i].positionX,'scrollpos', this.previousScrollPos,'offset',this.offsetLeft,'diff',Math.max(0,this.previousScrollPos+this.offsetLeft))
             resolve(this.elevationChangePositionsGround[i - 1].positionY);
@@ -107,10 +108,19 @@ export default {
       this.groundElevation = await new Promise(resolve => {
         for (var i = 0; i < this.elevationChangePositionsNate.length; i++) {
           if (
-            (this.elevationChangePositionsNate[i].positionX) >
-            (Math.max(0,this.previousScrollPos+this.offsetLeft))
+            this.elevationChangePositionsNate[i].positionX >
+            Math.max(0, this.previousScrollPos + this.offsetLeft)
           ) {
-            console.log('positionX',this.elevationChangePositionsNate[i].positionX,'scrollpos', this.previousScrollPos,'offset',this.offsetLeft,'diff',Math.max(0,this.previousScrollPos+this.offsetLeft))
+            console.log(
+              "positionX",
+              this.elevationChangePositionsNate[i].positionX,
+              "scrollpos",
+              this.previousScrollPos,
+              "offset",
+              this.offsetLeft,
+              "diff",
+              Math.max(0, this.previousScrollPos + this.offsetLeft)
+            );
             //console.log('elevation',this.elevationChangePositionsNate[i - 1].positionY, 'at x',this.elevationChangePositionsNate[i - 1].positionX)
             resolve(this.elevationChangePositionsNate[i - 1].positionY);
             break;
