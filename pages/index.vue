@@ -1,50 +1,57 @@
 <template>
-  <main>
+  <main :style="{height: height+'px'}">
     <!--<Menu />-->
     <MeMoving
       :directionX="directionX"
       :groundElevation="groundElevation"
       :stillMoving="stillMoving"
     />
-    <p v-for="n in 175" :key="n">This is an exmaple page</p>
+    <BackgroundAll @informheight="updateHeight" />
   </main>
 </template>
 
 <script>
 import Menu from "~/components/Menu.vue";
 import MeMoving from "~/components/MeMoving";
+import BackgroundAll from "~/components/BackgroundAll"
 
 export default {
   components: {
     Menu,
-    MeMoving
+    MeMoving,
+    BackgroundAll
   },
   data() {
     return {
       previousScrollPos: 0,
       directionX: "right",
-      groundElevation: 100,
+      groundElevation: 0,
       stillMoving: false,
       stillMovingTimeout: 200,
       movingTimeoutVar: undefined,
       checkElevationChange: true,
-      elevationChangePositions: [
-        { positionX: 0, positionY: 100 },
-        { positionX: 300, positionY: 200 },
-        { positionX: 700, positionY: 100 },
-        { positionX: 1700, positionY: 400 },
-        { positionX: 1900, positionY: 100 },
-        { positionX: 44700, positionY: 200 }
-      ]
+      elevationChangePositionsNate: [
+        { positionX: 0, positionY: 0 },
+        { positionX: 300, positionY: 150 },
+        { positionX: 600, positionY: 300 },
+        { positionX: 1000, positionY: 450 },
+        { positionX: 1300, positionY: 0 },
+        { positionX: 2000, positionY: 300 }
+      ],
+      height:0
     };
   },
   methods: {
+    updateHeight(val){
+      this.height+= val;
+            console.log(val, this.height)
+    },
     handleScroll() {
       //console.log("here", window.scrollY);
 
       //handle direction
       this.directionX =
-        this.previousScrollPos > window.scrollY ? "right" : "left";
+        this.previousScrollPos > window.scrollY ? "left" : "right";
       this.previousScrollPos = window.scrollY;
 
       //handle elevation change function which use previous scroll position
@@ -61,20 +68,21 @@ export default {
       this.movingTimeoutVar = setTimeout(() => {
         this.stillMoving = false;
       }, this.stillMovingTimeout);
+
+      //set moving
       this.stillMoving = true;
     },
-    handleElevationChange() {
-      var currentLeg = null;
-      for (var i = 0; i < this.elevationChangePositions.length; i++) {
-        if (
-          this.elevationChangePositions[i].positionX > this.previousScrollPos
-        ) {
-          currentLeg = this.elevationChangePositions[i];
-          break;
+    async handleElevationChange() {
+      this.groundElevation = await new Promise(resolve => {
+        for (var i = 0; i < this.elevationChangePositionsNate.length; i++) {
+          if (
+            this.elevationChangePositionsNate[i].positionX > this.previousScrollPos
+          ) {
+            resolve(this.elevationChangePositionsNate[i - 1].positionY);
+            break;
+          }
         }
-      }
-      this.groundElevation = currentLeg.positionY;
-      console.log(this.previousScrollPos, currentLeg.positionX);
+      });
     }
   },
   created() {

@@ -11,10 +11,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_workbox_6f1c9f96 from 'nuxt_plugin_workbox_6f1c9f96' // Source: ./workbox.js (mode: 'client')
-import nuxt_plugin_nuxticons_0a3e348e from 'nuxt_plugin_nuxticons_0a3e348e' // Source: ./nuxt-icons.js (mode: 'all')
 import nuxt_plugin_nuxtsvgsprite_15d628d0 from 'nuxt_plugin_nuxtsvgsprite_15d628d0' // Source: ./nuxt-svg-sprite.js (mode: 'all')
-import nuxt_plugin_waves_fe2d5992 from 'nuxt_plugin_waves_fe2d5992' // Source: ../node_modules/materialize-css/js/waves.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -148,20 +145,8 @@ async function createApp (ssrContext) {
 
   // Plugin execution
 
-  if (process.client && typeof nuxt_plugin_workbox_6f1c9f96 === 'function') {
-    await nuxt_plugin_workbox_6f1c9f96(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_nuxticons_0a3e348e === 'function') {
-    await nuxt_plugin_nuxticons_0a3e348e(app.context, inject)
-  }
-
   if (typeof nuxt_plugin_nuxtsvgsprite_15d628d0 === 'function') {
     await nuxt_plugin_nuxtsvgsprite_15d628d0(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_waves_fe2d5992 === 'function') {
-    await nuxt_plugin_waves_fe2d5992(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

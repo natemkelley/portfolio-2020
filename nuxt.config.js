@@ -11,7 +11,7 @@ export default {
       {
         hid: "description",
         name: "Nate Kelley",
-        content: process.env.npm_package_description || ""
+        content:  "Portfolio of Nate Kelley 2020" ||process.env.npm_package_description 
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/nklogosvg.ico" }]
@@ -35,19 +35,28 @@ export default {
       return ["script", "style", "font"].includes(type);
     }
   },
+  /*
+   bundleRenderer: {
+    shouldPreload: (file, type) => {
+      return ["script", "style", "font"].includes(type);
+    }
+  }
+  */
   plugins: [
-    { src: "@/node_modules/materialize-css/js/waves.js"}
   ],
   /*
-  , src: "~/plugins/snap" 
+      { src: "@/node_modules/materialize-css/js/waves.js"}
+
+  src: "~/plugins/snap" 
   { src: '@/node_modules/materialize-css/dist/js/materialize.min.js'}
+
    ** Nuxt.js dev-modules
    */
   buildModules: [],
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa", "@nuxtjs/svg", "@nuxtjs/svg-sprite"],
+  modules: ["@nuxtjs/svg", "@nuxtjs/svg-sprite"],
   /*
    ** Build configuration
    */

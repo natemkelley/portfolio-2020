@@ -1,12 +1,11 @@
 <template>
   <div>
-    <h1>Me</h1>
-    <svg-icon :name="svgNameFinal" ref="nate" :style="{ marginBottom: groundElevation }" />
+    <svg-icon :name="svgNameFinal" ref="nate" />
   </div>
 </template>
 
 <script>
-//check if still moving
+import anime from "animejs";
 
 export default {
   name: "MeMoving",
@@ -17,8 +16,13 @@ export default {
       blinkDuration: 330,
       position: "standing",
       moveDuration: 220,
+      jumpDuration: 300,
+      fallDuration: 300,
       lockMovement: false,
-      movingTimeoutVar: null
+      movingTimeoutVar: null,
+      elevationChanging: false,
+      newElevation: 0,
+      oldElevation: 0
     };
   },
   mounted() {
@@ -67,6 +71,45 @@ export default {
           resolve(true);
         }, this.moveDuration);
       });
+    },
+    startJump() {
+      clearTimeout(this.movingTimeoutVar);
+      anime({
+        targets: this.$refs.nate,
+        translateY: Math.max(-this.newElevation * 3, -this.newElevation - 300),
+        easing: "cubicBezier(.14, .19, .24, 1.04)",
+        duration: 350,
+        begin: () => {
+          this.position = "jumping";
+        },
+        complete: anim => {
+          let jumpedHeight = -parseInt(anim.animations[0].currentValue);
+          if (-parseInt(anim.animations[0].currentValue) < this.newElevation) {
+            this.startJump();
+          } else {
+            this.startFall();
+          }
+        }
+      });
+    },
+    startFall() {
+      clearTimeout(this.movingTimeoutVar);
+      anime({
+        targets: this.$refs.nate,
+        translateY: -this.newElevation,
+        easing: "cubicBezier(.4,.06,.82,.37)",
+        duration: 300,
+        delay: 50,
+        begin: () => {
+          this.position = "falling";
+        },
+        complete: anim => {
+          setTimeout(() => {
+            this.elevationChanging = false;
+            this.position = "standing";
+          }, 150);
+        }
+      });
     }
   },
   computed: {
@@ -76,10 +119,22 @@ export default {
   },
   watch: {
     stillMoving(newVal, oldVal) {
-      this.moving();
+      if (!this.elevationChanging) {
+        this.moving();
+      }
     },
-    groundElevation(newVal, oldVal){
+    groundElevation(newVal, oldVal) {
+      this.newElevation = newVal;
+      this.oldElevation = oldVal;
 
+      if (!this.elevationChanging) {
+        if (newVal > oldVal) {
+          this.startJump();
+        } else {
+          this.startFall();
+        }
+      }
+      this.elevationChanging = true;
     }
   }
 };
