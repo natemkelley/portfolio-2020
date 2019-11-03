@@ -4,6 +4,7 @@
       <a class="btn-floating" ref="button">
         <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
         <div class="menu-list">
+            <img src="@/assets/NateK.jpg" />
           <ul>
             <li v-for="item in menulist" :key="item">{{item}}</li>
           </ul>
@@ -15,7 +16,7 @@
             </a>
           </div>
           <div class="row" v-for="(icon,n) in socialLinks" :key="icon.icon">
-            <a class="btn-floating">
+            <a class="btn-floating" :href="icon.src" target="_blank">
               <svg-icon :name="'icons/'+icon.icon" class="icon side-menu-icon" @click="toggleMenu" />
             </a>
           </div>
@@ -71,8 +72,8 @@ export default {
   display: inline-block;
   overflow: hidden;
   z-index: 1;
-  width: 85px;
-  height: 85px;
+  width: 75px;
+  height: 75px;
   background-color: #fff;
   border-radius: 10%;
   transition: all 300ms ease-in-out;
@@ -91,7 +92,7 @@ export default {
 .menu-opened {
   width: 310px;
   border-radius: 7px;
-  height: 100%;
+  height: 77vh;
   max-height: 525px;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -117,8 +118,7 @@ export default {
 }
 .menu-opened .menu-icons-list {
   opacity: 1;
-  margin-right: -100px;
-  height: 100%;
+margin-right: -30%;  height: 100%;
 }
 
 .menu-list {
@@ -149,11 +149,18 @@ export default {
     text-align: left;
     line-height: 61px;
 }
+.menu-list li:hover{
+    color:#92cc41;
+}
+
+.menu-list img{
+    width: 100%;    
+}
 
 ul{
     /* bottom: 0; */
     min-width: 300px;
     margin: 0;
-    padding: 20px;
+    padding: 0px 20px;
 }
 </style>
