@@ -1,8 +1,6 @@
 <template>
   <div>
     <div class="ground-container" ref="ground">
-      <!--<svg-icon class="ground" name="Ground" ref="ground" 
-      />-->
       <Ground class="ground-item" ref="grass" />
       <Sea class="ground-item" ref="sea" />
     </div>

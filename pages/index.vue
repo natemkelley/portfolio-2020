@@ -1,6 +1,6 @@
 <template>
   <main :style="{height: height+'px'}">
-    <!--<Menu />-->
+    <MenuCartoon />
     <BackgroundAll
       @informheight="updatePageHeight"
       :previousScrollPos="previousScrollPos"
@@ -18,11 +18,13 @@
 </template>
 
 <script>
+import MenuCartoon from "~/components/MenuCartoon"
 import MeMoving from "~/components/MeMoving";
 import BackgroundAll from "~/components/BackgroundAll";
 
 export default {
   components: {
+    MenuCartoon,
     MeMoving,
     BackgroundAll
   },

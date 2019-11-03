@@ -1,0 +1,159 @@
+<template>
+  <div class="sit-on-top">
+    <div class="menu-btn">
+      <a class="btn-floating" ref="button">
+        <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
+        <div class="menu-list">
+          <ul>
+            <li v-for="item in menulist" :key="item">{{item}}</li>
+          </ul>
+        </div>
+        <div class="menu-icons-list">
+          <div class="row">
+            <a class="btn-floating">
+              <svg-icon name="icons/close-circle" class="icon side-menu-icon" @click="toggleMenu" />
+            </a>
+          </div>
+          <div class="row" v-for="(icon,n) in socialLinks" :key="icon.icon">
+            <a class="btn-floating">
+              <svg-icon :name="'icons/'+icon.icon" class="icon side-menu-icon" @click="toggleMenu" />
+            </a>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "MenuCartoon",
+  data() {
+    return {
+      clicked: false,
+      menulist:['Intro','Exp','Education','Leadership','Fun Facts','Hire Me'],
+      socialLinks: [
+        {
+          src: "https://www.linkedin.com/in/nate-kelley/",
+          icon: "linkedin",
+          color: ""
+        },
+        {
+          src: "https://github.com/natemkelley",
+          icon: "github",
+          color: ""
+        },
+        {
+          src: "https://www.instagram.com/n8kel/",
+          icon: "instagram",
+          color: ""
+        }
+      ]
+    };
+  },
+  methods: {
+    toggleMenu() {
+      console.log("toggling");
+      this.$refs.button.classList.toggle("menu-opened");
+    }
+  }
+};
+</script>
+
+<style scoped>
+.menu-btn {
+  position: fixed;
+  margin: 45px;
+  z-index: 9999;
+}
+
+.btn-floating {
+  display: inline-block;
+  overflow: hidden;
+  z-index: 1;
+  width: 85px;
+  height: 85px;
+  background-color: #fff;
+  border-radius: 10%;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  box-shadow: -7px 7px rgba(0, 0, 0, 0.158);
+}
+
+.btn-floating .icon {
+  height: inherit;
+  display: inline-block;
+  text-align: center;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.menu-opened {
+  width: 310px;
+  border-radius: 7px;
+  height: 100%;
+  max-height: 525px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  border: none;
+}
+
+.menu-icons-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 0px;
+  opacity: 0;
+  height: 0%;
+  transition: all 200ms ease-in-out;
+}
+.menu-icon {
+  transition: all 50ms linear;
+}
+
+.menu-opened .menu-icon {
+  opacity: 0;
+  height: 0;
+}
+.menu-opened .menu-icons-list {
+  opacity: 1;
+  margin-right: -100px;
+  height: 100%;
+}
+
+.menu-list {
+  opacity: 0;
+  margin-top: 100px;
+  transition: all 150ms ease;
+}
+
+.menu-opened .menu-list {
+  margin-top: 0px;
+  opacity: 1;
+}
+
+.menu-icons-list .row {
+  transition: all 300ms ease;
+  margin-bottom: -30px;
+}
+
+.menu-opened .menu-icons-list .row {
+  width: 100% !important;
+  margin-bottom: 12px !important;
+}
+
+.menu-list li {
+      font-family: 'Frankfurter','frankfurter-plain', 'Frankfurter Plain';
+    font-size: 47px;
+    list-style: none;
+    text-align: left;
+    line-height: 61px;
+}
+
+ul{
+    /* bottom: 0; */
+    min-width: 300px;
+    margin: 0;
+    padding: 20px;
+}
+</style>
