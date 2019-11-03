@@ -31,15 +31,16 @@ export default {
   },
   methods: {
     calculateAndEmitPageHeight() {
-      var items = this.$el.querySelectorAll('.ground-item');
+      var items = this.$el.querySelectorAll(".ground-item");
       var totalHeight = 0;
       items.forEach(element => {
-          totalHeight+= Number(element.getAttribute("viewBox").split(/\s+|,/)[2]);
+        totalHeight += Number(
+          element.getAttribute("viewBox").split(/\s+|,/)[2]
+        );
       });
       this.$emit("informheight", totalHeight); //shorten actual emit
     },
     handleMovement(value) {
-      //this.$refs.ground.style.transform = `translateX(${-value + "px"})`;
       this.$refs.ground.style.marginLeft = `${-value + "px"}`;
     },
     handleMovementY(value) {
