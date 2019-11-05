@@ -4,9 +4,9 @@
       <a class="btn-floating" ref="button">
         <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
         <div class="menu-list">
-            <img src="@/assets/NateK.jpg" />
+          <img src="@/assets/NateK.jpg" />
           <ul>
-            <li v-for="item in menulist" :key="item">{{item}}</li>
+            <li v-for="item in menulist" :key="item" @click="menuItemClicked(item)">{{item}}</li>
           </ul>
         </div>
         <div class="menu-icons-list">
@@ -32,7 +32,14 @@ export default {
   data() {
     return {
       clicked: false,
-      menulist:['Intro','Exp','Education','Leadership','Fun Facts','Hire Me'],
+      menulist: [
+        "Intro",
+        "Exp",
+        "Education",
+        "Leadership",
+        "Fun Facts",
+        "Hire Me"
+      ],
       socialLinks: [
         {
           src: "https://www.linkedin.com/in/nate-kelley/",
@@ -56,6 +63,10 @@ export default {
     toggleMenu() {
       console.log("toggling");
       this.$refs.button.classList.toggle("menu-opened");
+    },
+    menuItemClicked(item) {
+      let newitem = item.replace(" ", "_").toLowerCase();
+      console.log(newitem, "has been clicked");
     }
   }
 };
@@ -76,7 +87,7 @@ export default {
   height: 75px;
   background-color: #fff;
   border-radius: 10%;
-  transition: all 300ms ease-in-out;
+  transition: all 250ms ease-in-out;
   cursor: pointer;
   box-shadow: -7px 7px rgba(0, 0, 0, 0.158);
 }
@@ -118,7 +129,8 @@ export default {
 }
 .menu-opened .menu-icons-list {
   opacity: 1;
-margin-right: -30%;  height: 100%;
+  margin-right: -30%;
+  height: 100%;
 }
 
 .menu-list {
@@ -133,34 +145,36 @@ margin-right: -30%;  height: 100%;
 }
 
 .menu-icons-list .row {
-  transition: all 300ms ease;
+  transition: all 250ms ease;
   margin-bottom: -30px;
+    pointer-events: none;
 }
 
 .menu-opened .menu-icons-list .row {
   width: 100% !important;
   margin-bottom: 12px !important;
+      pointer-events:all;
 }
 
 .menu-list li {
-      font-family: 'Frankfurter','frankfurter-plain', 'Frankfurter Plain';
-    font-size: 47px;
-    list-style: none;
-    text-align: left;
-    line-height: 61px;
+  font-family: "Frankfurter", "frankfurter-plain", "Frankfurter Plain";
+  font-size: 47px;
+  list-style: none;
+  text-align: left;
+  line-height: 61px;
 }
-.menu-list li:hover{
-    color:#92cc41;
-}
-
-.menu-list img{
-    width: 100%;    
+.menu-list li:hover {
+  color: #92cc41;
 }
 
-ul{
-    /* bottom: 0; */
-    min-width: 300px;
-    margin: 0;
-    padding: 0px 20px;
+.menu-list img {
+  width: 100%;
+}
+
+ul {
+  /* bottom: 0; */
+  min-width: 300px;
+  margin: 0;
+  padding: 0px 20px;
 }
 </style>

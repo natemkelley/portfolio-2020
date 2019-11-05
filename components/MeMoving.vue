@@ -32,13 +32,18 @@ export default {
     };
   },
   mounted() {
-    this.startBlinking();
-    this.offsetLeftPosition = this.$refs.nate.getBoundingClientRect().left;
-    //console.log(this.$refs.nate.getBoundingClientRect())
-    this.$emit("informoffsetleft", this.offsetLeftPosition);
+    this.emitOffsetPos();
+    /*window.addEventListener("resize", () => {
+      this.emitOffsetPos();
+    });*/
     this.$refs.nate.style.marginBottom = `${this.initialGroundElevation}px`;
+    this.startBlinking();
   },
   methods: {
+    emitOffsetPos() {
+      this.offsetLeftPosition = this.$refs.nate.getBoundingClientRect().left;
+      this.$emit("informoffsetleft", this.offsetLeftPosition);
+    },
     startBlinking() {
       let randomTime = Math.floor(Math.random() * 5800) + 2800;
       setTimeout(() => {
