@@ -3,7 +3,8 @@
     <div class="sky-container" ref="sky"></div>
     <div class="nature-container" ref="nature"></div>
     <div class="objects-container" ref="objects">
-      <svg-icon name="objects/World_Grass_NateKelley" width="100%" posX="0" posY="-250" class="item" />
+
+      <!--<svg-icon name="NateKelley" posX="0" posY="-250" width="800px" class="item" />-->
     </div>
     <div class="immediateRatio-container" ref="immediateRatio"></div>
     <div class="ground-container" ref="groundContainer">
