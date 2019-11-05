@@ -30,7 +30,6 @@
 import anime from "animejs";
 import Grass from "~/components/backgrounds/Grass.vue";
 import Sea from "~/components/backgrounds/Sea.vue";
-
 /*
 Sky Svg needs to be 1/6 the size of ground
 Nature needs to be 1/4
@@ -121,12 +120,6 @@ export default {
 
 .ground-container {
   position: fixed;
-  bottom: 0;
-  left: 0;
-}
-
-.ground-item {
-  position: absolute;
   bottom: 0;
   left: 0;
 }

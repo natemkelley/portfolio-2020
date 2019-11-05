@@ -4,7 +4,7 @@
       <a class="btn-floating" ref="button">
         <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
         <div class="menu-list">
-          <img src="@/assets/NateK.jpg" />
+          <svg-icon class="logo" name="objects/NateKelley" ref="logo" />
           <ul>
             <li v-for="item in menulist" :key="item" @click="menuItemClicked(item)">{{item}}</li>
           </ul>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+
 export default {
   name: "MenuCartoon",
   data() {
@@ -176,5 +177,13 @@ ul {
   min-width: 300px;
   margin: 0;
   padding: 0px 20px;
+}
+
+.menu-list .logo{
+  min-width: 300px;
+    width: 100%;
+    margin-left: 0;
+    padding: 6%;
+    max-height: 100px;
 }
 </style>
