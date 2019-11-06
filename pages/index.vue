@@ -8,6 +8,7 @@
       :groundElevationGround="groundElevationGround"
       :initialGroundElevationGround="initialGroundElevationGround"
       :offsetLeft="offsetLeft"
+      @toggleModal="toggleModal"
     />
     <MeMoving
       @informoffsetleft="updateOffsetLeft"
@@ -16,9 +17,8 @@
       :initialGroundElevation="initialGroundElevationNate"
       :stillMoving="stillMoving"
     />
-    <ScoreKeeper       :previousScrollPos="previousScrollPos"
- />
-
+    <ScoreKeeper :previousScrollPos="previousScrollPos" />
+    <ModalCartoon :modalOpen="modalOpen" @toggleModal="toggleModal" color="#f26522" />
   </main>
 </template>
 
@@ -27,13 +27,15 @@ import MenuCartoon from "~/components/MenuCartoon";
 import MeMoving from "~/components/MeMoving";
 import BackgroundAll from "~/components/BackgroundAll";
 import ScoreKeeper from "~/components/ScoreKeeper";
+import ModalCartoon from "~/components/ModalCartoon";
 
 export default {
   components: {
     MenuCartoon,
     MeMoving,
     BackgroundAll,
-    ScoreKeeper
+    ScoreKeeper,
+    ModalCartoon
   },
   data() {
     return {
@@ -60,7 +62,8 @@ export default {
         { positionX: 14000, positionY: 125 }
       ],
       height: 0,
-      offsetLeft: 0
+      offsetLeft: 0,
+      modalOpen: false
     };
   },
   methods: {
@@ -122,6 +125,9 @@ export default {
           }
         }
       });
+    },
+    toggleModal() {
+      this.modalOpen = !this.modalOpen;
     }
   },
   created() {

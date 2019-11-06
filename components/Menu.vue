@@ -96,7 +96,7 @@ export default {
 .menu-btn {
   position: fixed;
   margin: 25px;
-  z-index: 9999;
+  z-index: 998;
 }
 
 .dat-btn {
@@ -181,7 +181,7 @@ export default {
 }
 
 .sit-on-top {
-  z-index: 9999;
+  z-index: 998;
   position: absolute;
   top: 0;
 }

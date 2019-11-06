@@ -77,7 +77,7 @@ export default {
 .menu-btn {
   position: fixed;
   margin: 45px;
-  z-index: 9999;
+  z-index: 998;
 }
 
 .btn-floating {

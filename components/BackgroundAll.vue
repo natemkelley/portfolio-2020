@@ -5,8 +5,10 @@
         :initialGroundElevationGround="initialGroundElevationGround"
         :groundSpeed="groundSpeed"
         :objectSpeed="objectSpeed"
+        :natureSpeed="natureSpeed"
         :skySpeed="skySpeed"
         @informheight="calculateAndEmitPageHeight"
+        @toggleModal="toggleModal"
       />
       <Sea
         :initialGroundElevationGround="initialGroundElevationGround"
@@ -36,15 +38,14 @@ export default {
   components: { Grass, Sea },
   data() {
     return {
-      skyMovementRatio: 6,
-      objectMovementRatio: 0.5,
-      natureMovementRatio: 0.25,
-      immediateRatio: 1,
       totalPageHeight: 0,
       containerOffsets: [],
+      distanceOfLayers:0.25,
       groundSpeed: 0,
       objectSpeed: 0,
-      skySpeed: 0
+      natureSpeed:0,
+      skySpeed: 0,
+      HorizonDistance: 3,
     };
   },
   props: [
@@ -54,6 +55,9 @@ export default {
     "offsetLeft"
   ],
   methods: {
+    toggleModal(){
+      this.$emit("toggleModal");
+    },
     calculateAndEmitPageHeight(newHeight) {
       if (newHeight) {
         this.containerOffsets.push(newHeight);
@@ -77,18 +81,20 @@ export default {
       });
     },
     handleLayerMovement(pixelsMoved) {
-      let H = 3; //Distance to the Horizon (must be larger then the number of layers times x. Change this to tune the parallax effect)
-      let i = 1; //The layer we are calculating the speed for
-      let x = this.objectMovementRatio; //The distance each layer is into the screen from the last
-      let a = pixelsMoved; //Speed of the foreground (screen) layer
-      let speed = ((H - i * x) * a) / H;
+      //HorizonDistance to the Horizon (must be larger then the number of layers times x. Change this to tune the parallax effect)
+      //The layer we are calculating the speed for
+      //The distance each layer is into the screen from the last
 
       this.groundSpeed = -pixelsMoved;
-      this.objectSpeed = -((H - 1 * x) * a) / H;
-      this.skySpeed = -((H - 3 * x) * a) / H;
+      this.objectSpeed = -((this.HorizonDistance - 1 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
+      this.natureSpeed = -((this.HorizonDistance - 1.5 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
+      this.skySpeed = -((this.HorizonDistance - 3 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
       console.log(this.previousScrollPos + this.offsetLeft + 100);
 
       //this.$refs.sky.style.transform = "translateX(" + -speed + "px)";
+    },
+    checkAndToggleActiveLayer(){
+
     }
   },
   watch: {
@@ -138,6 +144,11 @@ export default {
   left: 0;
 }
 .objects-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.interactive-container {
   position: fixed;
   bottom: 0;
   left: 0;

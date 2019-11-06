@@ -17,18 +17,12 @@ body {
     background: #1fbcff;
 }
 
-.primary-btn {
-    background: var(--primary-color);
-    border: var(--primary-border);
-}
-
-.primary-btn:hover {
-    background: var(--primary-color);
-    border: var(--primary-border);
-}
-
 .squared-btn {
     border-radius: 10%;
     height: 56px;
     width: 56px;
+}
+
+.clickable{
+    cursor: pointer!important;
 }
