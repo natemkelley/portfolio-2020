@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       skyMovementRatio: 6,
-      objectMovementRatio: 1.15,
+      objectMovementRatio: 0.5,
       natureMovementRatio: 1.75,
       immediateRatio: 1,
       totalPageHeight: 0,
@@ -138,12 +138,7 @@ export default {
 
 .objects-container {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
-}
-
-.objects-container img {
-  margin-top: 70vh;
-  z-index: 9999;
 }
 </style>

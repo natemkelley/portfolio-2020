@@ -3,7 +3,6 @@
     <div class="sky-container" ref="sky"></div>
     <div class="nature-container" ref="nature"></div>
     <div class="objects-container" ref="objects">
-      <img src="@/assets/nba-ball.png" ref="testobj" />
     </div>
     <div class="immediateRatio-container" ref="immediateRatio"></div>
     <div class="ground-container" ref="groundContainer">
@@ -49,7 +48,7 @@ export default {
       let multiplier = 1 / this.objectMovementRatio - 1; //0
       let offset = objmarginpos - objwidth - this.offsetLeft - pixelsMoved;
       let moveval = multiplier * offset;
-      this.$refs.testobj.style.marginLeft = moveval - pixelsMoved + objmarginpos + "px";
+      //this.$refs.testobj.style.marginLeft = moveval - pixelsMoved + objmarginpos + "px";
     }
   },
   watch: {

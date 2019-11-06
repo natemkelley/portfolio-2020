@@ -3,12 +3,6 @@
 /*    src: url('~static/font/frankfurter-plain.eot?#iefix') format('embedded-opentype'), url('~static/font/frankfurter-plain.woff') format('woff'), url('~static/font/frankfurter-plain.ttf') format('truetype'), url('~static/font/frankfurter-plain.svg#frankfurter-plain') format('svg');
 */
 
-:root {
-    --primary-color: #41b883;
-    --primary-border: 1px solid #318b63;
-    --dark-background: #3A3A3A;
-}
-
 body {
     background: #1fbcff;
 }
