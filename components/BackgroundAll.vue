@@ -2,24 +2,18 @@
   <div>
     <div ref="backgroudContainer" class="backgroundContainer">
       <Grass
-        :previousScrollPos="previousScrollPos"
         :initialGroundElevationGround="initialGroundElevationGround"
-        :offsetLeft="offsetLeft"
-        :objectMovementRatio="objectMovementRatio"
-        :skyMovementRatio="skyMovementRatio"
-        :natureMovementRation="natureMovementRatio"
-        :immediateRatio="immediateRatio"
+        :groundSpeed="groundSpeed"
+        :objectSpeed="objectSpeed"
+        :skySpeed="skySpeed"
         @informheight="calculateAndEmitPageHeight"
       />
       <Sea
-        :previousScrollPos="previousScrollPos"
         :initialGroundElevationGround="initialGroundElevationGround"
-        :offsetLeft="offsetLeft"
-        :objectMovementRatio="objectMovementRatio"
-        :skyMovementRatio="skyMovementRatio"
-        :natureMovementRation="natureMovementRatio"
-        :immediateRatio="immediateRatio"
         :containerOffset="seaOffset"
+        :groundSpeed="groundSpeed"
+        :objectSpeed="objectSpeed"
+        :skySpeed="skySpeed"
         @informheight="calculateAndEmitPageHeight"
       />
     </div>
@@ -47,7 +41,10 @@ export default {
       natureMovementRatio: 0.25,
       immediateRatio: 1,
       totalPageHeight: 0,
-      containerOffsets:[]
+      containerOffsets: [],
+      groundSpeed: 0,
+      objectSpeed: 0,
+      skySpeed: 0
     };
   },
   props: [
@@ -56,11 +53,7 @@ export default {
     "initialGroundElevationGround",
     "offsetLeft"
   ],
-  mounted() {
-    console.log('mounted backgroundall')
-  },
   methods: {
-    initLayers() {},
     calculateAndEmitPageHeight(newHeight) {
       if (newHeight) {
         this.containerOffsets.push(newHeight);
@@ -69,7 +62,6 @@ export default {
       this.$emit("informheight", this.totalPageHeight);
     },
     handleMovementY(value) {
-      console.log("y value", value);
       anime({
         targets: this.$refs.backgroudContainer,
         translateY: -value,
@@ -83,22 +75,39 @@ export default {
           console.log("complete ground");
         }
       });
+    },
+    handleLayerMovement(pixelsMoved) {
+      let H = 3; //Distance to the Horizon (must be larger then the number of layers times x. Change this to tune the parallax effect)
+      let i = 1; //The layer we are calculating the speed for
+      let x = this.objectMovementRatio; //The distance each layer is into the screen from the last
+      let a = pixelsMoved; //Speed of the foreground (screen) layer
+      let speed = ((H - i * x) * a) / H;
+
+      this.groundSpeed = -pixelsMoved;
+      this.objectSpeed = -((H - 1 * x) * a) / H;
+      this.skySpeed = -((H - 3 * x) * a) / H;
+      console.log(this.previousScrollPos + this.offsetLeft + 100);
+
+      //this.$refs.sky.style.transform = "translateX(" + -speed + "px)";
     }
   },
   watch: {
     groundElevationGround(newVal, oldVal) {
       this.handleMovementY(newVal);
+    },
+    previousScrollPos(pixels) {
+      this.handleLayerMovement(pixels);
     }
   },
-  computed:{
-    seaOffset(){
+  computed: {
+    seaOffset() {
       var returnVal = 0;
-      this.containerOffsets.forEach((cont)=>{
-        if(cont.container =='grass'){
-          returnVal += Number(cont.width)
+      this.containerOffsets.forEach(cont => {
+        if (cont.container == "grass") {
+          returnVal += Number(cont.width);
         }
-      })
-      return returnVal
+      });
+      return returnVal;
     }
   }
 };
@@ -111,10 +120,10 @@ export default {
   left: 0;
 }
 
-.area-container{
-      position: absolute;
-    top: 0;
-    left: 0;
+.area-container {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .ground-container {
@@ -125,16 +134,9 @@ export default {
 
 .sky-container {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
 }
-
-.sky-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .objects-container {
   position: fixed;
   bottom: 0;

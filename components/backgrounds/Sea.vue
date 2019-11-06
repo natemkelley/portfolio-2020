@@ -1,12 +1,13 @@
 <template>
   <div class="area-container" ref="area" :style="`transform:translateX(${this.containerOffset}px)`">
-    <div class="sky-container" ref="sky"></div>
+    <div class="sky-container" ref="sky">
+    </div>
     <div class="nature-container" ref="nature"></div>
     <div class="objects-container" ref="objects">
     </div>
-    <div class="immediateRatio-container" ref="immediateRatio"></div>
+    <div class="immediate-container" ref="immediate"></div>
     <div class="ground-container" ref="groundContainer">
-      <Ground class="ground-item" ref="ground" />
+      <Ground ref="ground" />
     </div>
   </div>
 </template>
@@ -16,20 +17,10 @@ import Ground from "~/assets/inlinesvg/Ground_Sea.svg?inline";
 
 export default {
   name: "Sea",
-  props: [
-    "initialGroundElevationGround",
-    "previousScrollPos",
-    "offsetLeft",
-    "objectMovementRatio",
-    "skyMovementRatio",
-    "natureMovementRation",
-    "immediateRatio",
-    "containerOffset"
-  ],
+  props: ["initialGroundElevationGround", "containerOffset", "groundSpeed"],
   components: { Ground },
   mounted() {
-          this.initLayers();
-    this.handleLayerMovement(0);
+    this.initLayers();
   },
   methods: {
     initLayers() {
@@ -39,22 +30,12 @@ export default {
         .getAttribute("viewBox")
         .split(/\s+|,/)[2];
 
-      this.$emit("informheight", {width:totalWidth,container:'sea'});
-    },
-    handleLayerMovement(pixelsMoved) {
-      //objects
-      let objmarginpos = 1000;
-      let objwidth = 70
-      let multiplier = 1 / this.objectMovementRatio - 1; //0
-      let offset = objmarginpos - objwidth - this.offsetLeft - pixelsMoved;
-      let moveval = multiplier * offset;
-      //this.$refs.testobj.style.marginLeft = moveval - pixelsMoved + objmarginpos + "px";
+      this.$emit("informheight", { width: totalWidth, container: "sea" });
     }
   },
   watch: {
-    previousScrollPos(pixels) {
-      this.$refs.groundContainer.style.marginLeft = `${-pixels + "px"}`;
-      this.handleLayerMovement(pixels);
+    groundSpeed(pixels) {
+      this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
     }
   }
 };

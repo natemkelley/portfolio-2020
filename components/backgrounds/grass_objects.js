@@ -48,4 +48,11 @@ module.exports = [
     height: "126",
     width: "696"
   },
+  {
+    name: "World_Grass_Introduction",
+    posX: 1355,
+    posY: 593,
+    height: 126,
+    width: 696
+  }
 ];

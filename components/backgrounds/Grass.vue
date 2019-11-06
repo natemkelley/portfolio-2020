@@ -1,6 +1,16 @@
 <template>
   <div class="area-container">
-    <div class="sky-container" ref="sky"></div>
+    <div class="sky-container" ref="sky">
+      <svg-icon
+        v-for="(object,n) in sky"
+        class="item"
+        :name="'objects/'+object.name"
+        :width="object.width"
+        :height="object.height"
+        :key="object.name+'_grass'+'_'+n"
+        :style="{marginLeft:object.posX+'px',marginBottom:object.posY+'px'}"
+      />
+    </div>
     <div class="nature-container" ref="nature"></div>
     <div class="objects-container" ref="objects">
       <svg-icon
@@ -13,7 +23,7 @@
         :style="{marginLeft:object.posX+'px',marginBottom:object.posY+'px'}"
       />
     </div>
-    <div class="immediateRatio-container" ref="immediateRatio"></div>
+    <div class="immediate-container" ref="immediate"></div>
     <div class="ground-container" ref="groundContainer">
       <Ground ref="ground" />
     </div>
@@ -24,27 +34,25 @@
 <script>
 import Ground from "~/assets/inlinesvg/Ground_Grass.svg?inline";
 import Grass_Objects from "~/components/backgrounds/grass_objects.js";
+import Grass_Sky from "~/components/backgrounds/grass_sky.js";
 
 export default {
   name: "Grass",
   props: [
     "initialGroundElevationGround",
-    "previousScrollPos",
-    "offsetLeft",
-    "objectMovementRatio",
-    "skyMovementRatio",
-    "natureMovementRation",
-    "immediateRatio",
-    "containerOffset"
+    "containerOffset",
+    "groundSpeed",
+    "objectSpeed",
+    "skySpeed"
   ],
   components: { Ground },
   mounted() {
     this.initLayers();
-    this.handleLayerMovement(0);
   },
   data() {
     return {
-      objects: Grass_Objects
+      objects: Grass_Objects,
+      sky: Grass_Sky
     };
   },
   methods: {
@@ -56,22 +64,18 @@ export default {
         .getAttribute("viewBox")
         .split(/\s+|,/)[2];
       this.$emit("informheight", { width: totalWidth, container: "grass" });
-      this.handleLayerMovement(0);
-    },
-    handleLayerMovement(pixelsMoved) {
-      let H = 2; //Distance to the Horizon (must be larger then the number of layers times x. Change this to tune the parallax effect)
-      let i = 1; //The layer we are calculating the speed for
-      let x = this.objectMovementRatio; //The distance each layer is into the screen from the last
-      let a = pixelsMoved; //Speed of the foreground (screen) layer
-      let speed = ((H - i * x) * a) / H;
-
-      this.$refs.objects.style.transform = "translateX(" + -speed + "px)";
+      //this.handleLayerMovement(0);
     }
   },
   watch: {
-    previousScrollPos(pixels) {
-      this.$refs.groundContainer.style.marginLeft = `${-pixels + "px"}`;
-      this.handleLayerMovement(pixels);
+    groundSpeed(pixels) {
+      this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
+    },
+    objectSpeed(pixels) {
+      this.$refs.objects.style.transform = "translateX(" + pixels + "px)";
+    },
+    skySpeed(pixels){
+      this.$refs.sky.style.transform = "translateX(" + pixels + "px)";
     }
   }
 };

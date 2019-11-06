@@ -95,9 +95,6 @@ export default {
         this.stillMoving = false;
       }, this.stillScrolling);
       this.stillMoving = true;
-
-      //set moving
-      console.log(this.previousScrollPos);
     },
     async handleElevationChangeGround() {
       this.groundElevationGround = await new Promise(resolve => {
