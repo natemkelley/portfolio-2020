@@ -44,7 +44,7 @@ export default {
     return {
       skyMovementRatio: 6,
       objectMovementRatio: 0.5,
-      natureMovementRatio: 1.75,
+      natureMovementRatio: 0.25,
       immediateRatio: 1,
       totalPageHeight: 0,
       containerOffsets:[]
@@ -57,8 +57,7 @@ export default {
     "offsetLeft"
   ],
   mounted() {
-    this.initLayers();
-    this.calculateAndEmitPageHeight();
+    console.log('mounted backgroundall')
   },
   methods: {
     initLayers() {},

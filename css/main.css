@@ -1,4 +1,14 @@
-@import url(//db.onlinewebfonts.com/c/d3eba8ec8662173409b7229addecbf7a?family=Frankfurter);
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+@font-face {font-family: "Frankfurter";
+    src: url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot"); /* IE9*/
+    src: url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff2") format("woff2"), /* chrome firefox */
+    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff") format("woff"), /* chrome firefox */
+    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter") format("svg"); /* iOS 4.1- */
+}
+
 
 /*    src: url('~static/font/frankfurter-plain.eot?#iefix') format('embedded-opentype'), url('~static/font/frankfurter-plain.woff') format('woff'), url('~static/font/frankfurter-plain.ttf') format('truetype'), url('~static/font/frankfurter-plain.svg#frankfurter-plain') format('svg');
 */

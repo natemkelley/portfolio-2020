@@ -1,7 +1,7 @@
 module.exports = [
   {
     name: "World_Grass_Tree3",
-    posX: 835,
+    posX: '835',
     posY: 102,
     height: "140",
     width: "95"

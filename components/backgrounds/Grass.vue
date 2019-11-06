@@ -4,13 +4,13 @@
     <div class="nature-container" ref="nature"></div>
     <div class="objects-container" ref="objects">
       <svg-icon
-        v-for="object in objects"
+        v-for="(object,n) in objects"
         class="item"
         :name="'objects/'+object.name"
         :width="object.width"
         :height="object.height"
-        :key="object.name"
-        :style="{marginLeft:object.posX,marginBottom:object.posY}"
+        :key="object.name+'_grass'+'_'+n"
+        :style="{marginLeft:object.posX+'px',marginBottom:object.posY+'px'}"
       />
     </div>
     <div class="immediateRatio-container" ref="immediateRatio"></div>
@@ -41,7 +41,6 @@ export default {
   mounted() {
     this.initLayers();
     this.handleLayerMovement(0);
-    console.log(this.$refs.objects.shadowRoot);
   },
   data() {
     return {
@@ -58,9 +57,6 @@ export default {
         .split(/\s+|,/)[2];
       this.$emit("informheight", { width: totalWidth, container: "grass" });
       this.handleLayerMovement(0);
-
-      //this.$refs.testobj.style.marginLeft = 1000 + "px";
-      //this.$refs.testobj.style.marginBottom = 140 + "px";
     },
     handleLayerMovement(pixelsMoved) {
       let H = 2; //Distance to the Horizon (must be larger then the number of layers times x. Change this to tune the parallax effect)
@@ -69,11 +65,7 @@ export default {
       let a = pixelsMoved; //Speed of the foreground (screen) layer
       let speed = ((H - i * x) * a) / H;
 
-      //max abs for obj pos - scroll pos
-
       this.$refs.objects.style.transform = "translateX(" + -speed + "px)";
-
-      console.log("spped", speed, pixelsMoved);
     }
   },
   watch: {

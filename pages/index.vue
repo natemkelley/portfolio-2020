@@ -16,6 +16,9 @@
       :initialGroundElevation="initialGroundElevationNate"
       :stillMoving="stillMoving"
     />
+    <ScoreKeeper       :previousScrollPos="previousScrollPos"
+ />
+
   </main>
 </template>
 
@@ -23,12 +26,14 @@
 import MenuCartoon from "~/components/MenuCartoon";
 import MeMoving from "~/components/MeMoving";
 import BackgroundAll from "~/components/BackgroundAll";
+import ScoreKeeper from "~/components/ScoreKeeper";
 
 export default {
   components: {
     MenuCartoon,
     MeMoving,
-    BackgroundAll
+    BackgroundAll,
+    ScoreKeeper
   },
   data() {
     return {

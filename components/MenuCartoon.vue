@@ -86,6 +86,7 @@ export default {
   z-index: 1;
   width: 75px;
   height: 75px;
+  max-height: 80vh;
   background-color: #fff;
   border-radius: 10%;
   transition: all 250ms ease-in-out;
@@ -158,7 +159,7 @@ export default {
 }
 
 .menu-list li {
-  font-family: "Frankfurter", "frankfurter-plain", "Frankfurter Plain";
+  font-family: "Frankfurter", "Frankfurter2", "frankfurter-plain", "Frankfurter Plain";
   font-size: 47px;
   list-style: none;
   text-align: left;
