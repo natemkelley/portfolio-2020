@@ -181,5 +181,7 @@ export default {
   bottom: 0;
   left: 50%;
   margin-left: -100px;
+  transform:translate3d(0,0,0);
+  -webkit-transform:translate3d(0,0,0);
 }
 </style>

@@ -181,8 +181,8 @@ ul {
 }
 
 .menu-list .logo{
-  min-width: 300px;
     width: 100%;
+      min-width: 300px;
     margin-left: 0;
     padding: 6%;
     max-height: 100px;
