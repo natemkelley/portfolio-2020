@@ -2,11 +2,10 @@ module.exports = [
   {
     name: "World_Grass_Tree3",
     posX: "835",
-    posY: 102,
+    posY: 101,
     height: "140",
     width: "95"
   },
-
   {
     name: "World_Grass_Tree4",
     posX: 875,
@@ -17,7 +16,7 @@ module.exports = [
   {
     name: "World_Grass_NateKelley",
     posX: -75,
-    posY: 105,
+    posY: 92,
     height: "454",
     width: "1086"
   },
@@ -45,7 +44,7 @@ module.exports = [
   {
     name: "World_Grass_PortfolioBanner",
     posX: 270,
-    posY: 560,
+    posY: 543,
     height: "126",
     width: "696"
   },
@@ -87,7 +86,7 @@ module.exports = [
     {
     name: "World_Grass_Introduction",
     posX: 2585,
-    posY: 565,
+    posY: 526,
     height: 126,
     width: 696
   },

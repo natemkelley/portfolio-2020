@@ -1,5 +1,4 @@
 <template>
-  <div class="sit-on-top">
     <div class="menu-btn">
       <a class="btn-floating" ref="button">
         <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
@@ -23,7 +22,6 @@
         </div>
       </a>
     </div>
-  </div>
 </template>
 
 <script>

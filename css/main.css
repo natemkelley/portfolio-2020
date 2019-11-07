@@ -10,6 +10,9 @@
     url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter") format("svg"); /* iOS 4.1- */
 }
 
+@viewport {
+    min-height: 800px;
+  }
 
 /*    src: url('~static/font/frankfurter-plain.eot?#iefix') format('embedded-opentype'), url('~static/font/frankfurter-plain.woff') format('woff'), url('~static/font/frankfurter-plain.ttf') format('truetype'), url('~static/font/frankfurter-plain.svg#frankfurter-plain') format('svg');
 */
