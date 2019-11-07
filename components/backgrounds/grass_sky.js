@@ -26,5 +26,12 @@ module.exports = [
     posY: 352,
     height: 123,
     width: 182
+  },
+  {
+    name: "World_Grass_Cloud",
+    posX: 4895,
+    posY: 542,
+    height: 123,
+    width: 182
   }
 ];

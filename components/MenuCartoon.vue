@@ -80,19 +80,6 @@ export default {
   z-index: 998;
 }
 
-.btn-floating {
-  display: inline-block;
-  overflow: hidden;
-  z-index: 1;
-  width: 75px;
-  height: 75px;
-  max-height: 80vh;
-  background-color: #fff;
-  border-radius: 10%;
-  transition: all 250ms ease-in-out;
-  cursor: pointer;
-  box-shadow: -7px 7px rgba(0, 0, 0, 0.158);
-}
 
 .btn-floating .icon {
   height: inherit;

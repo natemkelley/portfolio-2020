@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 @font-face {font-family: "Frankfurter";
     src: url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot"); /* IE9*/
@@ -15,6 +16,7 @@
 
 body {
     background: #1fbcff;
+    font-family: 'Roboto',sans-serif;
 }
 
 .squared-btn {
@@ -26,3 +28,21 @@ body {
 .clickable{
     cursor: pointer!important;
 }
+
+.btn-floating {
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1;
+    width: 75px;
+    height: 75px;
+    max-height: 80vh;
+    background-color: #fff;
+    border-radius: 10%;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+    box-shadow: -7px 7px rgba(0, 0, 0, 0.158);
+  }
+
+  .text-center{
+      text-align: center;
+  }
