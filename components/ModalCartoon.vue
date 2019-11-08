@@ -1,39 +1,14 @@
 <template>
   <div>
     <div class="modal" :class="{ 'hidden': !modalOpen }" :style="{background:color}">
-      <div v-if="modalType == 'large'">
+      <div v-show="!loading">
         <div class="container" v-if="modalOpen">
-          <div class="summary-col">
-            <h1 class="text-center">This is a modal</h1>
-            <h5 class="text-center">Date | Location</h5>
-            <div class="bar"></div>
-            <p
-              v-for="n in 3"
-              :key="n"
-            >The 5c marked the first time that Apple would present phone users with two options – one targeting affordability, another pursuing performance. The 5c was the former: a colourful, heavier variant of iPhone 5 with a polycarbonate shell in five bright shades, all ready to be customised further with an additional six microfibre-lined cases.</p>
-          </div>
-          <div class="body-col">
-            <h2>Intro</h2>
-
-            <p
-              v-for="n in 3"
-              :key="n"
-            >he 5c marked the first time that Apple would present phone users with two options – one targeting affordability, another pursuing performance. The 5c was the former: a colourful, heavier variant of iPhone 5 with a polycarbonate shell in five bright shades, all ready to be customised further with an additional six microfibre-lined cases</p>
-            <h2>Intro</h2>
-
-            <VuePureLightbox
-              thumbnail="https://via.placeholder.com/350x150"
-              :images="['https://placekitten.com/1080/910']"
-            />
-
-            <p
-              v-for="n in 13"
-              :key="n+'x'"
-            >he 5c marked the first time that Apple would present phone users with two options – one targeting affordability, another pursuing performance. The 5c was the former: a colourful, heavier variant of iPhone 5 with a polycarbonate shell in five bright shades, all ready to be customised further with an additional six microfibre-lined cases</p>
-          </div>
+          <component :is="componentFile" @loaded="toggleLoading"></component>
         </div>
       </div>
-      <div v-else></div>
+      <div v-show="loading">
+        <Loading />
+      </div>
 
       <div class="close-btn">
         <a class="btn-floating">
@@ -45,36 +20,44 @@
 </template>
 
 <script>
-import VuePureLightbox from "vue-pure-lightbox";
-import styles from "vue-pure-lightbox/dist/VuePureLightbox.css";
+import Loading from "@/components/Loading.vue";
 
 export default {
   name: "ModalCartoon",
-  components: {
-    VuePureLightbox
+  components: { Loading },
+  props: ["modalOpen", "color", "componentName"],
+  data() {
+    return {
+      loading: true
+    };
   },
-  props: ["modalOpen", "color"],
   methods: {
     toggleModal() {
       this.$emit("toggleModal");
+    },
+    toggleLoading() {
+      this.loading = false;
     }
   },
   computed: {
     modalType() {
       return "large";
+    },
+    componentFile() {
+      return () => import(`./modalComponents/ModalLarge` + ".vue");
+    }
+  },
+  watch: {
+    modalOpen(newVal) {
+      if (newVal == true) {
+        this.loading = true;
+      }
     }
   }
 };
 </script>
 
 <style scoped>
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Frankfurter";
-}
-
 .modal {
   position: fixed;
   bottom: 0;
@@ -119,66 +102,6 @@ button {
   width: 60%;
   margin-left: 20%;
 }
-
-.container {
-  max-width: 1280px;
-  width: 80%;
-  margin: 10% 0%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.summary-col {
-  width: 30%;
-  max-height: 65vh;
-  padding: 0px 10px;
-  overflow-y: auto;
-  position: fixed;
-}
-
-.summary-col h1 {
-  font-size: 50px;
-  line-height: 49px;
-}
-
-.summary-col h5 {
-  font-size: 22px;
-  margin-top: 8px;
-  text-transform: uppercase;
-}
-.summary-col p {
-  margin-bottom: 15px;
-  width: 90%;
-  margin: 5%;
-}
-
-.body-col {
-  position: relative;
-  /* width: 65%; */
-  margin-left: 40%;
-  max-height: 100%;
-}
-
-.body-col h2 {
-  font-size: 35px;
-  margin-bottom: 15px;
-}
-
-.body-col p {
-  width: 85%;
-  margin-bottom: 15px;
-}
-
-.bar {
-  height: 4px;
-  overflow: hidden;
-  background-color: white;
-  margin: 20px 10%;
-  width: 80%;
-  border-radius: 50px;
-}
 </style>
 
 <style>
@@ -200,7 +123,7 @@ button {
 }
 
 .lightbox__close {
-  font-size: 3.5rem;
+  font-size: 3.5rem !important;
   margin-right: 25px;
 }
 </style>

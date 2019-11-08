@@ -1,25 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-@font-face {font-family: "Frankfurter";
-    src: url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot"); /* IE9*/
-    src: url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff2") format("woff2"), /* chrome firefox */
-    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff") format("woff"), /* chrome firefox */
-    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
-    url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter") format("svg"); /* iOS 4.1- */
+@font-face {
+    font-family: "Frankfurter";
+    src: url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot");
+    /* IE9*/
+    src: url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot?#iefix") format("embedded-opentype"),
+        /* IE6-IE8 */
+        url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff2") format("woff2"),
+        /* chrome firefox */
+        url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff") format("woff"),
+        /* chrome firefox */
+        url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.ttf") format("truetype"),
+        /* chrome firefox opera Safari, Android, iOS 4.2+*/
+        url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter") format("svg");
+    /* iOS 4.1- */
 }
 
 @viewport {
     min-height: 800px;
-  }
+}
 
 /*    src: url('~static/font/frankfurter-plain.eot?#iefix') format('embedded-opentype'), url('~static/font/frankfurter-plain.woff') format('woff'), url('~static/font/frankfurter-plain.ttf') format('truetype'), url('~static/font/frankfurter-plain.svg#frankfurter-plain') format('svg');
 */
 
 body {
     background: #1fbcff;
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .squared-btn {
@@ -28,8 +35,8 @@ body {
     width: 56px;
 }
 
-.clickable{
-    cursor: pointer!important;
+.clickable {
+    cursor: pointer !important;
 }
 
 .btn-floating {
@@ -44,15 +51,84 @@ body {
     transition: all 250ms ease-in-out;
     cursor: pointer;
     box-shadow: -7px 7px rgba(0, 0, 0, 0.158);
-  }
+}
 
-  .text-center{
-      text-align: center;
-  }
+.text-center {
+    text-align: center;
+}
+
+/*Modal Stuff*/
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Frankfurter";
+}
+
+.container {
+    max-width: 1280px;
+    width: 80%;
+    margin: 10% 0%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.summary-col {
+    width: 30%;
+    max-height: 65vh;
+    padding: 0px 10px;
+    overflow-y: auto;
+    position: fixed;
+}
+
+.summary-col h1 {
+    font-size: 50px;
+    line-height: 49px;
+}
+
+.summary-col h5 {
+    font-size: 22px;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+.summary-col p {
+    margin-bottom: 15px;
+    width: 90%;
+    margin: 5%;
+}
+
+.body-col {
+    position: relative;
+    /* width: 65%; */
+    margin-left: 40%;
+    max-height: 100%;
+}
+
+.body-col h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.body-col p {
+    width: 85%;
+    margin-bottom: 15px;
+}
+
+.bar {
+    height: 4px;
+    overflow: hidden;
+    background-color: white;
+    margin: 20px 10%;
+    width: 80%;
+    border-radius: 50px;
+}
 
 /*Try to adjust this in Javascript for viewport and stuff*/
-  @media only screen and (max-height: 638px) {
+@media only screen and (max-height: 638px) {
     html {
-      zoom: 0.75;
+        zoom: 0.75;
     }
-  }
+}
