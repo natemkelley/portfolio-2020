@@ -18,7 +18,7 @@
       :stillMoving="stillMoving"
     />
     <ScoreKeeper :previousScrollPos="previousScrollPos" />
-    <ModalCartoon :modalOpen="modalOpen" @toggleModal="toggleModal" color="#f26522" />
+    <ModalCartoon :modalOpen="modalOpen" @toggleModal="toggleModal" :component="component" color="#f26522" />
   </main>
 </template>
 
@@ -63,7 +63,8 @@ export default {
       ],
       height: 0,
       offsetLeft: 0,
-      modalOpen: false
+      modalOpen: false,
+      component:null
     };
   },
   methods: {
@@ -126,7 +127,8 @@ export default {
         }
       });
     },
-    toggleModal() {
+    toggleModal(component) {
+      this.component = component;
       this.modalOpen = !this.modalOpen;
     }
   },

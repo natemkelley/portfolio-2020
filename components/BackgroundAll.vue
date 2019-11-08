@@ -13,6 +13,7 @@
         @toggleModal="toggleModal"
       />
       <Sea
+        v-if="false"
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="seaOffset"
         :groundSpeed="groundSpeed"
@@ -58,8 +59,8 @@ export default {
     "offsetLeft"
   ],
   methods: {
-    toggleModal(){
-      this.$emit("toggleModal");
+    toggleModal(component){
+      this.$emit("toggleModal",component);
     },
     calculateAndEmitPageHeight(newHeight) {
       if (newHeight) {

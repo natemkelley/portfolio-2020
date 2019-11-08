@@ -25,7 +25,7 @@ import Loading from "@/components/Loading.vue";
 export default {
   name: "ModalCartoon",
   components: { Loading },
-  props: ["modalOpen", "color", "componentName"],
+  props: ["modalOpen", "color", "component"],
   data() {
     return {
       loading: true
@@ -40,11 +40,8 @@ export default {
     }
   },
   computed: {
-    modalType() {
-      return "large";
-    },
     componentFile() {
-      return () => import(`./modalComponents/ModalLarge` + ".vue");
+      return () => import(`./modalComponents/${this.component}.vue`);
     }
   },
   watch: {
@@ -125,5 +122,9 @@ button {
 .lightbox__close {
   font-size: 3.5rem !important;
   margin-right: 25px;
+}
+
+.modal p{
+  font-size:18px;
 }
 </style>

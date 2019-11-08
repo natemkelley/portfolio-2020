@@ -1,31 +1,30 @@
 <template>
-    <div class="menu-btn">
-      <a class="btn-floating" ref="button">
-        <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
-        <div class="menu-list">
-          <svg-icon class="logo" name="objects/NateKelley" ref="logo" />
-          <ul>
-            <li v-for="item in menulist" :key="item" @click="menuItemClicked(item)">{{item}}</li>
-          </ul>
+  <div class="menu-btn">
+    <a class="btn-floating" ref="button">
+      <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
+      <div class="menu-list">
+        <svg-icon class="logo" name="objects/NateKelley" ref="logo" />
+        <ul>
+          <li v-for="item in menulist" :key="item" @click="menuItemClicked(item)">{{item}}</li>
+        </ul>
+      </div>
+      <div class="menu-icons-list">
+        <div class="row">
+          <a class="btn-floating">
+            <svg-icon name="icons/close-circle" class="icon side-menu-icon" @click="toggleMenu" />
+          </a>
         </div>
-        <div class="menu-icons-list">
-          <div class="row">
-            <a class="btn-floating">
-              <svg-icon name="icons/close-circle" class="icon side-menu-icon" @click="toggleMenu" />
-            </a>
-          </div>
-          <div class="row" v-for="(icon,n) in socialLinks" :key="icon.icon">
-            <a class="btn-floating" :href="icon.src" target="_blank">
-              <svg-icon :name="'icons/'+icon.icon" class="icon side-menu-icon" @click="toggleMenu" />
-            </a>
-          </div>
+        <div class="row" v-for="(icon,n) in socialLinks" :key="icon.icon">
+          <a class="btn-floating" :href="icon.src" target="_blank">
+            <svg-icon :name="'icons/'+icon.icon" class="icon side-menu-icon" @click="toggleMenu" />
+          </a>
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
+  </div>
 </template>
 
 <script>
-
 export default {
   name: "MenuCartoon",
   data() {
@@ -33,8 +32,8 @@ export default {
       clicked: false,
       menulist: [
         "Intro",
-        "Exp",
         "Education",
+        "Exp",
         "Leadership",
         "Fun Facts",
         "Hire Me"
@@ -77,7 +76,6 @@ export default {
   margin: 45px;
   z-index: 998;
 }
-
 
 .btn-floating .icon {
   height: inherit;
@@ -134,17 +132,18 @@ export default {
 .menu-icons-list .row {
   transition: all 250ms ease;
   margin-bottom: -30px;
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .menu-opened .menu-icons-list .row {
   width: 100% !important;
   margin-bottom: 12px !important;
-      pointer-events:all;
+  pointer-events: all;
 }
 
 .menu-list li {
-  font-family: "Frankfurter", "Frankfurter2", "frankfurter-plain", "Frankfurter Plain";
+  font-family: "Frankfurter", "Frankfurter2", "frankfurter-plain",
+    "Frankfurter Plain";
   font-size: 47px;
   list-style: none;
   text-align: left;
@@ -165,11 +164,11 @@ ul {
   padding: 0px 20px;
 }
 
-.menu-list .logo{
-    width: 100%;
-      min-width: 300px;
-    margin-left: 0;
-    padding: 6%;
-    max-height: 100px;
+.menu-list .logo {
+  width: 100%;
+  min-width: 300px;
+  margin-left: 0;
+  padding: 6%;
+  max-height: 100px;
 }
 </style>

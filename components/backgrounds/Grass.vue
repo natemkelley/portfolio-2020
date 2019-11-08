@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="interactive-container" ref="interactive">
-      <div class="clickable" @click="openModel">
+      <div class="clickable" @click="openModal('Test')">
         <svg-icon
           class="item clickable"
           name="objects/World_Grass_CoolStuff"
@@ -125,8 +125,8 @@ export default {
         .split(/\s+|,/)[2];
       this.$emit("informheight", { width: totalWidth, container: "grass" });
     },
-    openModel(pixels) {
-      this.$emit("toggleModal");
+    openModal(component) {
+      this.$emit("toggleModal",component);
     },
     handleTextTyping(pixels) {
       var textArray = [
@@ -160,9 +160,7 @@ export default {
       }
     },
     handleSpeechBubble(pixels) {
-      console.log(pixels);
-
-      if (Math.abs(pixels) > 3222 && Math.abs(pixels) < 5415) {
+      if (Math.abs(pixels) > 3222 && Math.abs(pixels) < 5400) {
         this.$refs.speechBubble.classList.add("show");
         if (!this.typeRunning) {
           this.handleTextTyping(pixels);
@@ -218,8 +216,8 @@ export default {
   font-size: 27px;
 }
 
-.speech-bubble span{
-  display: none
+.speech-bubble span {
+  display: none;
 }
 </style>
 
