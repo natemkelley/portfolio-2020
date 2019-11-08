@@ -1,5 +1,3 @@
-
-
 export default {
   mode: "spa",
   /*
@@ -9,7 +7,7 @@ export default {
     title: "Nate Kelley Portfolio",
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=0px, initial-scale=0.85" },
+      { name: "viewport", content: "width=0px, initial-scale=1" },
       {
         hid: "description",
         name: "Nate Kelley",
@@ -58,8 +56,7 @@ export default {
    */
   modules: ["@nuxtjs/svg", "@nuxtjs/svg-sprite"],
   svgSprite: {
-    // pass costum config 
-
+    // pass costum config
   },
   /*
    ** Build configuration

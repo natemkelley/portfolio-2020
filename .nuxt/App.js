@@ -16,7 +16,7 @@ import _6f6c098b from '../layouts/default.vue'
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"title":"Nate Kelley Portfolio","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=0px, initial-scale=0.85"},{"hid":"description","name":"Nate Kelley","content":"Portfolio of Nate Kelley 2020"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+  head: {"title":"Nate Kelley Portfolio","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=0px, initial-scale=1"},{"hid":"description","name":"Nate Kelley","content":"Portfolio of Nate Kelley 2020"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
 
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })

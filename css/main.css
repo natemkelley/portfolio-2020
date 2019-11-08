@@ -49,3 +49,10 @@ body {
   .text-center{
       text-align: center;
   }
+
+/*Try to adjust this in Javascript for viewport and stuff*/
+  @media only screen and (max-height: 638px) {
+    html {
+      zoom: 0.75;
+    }
+  }

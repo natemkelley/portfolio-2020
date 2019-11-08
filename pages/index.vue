@@ -41,7 +41,7 @@ export default {
     return {
       previousScrollPos: 0,
       directionX: "right",
-      initialGroundElevationNate: 130,
+      initialGroundElevationNate: 133,
       groundElevation: 0,
       initialGroundElevationGround: -790,
       groundElevationGround: 0,
