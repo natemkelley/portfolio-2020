@@ -90,4 +90,18 @@ module.exports = [
     height: 126,
     width: 696
   },
+  {
+    name: "World_Grass_Garden",
+    posX: 4078,
+    posY: 137,
+    height: 85,
+    width: 264
+  },
+  {
+    name: "World_Grass_EducationBanner",
+    posX: 5695,
+    posY: 533,
+    height: "126",
+    width: "696"
+  },
 ];

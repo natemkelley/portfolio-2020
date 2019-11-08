@@ -35,6 +35,10 @@
     </div>
     <div class="ground-container" ref="groundContainer">
       <Ground ref="ground" />
+      <div class="item speech-bubble" ref="speechBubble" :style="{marginLeft:offsetLeft+95+'px'}">
+        <svg-icon class name="objects/World_Grass_SpeechBubble" height="555px" width="379px" />
+        <div class="text" ref="text"></div>
+      </div>
     </div>
     <div class="interactive-container" ref="interactive">
       <div class="clickable" @click="openModel">
@@ -68,6 +72,7 @@
 
 <script>
 import anime from "animejs";
+import Typed from "typed.js";
 import Ground from "~/assets/inlinesvg/Ground_Grass.svg?inline";
 import Grass_Objects from "~/components/backgrounds/grass_objects.js";
 import Grass_Nature from "~/components/backgrounds/grass_nature2.js";
@@ -81,7 +86,8 @@ export default {
     "groundSpeed",
     "objectSpeed",
     "natureSpeed",
-    "skySpeed"
+    "skySpeed",
+    "offsetLeft"
   ],
   components: { Ground },
   mounted() {
@@ -92,7 +98,9 @@ export default {
     return {
       objects: Grass_Objects,
       sky: Grass_Sky,
-      nature: Grass_Nature
+      nature: Grass_Nature,
+      typeRunning: false,
+      typed: { strings: [""] }
     };
   },
   methods: {
@@ -116,15 +124,58 @@ export default {
         .getAttribute("viewBox")
         .split(/\s+|,/)[2];
       this.$emit("informheight", { width: totalWidth, container: "grass" });
-      //this.handleLayerMovement(0);
     },
-    openModel() {
+    openModel(pixels) {
       this.$emit("toggleModal");
+    },
+    handleTextTyping(pixels) {
+      var textArray = [
+        "Hello Friends! Welcome to my portfolio.",
+        "Feel free to use the menu button to jog between sections",
+        "You can drill more into a piece of content by clicking on it!"
+      ];
+      var typingNum = 0;
+      if (Math.abs(pixels) < 3794) {
+        typingNum = 0;
+      }
+      if (Math.abs(pixels) < 4474 && Math.abs(pixels) > 3793) {
+        typingNum = 1;
+      }
+      if (Math.abs(pixels) < 5555 && Math.abs(pixels) > 4473) {
+        typingNum = 2;
+      }
+
+      var options = {
+        strings: [textArray[typingNum]],
+        typeSpeed: 18,
+        onComplete: self => {
+          this.typeRunning = false;
+        }
+      };
+
+      if (this.typed.strings[0] != textArray[typingNum] && !this.typeRunning) {
+        this.typeRunning = true;
+        this.$refs.text.innerHTML = "";
+        this.typed = new Typed(".text", options);
+      }
+    },
+    handleSpeechBubble(pixels) {
+      console.log(pixels);
+
+      if (Math.abs(pixels) > 3222 && Math.abs(pixels) < 5415) {
+        this.$refs.speechBubble.classList.add("show");
+        if (!this.typeRunning) {
+          this.handleTextTyping(pixels);
+        }
+      } else {
+        this.$refs.speechBubble.classList.remove("show");
+      }
     }
   },
   watch: {
     groundSpeed(pixels) {
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
+      this.handleSpeechBubble(pixels);
     },
     objectSpeed(pixels) {
       this.$refs.objects.style.transform = "translateX(" + pixels + "px)";
@@ -147,33 +198,28 @@ export default {
   left: 0;
 }
 
-/*
+.speech-bubble {
+  opacity: 0;
+  transition: opacity 300ms ease;
+  margin-bottom: 173px;
+}
+.speech-bubble.show {
+  opacity: 1;
+}
 
-      <svg-icon
-        v-for="object in objects"
-        class="item"
-        :name="'objects/'+object.name"
-        :width="object.width"
-        :height="object.height"
-        :key="object.name"
-        :style="{marginLeft:object.posX,marginBottom:object.posY, transform: object.transform}"
-      />
-      
-         let objmarginpos = object.posX;
-        let objwidth = object.width;
-        let multiplier = 1 / 1.25 - 1; //0
-        let offset = objmarginpos - objwidth - this.offsetLeft - pixelsMoved;
-        let moveval = multiplier * offset;
-        let final = moveval - pixelsMoved + objmarginpos;
-        this.objects[n].transform = "translateX(" + final + "px)";     
+.speech-bubble .text {
+  font-family: "Frankfurter";
+  position: absolute;
+  bottom: 0;
+  margin-left: 55px;
+  height: 300px;
+  margin-bottom: 73px;
+  width: 280px;
+  font-size: 27px;
+}
 
-
-              var H = 2; //Distance to the Horizon (must be larger then the number of layers times x. Change this to tune the parallax effect)
-      var i = 1; //The layer we are calculating the speed for
-      var x = 0.15; //The distance each layer is into the screen from the last
-      var a = pixelsMoved; //Speed of the foreground (screen) layer
-      var speed = ((H - i * x) * a) / H;
-      
-      */
+.speech-bubble span{
+  display: none
+}
 </style>
 

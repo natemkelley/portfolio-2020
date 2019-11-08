@@ -7,6 +7,8 @@
         :objectSpeed="objectSpeed"
         :natureSpeed="natureSpeed"
         :skySpeed="skySpeed"
+        :immediateSpeed="immediateSpeed"
+        :offsetLeft="offsetLeft"
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
@@ -45,6 +47,7 @@ export default {
       objectSpeed: 0,
       natureSpeed:0,
       skySpeed: 0,
+      immediateSpeed:0,
       HorizonDistance: 3,
     };
   },
@@ -89,7 +92,6 @@ export default {
       this.objectSpeed = -((this.HorizonDistance - 1 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
       this.natureSpeed = -((this.HorizonDistance - 1.5 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
       this.skySpeed = -((this.HorizonDistance - 3 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
-      console.log(this.previousScrollPos + this.offsetLeft + 100);
 
       //this.$refs.sky.style.transform = "translateX(" + -speed + "px)";
     },
