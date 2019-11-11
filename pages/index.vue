@@ -53,12 +53,12 @@ export default {
         { positionX: 0, positionY: 0 },
         { positionX: 1250, positionY: 120 },
         { positionX: 2463, positionY: 0 },
-        { positionX: 6830, positionY: -45 },
+        { positionX: 6830, positionY: -60 },
         { positionX: 14000, positionY: 125 }
       ],
       elevationChangePositionsGround: [
         { positionX: 0, positionY: 0 },
-        { positionX: 6830, positionY: 739 },
+        { positionX: 6830, positionY: 725 },
         { positionX: 14000, positionY: 125 }
       ],
       height: 0,

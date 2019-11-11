@@ -7,13 +7,12 @@
         :objectSpeed="objectSpeed"
         :natureSpeed="natureSpeed"
         :skySpeed="skySpeed"
-        :immediateSpeed="immediateSpeed"
         :offsetLeft="offsetLeft"
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
       <Sea
-        v-if="false"
+        v-if="true"
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="seaOffset"
         :groundSpeed="groundSpeed"
@@ -43,13 +42,13 @@ export default {
     return {
       totalPageHeight: 0,
       containerOffsets: [],
-      distanceOfLayers:0.25,
+      distanceOfLayers: 0.25,
       groundSpeed: 0,
       objectSpeed: 0,
-      natureSpeed:0,
+      natureSpeed: 0,
       skySpeed: 0,
-      immediateSpeed:0,
-      HorizonDistance: 3,
+      immediateSpeed: 0,
+      HorizonDistance: 3
     };
   },
   props: [
@@ -59,15 +58,15 @@ export default {
     "offsetLeft"
   ],
   methods: {
-    toggleModal(component){
-      this.$emit("toggleModal",component);
+    toggleModal(component) {
+      this.$emit("toggleModal", component);
     },
     calculateAndEmitPageHeight(newHeight) {
       if (newHeight) {
         this.containerOffsets.push(newHeight);
         this.totalPageHeight += Number(newHeight.width) || 0;
+        this.$emit("informheight", this.totalPageHeight);
       }
-      this.$emit("informheight", this.totalPageHeight);
     },
     handleMovementY(value) {
       anime({
@@ -90,15 +89,19 @@ export default {
       //The distance each layer is into the screen from the last
 
       this.groundSpeed = -pixelsMoved;
-      this.objectSpeed = -((this.HorizonDistance - 1 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
-      this.natureSpeed = -((this.HorizonDistance - 1.5 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
-      this.skySpeed = -((this.HorizonDistance - 3 * this.distanceOfLayers) * pixelsMoved) / this.HorizonDistance;
+      this.objectSpeed =
+        -((this.HorizonDistance - 1 * this.distanceOfLayers) * pixelsMoved) /
+        this.HorizonDistance;
+      this.natureSpeed =
+        -((this.HorizonDistance - 1.5 * this.distanceOfLayers) * pixelsMoved) /
+        this.HorizonDistance;
+      this.skySpeed =
+        -((this.HorizonDistance - 3 * this.distanceOfLayers) * pixelsMoved) /
+        this.HorizonDistance;
 
       //this.$refs.sky.style.transform = "translateX(" + -speed + "px)";
     },
-    checkAndToggleActiveLayer(){
-
-    }
+    checkAndToggleActiveLayer() {}
   },
   watch: {
     groundElevationGround(newVal, oldVal) {

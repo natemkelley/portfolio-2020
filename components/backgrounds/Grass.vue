@@ -74,8 +74,8 @@
 import anime from "animejs";
 import Typed from "typed.js";
 import Ground from "~/assets/inlinesvg/Ground_Grass.svg?inline";
-import Grass_Objects from "~/components/backgrounds/grass_objects.js";
-import Grass_Nature from "~/components/backgrounds/grass_nature2.js";
+import Grass_Objects from "~/components/backgrounds/grass_objects2.js";
+import Grass_Nature from "~/components/backgrounds/grass_nature.js";
 import Grass_Sky from "~/components/backgrounds/grass_sky.js";
 
 export default {

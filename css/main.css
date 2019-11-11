@@ -16,6 +16,12 @@
         url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter") format("svg");
     /* iOS 4.1- */
 }
+/*https://www.onlinewebfonts.com/download/e094dede1f515189f4972f03427ad6eb*/
+@font-face {
+    font-family: "Frankfurter Medium";
+    src: url("https://db.onlinewebfonts.com/t/ddf394e075373b95c7cbb0ff2a674029.eot");
+    src: url("https://db.onlinewebfonts.com/t/ddf394e075373b95c7cbb0ff2a674029.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/ddf394e075373b95c7cbb0ff2a674029.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/ddf394e075373b95c7cbb0ff2a674029.woff") format("woff"), url("https://db.onlinewebfonts.com/t/ddf394e075373b95c7cbb0ff2a674029.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/ddf394e075373b95c7cbb0ff2a674029.svg#Frankfurter Medium") format("svg");
+}
 
 @viewport {
     min-height: 800px;
@@ -62,7 +68,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Frankfurter";
+    font-family: "Frankfurter Medium","Frankfurter";
+    text-transform: uppercase;
 }
 
 .container {

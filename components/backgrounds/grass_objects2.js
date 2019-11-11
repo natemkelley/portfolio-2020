@@ -77,11 +77,11 @@ module.exports = [
     width: 96
   },
   {
-    name: "World_Grass_Garden",
-    posX: 3815,
+    name: "World_Grass_TableSet",
+    posX: 4685,
     posY: 137,
-    height: 85,
-    width: 264
+    height: 130,
+    width: 420
   },
     {
     name: "World_Grass_Introduction",
@@ -92,7 +92,7 @@ module.exports = [
   },
   {
     name: "World_Grass_Garden",
-    posX: 4078,
+    posX: 3858,
     posY: 137,
     height: 85,
     width: 264
