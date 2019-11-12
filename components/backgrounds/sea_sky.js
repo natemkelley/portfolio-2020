@@ -1,9 +1,16 @@
 module.exports = [
   {
     name: "World_Sea_LargeCoral3",
-    posX: -1378,
+    posX: -1498,
     posY: -772,
-    height: 515,
-    width: 650
+    height: 622,
+    width: 944
+  },
+  {
+    name: "World_Sea_LargeCoral2",
+    posX: -358,
+    posY: -772,
+    height: 622,
+    width: 944
   },
 ];

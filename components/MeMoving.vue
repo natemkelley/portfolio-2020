@@ -13,7 +13,8 @@ export default {
     "directionX",
     "groundElevation",
     "initialGroundElevation",
-    "stillMoving"
+    "stillMoving",
+    "underwater"
   ],
   data() {
     return {
@@ -144,11 +145,27 @@ export default {
     },
     handleElevationChange(newElevation, oldElevation) {
       if (!this.elevationChanging) {
-        //console.log('newElevation', newElevation,'oldElevation', oldElevation)
-        if (newElevation > oldElevation) {
-          this.startJump();
+        console.log(
+          "newElevation",
+          newElevation,
+          "oldElevation",
+          oldElevation,
+          "underwater",
+          this.underwater
+        );
+
+        if (newElevation < 0 && oldElevation < 0) {
+          if (newElevation < oldElevation) {
+            this.startJump();
+          } else {
+            this.startFall();
+          }
         } else {
-          this.startFall();
+          if (newElevation > oldElevation) {
+            this.startJump();
+          } else {
+            this.startFall();
+          }
         }
       }
       this.elevationChanging = true;
@@ -173,7 +190,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .sprite-nate {
   height: 200px;
   width: 200px;
@@ -181,7 +198,7 @@ export default {
   bottom: 0;
   left: 50%;
   margin-left: -100px;
-  transform:translate3d(0,0,0);
-  -webkit-transform:translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 </style>

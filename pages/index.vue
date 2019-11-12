@@ -1,5 +1,5 @@
 <template>
-  <main :style="{height: height+'px'}">
+  <main :style="{ height: height + 'px' }">
     <MenuCartoon />
     <BackgroundAll
       v-if="offsetLeft != 0"
@@ -16,9 +16,15 @@
       :groundElevation="groundElevation"
       :initialGroundElevation="initialGroundElevationNate"
       :stillMoving="stillMoving"
+      :underwater="underwater"
     />
     <ScoreKeeper :previousScrollPos="previousScrollPos" />
-    <ModalCartoon :modalOpen="modalOpen" @toggleModal="toggleModal" :component="component" color="#f26522" />
+    <ModalCartoon
+      :modalOpen="modalOpen"
+      @toggleModal="toggleModal"
+      :component="component"
+      color="#f26522"
+    />
   </main>
 </template>
 
@@ -49,11 +55,14 @@ export default {
       stillScrolling: 200,
       movingTimeoutVar: undefined,
       checkElevationChange: true,
+      underwater: false,
       elevationChangePositionsNate: [
         { positionX: 0, positionY: 0 },
         { positionX: 1250, positionY: 120 },
         { positionX: 2463, positionY: 0 },
         { positionX: 6830, positionY: -60 },
+        { positionX: 8220, positionY: 16 },
+        { positionX: 8880, positionY: -60 },
         { positionX: 14000, positionY: 125 }
       ],
       elevationChangePositionsGround: [
@@ -64,7 +73,7 @@ export default {
       height: 0,
       offsetLeft: 0,
       modalOpen: false,
-      component:null
+      component: null
     };
   },
   methods: {
@@ -82,6 +91,7 @@ export default {
       this.directionX =
         this.previousScrollPos > window.scrollY ? "left" : "right";
       this.previousScrollPos = window.scrollY;
+      //console.log(this.previousScrollPos)
 
       //handle elevation change function which use previous scroll position
       if (this.checkElevationChange) {
@@ -89,6 +99,7 @@ export default {
         setTimeout(() => {
           this.handleElevationChangeNate();
           this.handleElevationChangeGround();
+          this.handleUnderwater();
           this.checkElevationChange = true;
         }, 25);
       }
@@ -121,6 +132,10 @@ export default {
             this.elevationChangePositionsNate[i].positionX >
             Math.max(0, this.previousScrollPos + this.offsetLeft)
           ) {
+            console.log(
+              this.previousScrollPos,
+              this.elevationChangePositionsNate[i - 1].positionY
+            );
             resolve(this.elevationChangePositionsNate[i - 1].positionY);
             break;
           }
@@ -130,6 +145,10 @@ export default {
     toggleModal(component) {
       this.component = component;
       this.modalOpen = !this.modalOpen;
+    },
+    handleUnderwater() {
+      this.underwater =
+        this.previousScrollPos + this.offsetLeft > 6830 ? true : false;
     }
   },
   created() {
@@ -138,5 +157,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
