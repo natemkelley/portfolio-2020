@@ -47,50 +47,7 @@
         @click="openModal('CocaCola')"
       />
       <div class="submarine clickable" @click="openModal('Test')">
-        <div class="arms" :style="{transform: 'rotate(-65deg)'}">
-          <svg-icon
-            class="subarms floatsmall"
-            name="objects/World_Sea_Arm1"
-            height="128"
-            width="65"
-            ref="arm1"
-          />
-          <div class="arms2">
-            <svg-icon
-              class="subarms floatsmall"
-              name="objects/World_Sea_Arm2"
-              height="100"
-              width="174"
-              ref="arm2"
-            />
-          </div>
-        </div>
-        <svg-icon
-          class="item floatsmall"
-          name="objects/World_Sea_SubSign"
-          :style="{ marginLeft: '1850px', marginBottom: '-710px' }"
-          height="293"
-          width="422"
-          ref="sub"
-        />
-        <div class="arms3">
-          <svg-icon
-            class="item floatsmall arm1 arm2 arm3"
-            name="objects/World_Sea_Arm3"
-            :style="{ marginLeft: '1820px', marginBottom: '-369px' }"
-            height="65"
-            width="65"
-            ref="arm3"
-          />
-        </div>
-        <svg-icon
-          class="item floatsmall"
-          name="objects/World_Sea_Submarine"
-          :style="{ marginLeft: '1568px', marginBottom: '-389px' }"
-          height="237"
-          width="341"
-          ref="sub"
-        />
+        <Submarine :introSub="introSub" />
       </div>
     </div>
     <div class="ground-container click-through" ref="groundContainer">
@@ -100,13 +57,12 @@
 </template>
 
 <script>
-import anime from "animejs";
 import Ground from "~/assets/inlinesvg/World_Sea_Ground.svg?inline";
 import OceanScape from "~/assets/inlinesvg/World_Sea_Sea.svg?inline";
 import Sea_Objects from "~/components/backgrounds/sea_objects.js";
 import Sea_Nature from "~/components/backgrounds/sea_nature.js";
 import Sea_Sky from "~/components/backgrounds/sea_sky.js";
-
+import Submarine from "~/components/Submarine.vue";
 export default {
   name: "Sea",
   props: [
@@ -118,7 +74,7 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground, OceanScape },
+  components: { Ground, OceanScape, Submarine },
   data() {
     return {
       objects: Sea_Objects,
@@ -145,25 +101,6 @@ export default {
     introduceBottle() {
       this.$refs.bottle.classList.remove("hidden");
     },
-    introduceSub() {
-      if (!this.introSub) {
-        this.introSub = true;
-        var tl = anime.timeline({
-          easing: "easeOutExpo",
-          duration: 750
-        });
-        tl.add({
-          targets: ".arms",
-          rotate: '0deg'
-        });
-        tl.add({
-          targets: ".arms",
-          rotate: '0deg'
-        });
-
-        tl.play();
-      }
-    },
     openModal(component) {
       this.$emit("toggleModal", component);
     }
@@ -173,7 +110,7 @@ export default {
       this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
       if (Math.abs(pixels) > 6741) this.introduceBottle();
-      if (Math.abs(pixels) > 8810) this.introduceSub();
+      if (Math.abs(pixels) > 8810) this.introSub = true;
     },
     objectSpeed(pixels) {
       if (pixels) {
@@ -200,16 +137,11 @@ export default {
   margin-bottom: -1100px !important;
 }
 
-.arms{
-      margin-left: 1711px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin-bottom: -350px;
-}
-
-.subarms{
+.submarine {
+  margin-left: 1711px;
   position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: -350px;
 }
-
 </style>
