@@ -16,6 +16,7 @@
         url("https://db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter") format("svg");
     /* iOS 4.1- */
 }
+
 /*https://www.onlinewebfonts.com/download/e094dede1f515189f4972f03427ad6eb*/
 @font-face {
     font-family: "Frankfurter Medium";
@@ -68,7 +69,7 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: "Frankfurter Medium","Frankfurter";
+    font-family: "Frankfurter Medium", "Frankfurter";
     text-transform: uppercase;
 }
 
@@ -141,6 +142,44 @@ h4 {
     margin: 20px 10%;
     width: 80%;
     border-radius: 50px;
+}
+
+
+/*Sea animation*/
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+@keyframes floatX {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatex(-9px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.floatX {
+    animation: floatX 6.5s ease-in-out infinite;
 }
 
 /*Try to adjust this in Javascript for viewport and stuff*/
