@@ -2,14 +2,14 @@
   <div>
     <div ref="arms" :style="{ transform: 'rotate(-65deg)' }">
       <svg-icon
-        class="subarms"
+        class="subarms arm1"
         name="objects/World_Sea_Arm1"
         height="128"
         width="65"
         ref="arm1"
       />
       <div
-        class="arms2"
+        class="arm2"
         ref="arm2"
         :style="{
           marginLeft: '35px',
@@ -20,7 +20,7 @@
         }"
       >
         <svg-icon
-          class="subarms"
+          class="subarms arm2"
           name="objects/World_Sea_Arm2"
           height="100"
           width="174"
@@ -35,7 +35,7 @@
           }"
         >
           <svg-icon
-            class="subarms"
+            class="subarms arm3"
             name="objects/World_Sea_Arm3"
             height="118"
             width="55"
@@ -43,22 +43,25 @@
         </div>
       </div>
     </div>
+    <div class="subsign">
+      <svg-icon
+        class="item sign"
+        name="objects/World_Sea_SubSign"
+        :style="{ marginLeft: '160px', marginBottom: '-364px' }"
+        height="293"
+        width="422"
+        ref="subsign"
+      />
+    </div>
 
+    <!--      :style="{ marginLeft: '1568px', marginBottom: '-389px' }" -->
     <svg-icon
-      class="item"
+      class="item subitself"
       name="objects/World_Sea_Submarine"
-      :style="{ marginLeft: '1568px', marginBottom: '-389px' }"
       height="237"
       width="341"
       ref="sub"
-    />
-    <svg-icon
-      class="item"
-      name="objects/World_Sea_SubSign"
-      :style="{ marginLeft: '1885px', marginBottom: '-710px' }"
-      height="293"
-      width="422"
-      ref="sub"
+      :style="{ marginLeft: '-158px', marginBottom: '-35px' }"
     />
   </div>
 </template>
@@ -78,7 +81,8 @@ export default {
       var tl = anime.timeline({
         easing: "easeOutExpo",
         duration: 1650,
-        loop: false,
+        delay: 660,
+        loop: true,
         direction: "alternate"
       });
       tl.add({
@@ -89,7 +93,7 @@ export default {
         {
           targets: this.$refs.arm2,
           rotate: "-12deg",
-          marginLeft: "8px",
+          marginLeft: "5.5px",
           marginTop: "105px"
         },
         230
@@ -101,15 +105,33 @@ export default {
         },
         1200
       );
-        tl.add(
+      tl.add(
         {
           targets: this.$refs.arms,
-          marginTop: "-45px"
+          marginTop: "-80px"
         },
-        1800
+        1850
       );
-
+      tl.add(
+        {
+          targets: this.$refs.subsign,
+          marginBottom: "-330px",
+          rotate: "10deg"
+        },
+        1850
+      );
       tl.play();
+    },
+    liftSign() {
+      anime({
+        targets: this.$refs.arms,
+        marginTop: "-80px"
+      });
+      anime({
+        targets: this.$refs.subsign,
+        marginBottom: "-680px",
+        rotate: "10deg"
+      });
     }
   }
 };
@@ -117,6 +139,28 @@ export default {
 
 <style scoped>
 .subarms {
+  position: absolute;
+}
+.arm1 {
+  position: absolute;
+  z-index: 996;
+}
+
+.arm2 {
+  position: absolute;
+  z-index: 997;
+}
+
+.sign {
+  position: absolute;
+  z-index: 998;
+}
+.arm3 {
+  position: absolute;
+  z-index: 999;
+}
+
+.subitself {
   position: absolute;
 }
 </style>

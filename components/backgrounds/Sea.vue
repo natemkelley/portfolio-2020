@@ -46,7 +46,7 @@
         ref="bottle"
         @click="openModal('CocaCola')"
       />
-      <div class="submarine clickable" @click="openModal('Test')">
+      <div class="submarine clickable float" @click="openModal('Test')">
         <Submarine :introSub="introSub" />
       </div>
     </div>
@@ -110,7 +110,7 @@ export default {
       this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
       if (Math.abs(pixels) > 6741) this.introduceBottle();
-      if (Math.abs(pixels) > 8810) this.introSub = true;
+      if (Math.abs(pixels) > 8455) this.introSub = true;
     },
     objectSpeed(pixels) {
       if (pixels) {
@@ -139,9 +139,10 @@ export default {
 
 .submarine {
   margin-left: 1711px;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   margin-bottom: -350px;
 }
+
 </style>
