@@ -132,10 +132,6 @@ export default {
             this.elevationChangePositionsNate[i].positionX >
             Math.max(0, this.previousScrollPos + this.offsetLeft)
           ) {
-            console.log(
-              this.previousScrollPos,
-              this.elevationChangePositionsNate[i - 1].positionY
-            );
             resolve(this.elevationChangePositionsNate[i - 1].positionY);
             break;
           }

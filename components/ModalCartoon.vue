@@ -1,8 +1,13 @@
 <template>
   <div>
-    <div class="modal" :class="{ 'hidden': !modalOpen }" :style="{background:color}">
+    <div
+      class="modal"
+      :class="{ hidden: !modalOpen }"
+      :style="{ background: color }"
+    >
       <div v-show="!loading">
-        <div class="container" v-if="modalOpen">
+        <p>{{ component }}</p>
+        <div class="container" v-if="component">
           <component :is="componentFile" @loaded="toggleLoading"></component>
         </div>
       </div>
@@ -12,7 +17,11 @@
 
       <div class="close-btn">
         <a class="btn-floating">
-          <svg-icon name="icons/close" class="close-icon" @click="toggleModal" />
+          <svg-icon
+            name="icons/close"
+            class="close-icon"
+            @click="toggleModal"
+          />
         </a>
       </div>
     </div>
@@ -41,6 +50,7 @@ export default {
   },
   computed: {
     componentFile() {
+      console.log(this.component);
       return () => import(`./modalComponents/${this.component}.vue`);
     }
   },
@@ -124,7 +134,7 @@ button {
   margin-right: 25px;
 }
 
-.modal p{
-  font-size:18px;
+.modal p {
+  font-size: 18px;
 }
 </style>

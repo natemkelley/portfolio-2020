@@ -19,7 +19,7 @@
         :objectSpeed="objectSpeed"
         :skySpeed="skySpeed"
         @informheight="calculateAndEmitPageHeight"
-                @toggleModal="toggleModal"
+        @toggleModal="toggleModal"
       />
     </div>
   </div>

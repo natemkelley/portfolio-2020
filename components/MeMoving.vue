@@ -145,15 +145,6 @@ export default {
     },
     handleElevationChange(newElevation, oldElevation) {
       if (!this.elevationChanging) {
-        console.log(
-          "newElevation",
-          newElevation,
-          "oldElevation",
-          oldElevation,
-          "underwater",
-          this.underwater
-        );
-
         if (newElevation < 0 && oldElevation < 0) {
           if (newElevation < oldElevation) {
             this.startJump();
