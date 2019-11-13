@@ -109,11 +109,11 @@ export default {
         duration: 350,
         begin: () => {
           this.position = "jumping";
-          console.log("start jump");
+          //console.log("start jump");
         },
         complete: anim => {
           let jumpedHeight = -parseInt(anim.animations[0].currentValue);
-          console.log("complete jump");
+          //console.log("complete jump");
           if (-parseInt(anim.animations[0].currentValue) < this.newElevation) {
             this.startJump();
           } else {
@@ -132,11 +132,11 @@ export default {
         delay: 50,
         begin: () => {
           this.position = "falling";
-          console.log("start fall");
+          //console.log("start fall");
         },
         complete: anim => {
           this.elevationChanging = false;
-          console.log("complete fall");
+          //console.log("complete fall");
           setTimeout(() => {
             this.moving();
           }, 150);

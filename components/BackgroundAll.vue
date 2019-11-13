@@ -2,6 +2,7 @@
   <div>
     <div ref="backgroudContainer" class="backgroundContainer">
       <Grass
+        v-if="activeLayers.grass"
         :initialGroundElevationGround="initialGroundElevationGround"
         :groundSpeed="groundSpeed"
         :objectSpeed="objectSpeed"
@@ -12,7 +13,7 @@
         @toggleModal="toggleModal"
       />
       <Sea
-        v-if="true"
+        v-if="activeLayers.sea"
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="seaOffset"
         :groundSpeed="groundSpeed"
@@ -49,7 +50,12 @@ export default {
       natureSpeed: 0,
       skySpeed: 0,
       immediateSpeed: 0,
-      HorizonDistance: 3
+      HorizonDistance: 3,
+      checkingActiveLayers: false,
+      activeLayers: {
+        grass: true,
+        sea: true
+      }
     };
   },
   props: [
@@ -62,11 +68,21 @@ export default {
     toggleModal(component) {
       this.$emit("toggleModal", component);
     },
-    calculateAndEmitPageHeight(newHeight) {
-      if (newHeight) {
-        this.containerOffsets.push(newHeight);
-        this.totalPageHeight += Number(newHeight.width) || 0;
+    calculateAndEmitPageHeight(newHeightObj) {
+      if (!checkIfObjExist(newHeightObj, this.containerOffsets)) {
+        this.containerOffsets.push(newHeightObj);
+        this.totalPageHeight += Number(newHeightObj.width) || 0;
         this.$emit("informheight", this.totalPageHeight);
+      }
+
+      function checkIfObjExist(newObj, containerOffsets) {
+        var returnVal = false;
+        containerOffsets.forEach(obj => {
+          if (obj.container === newObj.container) {
+            returnVal = true;
+          }
+        });
+        return returnVal;
       }
     },
     handleMovementY(value) {
@@ -102,7 +118,48 @@ export default {
 
       //this.$refs.sky.style.transform = "translateX(" + -speed + "px)";
     },
-    checkAndToggleActiveLayer() {}
+    checkAndToggleActiveLayer(override) {
+      if (!this.checkingActiveLayers) {
+        this.checkingActiveLayers = true;
+        setTimeout(() => {
+          var clientWidthTimes2 = document.body.clientWidth * 2;
+          for (let index = 0; index < this.containerOffsets.length; index++) {
+            var active = false;
+            if (index === 0) {
+              if (
+                this.previousScrollPos >= 0 &&
+                this.previousScrollPos <=
+                  Number(this.containerOffsets[index].width) + clientWidthTimes2
+              ) {
+                active = true;
+              }
+            } else {
+              if (
+                this.previousScrollPos >=
+                  (this.containerOffsets[index - 1].width || 0) &&
+                this.previousScrollPos <=
+                  Number(this.containerOffsets[index].width) + clientWidthTimes2
+              ) {
+                active = true;
+              }
+            }
+
+            if (index > 0) {
+              if (
+                this.previousScrollPos + clientWidthTimes2 >
+                (Number(this.containerOffsets[index - 1].width) ||
+                  document.body.clientHeight)
+              ) {
+                active = true;
+              }
+            }
+
+            this.activeLayers[this.containerOffsets[index].container] = active;
+          }
+          this.checkingActiveLayers = false;
+        }, 250);
+      }
+    }
   },
   watch: {
     groundElevationGround(newVal, oldVal) {
@@ -110,6 +167,7 @@ export default {
     },
     previousScrollPos(pixels) {
       this.handleLayerMovement(pixels);
+      this.checkAndToggleActiveLayer(pixels);
     }
   },
   computed: {

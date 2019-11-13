@@ -58,10 +58,10 @@
     <svg-icon
       class="item subitself"
       name="objects/World_Sea_Submarine"
-      height="237"
-      width="341"
+      height="297"
+      width="391"
       ref="sub"
-      :style="{ marginLeft: '-158px', marginBottom: '-35px' }"
+      :style="{ marginLeft: '-158px', marginBottom: '-56px' }"
     />
   </div>
 </template>
