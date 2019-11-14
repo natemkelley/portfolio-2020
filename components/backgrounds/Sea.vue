@@ -49,6 +49,10 @@
       <div class="submarine clickable float" @click="openModal('Test')">
         <Submarine :introSub="introSub" />
       </div>
+      <div class="octopus clickable float">
+        <Octopus />
+      </div>
+
     </div>
     <div class="ground-container click-through" ref="groundContainer">
       <Ground ref="ground" />
@@ -63,6 +67,8 @@ import Sea_Objects from "~/components/backgrounds/sea_objects.js";
 import Sea_Nature from "~/components/backgrounds/sea_nature.js";
 import Sea_Sky from "~/components/backgrounds/sea_sky.js";
 import Submarine from "~/components/Submarine.vue";
+import Octopus from "~/components/Octopus.vue";
+
 export default {
   name: "Sea",
   props: [
@@ -74,7 +80,7 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground, OceanScape, Submarine },
+  components: { Ground, OceanScape, Submarine,Octopus },
   data() {
     return {
       objects: Sea_Objects,
@@ -143,6 +149,13 @@ export default {
   bottom: 0;
   left: 0;
   margin-bottom: -350px;
+}
+
+.octopus {
+    margin-left: 2711px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -680px;
 }
 
 </style>
