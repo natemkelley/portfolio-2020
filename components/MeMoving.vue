@@ -102,20 +102,32 @@ export default {
     },
     startJump() {
       clearTimeout(this.movingTimeoutVar);
+      var backup = this.newElevation;
       anime({
         targets: this.$refs.nate,
         translateY: Math.max(-this.newElevation * 3, -this.newElevation - 300),
         easing: "cubicBezier(.14, .19, .24, 1.04)",
         duration: 350,
-        begin: () => {
+        begin: anim => {
           this.position = "jumping";
-          //console.log("start jump");
+          console.log("start jump", -parseInt(anim.animations[0].currentValue));
         },
         complete: anim => {
           let jumpedHeight = -parseInt(anim.animations[0].currentValue);
-          //console.log("complete jump");
-          if (-parseInt(anim.animations[0].currentValue) < this.newElevation) {
-            this.startJump();
+          console.log(
+            "complete jump",
+            -parseInt(anim.animations[0].currentValue)
+          );
+          console.log(backup + " <----> " + this.newElevation);
+          if (-parseInt(anim.animations[0].currentValue) <= backup) {
+            if (
+              backup === NaN ||
+              backup === -parseInt(anim.animations[0].currentValue)
+            ) {
+              alert('nan')
+            } else {
+              this.startJump();
+            }
           } else {
             this.startFall();
           }
@@ -130,13 +142,16 @@ export default {
         easing: "cubicBezier(.4,.06,.82,.37)",
         duration: 300,
         delay: 50,
-        begin: () => {
+        begin: anim => {
           this.position = "falling";
-          //console.log("start fall");
+          console.log("start fall", -parseInt(anim.animations[0].currentValue));
         },
         complete: anim => {
           this.elevationChanging = false;
-          //console.log("complete fall");
+          console.log(
+            "complete fall",
+            -parseInt(anim.animations[0].currentValue)
+          );
           setTimeout(() => {
             this.moving();
           }, 150);
@@ -144,6 +159,7 @@ export default {
       });
     },
     handleElevationChange(newElevation, oldElevation) {
+      console.log("newel", newElevation, "oldel", oldElevation);
       if (!this.elevationChanging) {
         if (newElevation < 0 && oldElevation < 0) {
           if (newElevation < oldElevation) {
@@ -175,6 +191,7 @@ export default {
     },
     groundElevation(newVal, oldVal) {
       this.newElevation = newVal;
+      console.log("this.newElevation", this.newElevation);
       this.handleElevationChange(newVal, oldVal);
     }
   }

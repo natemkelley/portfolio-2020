@@ -38,32 +38,34 @@
         height="513"
         width="346"
       />
-      <svg-icon
+      <!--<svg-icon
         class="octo arm6 arm"
         name="octopus/Octopus_Arm6"
         height="307"
         width="552"
-      />
+      />-->
       <svg-icon
         class="octo arm7 arm"
         name="octopus/Octopus_Arm7"
         height="345"
         width="576"
       />
+                <svg-icon
+      class="octo chest arm"
+      name="octopus/Octopus_ArmChest"
+      height="299"
+      width="536"
+    />
       <svg-icon
         class="octo arm8"
         name="octopus/Octopus_Arm8"
         height="417"
         width="660"
       />
+
       <Eyes class="eyesframe" ref="eyes" />
     </div>
-    <svg-icon
-      class="octo chest"
-      name="octopus/Octopus_Chest"
-      height="199"
-      width="259"
-    />
+
   </div>
 </div>
 </template>
@@ -94,12 +96,12 @@ export default {
     anime({
       targets: this.$refs.eyes.querySelectorAll(".eyes"),
       keyframes: [
-        { translateX: "7.75px", delay: 1100, duration: 2050 },
-        { translateX: "15px", delay: 500, duration: 1550 },
-        { translateX: "0px", delay: 1100, duration: 1750 },
-        { translateX: "15px", delay: 800, duration: 1550 },
-        { translateX: "-1px", delay: 1100, duration: 2350 },
-        { translateX: "16px", delay: 1100, duration: 1350 }
+        { translateX: "7.75px", delay: 1100, duration: 1650 },
+        { translateX: "15px", delay: 500, duration: 1150 },
+        { translateX: "0px", delay: 1100, duration: 1350 },
+        { translateX: "15px", delay: 800, duration: 1050 },
+        { translateX: "-1px", delay: 1100, duration: 1850 },
+        { translateX: "16px", delay: 1100, duration: 850 }
       ],
       easing: "linear",
       loop: true,
@@ -184,7 +186,7 @@ export default {
 }
 
 .chest {
-  margin-left: 499px;
+  margin-left: 249px;
 }
 .eyesframe {
   position: absolute;

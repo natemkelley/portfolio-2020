@@ -22,6 +22,16 @@
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
+      <Beach
+        v-if="activeLayers.beach"
+        :initialGroundElevationGround="initialGroundElevationGround"
+        :containerOffset="beachOffset"
+        :groundSpeed="groundSpeed"
+        :objectSpeed="objectSpeed"
+        :skySpeed="skySpeed"
+        @informheight="calculateAndEmitPageHeight"
+        @toggleModal="toggleModal"
+      />
     </div>
   </div>
 </template>
@@ -30,6 +40,8 @@
 import anime from "animejs";
 import Grass from "~/components/backgrounds/Grass.vue";
 import Sea from "~/components/backgrounds/Sea.vue";
+import Beach from "~/components/backgrounds/Beach.vue";
+
 /*
 Sky Svg needs to be 1/6 the size of ground
 Nature needs to be 1/4
@@ -39,7 +51,7 @@ immediateRatio need to be 1/1
 
 export default {
   name: "BackgroundAll",
-  components: { Grass, Sea },
+  components: { Grass, Sea, Beach },
   data() {
     return {
       totalPageHeight: 0,
@@ -54,7 +66,8 @@ export default {
       checkingActiveLayers: false,
       activeLayers: {
         grass: true,
-        sea: true
+        sea: true,
+        beach:true
       }
     };
   },
@@ -179,6 +192,15 @@ export default {
         }
       });
       return returnVal;
+    },
+    beachOffset() {
+      var returnVal = 0;
+      this.containerOffsets.forEach(cont => {
+        if (cont.container == "sea") {
+          returnVal += Number(cont.width);
+        }
+      });
+      return returnVal + this.seaOffset;
     }
   }
 };

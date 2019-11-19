@@ -5,7 +5,6 @@
     :style="`transform:translateX(${this.containerOffset}px)`"
   >
     <div class="ground-container" ref="seaContainer">
-      <OceanScape />
     </div>
     <div class="sky-container" ref="sky">
       <svg-icon
@@ -25,11 +24,11 @@
     <div class="objects-container" ref="objects">
       <svg-icon
         v-for="(object, n) in objects"
-        class="item float floatX"
+        class="item"
         :name="'objects/' + object.name"
         :width="object.width"
         :height="object.height"
-        :key="object.name + '_sea' + '_' + n"
+        :key="object.name + '_beach' + '_' + n"
         :style="{
           marginLeft: object.posX + 'px',
           marginBottom: object.posY + 'px'
@@ -46,40 +45,21 @@
         ref="bottle"
         @click="openModal('CocaCola')"
       />
-      <div class="submarine clickable float" @click="openModal('Test')">
-        <Submarine :introSub="introSub" />
-      </div>
-      <div class="octopus clickable" @click="openModal('Test')">
-        <Octopus :introOcto="introOcto" />
-      </div>
-      <div class="shipwreck clickable" @click="openModal('Test')">
-        <ShipWreck :introShip="introShip" />
-      </div>
     </div>
     <div class="ground-container click-through" ref="groundContainer">
       <Ground ref="ground" />
-            <svg-icon
-        class="item platform"
-        name="objects/World_Sea_Platform"
-        width="820px"
-        height="333px"
-      />
     </div>
   </div>
 </template>
 
 <script>
-import Ground from "~/assets/inlinesvg/World_Sea_Ground.svg?inline";
-import OceanScape from "~/assets/inlinesvg/World_Sea_Sea.svg?inline";
+import Ground from "~/assets/inlinesvg/World_Beach_Ground.svg?inline";
 import Sea_Objects from "~/components/backgrounds/sea_objects.js";
 import Sea_Nature from "~/components/backgrounds/sea_nature.js";
 import Sea_Sky from "~/components/backgrounds/sea_sky.js";
-import Submarine from "~/components/Submarine.vue";
-import Octopus from "~/components/Octopus.vue";
-import ShipWreck from "~/components/Shipwreck.vue";
 
 export default {
-  name: "Sea",
+  name: "Beach",
   props: [
     "initialGroundElevationGround",
     "containerOffset",
@@ -89,15 +69,12 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground, OceanScape, Submarine, Octopus, ShipWreck },
+  components: { Ground },
   data() {
     return {
       objects: Sea_Objects,
       sky: Sea_Sky,
       nature: Sea_Nature,
-      introSub: false,
-      introShip: false,
-      introOcto: false
     };
   },
   mounted() {
@@ -113,10 +90,7 @@ export default {
         .getAttribute("viewBox")
         .split(/\s+|,/)[2];
 
-      this.$emit("informheight", { width: totalWidth, container: "sea" });
-    },
-    introduceBottle() {
-      this.$refs.bottle.classList.remove("hidden");
+      this.$emit("informheight", { width: totalWidth, container: "beach" });
     },
     openModal(component) {
       this.$emit("toggleModal", component);
@@ -126,10 +100,6 @@ export default {
     groundSpeed(pixels) {
       this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
-      if (Math.abs(pixels) > 6701) this.introduceBottle();
-      if (Math.abs(pixels) > 8455) this.introSub = true;
-      if (Math.abs(pixels) > 9755) this.introOcto = true;
-      if (Math.abs(pixels) > 11055) this.introShip = true;
     },
     objectSpeed(pixels) {
       if (pixels) {
@@ -148,39 +118,6 @@ export default {
 </script>
 
 <style scoped>
-.bottle {
-  transition: all 895ms ease-out;
-}
 
-.bottle.hidden {
-  margin-bottom: -1100px !important;
-}
 
-.submarine {
-  margin-left: 1711px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-bottom: -350px;
-}
-
-.octopus {
-  margin-left: 3001px;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: -680px;
-}
-
-.shipwreck {
-  margin-left: 4121px;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: -680px;
-}
-
-.platform{
-    position: absolute;
-    margin-bottom: 138px;
-    margin-left: 6104px;
-}
 </style>

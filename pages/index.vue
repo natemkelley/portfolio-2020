@@ -63,12 +63,20 @@ export default {
         { positionX: 6830, positionY: -60 },
         { positionX: 8220, positionY: 16 },
         { positionX: 8880, positionY: -60 },
-        { positionX: 14000, positionY: 125 }
+        { positionX: 12897, positionY: 78 },
+        { positionX: 13234, positionY: 220 },
+        { positionX: 13685, positionY: 221 },
+        { positionX: 13686, positionY: -70 },
+        { positionX: 15997, positionY: 30 },
+        { positionX: 15998, positionY: -10 },
+        { positionX: 24000, positionY: 125 }
       ],
       elevationChangePositionsGround: [
         { positionX: 0, positionY: 0 },
         { positionX: 6830, positionY: 725 },
-        { positionX: 14000, positionY: 125 }
+        { positionX: 13685, positionY: 100 },
+        { positionX: 15998, positionY: 29 },
+        { positionX: 24000, positionY: 125 }
       ],
       height: 0,
       offsetLeft: 0,
@@ -91,7 +99,7 @@ export default {
       this.directionX =
         this.previousScrollPos > window.scrollY ? "left" : "right";
       this.previousScrollPos = window.scrollY;
-      //console.log(this.previousScrollPos)
+      console.log(this.previousScrollPos);
 
       //handle elevation change function which use previous scroll position
       if (this.checkElevationChange) {
@@ -143,8 +151,19 @@ export default {
       this.modalOpen = !this.modalOpen;
     },
     handleUnderwater() {
-      this.underwater =
-        this.previousScrollPos + this.offsetLeft > 6830 ? true : false;
+      let returnVal = false;
+      if (this.previousScrollPos + this.offsetLeft > 6830) {
+        returnVal = true;
+      }
+      if (this.previousScrollPos + this.offsetLeft > 12897 && this.previousScrollPos + this.offsetLeft < 15998) {
+        returnVal = false;
+      }
+      if (this.previousScrollPos + this.offsetLeft > 15998) {
+        returnVal = true;
+      }
+
+      //console.log('underwater',returnVal)
+      this.underwater = returnVal;
     }
   },
   created() {
