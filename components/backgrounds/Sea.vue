@@ -49,11 +49,11 @@
       <div class="submarine clickable float" @click="openModal('Test')">
         <Submarine :introSub="introSub" />
       </div>
-      <div class="octopus clickable" @click="openModal('Test')">
-        <Octopus />
+      <div class="octopus clickable"  @click="openModal('Test')">
+        <Octopus :introOcto="introOcto" />
       </div>
       <div class="shipwreck clickable" @click="openModal('Test')">
-        <ShipWreck />
+        <ShipWreck :introShip="introShip" />
       </div>
     </div>
     <div class="ground-container click-through" ref="groundContainer">
@@ -89,7 +89,9 @@ export default {
       objects: Sea_Objects,
       sky: Sea_Sky,
       nature: Sea_Nature,
-      introSub: false
+      introSub: false,
+            introShip: false,
+            introOcto: false,
     };
   },
   mounted() {
@@ -118,8 +120,10 @@ export default {
     groundSpeed(pixels) {
       this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
-      if (Math.abs(pixels) > 6741) this.introduceBottle();
+      if (Math.abs(pixels) > 6701) this.introduceBottle();
       if (Math.abs(pixels) > 8455) this.introSub = true;
+            if (Math.abs(pixels) > 9755) this.introOcto = true;
+      if (Math.abs(pixels) > 11055) this.introShip = true;
     },
     objectSpeed(pixels) {
       if (pixels) {
