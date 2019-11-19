@@ -118,7 +118,7 @@ export default {
             "complete jump",
             -parseInt(anim.animations[0].currentValue)
           );
-          console.log(backup + " <----> " + this.newElevation);
+          console.log(backup + " <----> " + this.newElevation,"xxxxx",-parseInt(anim.animations[0].currentValue),backup);
           if (-parseInt(anim.animations[0].currentValue) <= backup) {
             if (
               backup === NaN ||
