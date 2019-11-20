@@ -18,5 +18,19 @@ module.exports = [
     posY: -595,
     height: 230,
     width: 196
+  },
+  {
+    name: "World_Sea_Plant1",
+    posX: 2393,
+    posY: -665,
+    height: 230,
+    width: 196
+  },
+  {
+    name: "World_Sea_SeaPlant",
+    posX: 3850,
+    posY: -665,
+    height: 230,
+    width: 196
   }
 ];

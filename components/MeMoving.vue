@@ -113,21 +113,9 @@ export default {
           console.log("start jump", -parseInt(anim.animations[0].currentValue));
         },
         complete: anim => {
-          let jumpedHeight = -parseInt(anim.animations[0].currentValue);
-          console.log(
-            "complete jump",
-            -parseInt(anim.animations[0].currentValue)
-          );
-          console.log(backup + " <----> " + this.newElevation,"xxxxx",-parseInt(anim.animations[0].currentValue),backup);
-          if (-parseInt(anim.animations[0].currentValue) <= backup) {
-            if (
-              backup === NaN ||
-              backup === -parseInt(anim.animations[0].currentValue)
-            ) {
-              alert('nan')
-            } else {
+          console.log('end jump',-parseInt(anim.animations[0].currentValue),backup);
+          if (Math.abs(-parseInt(anim.animations[0].currentValue)) < Math.abs(backup)) {
               this.startJump();
-            }
           } else {
             this.startFall();
           }

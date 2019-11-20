@@ -57,8 +57,20 @@
       </div>
     </div>
     <div class="ground-container click-through" ref="groundContainer">
+      <svg-icon
+        class="item dune"
+        :name="'objects/World_Beach_Dune'"
+        width="889"
+        height="1016"
+      />
+      <svg-icon
+        class="item boardwalk"
+        :name="'objects/World_Beach_Boardwalk'"
+        width="889"
+        height="1016"
+      />
       <Ground ref="ground" />
-            <svg-icon
+      <svg-icon
         class="item platform"
         name="objects/World_Sea_Platform"
         width="820px"
@@ -178,9 +190,21 @@ export default {
   margin-bottom: -680px;
 }
 
-.platform{
-    position: absolute;
-    margin-bottom: 138px;
-    margin-left: 6104px;
+.platform {
+  position: absolute;
+  margin-bottom: 138px;
+  margin-left: 6104px;
+}
+
+.dune {
+  position: absolute;
+  margin-bottom: -79px;
+  margin-left: 6213px;
+}
+
+.boardwalk {
+  position: absolute;
+  margin-bottom: 20px;
+  margin-left: 6253px;
 }
 </style>

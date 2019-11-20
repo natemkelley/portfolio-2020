@@ -4,7 +4,7 @@
     ref="area"
     :style="`transform:translateX(${this.containerOffset}px)`"
   >
-    <div class="ground-container" ref="seaContainer">
+    <div class="ground-container" ref="beachContainer">
     </div>
     <div class="sky-container" ref="sky">
       <svg-icon
@@ -54,9 +54,9 @@
 
 <script>
 import Ground from "~/assets/inlinesvg/World_Beach_Ground.svg?inline";
-import Sea_Objects from "~/components/backgrounds/sea_objects.js";
-import Sea_Nature from "~/components/backgrounds/sea_nature.js";
-import Sea_Sky from "~/components/backgrounds/sea_sky.js";
+import Sea_Objects from "~/components/backgrounds/beach_objects.js";
+import Sea_Nature from "~/components/backgrounds/beach_nature.js";
+import Sea_Sky from "~/components/backgrounds/beach_sky.js";
 
 export default {
   name: "Beach",
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     initLayers() {
-      this.$refs.seaContainer.style.marginBottom =
+      this.$refs.beachContainer.style.marginBottom =
         this.initialGroundElevationGround + "px";
       this.$refs.groundContainer.style.marginBottom =
         this.initialGroundElevationGround + "px";
@@ -98,7 +98,7 @@ export default {
   },
   watch: {
     groundSpeed(pixels) {
-      this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
+      this.$refs.beachContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
     },
     objectSpeed(pixels) {
