@@ -1,10 +1,10 @@
 module.exports = [
     {
-      name: "World_Sea_Coral1",
-      posX: -154,
-      posY: -675,
-      height: 309,
-      width: 193
+      name: "World_Beach_Coconut",
+      posX: -170,
+      posY: -36,
+      height: 47,
+      width: 51
     }
   ];
   

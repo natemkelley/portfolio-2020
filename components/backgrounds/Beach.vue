@@ -4,8 +4,7 @@
     ref="area"
     :style="`transform:translateX(${this.containerOffset}px)`"
   >
-    <div class="ground-container" ref="beachContainer">
-    </div>
+    <div class="ground-container" ref="beachContainer"></div>
     <div class="sky-container" ref="sky">
       <svg-icon
         v-for="(object, n) in sky"
@@ -36,27 +35,45 @@
       />
     </div>
     <div class="interactive-container" ref="interactive">
-      <svg-icon
-        class="item float bottle hidden clickable"
-        name="objects/World_Sea_CokeBottle"
-        :style="{ marginLeft: '-18px', marginBottom: '-709px' }"
-        height="570"
-        width="266"
-        ref="bottle"
-        @click="openModal('CocaCola')"
-      />
+      <div @click="openModal('Test')">
+        <Lighthouse
+          class="item clickable"
+          :style="{ marginLeft: '-1020px', marginBottom: '-55px' }"
+        />
+      </div>
+      <div class="item clickable" @click="openModal('Test')">
+        <Scoreboard
+          class="item clickable"
+          :style="{ marginLeft: '-34px', marginBottom: '-97px' }"
+        />
+      </div>
+      <div class="item clickable" @click="openModal('Test')">
+        <Scoreboard
+          class="item clickable"
+          :style="{ marginLeft: '-34px', marginBottom: '-97px' }"
+        />
+      </div>
+            <div class="item clickable" @click="openModal('Test')">
+        <House
+          class="item clickable"
+          :style="{ marginLeft: '839px', marginBottom: '-141px' }"
+        />
+      </div>
     </div>
     <div class="ground-container click-through" ref="groundContainer">
-      <Ground ref="ground" />
+      <img src="@/assets/inlinesvg/World_Beach_Ground.png" ref="ground" />
     </div>
   </div>
 </template>
 
 <script>
-import Ground from "~/assets/inlinesvg/World_Beach_Ground.svg?inline";
+//import Ground from "~/assets/inlinesvg/World_Beach_Ground.png";
 import Sea_Objects from "~/components/backgrounds/beach_objects.js";
 import Sea_Nature from "~/components/backgrounds/beach_nature.js";
 import Sea_Sky from "~/components/backgrounds/beach_sky.js";
+import Lighthouse from "~/components/Lighthouse.vue";
+import Scoreboard from "~/components/Scoreboard.vue";
+import House from "~/components/House.vue";
 
 export default {
   name: "Beach",
@@ -69,12 +86,12 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground },
+  components: { Lighthouse, Scoreboard, House },
   data() {
     return {
       objects: Sea_Objects,
       sky: Sea_Sky,
-      nature: Sea_Nature,
+      nature: Sea_Nature
     };
   },
   mounted() {
@@ -86,11 +103,16 @@ export default {
         this.initialGroundElevationGround + "px";
       this.$refs.groundContainer.style.marginBottom =
         this.initialGroundElevationGround + "px";
-      let totalWidth = this.$refs.ground
-        .getAttribute("viewBox")
-        .split(/\s+|,/)[2];
 
-      this.$emit("informheight", { width: totalWidth, container: "beach" });
+      var src = this.$refs.ground.src;
+      var img = new Image();
+      img.onload = () => {
+        var height = img.height;
+        var width = img.width;
+        console.log("xxxx", height, width);
+        this.$emit("informheight", { width: width, container: "beach" });
+      };
+      img.src = src;
     },
     openModal(component) {
       this.$emit("toggleModal", component);
@@ -117,7 +139,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>

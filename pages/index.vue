@@ -67,16 +67,16 @@ export default {
         { positionX: 13234, positionY: 220 },
         { positionX: 13685, positionY: 221 },
         { positionX: 13686, positionY: -70 },
-        { positionX: 15997, positionY: 30 },
-        { positionX: 15998, positionY: -10 },
+        { positionX: 16000, positionY: 30 },
+        { positionX: 16001, positionY: -10 },
         { positionX: 24000, positionY: 125 }
       ],
       elevationChangePositionsGround: [
         { positionX: 0, positionY: 0 },
         { positionX: 6830, positionY: 725 },
         { positionX: 13685, positionY: 100 },
-        { positionX: 15998, positionY: 29 },
-        { positionX: 24000, positionY: 125 }
+        { positionX: 16001, positionY: 29 },
+        { positionX: 17955, positionY: 125 }
       ],
       height: 0,
       offsetLeft: 0,
