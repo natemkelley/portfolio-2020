@@ -45,6 +45,7 @@
         <Scoreboard
           class="item clickable"
           :style="{ marginLeft: '-166px', marginBottom: '-97px' }"
+          :introScoreboard="introScoreboard"
         />
       </div>
       <div class="item clickable" @click="openModal('Test')">
@@ -85,7 +86,8 @@ export default {
     return {
       objects: Sea_Objects,
       sky: Sea_Sky,
-      nature: Sea_Nature
+      nature: Sea_Nature,
+      introScoreboard: false
     };
   },
   mounted() {
@@ -116,6 +118,10 @@ export default {
     groundSpeed(pixels) {
       this.$refs.beachContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
+      console.log('pixels',pixels)
+      if(Math.abs(pixels)>14200){
+        this.introScoreboard = true;
+      }
     },
     objectSpeed(pixels) {
       if (pixels) {
