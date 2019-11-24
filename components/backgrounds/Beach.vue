@@ -38,25 +38,19 @@
       <div @click="openModal('Test')">
         <Lighthouse
           class="item clickable"
-          :style="{ marginLeft: '-1020px', marginBottom: '-55px' }"
+          :style="{ marginLeft: '-1099px', marginBottom: '-55px' }"
         />
       </div>
       <div class="item clickable" @click="openModal('Test')">
         <Scoreboard
           class="item clickable"
-          :style="{ marginLeft: '-34px', marginBottom: '-97px' }"
+          :style="{ marginLeft: '-166px', marginBottom: '-97px' }"
         />
       </div>
       <div class="item clickable" @click="openModal('Test')">
-        <Scoreboard
-          class="item clickable"
-          :style="{ marginLeft: '-34px', marginBottom: '-97px' }"
-        />
-      </div>
-            <div class="item clickable" @click="openModal('Test')">
         <House
           class="item clickable"
-          :style="{ marginLeft: '839px', marginBottom: '-141px' }"
+          :style="{ marginLeft: '735px', marginBottom: '-141px' }"
         />
       </div>
     </div>
