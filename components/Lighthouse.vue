@@ -19,7 +19,7 @@ export default {
   },
   mounted(){
     this.$refs.lighthouse.querySelector(".lighthole").style.opacity = 1;
-    this.$refs.lighthouse.querySelector(".lighthole").style.transition="opacity 0.5s";
+    this.$refs.lighthouse.querySelector(".lighthole").style.transition="opacity 0.35s";
   },
   methods: {
     toggleLight() {
@@ -50,7 +50,7 @@ export default {
 
       anime({
         targets: this.$refs.lighthouse.querySelector(".lighthole"),
-        translateX: [106, -6],
+        translateX: [108, -8],
         easing: "easeInOutQuad",
         loop: true,
         duration: 4000,

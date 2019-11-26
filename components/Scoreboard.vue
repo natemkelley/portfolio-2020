@@ -35,13 +35,13 @@ export default {
   },
   mounted() {
     var alt = false;
-    /*setInterval(() => {
+    setInterval(() => {
       var src = alt ? BYU : College;
       if (src != undefined) {
         this.$refs.text.src = src;
         alt = !alt;
       }
-    }, 2650);*/
+    }, 2650);
   },
   methods: {
     introduceBall() {
