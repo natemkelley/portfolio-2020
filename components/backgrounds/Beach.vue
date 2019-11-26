@@ -4,7 +4,9 @@
     ref="area"
     :style="`transform:translateX(${this.containerOffset}px)`"
   >
-    <div class="ground-container" ref="beachContainer"></div>
+    <div class="ground-container" ref="beachContainer">
+      <JungleScape :style="{ marginLeft: '3525px', marginBottom: '630px' }" />
+    </div>
     <div class="sky-container" ref="sky">
       <svg-icon
         v-for="(object, n) in sky"
@@ -18,8 +20,22 @@
           marginBottom: object.posY + 'px'
         }"
       />
+      <Canopy :style="{ marginLeft: '-705px', marginBottom: '456px' }" />
     </div>
-    <div class="nature-container" ref="nature"></div>
+    <div class="nature-container" ref="nature">
+      <svg-icon
+        v-for="(object, n) in nature"
+        class="item"
+        :name="'objects/' + object.name"
+        :width="object.width"
+        :height="object.height"
+        :key="object.name + '_beachNature' + '_' + n"
+        :style="{
+          marginLeft: object.posX + 'px',
+          marginBottom: object.posY + 'px'
+        }"
+      />
+    </div>
     <div class="objects-container" ref="objects">
       <svg-icon
         v-for="(object, n) in objects"
@@ -39,19 +55,20 @@
         <Lighthouse
           class="item clickable"
           :style="{ marginLeft: '-1099px', marginBottom: '-55px' }"
+          :introLighthouse="introLighthouse"
         />
       </div>
       <div class="item clickable" @click="openModal('Test')">
         <Scoreboard
           class="item clickable"
-          :style="{ marginLeft: '-166px', marginBottom: '-97px' }"
+          :style="{ marginLeft: '56px', marginBottom: '-97px' }"
           :introScoreboard="introScoreboard"
         />
       </div>
       <div class="item clickable" @click="openModal('Test')">
         <House
           class="item clickable"
-          :style="{ marginLeft: '735px', marginBottom: '-141px' }"
+          :style="{ marginLeft: '1735px', marginBottom: '-141px' }"
         />
       </div>
     </div>
@@ -69,6 +86,8 @@ import Sea_Sky from "~/components/backgrounds/beach_sky.js";
 import Lighthouse from "~/components/Lighthouse.vue";
 import Scoreboard from "~/components/Scoreboard.vue";
 import House from "~/components/House.vue";
+import JungleScape from "~/assets/inlinesvg/World_Beach_Jungle.svg?inline";
+import Canopy from "~/assets/inlinesvg/World_Beach_Canopy.svg?inline";
 
 export default {
   name: "Beach",
@@ -81,13 +100,14 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Lighthouse, Scoreboard, House },
+  components: { Lighthouse, Scoreboard, House, JungleScape, Canopy },
   data() {
     return {
       objects: Sea_Objects,
       sky: Sea_Sky,
       nature: Sea_Nature,
-      introScoreboard: false
+      introScoreboard: false,
+      introLighthouse: false
     };
   },
   mounted() {
@@ -105,7 +125,6 @@ export default {
       img.onload = () => {
         var height = img.height;
         var width = img.width;
-        console.log("xxxx", height, width);
         this.$emit("informheight", { width: width, container: "beach" });
       };
       img.src = src;
@@ -118,9 +137,11 @@ export default {
     groundSpeed(pixels) {
       this.$refs.beachContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
-      console.log('pixels',pixels)
-      if(Math.abs(pixels)>14200){
+      if (Math.abs(pixels) > 14060) {
         this.introScoreboard = true;
+      }
+      if (Math.abs(pixels) > 13000) {
+        this.introLighthouse = true;
       }
     },
     objectSpeed(pixels) {

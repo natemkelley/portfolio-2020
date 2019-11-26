@@ -67,16 +67,16 @@ export default {
         { positionX: 13234, positionY: 220 },
         { positionX: 13685, positionY: 221 },
         { positionX: 13686, positionY: -70 },
-        { positionX: 16000, positionY: 30 },
-        { positionX: 16001, positionY: -10 },
+        { positionX: 17150, positionY: 30 },
+        { positionX: 17151, positionY: -10 },
         { positionX: 24000, positionY: 125 }
       ],
       elevationChangePositionsGround: [
         { positionX: 0, positionY: 0 },
         { positionX: 6830, positionY: 725 },
         { positionX: 13685, positionY: 100 },
-        { positionX: 16001, positionY: 29 },
-        { positionX: 17955, positionY: 125 }
+        { positionX: 17151, positionY: 29 },
+        { positionX: 27955, positionY: 125 }
       ],
       height: 0,
       offsetLeft: 0,
@@ -99,7 +99,7 @@ export default {
       this.directionX =
         this.previousScrollPos > window.scrollY ? "left" : "right";
       this.previousScrollPos = window.scrollY;
-      console.log(this.previousScrollPos);
+      //console.log(this.previousScrollPos);
 
       //handle elevation change function which use previous scroll position
       if (this.checkElevationChange) {

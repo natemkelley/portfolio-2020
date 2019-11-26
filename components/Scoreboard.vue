@@ -1,7 +1,9 @@
 <template>
   <div>
-    <svg-icon name="objects/World_Beach_Board" height="760" width="576" />
-    <img class="text" ref="text" :src="textsrc" />
+    <div class="scoreboard">
+      <svg-icon name="objects/World_Beach_Board" height="760" width="576" />
+      <img class="text" ref="text" :src="textsrc" />
+    </div>
     <svg-icon
       class="net"
       name="objects/World_Beach_Net"
@@ -21,7 +23,7 @@
 <script>
 import BYU from "@/assets/World_Beach_BYU.png";
 import College from "@/assets/World_Beach_College.png";
-import anime from 'animejs';
+import anime from "animejs";
 
 export default {
   name: "Scoreboard",
@@ -33,24 +35,26 @@ export default {
   },
   mounted() {
     var alt = false;
-    setInterval(() => {
-      this.$refs.text.src = alt ? BYU : College;
-      alt = !alt;
-    }, 2650);
+    /*setInterval(() => {
+      var src = alt ? BYU : College;
+      if (src != undefined) {
+        this.$refs.text.src = src;
+        alt = !alt;
+      }
+    }, 2650);*/
   },
   methods: {
     introduceBall() {
       var x = this.$refs.ball;
-            console.log(x);
-    anime({
-      targets: this.$refs.ball,
-      marginLeft: [0,-600],
-      rotate:['790deg','0deg'],
-      easing: "easeInOutQuad",
-      loop: false,
-      duration: 4100,
-      direction: "alternate"
-    });
+      anime({
+        targets: this.$refs.ball,
+        marginLeft: [675, 45],
+        rotate: ["790deg", "2deg"],
+        easing: "easeInOutQuad",
+        loop: false,
+        duration: 4100,
+        direction: "alternate"
+      });
     }
   },
   watch: {
@@ -62,6 +66,10 @@ export default {
 </script>
 
 <style scoped>
+.scoreboard {
+  transform: scale(0.91);
+  margin-bottom: -23px;
+}
 .text {
   position: absolute;
   margin-left: -540px;
@@ -73,12 +81,13 @@ export default {
   position: absolute;
   bottom: 0;
   margin-bottom: 46.5px;
+  margin-left: 675px;
 }
 
 .net {
   position: absolute;
   bottom: 0;
-  margin-bottom: -45px;
-  margin-left: -165px;
+  margin-bottom: -65px;
+  margin-left: 399px;
 }
 </style>

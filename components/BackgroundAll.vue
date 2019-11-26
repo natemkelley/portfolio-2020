@@ -27,6 +27,7 @@
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="beachOffset"
         :groundSpeed="groundSpeed"
+        :natureSpeed="natureSpeed"
         :objectSpeed="objectSpeed"
         :skySpeed="skySpeed"
         @informheight="calculateAndEmitPageHeight"
@@ -67,7 +68,7 @@ export default {
       activeLayers: {
         grass: true,
         sea: true,
-        beach:true
+        beach: true
       }
     };
   },
@@ -136,8 +137,10 @@ export default {
         this.checkingActiveLayers = true;
         setTimeout(() => {
           var clientWidthTimes2 = document.body.clientWidth * 2;
+          var runningWidth = 0;
           for (let index = 0; index < this.containerOffsets.length; index++) {
             var active = false;
+            //check initial frame
             if (index === 0) {
               if (
                 this.previousScrollPos >= 0 &&
@@ -147,30 +150,33 @@ export default {
                 active = true;
               }
             } else {
+              //console.log(this.containerOffsets[index].container,this.previousScrollPos,runningWidth - clientWidthTimes2,Number(runningWidth + Number(this.containerOffsets[index].width) + clientWidthTimes2))
               if (
                 this.previousScrollPos >=
-                  (this.containerOffsets[index - 1].width || 0) &&
+                  (runningWidth - clientWidthTimes2 || 0) &&
                 this.previousScrollPos <=
-                  Number(this.containerOffsets[index].width) + clientWidthTimes2
+                  Number(runningWidth + Number(this.containerOffsets[index].width) + clientWidthTimes2)
               ) {
                 active = true;
               }
             }
 
-            if (index > 0) {
+            if (index > 0 && active != true) {
               if (
-                this.previousScrollPos + clientWidthTimes2 >
-                (Number(this.containerOffsets[index - 1].width) ||
-                  document.body.clientHeight)
+                this.previousScrollPos > runningWidth &&
+                this.previousScrollPos <
+                  Number(runningWidth + Number(this.containerOffsets[index].width))
               ) {
                 active = true;
               }
             }
 
+            runningWidth += Number(this.containerOffsets[index].width);
             this.activeLayers[this.containerOffsets[index].container] = active;
           }
+          //console.log(this.activeLayers);
           this.checkingActiveLayers = false;
-        }, 250);
+        }, 500);
       }
     }
   },
@@ -204,6 +210,8 @@ export default {
     }
   }
 };
+
+
 </script>
 
 <style>

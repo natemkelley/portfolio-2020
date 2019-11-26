@@ -110,10 +110,10 @@ export default {
         duration: 350,
         begin: anim => {
           this.position = "jumping";
-          console.log("start jump", -parseInt(anim.animations[0].currentValue));
+          //console.log("start jump", -parseInt(anim.animations[0].currentValue));
         },
         complete: anim => {
-          console.log('end jump',-parseInt(anim.animations[0].currentValue),backup);
+          //console.log('end jump',-parseInt(anim.animations[0].currentValue),backup);
           if (Math.abs(-parseInt(anim.animations[0].currentValue)) < Math.abs(backup)) {
               this.startJump();
           } else {
@@ -132,14 +132,11 @@ export default {
         delay: 50,
         begin: anim => {
           this.position = "falling";
-          console.log("start fall", -parseInt(anim.animations[0].currentValue));
+          //console.log("start fall", -parseInt(anim.animations[0].currentValue));
         },
         complete: anim => {
           this.elevationChanging = false;
-          console.log(
-            "complete fall",
-            -parseInt(anim.animations[0].currentValue)
-          );
+          //console.log( "complete fall",-parseInt(anim.animations[0].currentValue));
           setTimeout(() => {
             this.moving();
           }, 150);
@@ -147,7 +144,7 @@ export default {
       });
     },
     handleElevationChange(newElevation, oldElevation) {
-      console.log("newel", newElevation, "oldel", oldElevation);
+      //console.log("newel", newElevation, "oldel", oldElevation);
       if (!this.elevationChanging) {
         if (newElevation < 0 && oldElevation < 0) {
           if (newElevation < oldElevation) {
@@ -179,7 +176,7 @@ export default {
     },
     groundElevation(newVal, oldVal) {
       this.newElevation = newVal;
-      console.log("this.newElevation", this.newElevation);
+      //console.log("this.newElevation", this.newElevation);
       this.handleElevationChange(newVal, oldVal);
     }
   }
