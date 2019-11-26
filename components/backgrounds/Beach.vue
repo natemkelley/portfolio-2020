@@ -71,6 +71,12 @@
           :style="{ marginLeft: '1735px', marginBottom: '-141px' }"
         />
       </div>
+            <div class="item clickable" @click="openModal('Test')">
+        <Temple
+          class="item clickable"
+          :style="{ marginLeft: '2999px', marginBottom: '-50px' }"
+        />
+      </div>
     </div>
     <div class="ground-container click-through" ref="groundContainer">
       <img src="@/assets/inlinesvg/World_Beach_Ground.png" ref="ground" />
@@ -88,6 +94,7 @@ import Scoreboard from "~/components/Scoreboard.vue";
 import House from "~/components/House.vue";
 import JungleScape from "~/assets/inlinesvg/World_Beach_Jungle.svg?inline";
 import Canopy from "~/assets/inlinesvg/World_Beach_Canopy.svg?inline";
+import Temple from "~/components/Temple.vue";
 
 export default {
   name: "Beach",
@@ -100,7 +107,7 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Lighthouse, Scoreboard, House, JungleScape, Canopy },
+  components: { Lighthouse, Scoreboard, House, JungleScape, Canopy, Temple },
   data() {
     return {
       objects: Sea_Objects,

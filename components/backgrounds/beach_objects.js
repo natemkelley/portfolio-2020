@@ -13,5 +13,61 @@ module.exports = [
       height: 221,
       width: 269
     }, 
+    {
+      name: "World_Beach_Fern1",
+      posX: 2515,
+      posY: 37,
+      height: 221,
+      width: 269
+    }, 
+    {
+      name: "World_Beach_Fern3",
+      posX: 2999,
+      posY: 37,
+      height: 221,
+      width: 269
+    }, 
+    {
+      name: "World_Beach_Fern1",
+      posX: 3785,
+      posY: 50,
+      height: 221,
+      width: 269
+    }, 
+    {
+      name: "World_Beach_Fern4",
+      posX: 4599,
+      posY: 47,
+      height: 221,
+      width: 269
+    }, 
+    {
+      name: "World_Beach_Fern3",
+      posX: 4899,
+      posY: 37,
+      height: 221,
+      width: 269
+    }, 
+    {
+      name: "World_Beach_Fern1",
+      posX: 5899,
+      posY: 37,
+      height: 221,
+      width: 269
+    },
+    {
+      name: "World_Grass_Deer",
+      posX: 2779,
+      posY: 66,
+      height: 321,
+      width: 369
+    },
+    {
+      name: "World_Grass_Raccoon",
+      posX: 4399,
+      posY: 97,
+      height: 161,
+      width: 169
+    }
   ];
   

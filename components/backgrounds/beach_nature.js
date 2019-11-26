@@ -1,24 +1,24 @@
 module.exports = [
   {
     name: "World_Beach_Palm1",
-    posX: -878,
+    posX: -999,
     posY: -72,
-    height: 334,
-    width: 273
+    height: 434,
+    width: 473
   },
   {
     name: "World_Beach_Palm1",
     posX: 154,
     posY: -72,
-    height: 334,
-    width: 273
+    height: 534,
+    width: 473
   },
   {
     name: "World_Beach_Palm2",
     posX: 694,
-    posY: -92,
-    height: 356,
-    width: 278
+    posY: -132,
+    height: 556,
+    width: 578
   },
   {
     name: "World_Beach_Palm2",
@@ -29,9 +29,23 @@ module.exports = [
   },
   {
     name: "World_Beach_Palm1",
-    posX: 1849,
+    posX: 2849,
     posY: 12,
-    height: 334,
-    width: 273
+    height: 634,
+    width: 673
+  },
+  {
+    name: "World_Beach_Palm2",
+    posX: 3549,
+    posY: 12,
+    height: 634,
+    width: 673
+  },
+  {
+    name: "World_Beach_Palm1",
+    posX: 4549,
+    posY: 12,
+    height: 534,
+    width: 573
   },
 ];

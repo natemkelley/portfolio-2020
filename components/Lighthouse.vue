@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     toggleLight() {
-      console.log("toggling",this.$refs.lighthouse.querySelector(".lighthole").style.opacity);
+      //console.log("toggling",this.$refs.lighthouse.querySelector(".lighthole").style.opacity);
       if (
         this.toggleLightVal
       ) {
