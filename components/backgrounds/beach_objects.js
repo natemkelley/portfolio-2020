@@ -64,7 +64,7 @@ module.exports = [
     },
     {
       name: "World_Grass_Raccoon",
-      posX: 4399,
+      posX: 4189,
       posY: 97,
       height: 161,
       width: 169

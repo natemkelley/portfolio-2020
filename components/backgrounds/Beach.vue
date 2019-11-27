@@ -74,8 +74,14 @@
       <div class="item clickable" @click="openModal('Test')">
         <Temple
           class="item clickable"
-                    :introGod="introGod"
+          :introGod="introGod"
           :style="{ marginLeft: '3099px', marginBottom: '-50px' }"
+        />
+      </div>
+      <div class="item clickable" @click="openModal('Test')">
+        <Pig
+          class="item clickable"
+          :style="{ marginLeft: '4329px', marginBottom: '-80px' }"
         />
       </div>
     </div>
@@ -96,6 +102,7 @@ import House from "~/components/House.vue";
 import JungleScape from "~/assets/inlinesvg/World_Beach_Jungle.svg?inline";
 import Canopy from "~/assets/inlinesvg/World_Beach_Canopy.svg?inline";
 import Temple from "~/components/Temple.vue";
+import Pig from "~/components/Pig.vue";
 
 export default {
   name: "Beach",
@@ -108,7 +115,15 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Lighthouse, Scoreboard, House, JungleScape, Canopy, Temple },
+  components: {
+    Lighthouse,
+    Scoreboard,
+    House,
+    JungleScape,
+    Canopy,
+    Temple,
+    Pig
+  },
   data() {
     return {
       objects: Sea_Objects,
@@ -152,8 +167,8 @@ export default {
       if (Math.abs(pixels) > 13000) {
         this.introLighthouse = true;
       }
-      console.log(pixels)
-      if (Math.abs(pixels) > 17700) {
+      console.log(pixels);
+      if (Math.abs(pixels) > 17810) {
         this.introGod = true;
       }
     },
