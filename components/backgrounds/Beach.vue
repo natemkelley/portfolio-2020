@@ -71,10 +71,11 @@
           :style="{ marginLeft: '1735px', marginBottom: '-141px' }"
         />
       </div>
-            <div class="item clickable" @click="openModal('Test')">
+      <div class="item clickable" @click="openModal('Test')">
         <Temple
           class="item clickable"
-          :style="{ marginLeft: '2999px', marginBottom: '-50px' }"
+                    :introGod="introGod"
+          :style="{ marginLeft: '3099px', marginBottom: '-50px' }"
         />
       </div>
     </div>
@@ -87,7 +88,7 @@
 <script>
 //import Ground from "~/assets/inlinesvg/World_Beach_Ground.png";
 import Sea_Objects from "~/components/backgrounds/beach_objects.js";
-import Sea_Nature from "~/components/backgrounds/beach_nature.js";
+import Sea_Nature from "~/components/backgrounds/beach_nature2.js";
 import Sea_Sky from "~/components/backgrounds/beach_sky.js";
 import Lighthouse from "~/components/Lighthouse.vue";
 import Scoreboard from "~/components/Scoreboard.vue";
@@ -114,7 +115,8 @@ export default {
       sky: Sea_Sky,
       nature: Sea_Nature,
       introScoreboard: false,
-      introLighthouse: false
+      introLighthouse: false,
+      introGod: false
     };
   },
   mounted() {
@@ -149,6 +151,10 @@ export default {
       }
       if (Math.abs(pixels) > 13000) {
         this.introLighthouse = true;
+      }
+      console.log(pixels)
+      if (Math.abs(pixels) > 17700) {
+        this.introGod = true;
       }
     },
     objectSpeed(pixels) {

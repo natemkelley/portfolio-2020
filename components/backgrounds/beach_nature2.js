@@ -22,10 +22,10 @@ module.exports = [
   },
   {
     name: "World_Beach_Palm2",
-    posX: 1694,
+    posX: 1524,
     posY: 13,
-    height: 356,
-    width: 278
+    height: 456,
+    width: 478
   },
   {
     name: "World_Beach_Palm1",
