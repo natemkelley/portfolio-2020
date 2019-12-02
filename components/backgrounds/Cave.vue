@@ -4,10 +4,10 @@
     ref="area"
     :style="`transform:translateX(${this.containerOffset}px)`"
   >
-    <div class="ground-container" ref="seaContainer">
-      <div class="cavescape" />
-      <div class="cavescapetop" />
-      <Lights class="lights" />
+    <div class="ground-container click-through" ref="seaContainer">
+      <div class="cavescape click-through" />
+      <div class="cavescapetop click-through" />
+      <Lights :introBulb="introBulb" class="lights" />
     </div>
     <div class="nature-container" ref="nature">
       <svg-icon
@@ -38,9 +38,13 @@
       />
     </div>
     <div class="interactive-container" ref="interactive">
-        <Carts class="carts" />
+      <Carts
+        @click="openModal('Test')"
+        @openModal="openModal"
+        class="clickable carts"
+      />
     </div>
-    <div class="ground-container click-through" ref="groundContainer">
+    <div class="ground-container" ref="groundContainer">
       <svg-icon
         class="enttop"
         name="objects/World_Cave_EntraceTop"
@@ -72,8 +76,8 @@
 
 <script>
 import Ground from "~/assets/inlinesvg/World_Cave_Ground.svg?inline";
-import Cave_Objects from "~/components/backgrounds/sea_objects.js";
-import Cave_Nature from "~/components/backgrounds/cave_nature.js";
+import Cave_Objects from "~/components/backgrounds/cave_objects.js";
+import Cave_Nature from "~/components/backgrounds/cave_nature2.js";
 import Lights from "~/components/Lights.vue";
 import Carts from "~/components/Carts.vue";
 
@@ -88,11 +92,12 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground, Lights,Carts },
+  components: { Ground, Lights, Carts },
   data() {
     return {
       objects: Cave_Objects,
-      nature: Cave_Nature
+      nature: Cave_Nature,
+      introBulb: false
     };
   },
   mounted() {
@@ -118,6 +123,10 @@ export default {
     groundSpeed(pixels) {
       this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
+      console.log(Math.abs(pixels));
+      if (Math.abs(pixels) > 21400) {
+        this.introBulb = true;
+      }
     },
     objectSpeed(pixels) {
       if (pixels) {
@@ -157,12 +166,13 @@ export default {
   bottom: 0;
   margin-bottom: 633px;
   margin-left: -324px;
+  z-index: 100;
 }
 
 .top {
   position: absolute;
   bottom: 0;
-  margin-bottom: 830px;
+  margin-bottom: 903px;
   margin-left: 374px;
 }
 
@@ -185,13 +195,18 @@ export default {
 .lights {
   position: absolute;
   bottom: 0;
-  margin-bottom: 1050px;
-  margin-left: 500px;
+  margin-bottom: 891px;
+  margin-left: 808px;
 }
 .carts {
     position: absolute;
     bottom: 0;
-    margin-bottom: 250px;
-    margin-left: -1000px;
+    margin-bottom: 90px;
+    margin-left: -1090px;
+    z-index: 1;
+}
+
+.interactive-container{
+      z-index: 1;
 }
 </style>

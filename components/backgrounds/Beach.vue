@@ -168,7 +168,7 @@ export default {
       if (Math.abs(pixels) > 13000) {
         this.introLighthouse = true;
       }
-      console.log(pixels);
+      //console.log(pixels);
       if (Math.abs(pixels) > 17810) {
         this.introGod = true;
       }
