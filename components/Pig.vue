@@ -54,6 +54,7 @@
     />
     <div class="fire">
       <Fire />
+      <svg-icon name="objects/World_Beach_Wood" class="wood" width="200" height="100" />
     </div>
   </div>
 </template>
@@ -72,16 +73,23 @@ export default {
   position: absolute;
   bottom: 0;
 }
-.fire{
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 356px;
-    margin-left: 965px;
+.fire {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 356px;
+  margin-left: 965px;
 }
 
 .sceneobj {
   position: absolute;
   bottom: 0;
   margin-bottom: 50px;
+}
+
+.wood{
+position: absolute;
+    margin-bottom: -200px;
+    margin-left: 36px;
+    bottom: 0;
 }
 </style>

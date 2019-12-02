@@ -33,6 +33,17 @@
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
+      <Cave
+        v-if="activeLayers.cave"
+        :initialGroundElevationGround="initialGroundElevationGround"
+        :containerOffset="caveOffset"
+        :groundSpeed="groundSpeed"
+        :natureSpeed="natureSpeed"
+        :objectSpeed="objectSpeed"
+        :skySpeed="skySpeed"
+        @informheight="calculateAndEmitPageHeight"
+        @toggleModal="toggleModal"
+      />
     </div>
   </div>
 </template>
@@ -42,6 +53,7 @@ import anime from "animejs";
 import Grass from "~/components/backgrounds/Grass.vue";
 import Sea from "~/components/backgrounds/Sea.vue";
 import Beach from "~/components/backgrounds/Beach.vue";
+import Cave from "~/components/backgrounds/Cave.vue";
 
 /*
 Sky Svg needs to be 1/6 the size of ground
@@ -52,7 +64,7 @@ immediateRatio need to be 1/1
 
 export default {
   name: "BackgroundAll",
-  components: { Grass, Sea, Beach },
+  components: { Grass, Sea, Beach, Cave },
   data() {
     return {
       totalPageHeight: 0,
@@ -68,7 +80,8 @@ export default {
       activeLayers: {
         grass: true,
         sea: true,
-        beach: true
+        beach: true,
+        cave: true
       }
     };
   },
@@ -86,6 +99,7 @@ export default {
       if (!checkIfObjExist(newHeightObj, this.containerOffsets)) {
         this.containerOffsets.push(newHeightObj);
         this.totalPageHeight += Number(newHeightObj.width) || 0;
+        //console.log(newHeightObj.width, newHeightObj.container);
         this.$emit("informheight", this.totalPageHeight);
       }
 
@@ -137,44 +151,45 @@ export default {
         this.checkingActiveLayers = true;
         setTimeout(() => {
           var clientWidthTimes2 = document.body.clientWidth * 2;
-          var runningWidth = 0;
+
           for (let index = 0; index < this.containerOffsets.length; index++) {
-            var active = false;
-            //check initial frame
-            if (index === 0) {
-              if (
-                this.previousScrollPos >= 0 &&
-                this.previousScrollPos <=
-                  Number(this.containerOffsets[index].width) + clientWidthTimes2
-              ) {
-                active = true;
-              }
-            } else {
-              //console.log(this.containerOffsets[index].container,this.previousScrollPos,runningWidth - clientWidthTimes2,Number(runningWidth + Number(this.containerOffsets[index].width) + clientWidthTimes2))
-              if (
-                this.previousScrollPos >=
-                  (runningWidth - clientWidthTimes2 || 0) &&
-                this.previousScrollPos <=
-                  Number(runningWidth + Number(this.containerOffsets[index].width) + clientWidthTimes2)
-              ) {
-                active = true;
-              }
+            var name = this.containerOffsets[index].container;
+            var contwidth = Number(this.containerOffsets[index].width);
+            switch (name) {
+              case "grass":
+                this.activeLayers.grass =
+                  this.previousScrollPos < contwidth + clientWidthTimes2
+                    ? true
+                    : false;
+                break;
+              case "sea":
+                this.activeLayers.sea =
+                  this.previousScrollPos > this.seaOffset - clientWidthTimes2 &&
+                  this.previousScrollPos < this.beachOffset + clientWidthTimes2
+                    ? true
+                    : false;
+                break;
+              case "beach":
+                // code block
+                this.activeLayers.beach =
+                  this.previousScrollPos >
+                    this.beachOffset - clientWidthTimes2 &&
+                  this.previousScrollPos < this.caveOffset + clientWidthTimes2
+                    ? true
+                    : false;
+                break;
+              case "cave":
+                  this.activeLayers.cave =
+                  this.previousScrollPos > this.caveOffset - clientWidthTimes2
+                    ? true
+                    : false;
+                break;
+              default:
+              // code block
             }
-
-            if (index > 0 && active != true) {
-              if (
-                this.previousScrollPos > runningWidth &&
-                this.previousScrollPos <
-                  Number(runningWidth + Number(this.containerOffsets[index].width))
-              ) {
-                active = true;
-              }
-            }
-
-            runningWidth += Number(this.containerOffsets[index].width);
-            this.activeLayers[this.containerOffsets[index].container] = active;
           }
-          //console.log(this.activeLayers);
+
+          console.log(this.activeLayers);
           this.checkingActiveLayers = false;
         }, 500);
       }
@@ -206,12 +221,20 @@ export default {
           returnVal += Number(cont.width);
         }
       });
+      //console.log("beach offset", returnVal + this.seaOffset);
       return returnVal + this.seaOffset;
+    },
+    caveOffset() {
+      var returnVal = 0;
+      this.containerOffsets.forEach(cont => {
+        if (cont.container == "beach") {
+          returnVal += Number(cont.width);
+        }
+      });
+      return returnVal + this.beachOffset - 74;
     }
   }
 };
-
-
 </script>
 
 <style>
