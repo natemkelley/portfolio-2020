@@ -7,7 +7,7 @@
     <div class="ground-container" ref="seaContainer">
       <div class="cavescape" />
       <div class="cavescapetop" />
-                    <Lights class="lights" />
+      <Lights class="lights" />
     </div>
     <div class="nature-container" ref="nature">
       <svg-icon
@@ -38,7 +38,7 @@
       />
     </div>
     <div class="interactive-container" ref="interactive">
-
+        <Carts class="carts" />
     </div>
     <div class="ground-container click-through" ref="groundContainer">
       <svg-icon
@@ -75,6 +75,7 @@ import Ground from "~/assets/inlinesvg/World_Cave_Ground.svg?inline";
 import Cave_Objects from "~/components/backgrounds/sea_objects.js";
 import Cave_Nature from "~/components/backgrounds/cave_nature.js";
 import Lights from "~/components/Lights.vue";
+import Carts from "~/components/Carts.vue";
 
 export default {
   name: "Sea",
@@ -87,7 +88,7 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground,Lights },
+  components: { Ground, Lights,Carts },
   data() {
     return {
       objects: Cave_Objects,
@@ -181,10 +182,16 @@ export default {
   transform: scaleX(-1);
 }
 
-.lights{
-position: absolute;
+.lights {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1050px;
+  margin-left: 500px;
+}
+.carts {
+    position: absolute;
     bottom: 0;
-    margin-bottom: 1050px;
-    margin-left: 500px;
+    margin-bottom: 250px;
+    margin-left: -1000px;
 }
 </style>

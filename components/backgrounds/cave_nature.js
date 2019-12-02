@@ -8,7 +8,7 @@ module.exports = [
     },
         {
           name: "World_Cave_Painting2",
-          posX: -2467,
+          posX: -2499,
           posY: 201,
           height: 122,
           width: 198
