@@ -5,7 +5,8 @@
     :style="`transform:translateX(${this.containerOffset}px)`"
   >
     <div class="ground-container" ref="seaContainer">
-        <div class="cavescape" />
+      <div class="cavescape" />
+      <div class="cavescapetop" />
     </div>
     <div class="sky-container" ref="sky">
       <svg-icon
@@ -36,11 +37,32 @@
         }"
       />
     </div>
-    <div class="interactive-container" ref="interactive">
-
-    </div>
+    <div class="interactive-container" ref="interactive"></div>
     <div class="ground-container click-through" ref="groundContainer">
-        <svg-icon class="top" name="objects/World_Cave_EntraceTop" width="849" height="1458"/>
+      <svg-icon
+        class="enttop"
+        name="objects/World_Cave_EntraceTop"
+        width="849"
+        height="1458"
+      />
+      <svg-icon
+        class="top"
+        name="objects/World_Cave_CaveTop"
+        width="6733"
+        height="559"
+      />
+    <svg-icon
+        class="bush"
+        name="objects/World_Cave_Bush1"
+        width="300"
+        height="200"
+      />
+          <svg-icon
+        class="palm"
+        name="objects/World_Beach_Palm1"
+        width="500"
+        height="450"
+      />
       <Ground class="yikes" ref="ground" />
     </div>
   </div>
@@ -69,7 +91,7 @@ export default {
     return {
       objects: Cave_Objects,
       sky: Cave_Sky,
-      nature: Cave_Nature,
+      nature: Cave_Nature
     };
   },
   mounted() {
@@ -113,20 +135,52 @@ export default {
 </script>
 
 <style scoped>
-.yikes{
-    margin-left: -5px;
+.yikes {
+  margin-left: -5px;
 }
-.cavescape{
-    background: #4e4e51;
+.cavescape {
+  background: #4e4e51;
+  position: absolute;
+  bottom: 0;
+  width: 4800px;
+  height: 2400px;
+}
+.cavescapetop {
+  background: #3d3d3f;
+  position: absolute;
+  bottom: 0;
+  width: 4800px;
+  height: 250px;
+  margin-bottom: 1385px;
+}
+
+.enttop {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 633px;
+  margin-left: -324px;
+}
+
+.top {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 830px;
+  margin-left: 374px;
+}
+
+.bush{
     position: absolute;
     bottom: 0;
-    width: 1000px;
-    height: 2400px;
+    margin-bottom: 891px;
+    z-index: -1;
+    margin-left: -94px;
 }
-.top{
-    position: absolute;
+.palm{
+position: absolute;
     bottom: 0;
-    margin-bottom: 590px;
-    margin-left: -324px;
+    margin-bottom: 800px;
+    z-index: -1;
+    margin-left: -227px;
+    transform: scaleX(-1);
 }
 </style>
