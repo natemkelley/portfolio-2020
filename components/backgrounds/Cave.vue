@@ -7,22 +7,22 @@
     <div class="ground-container" ref="seaContainer">
       <div class="cavescape" />
       <div class="cavescapetop" />
+                    <Lights class="lights" />
     </div>
-    <div class="sky-container" ref="sky">
+    <div class="nature-container" ref="nature">
       <svg-icon
-        v-for="(object, n) in sky"
+        v-for="(object, n) in nature"
         class="item"
         :name="'objects/' + object.name"
         :width="object.width"
         :height="object.height"
-        :key="object.name + '_cavex' + '_' + n"
+        :key="object.name + '_cavexx' + '_' + n"
         :style="{
           marginLeft: object.posX + 'px',
           marginBottom: object.posY + 'px'
         }"
       />
     </div>
-    <div class="nature-container" ref="nature"></div>
     <div class="objects-container" ref="objects">
       <svg-icon
         v-for="(object, n) in objects"
@@ -37,7 +37,9 @@
         }"
       />
     </div>
-    <div class="interactive-container" ref="interactive"></div>
+    <div class="interactive-container" ref="interactive">
+
+    </div>
     <div class="ground-container click-through" ref="groundContainer">
       <svg-icon
         class="enttop"
@@ -51,13 +53,13 @@
         width="6733"
         height="559"
       />
-    <svg-icon
+      <svg-icon
         class="bush"
         name="objects/World_Cave_Bush1"
         width="300"
         height="200"
       />
-          <svg-icon
+      <svg-icon
         class="palm"
         name="objects/World_Beach_Palm1"
         width="500"
@@ -70,10 +72,9 @@
 
 <script>
 import Ground from "~/assets/inlinesvg/World_Cave_Ground.svg?inline";
-import CaveScape from "~/assets/inlinesvg/World_Sea_Sea.svg?inline";
 import Cave_Objects from "~/components/backgrounds/sea_objects.js";
-import Cave_Nature from "~/components/backgrounds/sea_nature.js";
-import Cave_Sky from "~/components/backgrounds/sea_sky.js";
+import Cave_Nature from "~/components/backgrounds/cave_nature.js";
+import Lights from "~/components/Lights.vue";
 
 export default {
   name: "Sea",
@@ -86,11 +87,10 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground, CaveScape },
+  components: { Ground,Lights },
   data() {
     return {
       objects: Cave_Objects,
-      sky: Cave_Sky,
       nature: Cave_Nature
     };
   },
@@ -126,9 +126,6 @@ export default {
     },
     natureSpeed(pixels) {
       this.$refs.nature.style.transform = "translateX(" + pixels + "px)";
-    },
-    skySpeed(pixels) {
-      this.$refs.sky.style.transform = "translateX(" + pixels + "px)";
     }
   }
 };
@@ -168,19 +165,26 @@ export default {
   margin-left: 374px;
 }
 
-.bush{
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 891px;
-    z-index: -1;
-    margin-left: -94px;
+.bush {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 891px;
+  z-index: -1;
+  margin-left: -94px;
 }
-.palm{
+.palm {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 800px;
+  z-index: -1;
+  margin-left: -227px;
+  transform: scaleX(-1);
+}
+
+.lights{
 position: absolute;
     bottom: 0;
-    margin-bottom: 800px;
-    z-index: -1;
-    margin-left: -227px;
-    transform: scaleX(-1);
+    margin-bottom: 1050px;
+    margin-left: 500px;
 }
 </style>

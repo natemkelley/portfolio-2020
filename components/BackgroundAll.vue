@@ -40,7 +40,6 @@
         :groundSpeed="groundSpeed"
         :natureSpeed="natureSpeed"
         :objectSpeed="objectSpeed"
-        :skySpeed="skySpeed"
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
