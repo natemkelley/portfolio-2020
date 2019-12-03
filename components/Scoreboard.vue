@@ -30,20 +30,22 @@ export default {
   props: ["introScoreboard"],
   data() {
     return {
-      textsrc: BYU
+      textsrc: BYU,
+      alt: false
     };
   },
-  mounted() {
-    var alt = false;
-    setInterval(() => {
-      var src = alt ? BYU : College;
-      if (src != undefined) {
-        this.$refs.text.src = src;
-        alt = !alt;
-      }
-    }, 2650);
-  },
+  mounted() {},
   methods: {
+    toggleSign() {
+      setTimeout(() => {
+        var src = this.alt ? BYU : College;
+        if (src != undefined) {
+          this.$refs.text.src = src;
+          this.alt = !this.alt;
+          this.toggleSign();
+        }
+      }, 2650);
+    },
     introduceBall() {
       var x = this.$refs.ball;
       anime({
@@ -60,6 +62,7 @@ export default {
   watch: {
     introScoreboard(newVal) {
       this.introduceBall();
+            this.toggleSign();
     }
   }
 };

@@ -68,6 +68,13 @@ module.exports = [
       posY: 97,
       height: 161,
       width: 169
+    },
+    {
+      name: "World_Beach_ProjectsSign",
+      posX: 2467,
+      posY: 67,
+      height: 308,
+      width: 384
     }
   ];
   

@@ -83,13 +83,6 @@ module.exports = [
     height: 130,
     width: 420
   },
-    {
-    name: "World_Grass_Introduction",
-    posX: 2585,
-    posY: 526,
-    height: 126,
-    width: 696
-  },
   {
     name: "World_Grass_Garden",
     posX: 3858,
@@ -98,10 +91,17 @@ module.exports = [
     width: 264
   },
   {
-    name: "World_Grass_EducationBanner",
+    name: "World_Grass_EducationSign",
     posX: 5695,
-    posY: 533,
-    height: "126",
-    width: "696"
+    posY: 116,
+    height: "550",
+    width: "787"
+  },
+  {
+    name: "World_Grass_IntroSign",
+    posX: 1795,
+    posY: 227,
+    height: "302",
+    width: "289"
   },
 ];

@@ -42,6 +42,7 @@
         @click="openModal('Test')"
         @openModal="openModal"
         class="clickable carts"
+        :introCarts="introCarts"
       />
     </div>
     <div class="ground-container" ref="groundContainer">
@@ -97,7 +98,8 @@ export default {
     return {
       objects: Cave_Objects,
       nature: Cave_Nature,
-      introBulb: false
+      introBulb: false,
+      introCarts: false
     };
   },
   mounted() {
@@ -126,6 +128,9 @@ export default {
       console.log(Math.abs(pixels));
       if (Math.abs(pixels) > 21400) {
         this.introBulb = true;
+      }
+            if (Math.abs(pixels) > 22200) {
+        this.introCarts = true;
       }
     },
     objectSpeed(pixels) {
@@ -199,14 +204,14 @@ export default {
   margin-left: 808px;
 }
 .carts {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 90px;
-    margin-left: -1090px;
-    z-index: 1;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 90px;
+  margin-left: -1090px;
+  z-index: 1;
 }
 
-.interactive-container{
-      z-index: 1;
+.interactive-container {
+  z-index: 1;
 }
 </style>

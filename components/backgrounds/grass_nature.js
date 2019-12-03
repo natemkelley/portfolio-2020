@@ -21,13 +21,6 @@ module.exports = [
     width: 380
   },
   {
-    name: "World_Grass_House",
-    posX: 2505,
-    posY: 136,
-    height: 441,
-    width: 602
-  },
-  {
     name: "World_Grass_Bush2",
     posX: 4175,
     posY: 56,
@@ -47,6 +40,13 @@ module.exports = [
     posY: 76,
     height: 213,
     width: 359
-  }
+  },
+  {
+    name: "World_Grass_SunFlowers",
+    posX: 3349,
+    posY: 107,
+    height: 245,
+    width: 364
+  },
 ];
 

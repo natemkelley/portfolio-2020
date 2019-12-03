@@ -2,41 +2,61 @@
   <div class="area-container">
     <div class="sky-container" ref="sky">
       <svg-icon
-        v-for="(object,n) in sky"
+        v-for="(object, n) in sky"
         class="item"
-        :name="'objects/'+object.name"
+        :name="'objects/' + object.name"
         :width="object.width"
         :height="object.height"
-        :key="object.name+'_grass'+'_'+n"
-        :style="{marginLeft:object.posX+'px',marginBottom:object.posY+'px'}"
+        :key="object.name + '_grass' + '_' + n"
+        :style="{
+          marginLeft: object.posX + 'px',
+          marginBottom: object.posY + 'px'
+        }"
       />
     </div>
     <div class="nature-container" ref="nature">
+      <House class="house" />
+
       <svg-icon
-        v-for="(object,n) in nature"
+        v-for="(object, n) in nature"
         class="item"
-        :name="'objects/'+object.name"
+        :name="'objects/' + object.name"
         :width="object.width"
         :height="object.height"
-        :key="object.name+'_grass'+'_'+n"
-        :style="{marginLeft:object.posX+'px',marginBottom:object.posY+'px'}"
+        :key="object.name + '_grass' + '_' + n"
+        :style="{
+          marginLeft: object.posX + 'px',
+          marginBottom: object.posY + 'px'
+        }"
       />
     </div>
     <div class="objects-container" ref="objects">
       <svg-icon
-        v-for="(object,n) in objects"
+        v-for="(object, n) in objects"
         class="item"
-        :name="'objects/'+object.name"
+        :name="'objects/' + object.name"
         :width="object.width"
         :height="object.height"
-        :key="object.name+'_grass'+'_'+n"
-        :style="{marginLeft:object.posX+'px',marginBottom:object.posY+'px'}"
+        :key="object.name + '_grass' + '_' + n"
+        :style="{
+          marginLeft: object.posX + 'px',
+          marginBottom: object.posY + 'px'
+        }"
       />
     </div>
     <div class="ground-container" ref="groundContainer">
       <Ground ref="ground" />
-      <div class="item speech-bubble" ref="speechBubble" :style="{marginLeft:offsetLeft+95+'px'}">
-        <svg-icon class name="objects/World_Grass_SpeechBubble" height="555px" width="379px" />
+      <div
+        class="item speech-bubble"
+        ref="speechBubble"
+        :style="{ marginLeft: offsetLeft + 95 + 'px' }"
+      >
+        <svg-icon
+          class
+          name="objects/World_Grass_SpeechBubble"
+          height="555px"
+          width="379px"
+        />
         <div class="text" ref="text"></div>
       </div>
     </div>
@@ -47,28 +67,27 @@
           name="objects/World_Grass_CoolStuff"
           height="133px"
           width="133px"
-          :style="{marginLeft:'5505px',marginBottom:'173px'}"
+          :style="{ marginLeft: '5505px', marginBottom: '173px' }"
         />
         <svg-icon
           class="item clickable"
           name="objects/World_Grass_WheelBarrow"
           height="180px"
           width="180px"
-          :style="{marginLeft:'5450px',marginBottom:'87px'}"
+          :style="{ marginLeft: '5450px', marginBottom: '87px' }"
         />
         <svg-icon
           class="item clickable"
           name="objects/World_Grass_Hand"
           height="70px"
           width="70px"
-          :style="{marginLeft:'5595px',marginBottom:'187px'}"
+          :style="{ marginLeft: '5595px', marginBottom: '187px' }"
           ref="clickme"
         />
       </div>
     </div>
   </div>
 </template>
- 
 
 <script>
 import anime from "animejs";
@@ -77,6 +96,7 @@ import Ground from "~/assets/inlinesvg/Ground_Grass.svg?inline";
 import Grass_Objects from "~/components/backgrounds/grass_objects2.js";
 import Grass_Nature from "~/components/backgrounds/grass_nature.js";
 import Grass_Sky from "~/components/backgrounds/grass_sky.js";
+import House from "~/components/Home.vue";
 
 export default {
   name: "Grass",
@@ -89,7 +109,7 @@ export default {
     "skySpeed",
     "offsetLeft"
   ],
-  components: { Ground },
+  components: { Ground, House },
   mounted() {
     this.initLayers();
     this.startAnimations();
@@ -126,7 +146,7 @@ export default {
       this.$emit("informheight", { width: totalWidth, container: "grass" });
     },
     openModal(component) {
-      this.$emit("toggleModal",component);
+      this.$emit("toggleModal", component);
     },
     handleTextTyping(pixels) {
       var textArray = [
@@ -189,6 +209,15 @@ export default {
 };
 </script>
 
+<style scoped>
+.house {
+  position: absolute;
+  bottom: 0;
+  margin-left: 2399px;
+  margin-bottom: 131px;
+}
+</style>
+
 <style>
 .item {
   position: fixed;
@@ -220,4 +249,3 @@ export default {
   display: none;
 }
 </style>
-

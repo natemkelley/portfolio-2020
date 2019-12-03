@@ -32,12 +32,12 @@ export default {
         console.log(this.$el.querySelectorAll('.bulb'));
       anime({
         targets: this.$el.querySelectorAll('.bulb'),
-        rotate: [-2, 2],
+        rotate: [-2.4, 2.4],
         direction: "alternate",
         loop: true,
         easing: "easeInOutSine",
         duration: function() {
-      return anime.random(3500, 4000);
+      return anime.random(3200, 3700);
     }
       });
     }

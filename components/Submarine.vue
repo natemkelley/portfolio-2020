@@ -44,17 +44,21 @@
       </div>
     </div>
     <div class="subsign">
-      <svg-icon
+      <!--<svg-icon
         class="item sign"
         name="objects/World_Sea_SubSign"
         :style="{ marginLeft: '160px', marginBottom: '-364px' }"
         height="293"
         width="422"
         ref="subsign"
+      />-->
+      <img
+        ref="subsign"
+        :style="{ marginLeft: '160px', marginBottom: '-364px' }"
+        class="item sign"
+        src="@/assets/World_Sea_SubSign.png"
       />
     </div>
-
-    <!--      :style="{ marginLeft: '1568px', marginBottom: '-389px' }" -->
     <svg-icon
       class="item subitself"
       name="objects/World_Sea_Submarine"

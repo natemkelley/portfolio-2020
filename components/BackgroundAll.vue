@@ -54,13 +54,6 @@ import Sea from "~/components/backgrounds/Sea.vue";
 import Beach from "~/components/backgrounds/Beach.vue";
 import Cave from "~/components/backgrounds/Cave.vue";
 
-/*
-Sky Svg needs to be 1/6 the size of ground
-Nature needs to be 1/4
-objects needs to be 1/2
-immediateRatio need to be 1/1
-*/
-
 export default {
   name: "BackgroundAll",
   components: { Grass, Sea, Beach, Cave },
@@ -80,7 +73,8 @@ export default {
         grass: true,
         sea: true,
         beach: true,
-        cave: true
+        cave: true,
+        rocket:true
       }
     };
   },

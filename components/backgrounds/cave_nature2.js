@@ -1,17 +1,17 @@
 module.exports = [
   {
     name: "World_Cave_Painting1",
-    posX: -2170,
-    posY: 301,
+    posX: -860,
+    posY: 337,
     height: 122,
     width: 198
   },
   {
-    name: "World_Cave_Painting2",
+    name: "World_Cave_LeadershipSign",
     posX: -2499,
-    posY: 201,
-    height: 122,
-    width: 198
+    posY: 211,
+    height: 222,
+    width: 298
   },
   {
     name: "World_Cave_Painting2",
