@@ -77,6 +77,13 @@ module.exports = [
     width: 96
   },
   {
+    name: "World_Grass_Chicken",
+    posX: 4365,
+    posY: 107,
+    height: 146,
+    width: 96
+  },
+  {
     name: "World_Grass_TableSet",
     posX: 4685,
     posY: 137,
