@@ -87,7 +87,7 @@
     </div>
     <div class="ground-container click-through" ref="groundContainer">
                     <svg-icon class="bottom" name="objects/World_Cave_EntranceBottom" width="1286" height="172"/>
-      <img src="@/assets/inlinesvg/World_Beach_Ground.png" ref="ground" />
+      <img src="@/assets/inlinesvg/World_Beach_GroundTiny.png" ref="ground" />
     </div>
   </div>
 </template>

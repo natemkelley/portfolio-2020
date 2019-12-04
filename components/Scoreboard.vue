@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import BYU from "@/assets/World_Beach_BYU.png";
-import College from "@/assets/World_Beach_College.png";
+import BYU from "@/assets/World_Beach_BYUTiny.png";
+import College from "@/assets/World_Beach_CollegeTiny.png";
 import anime from "animejs";
 
 export default {

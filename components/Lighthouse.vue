@@ -1,7 +1,7 @@
 <template>
   <div class="lighthouse">
     <Lighthousex class="house" ref="lighthouse" />
-    <img src="@/assets/World_Beach_Light.png" class="light" ref="light" />
+    <img src="@/assets/World_Beach_LightTiny.png" class="light" ref="light" />
   </div>
 </template>
 

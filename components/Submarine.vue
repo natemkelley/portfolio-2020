@@ -56,7 +56,7 @@
         ref="subsign"
         :style="{ marginLeft: '160px', marginBottom: '-364px' }"
         class="item sign"
-        src="@/assets/World_Sea_SubSign.png"
+        src="@/assets/World_Sea_SubSignTiny.png"
       />
     </div>
     <svg-icon
