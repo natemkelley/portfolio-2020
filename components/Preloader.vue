@@ -11,19 +11,24 @@
           <div class="row">
             <div class="column"><p>Current screen size:</p></div>
             <div class="column">
-              <p>{{ width }} x {{ height }}</p>
+              <p class="right">
+                <span :class="{ problemX: colorW }" >{{ width }}</span> x
+                <span :class="{ problemX: colorH }" >{{ height }}</span>
+              </p>
             </div>
           </div>
           <div class="row">
             <div class="column"><p>Minimum screen size:</p></div>
             <div class="column">
-              <p>750 x 680</p>
+              <p class="right">750 x 680</p>
             </div>
           </div>
           <div class="row">
-            <p>
-              You are currently using {{ browser }}. Safari and IE have been
-              know to cause problems with this website.
+            <p class="eightypercent">
+              You are currently using
+              <span :style="{ color: colorBrowser }">{{ browser }}</span
+              >. Safari and IE have been know to cause problems with this
+              website.
             </p>
           </div>
         </div>
@@ -42,8 +47,7 @@
           <svg-icon class="c c1" name="objects/World_Grass_Cloud" />
           <svg-icon class="c c2" name="objects/World_Grass_Cloud" />
           <svg-icon class="c c3" name="objects/World_Grass_Cloud" />
-                    <svg-icon class="c c4" name="objects/World_Grass_Cloud" />
-
+          <svg-icon class="c c4" name="objects/World_Grass_Cloud" />
         </div>
       </div>
     </div>
@@ -63,7 +67,9 @@ export default {
       height: null,
       browser: "UNKNOWN",
       version: "0.0",
-      problem: false
+      problem: false,
+      color: null,
+      colorBrowser: null
     };
   },
   created() {
@@ -74,20 +80,14 @@ export default {
   },
   watch: {
     loaded() {
-      anime({
-        targets: ".c",
-        opacity: 1,
-        easing: "linear",
-        duration: 1000
-      });
+      this.showClouds();
     }
   },
   mounted() {
-              document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
     this.checkWidth();
     this.animateClouds();
     const browser = detect();
-    // handle the case where we don't detect the browser
     if (browser) {
       this.browser = browser.name.toUpperCase();
       this.version = String(browser.version);
@@ -98,11 +98,11 @@ export default {
   },
   methods: {
     togglePreloader() {
-              document.getElementsByTagName("body")[0].style.overflow = "auto";
+      document.getElementsByTagName("body")[0].style.overflow = "auto";
 
       var animation = anime.timeline({
         targets: this.$el.querySelector(".preloader"),
-        duration: 1400,
+        duration: 1450,
         easing: "easeOutBounce"
       });
       animation.add({
@@ -111,6 +111,14 @@ export default {
 
       animation.finished.then(() => {
         this.$emit("togglepreloader", false);
+      });
+    },
+    showClouds() {
+      anime({
+        targets: ".c",
+        opacity: 1,
+        easing: "linear",
+        duration: 1000
       });
     },
     checkWidth() {
@@ -123,10 +131,27 @@ export default {
         document.documentElement.clientHeight ||
         document.body.clientHeight;
 
-      if (this.height < 668 || this.width < 749) {
+      if (this.height < 664) {
         this.problem = true;
+        this.colorH = "#ff4d4d";
+      } else {
+        this.colorH = null;
       }
-      //console.log(this.width, this.height);
+
+      if (this.width < 749) {
+        this.problem = true;
+        this.colorW = "#ff4d4d";
+      } else {
+        this.colorW = null;
+      }
+
+      //fallback if they resize the window
+      console.log("x", this.browser);
+      if ((this.browser == "CHROME" && this.height > 668) && this.width > 749) {
+        this.problem = false;
+        this.showClouds();
+        this.animateClouds();
+      }
     },
     animateClouds() {
       anime({
@@ -143,6 +168,16 @@ export default {
 </script>
 
 <style scoped>
+.right{
+  float: right;
+}
+
+.problemX{
+      color: rgb(255, 77, 77);
+      border: 2.3px solid red;
+      padding: 7.2px;
+}
+
 .c {
   position: absolute;
   bottom: 0;
@@ -235,6 +270,10 @@ p {
   right: 0;
   bottom: 0;
   margin-bottom: 11vh;
+}
+
+.eightypercent {
+  width: 99%;
 }
 @media screen and (max-width: 1005px) {
   p {
