@@ -43,6 +43,7 @@ export default {
   methods: {
     toggleModal() {
       this.$emit("toggleModal");
+      document.getElementsByTagName("body")[0].style.overflow = "auto";
     },
     toggleLoading() {
       this.loading = false;
@@ -58,6 +59,8 @@ export default {
     modalOpen(newVal) {
       if (newVal == true) {
         this.loading = true;
+        console.log(document.getElementsByTagName("body")[0].style);
+        document.getElementsByTagName("body")[0].style.overflow = "hidden";
       }
     }
   }

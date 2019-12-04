@@ -29,7 +29,7 @@ export default {
   props: ["introBulb"],
   methods: {
     swingBulb() {
-        console.log(this.$el.querySelectorAll('.bulb'));
+        //console.log(this.$el.querySelectorAll('.bulb'));
       anime({
         targets: this.$el.querySelectorAll('.bulb'),
         rotate: [-2.4, 2.4],
@@ -41,9 +41,6 @@ export default {
     }
       });
     }
-  },
-  mounted(){
-      this.swingBulb();
   },
   watch: {
     introBulb(newVal) {

@@ -182,7 +182,7 @@ export default {
             }
           }
 
-          console.log(this.activeLayers);
+          //console.log(this.activeLayers);
           this.checkingActiveLayers = false;
         }, 500);
       }
@@ -238,9 +238,9 @@ export default {
 }
 
 .area-container {
-  position: absolute;
+  /*position: absolute;
   top: 0;
-  left: 0;
+  left: 0;*/
 }
 
 .ground-container {

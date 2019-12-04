@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="MeMoving">
     <svg-icon :name="svgNameFinal" ref="nate" />
   </div>
 </template>
@@ -14,7 +14,8 @@ export default {
     "groundElevation",
     "initialGroundElevation",
     "stillMoving",
-    "underwater"
+    "underwater",
+    "outerspace"
   ],
   data() {
     return {
@@ -32,11 +33,14 @@ export default {
       offsetLeftPosition: 0
     };
   },
+    created() {
+    window.addEventListener("resize", this.emitOffsetPos);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.emitOffsetPos);
+  },
   mounted() {
     this.emitOffsetPos();
-    /*window.addEventListener("resize", () => {
-      this.emitOffsetPos();
-    });*/
     this.$refs.nate.style.marginBottom = `${this.initialGroundElevation}px`;
     this.startBlinking();
   },
@@ -46,7 +50,7 @@ export default {
       this.$emit("informoffsetleft", this.offsetLeftPosition);
     },
     startBlinking() {
-      let randomTime = Math.floor(Math.random() * 5800) + 2800;
+      let randomTime = Math.floor(Math.random() * 3650) + 2100;
       setTimeout(() => {
         this.blink = "_blink";
         setTimeout(() => {
@@ -103,9 +107,10 @@ export default {
     startJump() {
       clearTimeout(this.movingTimeoutVar);
       var backup = this.newElevation;
+      var jumpHeight = -Math.max(Math.abs(this.newElevation * 2), 330);
       anime({
         targets: this.$refs.nate,
-        translateY: Math.max(-this.newElevation * 3, -this.newElevation - 300),
+        translateY: jumpHeight,
         easing: "cubicBezier(.14, .19, .24, 1.04)",
         duration: 350,
         begin: anim => {
@@ -114,8 +119,11 @@ export default {
         },
         complete: anim => {
           //console.log('end jump',-parseInt(anim.animations[0].currentValue),backup);
-          if (Math.abs(-parseInt(anim.animations[0].currentValue)) < Math.abs(backup)) {
-              this.startJump();
+          if (
+            Math.abs(-parseInt(anim.animations[0].currentValue)) <
+            Math.abs(backup)
+          ) {
+            this.startJump();
           } else {
             this.startFall();
           }
@@ -147,7 +155,8 @@ export default {
       //console.log("newel", newElevation, "oldel", oldElevation);
       if (!this.elevationChanging) {
         if (newElevation < 0 && oldElevation < 0) {
-          if (newElevation < oldElevation) {
+          console.log("herexxx " + this.directionX);
+          if (this.directionX == "right") {
             this.startJump();
           } else {
             this.startFall();
@@ -193,5 +202,6 @@ export default {
   margin-left: -100px;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 </style>

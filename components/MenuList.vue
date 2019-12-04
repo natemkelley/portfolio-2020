@@ -6,8 +6,10 @@
           <MenuLogo class="menuimg" ref="menuImg" :opened="opened" />
         </div>
       </li>
-      <li v-for="(n) in 5" :key="n">
-        <div class="collapsible-header waves-effect waves-white">First {{n}}</div>
+      <li v-for="n in 5" :key="n">
+        <div class="collapsible-header waves-effect waves-white">
+          First {{ n }}
+        </div>
 
         <div class="collapsible-body">
           <div class="collapsible-body-overlay-video-blur">
@@ -20,16 +22,20 @@
               :poster="require('~/assets/slc_skyline.jpg')"
             >
               <source src="~/assets/testvideo.mp4" type="video/mp4" />
-              <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg" />Your browser does not support HTML5 video.
+              <source
+                src="https://www.w3schools.com/html/mov_bbb.ogg"
+                type="video/ogg"
+              />
+              Your browser does not support HTML5 video.
             </video>
             <div class="collapsible-body-overlay"></div>
           </div>
           <div class="collapsible-body-content">
             <div class="row">
-                                      <p >This is a test</p>
-                            <p >This is a test</p>
-              <p >This is a test</p>
-              <p >This is a test</p>
+              <p>This is a test</p>
+              <p>This is a test</p>
+              <p>This is a test</p>
+              <p>This is a test</p>
             </div>
           </div>
         </div>
@@ -74,7 +80,7 @@ export default {
 
 .collapsible-header {
   background-color: #fff0;
-  color:#fff;
+  color: #fff;
 }
 
 .collapsible-body {

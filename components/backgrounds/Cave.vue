@@ -125,7 +125,7 @@ export default {
     groundSpeed(pixels) {
       this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
       this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
-      console.log(Math.abs(pixels));
+      //console.log(Math.abs(pixels));
       if (Math.abs(pixels) > 21400) {
         this.introBulb = true;
       }

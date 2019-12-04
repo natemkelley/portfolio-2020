@@ -16,6 +16,7 @@
     "@nuxtjs/svg": "^0.1.6",
     "@nuxtjs/svg-sprite": "^0.4.3",
     "animejs": "^3.1.0",
+    "detect-browser": "^4.8.0",
     "fs": "0.0.1-security",
     "imports-loader": "^0.8.0",
     "jsdom": "^15.2.0",

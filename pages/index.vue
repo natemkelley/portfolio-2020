@@ -1,39 +1,50 @@
 <template>
-  <main :style="{ height: height + 'px' }">
-    <MenuCartoon />
-    <BackgroundAll
-      v-if="offsetLeft != 0"
-      @informheight="updatePageHeight"
-      :previousScrollPos="previousScrollPos"
-      :groundElevationGround="groundElevationGround"
-      :initialGroundElevationGround="initialGroundElevationGround"
-      :offsetLeft="offsetLeft"
-      @toggleModal="toggleModal"
+  <div>
+    <Preloader
+      v-if="renderPreloader"
+      :loaded="loaded"
+      @togglepreloader="togglePreloader"
     />
-    <MeMoving
-      @informoffsetleft="updateOffsetLeft"
-      :directionX="directionX"
-      :groundElevation="groundElevation"
-      :initialGroundElevation="initialGroundElevationNate"
-      :stillMoving="stillMoving"
-      :underwater="underwater"
-    />
-    <ScoreKeeper :previousScrollPos="previousScrollPos" />
-    <ModalCartoon
-      :modalOpen="modalOpen"
-      @toggleModal="toggleModal"
-      :component="component"
-      color="#f26522"
-    />
-  </main>
+    <main :style="{ height: height + 'px' }">
+      <MenuCartoon />
+      <BackgroundAll
+        v-if="offsetLeft != 0"
+        @informheight="updatePageHeight"
+        :previousScrollPos="previousScrollPos"
+        :groundElevationGround="groundElevationGround"
+        :initialGroundElevationGround="initialGroundElevationGround"
+        :offsetLeft="offsetLeft"
+        @toggleModal="toggleModal"
+      />
+      <MeMoving
+        @informoffsetleft="updateOffsetLeft"
+        :directionX="directionX"
+        :groundElevation="groundElevation"
+        :initialGroundElevation="initialGroundElevationNate"
+        :stillMoving="stillMoving"
+        :underwater="underwater"
+        :outerspace="outerspace"
+      />
+      <ScoreKeeper :previousScrollPos="previousScrollPos" />
+      <ModalCartoon
+        :modalOpen="modalOpen"
+        @toggleModal="toggleModal"
+        :component="component"
+        color="#f26522"
+      />
+    </main>
+  </div>
 </template>
 
 <script>
+import Preloader from "~/components/Preloader";
 import MenuCartoon from "~/components/MenuCartoon";
 import MeMoving from "~/components/MeMoving";
 import BackgroundAll from "~/components/BackgroundAll";
 import ScoreKeeper from "~/components/ScoreKeeper";
 import ModalCartoon from "~/components/ModalCartoon";
+
+import anime from "animejs";
 
 export default {
   components: {
@@ -41,10 +52,13 @@ export default {
     MeMoving,
     BackgroundAll,
     ScoreKeeper,
-    ModalCartoon
+    ModalCartoon,
+    Preloader
   },
   data() {
     return {
+      loaded: false,
+      renderPreloader: true,
       previousScrollPos: 0,
       directionX: "right",
       initialGroundElevationNate: 133,
@@ -56,6 +70,7 @@ export default {
       movingTimeoutVar: undefined,
       checkElevationChange: true,
       underwater: false,
+      outerspace: false,
       elevationChangePositionsNate: [
         { positionX: 0, positionY: 0 },
         { positionX: 1250, positionY: 120 },
@@ -65,18 +80,16 @@ export default {
         { positionX: 8880, positionY: -60 },
         { positionX: 12897, positionY: 78 },
         { positionX: 13234, positionY: 220 },
-        { positionX: 13685, positionY: 221 },
         { positionX: 13686, positionY: -70 },
-        { positionX: 17150, positionY: 30 },
         { positionX: 17151, positionY: -10 },
-        { positionX: 24000, positionY: 125 }
+        { positionX: 34000, positionY: 125 }
       ],
       elevationChangePositionsGround: [
         { positionX: 0, positionY: 0 },
         { positionX: 6830, positionY: 725 },
         { positionX: 13685, positionY: 100 },
         { positionX: 17151, positionY: 29 },
-        { positionX: 27955, positionY: 125 }
+        { positionX: 37955, positionY: 125 }
       ],
       height: 0,
       offsetLeft: 0,
@@ -85,9 +98,20 @@ export default {
     };
   },
   methods: {
+    togglePreloader() {
+      this.renderPreloader = false;
+    },
+    handleLoader() {
+      if (this.height > 20000) {
+        setTimeout(() => {
+                  this.loaded = true;
+        }, 550);
+      }
+    },
     updatePageHeight(val) {
       this.height = Number(val); //is modified by offsetLeft
       console.log("incoming height", Number(val), "total height", this.height);
+      this.handleLoader();
     },
     updateOffsetLeft(val) {
       console.log("offsetSetLeft", val);
@@ -107,9 +131,9 @@ export default {
         setTimeout(() => {
           this.handleElevationChangeNate();
           this.handleElevationChangeGround();
-          this.handleUnderwater();
+          this.handleSpecialEnviroments();
           this.checkElevationChange = true;
-        }, 25);
+        }, 40);
       }
 
       //handle if still scrolling
@@ -150,20 +174,18 @@ export default {
       this.component = component;
       this.modalOpen = !this.modalOpen;
     },
-    handleUnderwater() {
-      let returnVal = false;
-      if (this.previousScrollPos + this.offsetLeft > 6830) {
-        returnVal = true;
-      }
-      if (this.previousScrollPos + this.offsetLeft > 12897 && this.previousScrollPos + this.offsetLeft < 15998) {
-        returnVal = false;
-      }
-      if (this.previousScrollPos + this.offsetLeft > 15998) {
-        returnVal = true;
+    handleSpecialEnviroments() {
+      let underwaterVal = false;
+      if (
+        this.previousScrollPos + this.offsetLeft > 6830 &&
+        this.previousScrollPos + this.offsetLeft < 13685
+      ) {
+        underwaterVal = true;
+        console.log("underwahwah", underwaterVal);
       }
 
       //console.log('underwater',returnVal)
-      this.underwater = returnVal;
+      this.underwater = underwaterVal;
     }
   },
   created() {

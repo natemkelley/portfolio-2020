@@ -34,8 +34,8 @@ export default {
         "Intro",
         "Education",
         "Exp",
+                "Projects",
         "Leadership",
-        "Fun Facts",
         "Hire Me"
       ],
       socialLinks: [
