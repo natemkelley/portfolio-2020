@@ -54,7 +54,7 @@
       />
       <svg-icon
         class="top"
-        name="objects/World_Cave_CaveTop"
+        name="objects/World_Cave_CaveTop2"
         width="6733"
         height="559"
       />
@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import Ground from "~/assets/inlinesvg/World_Cave_Ground.svg?inline";
+import Ground from "~/assets/inlinesvg/World_Cave_Ground2.svg?inline";
 import Cave_Objects from "~/components/backgrounds/cave_objects.js";
 import Cave_Nature from "~/components/backgrounds/cave_nature2.js";
 import Lights from "~/components/Lights.vue";
@@ -154,14 +154,14 @@ export default {
   background: #4e4e51;
   position: absolute;
   bottom: 0;
-  width: 4800px;
+  width: 3800px;
   height: 2400px;
 }
 .cavescapetop {
   background: #3d3d3f;
   position: absolute;
   bottom: 0;
-  width: 4800px;
+  width: 3800px;
   height: 250px;
   margin-bottom: 1385px;
 }

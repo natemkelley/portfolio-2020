@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Preloader
+    <!--<Preloader
       v-if="renderPreloader"
       :loaded="loaded"
       @togglepreloader="togglePreloader"
-    />
+    />-->
     <main :style="{ height: height + 'px' }">
       <MenuCartoon />
       <BackgroundAll

@@ -43,6 +43,16 @@
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
+      <Space
+        v-if="activeLayers.space"
+        :initialGroundElevationGround="initialGroundElevationGround"
+        :containerOffset="spaceOffset"
+        :groundSpeed="groundSpeed"
+        :natureSpeed="natureSpeed"
+        :objectSpeed="objectSpeed"
+        @informheight="calculateAndEmitPageHeight"
+        @toggleModal="toggleModal"
+      />
     </div>
   </div>
 </template>
@@ -53,10 +63,11 @@ import Grass from "~/components/backgrounds/Grass.vue";
 import Sea from "~/components/backgrounds/Sea.vue";
 import Beach from "~/components/backgrounds/Beach.vue";
 import Cave from "~/components/backgrounds/Cave.vue";
+import Space from "~/components/backgrounds/Space.vue";
 
 export default {
   name: "BackgroundAll",
-  components: { Grass, Sea, Beach, Cave },
+  components: { Grass, Sea, Beach, Cave, Space },
   data() {
     return {
       totalPageHeight: 0,
@@ -74,7 +85,7 @@ export default {
         sea: true,
         beach: true,
         cave: true,
-        rocket:true
+        space: true
       }
     };
   },
@@ -148,6 +159,7 @@ export default {
           for (let index = 0; index < this.containerOffsets.length; index++) {
             var name = this.containerOffsets[index].container;
             var contwidth = Number(this.containerOffsets[index].width);
+            console.log(name);
             switch (name) {
               case "grass":
                 this.activeLayers.grass =
@@ -163,26 +175,36 @@ export default {
                     : false;
                 break;
               case "beach":
-                // code block
                 this.activeLayers.beach =
                   this.previousScrollPos >
                     this.beachOffset - clientWidthTimes2 &&
-                  this.previousScrollPos < this.caveOffset + clientWidthTimes2
+                  this.previousScrollPos < this.caveOffset + 1600
                     ? true
                     : false;
                 break;
               case "cave":
-                  this.activeLayers.cave =
-                  this.previousScrollPos > this.caveOffset - clientWidthTimes2
+                this.activeLayers.cave =
+                  this.previousScrollPos >
+                    this.caveOffset - clientWidthTimes2 &&
+                  this.previousScrollPos < this.spaceOffset + clientWidthTimes2
                     ? true
                     : false;
                 break;
-              default:
-              // code block
+              case "space":
+                this.activeLayers.space =
+                  this.previousScrollPos > this.spaceOffset - 2500
+                    ? true
+                    : false;
+                console.log(
+                  "space",
+                  this.previousScrollPos,
+                  this.spaceOffset - clientWidthTimes2
+                );
+                break;
             }
           }
 
-          //console.log(this.activeLayers);
+          console.log(this.activeLayers);
           this.checkingActiveLayers = false;
         }, 500);
       }
@@ -225,6 +247,15 @@ export default {
         }
       });
       return returnVal + this.beachOffset - 74;
+    },
+    spaceOffset() {
+      var returnVal = 0;
+      this.containerOffsets.forEach(cont => {
+        if (cont.container == "cave") {
+          returnVal += Number(cont.width);
+        }
+      });
+      return returnVal + this.caveOffset - 0;
     }
   }
 };
