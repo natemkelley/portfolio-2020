@@ -190,7 +190,7 @@ export default {
     bottom: 0;
     left: 0;
     margin-left: 3000px;
-    margin-bottom: 650px;
+    margin-bottom: 652px;
     z-index: -1;
 }
 </style>
