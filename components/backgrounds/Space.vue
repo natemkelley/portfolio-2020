@@ -12,8 +12,8 @@
         name="objects/World_Space_Stars"
         class="stars"
         ref="stars"
-        height="7337"
-        width="7613"
+        height="4337"
+        width="4613"
       />
       <svg-icon
         name="objects/World_Space_Moon"
@@ -41,24 +41,10 @@
         class="mountain0"
       />
     </div>
-    <div class="nature-container" ref="nature">
-      <svg-icon
-        v-for="(object, n) in nature"
-        class="item"
-        :name="'objects/' + object.name"
-        :width="object.width"
-        :height="object.height"
-        :key="object.name + '_spacexx' + '_' + n"
-        :style="{
-          marginLeft: object.posX + 'px',
-          marginBottom: object.posY + 'px'
-        }"
-      />
-    </div>
     <div class="objects-container" ref="objects">
       <svg-icon
         v-for="(object, n) in objects"
-        class="item float floatX"
+        class="item"
         :name="'objects/' + object.name"
         :width="object.width"
         :height="object.height"
@@ -86,6 +72,7 @@
       />
       <img class="tower" src="@/assets/World_Space_TowerTiny.png" />
       <svg-icon
+        v-show="!outerspace"
         class="rocket"
         name="nate/rocket_nofire_nonate_left"
         width="485"
@@ -93,15 +80,15 @@
       />
       <Ground class="yikes" ref="ground" />
     </div>
+    <div class="theend"></div>
   </div>
 </template>
 
 <script>
 import Ground from "~/assets/inlinesvg/World_Space_Ground.svg?inline";
 import Space_Objects from "~/components/backgrounds/space_objects.js";
-import Space_Nature from "~/components/backgrounds/space_nature.js";
 import Panels from "~/components/Panels";
-
+import anime from "animejs"
 export default {
   name: "Sea",
   props: [
@@ -110,13 +97,17 @@ export default {
     "groundSpeed",
     "objectSpeed",
     "natureSpeed",
-    "offsetLeft"
+    "offsetLeft",
+    "outerspace"
   ],
   components: { Ground, Panels },
   data() {
     return {
       objects: Space_Objects,
-      nature: Space_Nature
+      pixelDiff: 0,
+      objDiff: 0,
+      marginBottomDiff: -790,
+      stop: false
     };
   },
   mounted() {
@@ -133,7 +124,7 @@ export default {
         .split(/\s+|,/)[2];
 
       this.$emit("informheight", {
-        width: totalWidth - 50,
+        width: totalWidth - 150,
         container: "space"
       });
     },
@@ -143,15 +134,39 @@ export default {
   },
   watch: {
     groundSpeed(pixels) {
-      this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
-      this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
+      if (!this.outerspace) {
+        this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
+        this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
+        this.pixelDiff = pixels;
+        this.$refs.groundContainer.style.marginBottom = `${this
+          .marginBottomDiff + "px"}`;
+      } else {
+        if (29532 > Math.abs(pixels)) {
+          let vertical =
+            -(this.pixelDiff - pixels) / 0.3 + this.marginBottomDiff;
+          this.$refs.groundContainer.style.marginBottom = `${vertical + "px"}`;
+          this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
+          this.$refs.seaContainer.style.marginBottom = `${vertical + "px"}`;
+          this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
+          this.stop = false;
+        } else {
+          //this.openModal('Test');
+          this.stop = true;
+        }
+      }
     },
     objectSpeed(pixels) {
-      this.$refs.objects.style.transform = "translateX(" + pixels + "px)";
-      this.$refs.interactive.style.transform = "translateX(" + pixels + "px)";
-    },
-    natureSpeed(pixels) {
-      this.$refs.nature.style.transform = "translateX(" + pixels + "px)";
+      if (!this.outerspace) {
+        this.$refs.objects.style.transform = "translateX(" + pixels + "px)";
+        this.objDiff = pixels;
+      } else {
+        if (!this.stop) {
+          let vertical = -(this.objDiff - pixels);
+          //console.log('pixels',pixels,'objDiff',this.objDiff,'vert',vertical );
+          this.$refs.objects.style.marginBottom = `${vertical * 3.15 + "px"}`;
+          this.$refs.objects.style.marginLeft = `${vertical * 1.25 + "px"}`;
+        }
+      }
     }
   }
 };
@@ -231,7 +246,7 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-left: 2899px;
+  margin-left: 2699px;
   margin-bottom: 858px;
   z-index: -1;
   width: 724px;
@@ -253,17 +268,17 @@ export default {
 }
 .stars {
   position: absolute;
-  margin-left: 800px;
-  margin-bottom: 1600px;
+  margin-left: 1700px;
+  margin-bottom: 2370px;
   bottom: 0;
   left: 0;
 }
-.rocket{
-position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-left: 3134px;
-    margin-bottom: 726px;
-    z-index: -1;
+.rocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 2934px;
+  margin-bottom: 726px;
+  z-index: -1;
 }
 </style>

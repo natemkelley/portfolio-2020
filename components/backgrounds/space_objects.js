@@ -1,44 +1,51 @@
 module.exports = [
     {
       name: "World_Space_UX",
-      posX: 1679,
-      posY: 1888,
-      height: 155,
+      posX: 890,
+      posY: 1738,
+      height: 55,
       width: 720
     },
     {
       name: "World_Space_JavaScript",
-      posX: 1849,
-      posY: 2488,
-      height: 155,
+      posX: 1709,
+      posY: 2288,
+      height: 105,
       width: 720
     },
     {
       name: "World_Space_Vuejs",
-      posX: 2049,
-      posY: 3088,
-      height: 155,
+      posX: 1329,
+      posY: 2888,
+      height: 128,
       width: 720
     },
     {
       name: "World_Space_UserResearch",
-      posX: 2249,
-      posY: 3688,
-      height: 155,
+      posX: 2109,
+      posY: 3188,
+      height: 105,
       width: 720
     },
     {
       name: "World_Space_Entre",
-      posX: 2449,
-      posY: 4288,
-      height: 155,
+      posX: 1700,
+      posY: 3688,
+      height: 100,
       width: 720
     },
     {
       name: "World_Space_HireMe",
-      posX: 2649,
-      posY: 4888,
-      height: 155,
+      posX: 2500,
+      posY: 4468,
+      height: 105,
+      width: 720
+    },
+    {
+      name: "World_Space_Planet2",
+      posX: 900,
+      posY: 2000,
+      height: 105,
       width: 720
     }
   ];

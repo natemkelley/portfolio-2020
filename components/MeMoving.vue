@@ -1,6 +1,10 @@
 <template>
   <div class="MeMoving">
-    <svg-icon :name="svgNameFinal" v-bind:class="{ rocketo: outerspace }" ref="nate" />
+    <svg-icon
+      :name="svgNameFinal"
+      v-bind:class="{ rocketo: outerspace }"
+      ref="nate"
+    />
   </div>
 </template>
 
@@ -174,9 +178,8 @@ export default {
   },
   computed: {
     svgNameFinal() {
-      if(this.outerspace){
-        console.log('xxxxxxx')
-        return "nate/rocket_fire_" +this.directionX;
+      if (this.outerspace) {
+        return "nate/rocket_fire_" + this.directionX;
       }
 
       return "nate/" + this.position + "_" + this.directionX + this.blink;
@@ -210,8 +213,10 @@ export default {
   opacity: 1;
 }
 
-.rocketo{
-    height: 584px;
-  width: 485px;
+.rocketo {
+  height: 570px;
+  width: 470px;
+  margin-left: -287.5px;
+  margin-bottom: 0px !important;
 }
 </style>

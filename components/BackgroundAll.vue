@@ -50,7 +50,7 @@
         :groundSpeed="groundSpeed"
         :natureSpeed="natureSpeed"
         :objectSpeed="objectSpeed"
-                :outerspace="outerspace"
+          :outerspace="outerspace"
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />

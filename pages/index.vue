@@ -187,7 +187,7 @@ export default {
       }
 
       if (
-        this.previousScrollPos + this.offsetLeft > 28609
+        this.previousScrollPos + this.offsetLeft > 28409
       ) {
         this.outerspace = true;
         //console.log("outerspace", this.outerspace);
