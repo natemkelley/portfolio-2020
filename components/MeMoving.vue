@@ -1,6 +1,6 @@
 <template>
   <div class="MeMoving">
-    <svg-icon :name="svgNameFinal" ref="nate" />
+    <svg-icon :name="svgNameFinal" v-bind:class="{ rocketo: outerspace }" ref="nate" />
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
       offsetLeftPosition: 0
     };
   },
-    created() {
+  created() {
     window.addEventListener("resize", this.emitOffsetPos);
   },
   destroyed() {
@@ -174,6 +174,11 @@ export default {
   },
   computed: {
     svgNameFinal() {
+      if(this.outerspace){
+        console.log('xxxxxxx')
+        return "nate/rocket_fire_" +this.directionX;
+      }
+
       return "nate/" + this.position + "_" + this.directionX + this.blink;
     }
   },
@@ -203,5 +208,10 @@ export default {
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   opacity: 1;
+}
+
+.rocketo{
+    height: 584px;
+  width: 485px;
 }
 </style>

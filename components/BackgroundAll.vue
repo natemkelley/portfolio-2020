@@ -50,6 +50,7 @@
         :groundSpeed="groundSpeed"
         :natureSpeed="natureSpeed"
         :objectSpeed="objectSpeed"
+                :outerspace="outerspace"
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
@@ -93,7 +94,8 @@ export default {
     "previousScrollPos",
     "groundElevationGround",
     "initialGroundElevationGround",
-    "offsetLeft"
+    "offsetLeft",
+    "outerspace"
   ],
   methods: {
     toggleModal(component) {
@@ -159,7 +161,7 @@ export default {
           for (let index = 0; index < this.containerOffsets.length; index++) {
             var name = this.containerOffsets[index].container;
             var contwidth = Number(this.containerOffsets[index].width);
-            console.log(name);
+            //console.log(name);
             switch (name) {
               case "grass":
                 this.activeLayers.grass =
@@ -195,16 +197,12 @@ export default {
                   this.previousScrollPos > this.spaceOffset - 2500
                     ? true
                     : false;
-                console.log(
-                  "space",
-                  this.previousScrollPos,
-                  this.spaceOffset - clientWidthTimes2
-                );
+
                 break;
             }
           }
 
-          console.log(this.activeLayers);
+          //console.log(this.activeLayers);
           this.checkingActiveLayers = false;
         }, 500);
       }

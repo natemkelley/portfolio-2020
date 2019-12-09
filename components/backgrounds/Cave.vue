@@ -129,7 +129,7 @@ export default {
       if (Math.abs(pixels) > 21400) {
         this.introBulb = true;
       }
-            if (Math.abs(pixels) > 22200) {
+            if (Math.abs(pixels) > 22000) {
         this.introCarts = true;
       }
     },

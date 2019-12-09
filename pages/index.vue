@@ -14,6 +14,7 @@
         :groundElevationGround="groundElevationGround"
         :initialGroundElevationGround="initialGroundElevationGround"
         :offsetLeft="offsetLeft"
+        :outerspace="outerspace"
         @toggleModal="toggleModal"
       />
       <MeMoving
@@ -104,7 +105,7 @@ export default {
     handleLoader() {
       if (this.height > 20000) {
         setTimeout(() => {
-                  this.loaded = true;
+          this.loaded = true;
         }, 550);
       }
     },
@@ -175,17 +176,25 @@ export default {
       this.modalOpen = !this.modalOpen;
     },
     handleSpecialEnviroments() {
-      let underwaterVal = false;
       if (
         this.previousScrollPos + this.offsetLeft > 6830 &&
         this.previousScrollPos + this.offsetLeft < 13685
       ) {
-        underwaterVal = true;
-        console.log("underwahwah", underwaterVal);
+        this.underwater = true;
+        //console.log("underwahwah", this.underwater);
+      } else {
+        this.underwater = false;
       }
 
-      //console.log('underwater',returnVal)
-      this.underwater = underwaterVal;
+      if (
+        this.previousScrollPos + this.offsetLeft > 28609
+      ) {
+        this.outerspace = true;
+        //console.log("outerspace", this.outerspace);
+      } else {
+        this.outerspace = false;
+      }
+    //console.log('pixels',this.previousScrollPos)
     }
   },
   created() {
