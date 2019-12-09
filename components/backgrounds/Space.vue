@@ -9,11 +9,11 @@
       <div class="cavescape click-through" />
       <div class="cavescapetop click-through" />
       <svg-icon
-        name="objects/World_Space_Stars"
+        name="objects/Stars"
         class="stars"
         ref="stars"
-        height="4337"
-        width="4613"
+        height="5337"
+        width="5613"
       />
       <svg-icon
         name="objects/World_Space_Moon"
@@ -80,7 +80,7 @@
       />
       <Ground class="yikes" ref="ground" />
     </div>
-    <div class="theend"></div>
+    <Balloons class="balloons" :cheering="cheering" />
   </div>
 </template>
 
@@ -88,7 +88,9 @@
 import Ground from "~/assets/inlinesvg/World_Space_Ground.svg?inline";
 import Space_Objects from "~/components/backgrounds/space_objects.js";
 import Panels from "~/components/Panels";
-import anime from "animejs"
+import Balloons from "~/components/Balloons";
+import anime from "animejs";
+
 export default {
   name: "Sea",
   props: [
@@ -98,9 +100,10 @@ export default {
     "objectSpeed",
     "natureSpeed",
     "offsetLeft",
-    "outerspace"
+    "outerspace",
+    "cheering"
   ],
-  components: { Ground, Panels },
+  components: { Ground, Panels, Balloons },
   data() {
     return {
       objects: Space_Objects,
@@ -124,7 +127,7 @@ export default {
         .split(/\s+|,/)[2];
 
       this.$emit("informheight", {
-        width: totalWidth - 150,
+        width: totalWidth - 1200, //1745
         container: "space"
       });
     },
@@ -141,17 +144,13 @@ export default {
         this.$refs.groundContainer.style.marginBottom = `${this
           .marginBottomDiff + "px"}`;
       } else {
-        if (29532 > Math.abs(pixels)) {
+        if (!this.cheering) {
           let vertical =
             -(this.pixelDiff - pixels) / 0.3 + this.marginBottomDiff;
           this.$refs.groundContainer.style.marginBottom = `${vertical + "px"}`;
           this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
           this.$refs.seaContainer.style.marginBottom = `${vertical + "px"}`;
           this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
-          this.stop = false;
-        } else {
-          //this.openModal('Test');
-          this.stop = true;
         }
       }
     },
@@ -160,13 +159,16 @@ export default {
         this.$refs.objects.style.transform = "translateX(" + pixels + "px)";
         this.objDiff = pixels;
       } else {
-        if (!this.stop) {
+        if (!this.cheering) {
           let vertical = -(this.objDiff - pixels);
           //console.log('pixels',pixels,'objDiff',this.objDiff,'vert',vertical );
           this.$refs.objects.style.marginBottom = `${vertical * 3.15 + "px"}`;
           this.$refs.objects.style.marginLeft = `${vertical * 1.25 + "px"}`;
         }
       }
+    },
+    cheering(newVal) {
+      //console.log('cheering',newVal)
     }
   }
 };
@@ -280,5 +282,14 @@ export default {
   margin-left: 2934px;
   margin-bottom: 726px;
   z-index: -1;
+}
+
+.balloons{
+    position: fixed;
+    /* top: 0; */
+    right: 0;
+    margin-top: -500px;
+    /* margin-bottom: -110000px; */
+    margin-right: 25272px;
 }
 </style>

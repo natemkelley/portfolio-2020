@@ -2,7 +2,8 @@
   <div class="MeMoving">
     <svg-icon
       :name="svgNameFinal"
-      v-bind:class="{ rocketo: outerspace }"
+      class="bignate"
+      v-bind:class="{ rocketo: outerspace, cheering: cheering }"
       ref="nate"
     />
   </div>
@@ -19,7 +20,8 @@ export default {
     "initialGroundElevation",
     "stillMoving",
     "underwater",
-    "outerspace"
+    "outerspace",
+    "cheering"
   ],
   data() {
     return {
@@ -34,7 +36,8 @@ export default {
       elevationChanging: false,
       newElevation: 0,
       oldElevation: 0,
-      offsetLeftPosition: 0
+      offsetLeftPosition: 0,
+      jumpDur: "right"
     };
   },
   created() {
@@ -174,10 +177,27 @@ export default {
         }
       }
       this.elevationChanging = true;
+    },
+    startCheering() {
+      if (this.cheering) {
+        console.log("cheering", this.cheering);
+        setTimeout(() => {
+          this.startCheering();
+          if (this.jumpDur === "left") {
+            this.jumpDur = "right";
+          } else {
+            this.jumpDur = "left";
+          }
+        }, 1350);
+      }
     }
   },
   computed: {
     svgNameFinal() {
+      if (this.cheering) {
+        //alert('x')
+        return "nate/cheering_" + this.jumpDur;
+      }
       if (this.outerspace) {
         return "nate/rocket_fire_" + this.directionX;
       }
@@ -195,6 +215,11 @@ export default {
       this.newElevation = newVal;
       //console.log("this.newElevation", this.newElevation);
       this.handleElevationChange(newVal, oldVal);
+    },
+    cheering(newVal) {
+      if (newVal) {
+        this.startCheering();
+      }
     }
   }
 };
@@ -218,5 +243,34 @@ export default {
   width: 470px;
   margin-left: -287.5px;
   margin-bottom: 0px !important;
+}
+.cheering {
+  height: 200px;
+  width: 200px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -100px;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  opacity: 1;
+  text-align: center;
+}
+
+.cheering {
+  text-align: center;
+  animation: cheering 0.45s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes cheering {
+  0% {
+    transform: translate3d(0, 0px, 0) scaleX(1);
+  }
+  100% {
+    transform: translate3d(0, 18px, 0);
+  }
 }
 </style>

@@ -15,6 +15,7 @@
         :initialGroundElevationGround="initialGroundElevationGround"
         :offsetLeft="offsetLeft"
         :outerspace="outerspace"
+        :cheering="cheering"
         @toggleModal="toggleModal"
       />
       <MeMoving
@@ -25,6 +26,7 @@
         :stillMoving="stillMoving"
         :underwater="underwater"
         :outerspace="outerspace"
+        :cheering="cheering"
       />
       <ScoreKeeper :previousScrollPos="previousScrollPos" />
       <ModalCartoon
@@ -59,6 +61,7 @@ export default {
   data() {
     return {
       loaded: false,
+      cheering: false,
       renderPreloader: true,
       previousScrollPos: 0,
       directionX: "right",
@@ -186,15 +189,19 @@ export default {
         this.underwater = false;
       }
 
-      if (
-        this.previousScrollPos + this.offsetLeft > 28409
-      ) {
+      if (this.previousScrollPos + this.offsetLeft > 28409) {
         this.outerspace = true;
-        //console.log("outerspace", this.outerspace);
       } else {
         this.outerspace = false;
       }
-    //console.log('pixels',this.previousScrollPos)
+
+      console.log(this.previousScrollPos + this.offsetLeft,this.height - 220)
+      this.cheering =
+        this.previousScrollPos + this.offsetLeft > this.height - 220
+          ? true
+          : false;
+
+      //console.log('pixels',this.previousScrollPos)
     }
   },
   created() {

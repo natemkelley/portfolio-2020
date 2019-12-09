@@ -50,7 +50,8 @@
         :groundSpeed="groundSpeed"
         :natureSpeed="natureSpeed"
         :objectSpeed="objectSpeed"
-          :outerspace="outerspace"
+        :outerspace="outerspace"
+        :cheering="cheering"
         @informheight="calculateAndEmitPageHeight"
         @toggleModal="toggleModal"
       />
@@ -95,7 +96,8 @@ export default {
     "groundElevationGround",
     "initialGroundElevationGround",
     "offsetLeft",
-    "outerspace"
+    "outerspace",
+    "cheering"
   ],
   methods: {
     toggleModal(component) {
