@@ -10,10 +10,7 @@ export default {
   props: ["previousScrollPos"],
   computed: {
     score() {
-      return String(Math.round(this.previousScrollPos / 100) * 20).padStart(
-        5,
-        "0"
-      );
+      return String(Math.min(6000,Math.round(this.previousScrollPos / 100) * 20)).padStart(5,"0");
     }
   }
 };

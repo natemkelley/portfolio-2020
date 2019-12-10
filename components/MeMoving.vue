@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="MeMoving">
     <svg-icon
       :name="svgNameFinal"
@@ -6,14 +7,18 @@
       v-bind:class="{ rocketo: outerspace, cheering: cheering }"
       ref="nate"
     />
+    <Balloons class="balloons" :cheering="cheering" />
+  </div>
   </div>
 </template>
 
 <script>
 import anime from "animejs";
+import Balloons from "~/components/Balloons";
 
 export default {
   name: "MeMoving",
+  components: { Balloons },
   props: [
     "directionX",
     "groundElevation",
@@ -218,6 +223,7 @@ export default {
     },
     cheering(newVal) {
       if (newVal) {
+        console.log('me moving cheering',newVal)
         this.startCheering();
       }
     }
@@ -248,7 +254,7 @@ export default {
   height: 200px;
   width: 200px;
   position: fixed;
-  bottom: 0;
+  bottom: 41%;
   left: 50%;
   margin-left: -100px;
   transform: translate3d(0, 0, 0);
@@ -259,7 +265,7 @@ export default {
 
 .cheering {
   text-align: center;
-  animation: cheering 0.45s;
+  animation: cheering 0.5s;
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
   animation-iteration-count: infinite;
@@ -267,10 +273,15 @@ export default {
 
 @keyframes cheering {
   0% {
-    transform: translate3d(0, 0px, 0) scaleX(1);
+    transform: translate3d(0, 0px, 0);
   }
   100% {
-    transform: translate3d(0, 18px, 0);
+    transform: translate3d(0, 20px, 0);
   }
+}
+
+.balloons{
+      position: fixed;
+    bottom: -10px;
 }
 </style>

@@ -1,7 +1,13 @@
 <template>
   <div>
-    <div v-for="n in 11" :key="n + 'ballons'" class="balloon">
-      <svg-icon :name="'objects/Balloons' + n" />
+    <div v-for="n in 11" :key="n + 'ballons'">
+      <svg-icon class="balloon" :name="'objects/Balloons' + n" />
+      <svg-icon class="balloon" :name="'objects/Balloons' + n" />
+      <svg-icon class="balloon" :name="'objects/Balloons' + n" />
+      <svg-icon class="balloon" :name="'objects/Balloons' + n" />
+      <svg-icon class="balloon" :name="'objects/Balloons' + n" />
+      <svg-icon class="balloon" :name="'objects/Balloons' + n" />
+      <svg-icon class="balloon" :name="'objects/Balloons' + n" />
     </div>
   </div>
 </template>
@@ -11,33 +17,68 @@ import anime from "animejs";
 export default {
   name: "Balloons",
   props: ["cheering"],
+  data() {
+    return {
+      lifting: false
+    };
+  },
   mounted() {
-    anime({
-      targets: this.$el.querySelectorAll(".balloon"),
-      translateX: function() {
-        return anime.random(-50, document.body.clientWidth + 50);
-      },
-    translateY: function() {
-        return anime.random(-50, 150);
-      },
-      duration: 1
-    });
+    setTimeout(() => {
+      console.log(document.querySelectorAll(".balloon"));
+      anime({
+        targets: document.querySelectorAll(".balloon"),
+        translateX: function() {
+          return anime.random(-160, document.body.clientWidth - 130);
+        },
+        duration: 100
+      });
+    }, 500);
+  },
+  methods: {
+    liftBalloons() {
+      if (!this.lifting) {
+        this.lifting = true;
+        let height = window.innerHeight + 300;
+        console.log(
+          "lifting!!!!!!!",
+          this.$el.querySelectorAll(".balloon"),
+          -height
+        );
+        anime({
+          targets: this.$el.querySelectorAll(".balloon"),
+          easing: "linear",
+          translateY: [0, -height],
+          delay: function() {
+            return anime.random(0, 3900);
+          },
+          duration: function() {
+            return anime.random(3500, 4500);
+          },
+          begin: function(anim) {
+            console.log("beggin loop");
+          },
+          complete: anim => {
+            this.lifting = false;
+            // alert(this.lifting);
+          }
+        });
+      }
+    }
   },
   watch: {
     cheering(newVal) {
-      anime({
-        targets: this.$el.querySelectorAll(".balloon"),
-        translateY: 1200,
-        duration: function() {
-          return anime.random(2500, 3000);
-        }
-      });
+      if (newVal) {
+        setTimeout(() => {
+          console.log("watching cheering", newVal);
+          this.liftBalloons();
+        }, 450);
+      }
     }
   }
 };
 </script>
 
-<style scoped>
+<style>
 .balloon {
   position: absolute;
 }

@@ -12,27 +12,30 @@ export default {
   name: "Lighthouse",
   components: { Lighthousex },
   props: ["introLighthouse"],
-  data(){
-    return{
+  data() {
+    return {
       toggleLightVal: true
-    }
+    };
   },
-  mounted(){
+  mounted() {
     this.$refs.lighthouse.querySelector(".lighthole").style.opacity = 1;
-    this.$refs.lighthouse.querySelector(".lighthole").style.transition="opacity 0.35s";
+    this.$refs.lighthouse.querySelector(".lighthole").style.transition =
+      "opacity 0.35s";
   },
   methods: {
     toggleLight() {
       //console.log("toggling",this.$refs.lighthouse.querySelector(".lighthole").style.opacity);
-      if (
-        this.toggleLightVal
-      ) {
-
-        this.$refs.lighthouse.querySelector(".lighthole").style.opacity = 0.01;
-      } else {
-        this.$refs.lighthouse.querySelector(".lighthole").style.opacity = 1;
+      console.log(this.$refs.lighthouse);
+      if (this.$refs.lighthouse != undefined) {
+        if (this.toggleLightVal && this.$refs.lighthouse) {
+          this.$refs.lighthouse.querySelector(
+            ".lighthole"
+          ).style.opacity = 0.01;
+        } else {
+          this.$refs.lighthouse.querySelector(".lighthole").style.opacity = 1;
+        }
+        this.toggleLightVal = !this.toggleLightVal;
       }
-      this.toggleLightVal = !this.toggleLightVal;
     }
   },
   watch: {

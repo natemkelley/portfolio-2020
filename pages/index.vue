@@ -195,9 +195,9 @@ export default {
         this.outerspace = false;
       }
 
-      console.log(this.previousScrollPos + this.offsetLeft,this.height - 220)
+      console.log(this.previousScrollPos + this.offsetLeft, this.height - this.offsetLeft);
       this.cheering =
-        this.previousScrollPos + this.offsetLeft > this.height - 220
+        this.previousScrollPos + this.offsetLeft > 30482
           ? true
           : false;
 

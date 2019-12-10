@@ -80,7 +80,6 @@
       />
       <Ground class="yikes" ref="ground" />
     </div>
-    <Balloons class="balloons" :cheering="cheering" />
   </div>
 </template>
 
@@ -88,7 +87,6 @@
 import Ground from "~/assets/inlinesvg/World_Space_Ground.svg?inline";
 import Space_Objects from "~/components/backgrounds/space_objects.js";
 import Panels from "~/components/Panels";
-import Balloons from "~/components/Balloons";
 import anime from "animejs";
 
 export default {
@@ -103,7 +101,7 @@ export default {
     "outerspace",
     "cheering"
   ],
-  components: { Ground, Panels, Balloons },
+  components: { Ground, Panels },
   data() {
     return {
       objects: Space_Objects,
@@ -127,7 +125,7 @@ export default {
         .split(/\s+|,/)[2];
 
       this.$emit("informheight", {
-        width: totalWidth - 1200, //1745
+        width: totalWidth-800 , 
         container: "space"
       });
     },
@@ -168,7 +166,7 @@ export default {
       }
     },
     cheering(newVal) {
-      //console.log('cheering',newVal)
+      console.log('cheering',newVal)
     }
   }
 };
@@ -284,12 +282,4 @@ export default {
   z-index: -1;
 }
 
-.balloons{
-    position: fixed;
-    /* top: 0; */
-    right: 0;
-    margin-top: -500px;
-    /* margin-bottom: -110000px; */
-    margin-right: 25272px;
-}
 </style>
