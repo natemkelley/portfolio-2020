@@ -229,6 +229,8 @@ export default {
   z-index: 9999;
   position: fixed;
   opacity: 1;
+      left: 0;
+    top: 0;
 }
 .box {
   border: 7px solid white;

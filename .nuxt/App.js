@@ -11,8 +11,9 @@ import NuxtLoading from './components/nuxt-loading.vue'
 import '../css/main.css'
 
 import _6f6c098b from '../layouts/default.vue'
+import _5e97b7ef from '../layouts/indipage.vue'
 
-const layouts = { "_default": _6f6c098b }
+const layouts = { "_default": _6f6c098b,"_indipage": _5e97b7ef }
 
 export default {
   head: {"title":"Nate Kelley Portfolio","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"Nate Kelley","content":"Portfolio of Nate Kelley 2020"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},

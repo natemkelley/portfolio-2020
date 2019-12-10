@@ -196,10 +196,11 @@ ul {
 }
 
 .menu-list .logo {
-  width: 100%;
-  min-width: 300px;
-  margin-left: 0;
-  padding: 6%;
-  max-height: 100px;
+width: 95%;
+    padding-left: 2.5%;
+    padding-bottom: 5px;
+    min-width: 300px;
+    margin-left: 0;
+    max-height: 100px;
 }
 </style>

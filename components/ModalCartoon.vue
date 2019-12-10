@@ -24,6 +24,15 @@
           />
         </a>
       </div>
+      <div class="close-btn link-btn" v-show="!loading">
+        <a class="btn-floating">
+          <svg-icon
+            name="icons/external"
+            class="close-icon"
+            @click="external"
+          />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -37,7 +46,8 @@ export default {
   props: ["modalOpen", "color", "component"],
   data() {
     return {
-      loading: true
+      loading: true,
+      error: false
     };
   },
   methods: {
@@ -47,19 +57,26 @@ export default {
     },
     toggleLoading() {
       this.loading = false;
+    },
+    external(){
+      window.open('/pages/'+this.component, '_blank');
     }
   },
   computed: {
     componentFile() {
       console.log(this.component);
-      return () => import(`./modalComponents/${this.component}.vue`);
+      //      return () => import(`./modalComponents/${this.component}.vue`);
+      //return () => import(`../components/modalComponents/${this.component}.vue`);
+
+      return () => import(`../pages/pages/${this.component}.vue`);
     }
   },
   watch: {
     modalOpen(newVal) {
       if (newVal == true) {
         this.loading = true;
-        console.log(document.getElementsByTagName("body")[0].style);
+        this.error = false;
+        //console.log(document.getElementsByTagName("body")[0].style);
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
       }
     }
@@ -112,32 +129,8 @@ button {
   width: 60%;
   margin-left: 20%;
 }
-</style>
-
-<style>
-.modal img {
-  border: 4px solid white;
-  border-radius: 10px;
-  margin: 10px 0px;
-  cursor: zoom-in;
-}
-.lightbox__image {
-  text-align: center;
-}
-
-.modal .lightbox__image img {
-  height: 90vh !important;
-  width: auto;
-  text-align: center;
-  cursor: default;
-}
-
-.lightbox__close {
-  font-size: 3.5rem !important;
-  margin-right: 25px;
-}
-
-.modal p {
-  font-size: 18px;
+.link-btn {
+  margin-top: 120px;
 }
 </style>
+
