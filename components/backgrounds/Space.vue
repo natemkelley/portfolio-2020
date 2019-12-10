@@ -57,7 +57,7 @@
     </div>
     <div class="interactive-container" ref="interactive"></div>
     <div class="ground-container" ref="groundContainer">
-      <Panels class="panels" />
+      <Panels class="panels" :introPanels="introPanels" />
       <svg-icon
         class="spacetop"
         name="objects/World_Space_CaveTopTest"
@@ -108,7 +108,9 @@ export default {
       pixelDiff: 0,
       objDiff: 0,
       marginBottomDiff: -790,
-      stop: false
+      stop: false,
+      introBulb: false,
+      introPanels: false
     };
   },
   mounted() {
@@ -125,7 +127,7 @@ export default {
         .split(/\s+|,/)[2];
 
       this.$emit("informheight", {
-        width: totalWidth-800 , 
+        width: totalWidth - 800,
         container: "space"
       });
     },
@@ -135,6 +137,10 @@ export default {
   },
   watch: {
     groundSpeed(pixels) {
+      //console.log(pixels);
+      if (Math.abs(pixels) > 24700) {
+        this.introPanels = true;
+      }
       if (!this.outerspace) {
         this.$refs.seaContainer.style.marginLeft = `${pixels + "px"}`;
         this.$refs.groundContainer.style.marginLeft = `${pixels + "px"}`;
@@ -164,9 +170,6 @@ export default {
           this.$refs.objects.style.marginLeft = `${vertical * 1.25 + "px"}`;
         }
       }
-    },
-    cheering(newVal) {
-      console.log('cheering',newVal)
     }
   }
 };
@@ -189,7 +192,7 @@ export default {
   background: #4e4e51;
   position: absolute;
   bottom: 0;
-  width: 1800px;
+  width: 4800px;
   height: 1400px;
   z-index: -2;
   margin-left: 338px;
@@ -281,5 +284,4 @@ export default {
   margin-bottom: 726px;
   z-index: -1;
 }
-
 </style>

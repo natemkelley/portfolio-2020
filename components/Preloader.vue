@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="preloader">
-      <div v-if="problem" class="problem">
+      <div v-if="problemBrowser || problemSize" class="problem">
         <div class="box">
           <svg-icon
             @click="togglePreloader"
@@ -12,8 +12,8 @@
             <div class="column"><p>Current screen size:</p></div>
             <div class="column">
               <p class="right">
-                <span :class="{ problemX: colorW }" >{{ width }}</span> x
-                <span :class="{ problemX: colorH }" >{{ height }}</span>
+                <span :class="{ problemX: colorW }">{{ width }}</span> x
+                <span :class="{ problemX: colorH }">{{ height }}</span>
               </p>
             </div>
           </div>
@@ -26,7 +26,7 @@
           <div class="row">
             <p class="eightypercent">
               You are currently using
-              <span :style="{ color: colorBrowser }">{{ browser }}</span
+              <span :class="{ problemX: colorBrowser }">{{ browser }}</span
               >. Safari and IE have been know to cause problems with this
               website.
             </p>
@@ -67,8 +67,10 @@ export default {
       height: null,
       browser: "UNKNOWN",
       version: "0.0",
-      problem: false,
-      color: null,
+      problemSize: false,
+      problemBrowser: false,
+      colorW: null,
+      colorH: null,
       colorBrowser: null
     };
   },
@@ -85,19 +87,21 @@ export default {
   },
   mounted() {
     document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    this.checkBrowser();
     this.checkWidth();
     this.animateClouds();
-    const browser = detect();
-    if (browser) {
-      this.browser = browser.name.toUpperCase();
-      this.version = String(browser.version);
-      if (!this.browser == "CHROME") {
-        this.problem = true;
-      }
-    }
   },
   methods: {
     togglePreloader() {
+      if (this.problemSize) {
+        document
+          .querySelector("meta[name=viewport]")
+          .setAttribute(
+            "content",
+            "width=device-width, initial-scale=0.41, maximum-scale=1.0, user-scalable=0"
+          );
+      }
+
       document.getElementsByTagName("body")[0].style.overflow = "auto";
 
       var animation = anime.timeline({
@@ -132,25 +136,40 @@ export default {
         document.body.clientHeight;
 
       if (this.height < 664) {
-        this.problem = true;
+        this.problemSize = true;
         this.colorH = "#ff4d4d";
       } else {
         this.colorH = null;
       }
 
       if (this.width < 749) {
-        this.problem = true;
+        this.problemSize = true;
         this.colorW = "#ff4d4d";
       } else {
         this.colorW = null;
       }
 
       //fallback if they resize the window
-      console.log("x", this.browser);
-      if ((this.browser == "CHROME" && this.height > 668) && this.width > 749) {
-        this.problem = false;
+      if (this.browser === "CHROME" && this.height > 668 && this.width > 749) {
+        //console.log("fallback browser", this.browser);
+        this.problemSize = false;
+        this.problemBrowser = false;
         this.showClouds();
         this.animateClouds();
+      }
+    },
+    checkBrowser() {
+      const browser = detect();
+      if (browser) {
+        this.browser = browser.name.toUpperCase();
+        this.version = String(browser.version);
+        console.log("browser", this.browser, !this.browser != "CHROME");
+
+        if (this.browser != "CHROME") {
+          console.log("problem browser", this.browser);
+          this.problemBrowser = true;
+          this.colorBrowser = true;
+        }
       }
     },
     animateClouds() {
@@ -168,14 +187,14 @@ export default {
 </script>
 
 <style scoped>
-.right{
+.right {
   float: right;
 }
 
-.problemX{
-      color: rgb(255, 77, 77);
-      border: 2.3px solid red;
-      padding: 7.2px;
+.problemX {
+  color: rgb(255, 77, 77);
+  border: 2.3px solid red;
+  padding: 3.4px;
 }
 
 .c {
@@ -246,7 +265,7 @@ p {
   font-family: "Press Start 2P";
   color: white;
   font-size: 1.66em;
-  line-height: 125%;
+  line-height: 135%;
 }
 
 .column {
@@ -304,6 +323,30 @@ p {
     bottom: 0;
     margin-bottom: 15.3vh;
     margin-right: 23vw;
+  }
+}
+@media screen and (max-width: 490px) {
+  p {
+    font-size: 16.5px;
+  }
+  .anyways {
+    position: absolute;
+    margin-bottom: 10.3vh;
+    margin-right: 10vw;
+  }
+}
+@media screen and (max-width: 390px) {
+  p {
+    font-size: 14.5px;
+  }
+}
+@media screen and (max-width: 340px) {
+  p {
+    font-size: 12px;
+  }
+  .anyways {
+    margin-bottom: 1.3vh;
+    margin-right: 1vw;
   }
 }
 </style>

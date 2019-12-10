@@ -1,12 +1,13 @@
 <template>
   <div>
-    <!--<Preloader
+    <Preloader
       v-if="renderPreloader"
       :loaded="loaded"
       @togglepreloader="togglePreloader"
-    />-->
+    />
     <main :style="{ height: height + 'px' }">
-      <MenuCartoon />
+      <MenuCartoon @overrideactive="overrideactive"         :offsetLeft="offsetLeft"
+ />
       <BackgroundAll
         v-if="offsetLeft != 0"
         @informheight="updatePageHeight"
@@ -16,6 +17,7 @@
         :offsetLeft="offsetLeft"
         :outerspace="outerspace"
         :cheering="cheering"
+        :overrideactive="overrideactive2"
         @toggleModal="toggleModal"
       />
       <MeMoving
@@ -98,10 +100,15 @@ export default {
       height: 0,
       offsetLeft: 0,
       modalOpen: false,
-      component: null
+      component: null,
+      overrideactive2: false
     };
   },
   methods: {
+    overrideactive(value) {
+      //alert('overring '+ value)
+      this.overrideactive2 = value;
+    },
     togglePreloader() {
       this.renderPreloader = false;
     },
@@ -127,7 +134,7 @@ export default {
       this.directionX =
         this.previousScrollPos > window.scrollY ? "left" : "right";
       this.previousScrollPos = window.scrollY;
-      //console.log(this.previousScrollPos);
+      console.log(this.previousScrollPos);
 
       //handle elevation change function which use previous scroll position
       if (this.checkElevationChange) {
@@ -195,11 +202,9 @@ export default {
         this.outerspace = false;
       }
 
-      console.log(this.previousScrollPos + this.offsetLeft, this.height - this.offsetLeft);
+      //console.log(this.previousScrollPos + this.offsetLeft, this.height - this.offsetLeft);
       this.cheering =
-        this.previousScrollPos + this.offsetLeft > 30482
-          ? true
-          : false;
+        this.previousScrollPos + this.offsetLeft > 30482 ? true : false;
 
       //console.log('pixels',this.previousScrollPos)
     }

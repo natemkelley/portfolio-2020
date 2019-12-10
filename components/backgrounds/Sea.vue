@@ -64,6 +64,12 @@
         height="1016"
       />
       <svg-icon
+              class="item workexp"
+        :name="'objects/World_Beach_WorkExpSign'"
+        width="490"
+        height="550"
+       />
+      <svg-icon
         class="item boardwalk"
         :name="'objects/World_Beach_Boardwalk'"
         width="889"
@@ -206,5 +212,10 @@ export default {
   position: absolute;
   margin-bottom: 20px;
   margin-left: 6253px;
+}
+.workexp{
+  position: absolute;
+    margin-bottom: 701px;
+    margin-left: 6447px;
 }
 </style>

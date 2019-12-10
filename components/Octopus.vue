@@ -1,73 +1,72 @@
 <template>
-<div>
-  <div class="swag">
-    <div class="float">
-      <svg-icon
-        class="octo head"
-        name="octopus/Octopus_Head"
-        height="441"
-        width="403"
-      />
-      <svg-icon
-        class="octo arm1 arm"
-        name="octopus/Octopus_Arm1"
-        height="427"
-        width="363"
-      />
-      <svg-icon
-        class="octo arm2 arm"
-        name="octopus/Octopus_Arm2"
-        height="291"
-        width="582"
-      />
-      <svg-icon
-        class="octo arm3 arm"
-        name="octopus/Octopus_Arm3"
-        height="498"
-        width="353"
-      />
-      <svg-icon
-        class="octo arm4 arm"
-        name="octopus/Octopus_Arm4"
-        height="345"
-        width="593"
-      />
-      <svg-icon
-        class="octo arm5 arm"
-        name="octopus/Octopus_Arm5"
-        height="513"
-        width="346"
-      />
-      <!--<svg-icon
+  <div>
+    <div class="swag">
+      <div class="float">
+        <svg-icon
+          class="octo head"
+          name="octopus/Octopus_Head"
+          height="441"
+          width="403"
+        />
+        <svg-icon
+          class="octo arm1 arm"
+          name="octopus/Octopus_Arm1"
+          height="427"
+          width="363"
+        />
+        <svg-icon
+          class="octo arm2 arm"
+          name="octopus/Octopus_Arm2"
+          height="291"
+          width="582"
+        />
+        <svg-icon
+          class="octo arm3 arm"
+          name="octopus/Octopus_Arm3"
+          height="498"
+          width="353"
+        />
+        <svg-icon
+          class="octo arm4 arm"
+          name="octopus/Octopus_Arm4"
+          height="345"
+          width="593"
+        />
+        <svg-icon
+          class="octo arm5 arm"
+          name="octopus/Octopus_Arm5"
+          height="513"
+          width="346"
+        />
+        <!--<svg-icon
         class="octo arm6 arm"
         name="octopus/Octopus_Arm6"
         height="307"
         width="552"
       />-->
-      <svg-icon
-        class="octo arm7 arm"
-        name="octopus/Octopus_Arm7"
-        height="345"
-        width="576"
-      />
-                <svg-icon
-      class="octo chest arm"
-      name="octopus/Octopus_ArmChest"
-      height="299"
-      width="536"
-    />
-      <svg-icon
-        class="octo arm8"
-        name="octopus/Octopus_Arm8"
-        height="417"
-        width="660"
-      />
+        <svg-icon
+          class="octo arm7 arm"
+          name="octopus/Octopus_Arm7"
+          height="345"
+          width="576"
+        />
+        <svg-icon
+          class="octo chest arm"
+          name="octopus/Octopus_ArmChest"
+          height="299"
+          width="536"
+        />
+        <svg-icon
+          class="octo arm8"
+          name="octopus/Octopus_Arm8"
+          height="417"
+          width="660"
+        />
 
-      <Eyes class="eyesframe" ref="eyes" />
+        <Eyes class="eyesframe" ref="eyes" />
+      </div>
     </div>
-
   </div>
-</div>
 </template>
 
 <script>
@@ -75,7 +74,7 @@ import anime from "animejs";
 import Eyes from "~/assets/inlinesvg/Octopus/eyes.svg?inline";
 export default {
   name: "Octopus",
-  props:['introOcto'],
+  props: ["introOcto"],
   components: { Eyes },
   methods: {
     movesArms() {
@@ -114,9 +113,9 @@ export default {
       if (newVal) {
         anime({
           targets: this.$el.querySelectorAll(".swag"),
-          easing: 'easeOutQuad',
-          duration:5000,
-          translateY:'0px'
+          easing: "easeOutQuad",
+          duration: 5000,
+          translateY: "0px"
         });
       }
     }
@@ -125,13 +124,13 @@ export default {
 </script>
 
 <style scoped>
-.swag{
+.swag {
   transition: all 2s ease;
   transform: translateY(490px);
 }
 
-.uppity{
-    transform: translateY(0px);
+.uppity {
+  transform: translateY(0px);
 }
 
 .octo {

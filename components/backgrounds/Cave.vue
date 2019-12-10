@@ -161,11 +161,10 @@ export default {
   background: #3d3d3f;
   position: absolute;
   bottom: 0;
-  width: 3800px;
-  height: 250px;
+  width: 6800px;
+  height: 3250px;
   margin-bottom: 1385px;
 }
-
 .enttop {
   position: absolute;
   bottom: 0;

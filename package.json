@@ -15,6 +15,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/svg": "^0.1.6",
     "@nuxtjs/svg-sprite": "^0.4.3",
+    "animated-scroll-to": "^2.0.5",
     "animejs": "^3.1.0",
     "detect-browser": "^4.8.0",
     "fs": "0.0.1-security",

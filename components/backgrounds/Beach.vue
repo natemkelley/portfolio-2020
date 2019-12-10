@@ -6,6 +6,7 @@
   >
     <div class="ground-container" ref="beachContainer">
       <JungleScape :style="{ marginLeft: '3525px', marginBottom: '630px' }" />
+
     </div>
     <div class="sky-container" ref="sky">
       <svg-icon
@@ -21,6 +22,7 @@
         }"
       />
       <Canopy :style="{ marginLeft: '-705px', marginBottom: '456px' }" />
+            <div :style="{ marginLeft: '-672px', marginBottom: '830px' }" class="item jungletopcover"></div>
     </div>
     <div class="nature-container" ref="nature">
       <svg-icon
@@ -196,5 +198,10 @@ export default {
     margin-left: 7520px;
     margin-bottom: 814px;
     z-index: -1;
+}
+.jungletopcover{
+  background: #79864e;
+  width: 3500px;
+  height: 4000px;
 }
 </style>

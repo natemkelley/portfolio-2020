@@ -2,7 +2,7 @@
   <div>
     <div ref="backgroudContainer" class="backgroundContainer">
       <Grass
-        v-if="activeLayers.grass"
+        v-if="activeLayers.grass|| overrideactive"
         :initialGroundElevationGround="initialGroundElevationGround"
         :groundSpeed="groundSpeed"
         :objectSpeed="objectSpeed"
@@ -13,7 +13,7 @@
         @toggleModal="toggleModal"
       />
       <Sea
-        v-if="activeLayers.sea"
+        v-if="activeLayers.sea|| overrideactive"
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="seaOffset"
         :groundSpeed="groundSpeed"
@@ -23,7 +23,7 @@
         @toggleModal="toggleModal"
       />
       <Beach
-        v-if="activeLayers.beach"
+        v-if="activeLayers.beach|| overrideactive"
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="beachOffset"
         :groundSpeed="groundSpeed"
@@ -34,7 +34,7 @@
         @toggleModal="toggleModal"
       />
       <Cave
-        v-if="activeLayers.cave"
+        v-if="activeLayers.cave || overrideactive"
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="caveOffset"
         :groundSpeed="groundSpeed"
@@ -44,7 +44,7 @@
         @toggleModal="toggleModal"
       />
       <Space
-        v-if="activeLayers.space"
+        v-if="activeLayers.space || overrideactive"
         :initialGroundElevationGround="initialGroundElevationGround"
         :containerOffset="spaceOffset"
         :groundSpeed="groundSpeed"
@@ -97,7 +97,8 @@ export default {
     "initialGroundElevationGround",
     "offsetLeft",
     "outerspace",
-    "cheering"
+    "cheering",
+    "overrideactive"
   ],
   methods: {
     toggleModal(component) {

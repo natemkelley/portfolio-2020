@@ -5,18 +5,32 @@
       <div class="menu-list">
         <svg-icon class="logo" name="objects/NateKelley" ref="logo" />
         <ul>
-          <li v-for="item in menulist" :key="item" @click="menuItemClicked(item)">{{item}}</li>
+          <li
+            v-for="item in menulist"
+            :key="item.name"
+            @click="menuItemClicked(item)"
+          >
+            {{ item.name }}
+          </li>
         </ul>
       </div>
       <div class="menu-icons-list">
         <div class="row">
           <a class="btn-floating">
-            <svg-icon name="icons/close-circle" class="icon side-menu-icon" @click="toggleMenu" />
+            <svg-icon
+              name="icons/close-circle"
+              class="icon side-menu-icon"
+              @click="toggleMenu"
+            />
           </a>
         </div>
-        <div class="row" v-for="(icon,n) in socialLinks" :key="icon.icon">
+        <div class="row" v-for="(icon, n) in socialLinks" :key="icon.icon">
           <a class="btn-floating" :href="icon.src" target="_blank">
-            <svg-icon :name="'icons/'+icon.icon" class="icon side-menu-icon" @click="toggleMenu" />
+            <svg-icon
+              :name="'icons/' + icon.icon"
+              class="icon side-menu-icon"
+              @click="toggleMenu"
+            />
           </a>
         </div>
       </div>
@@ -25,19 +39,14 @@
 </template>
 
 <script>
+import animateScrollTo from "animated-scroll-to";
+
 export default {
   name: "MenuCartoon",
+  props: ["offsetLeft"],
   data() {
     return {
       clicked: false,
-      menulist: [
-        "Intro",
-        "Education",
-        "Exp",
-                "Projects",
-        "Leadership",
-        "Hire Me"
-      ],
       socialLinks: [
         {
           src: "https://www.linkedin.com/in/nate-kelley/",
@@ -59,12 +68,34 @@ export default {
   },
   methods: {
     toggleMenu() {
-      console.log("toggling");
       this.$refs.button.classList.toggle("menu-opened");
     },
     menuItemClicked(item) {
-      let newitem = item.replace(" ", "_").toLowerCase();
+      let newitem = item.name.replace(" ", "_").toLowerCase();
       console.log(newitem, "has been clicked");
+      console.log(item.pos);
+      this.$emit("overrideactive", true);
+      animateScrollTo(item.pos).then(hasScrolledToPosition => {
+        this.$emit("overrideactive", false)
+      });
+    }
+  },
+  computed: {
+    menulist() {
+      var xxx = [
+        { name: "Intro", pos: 1420 },
+        { name: "Education", pos: 6100 },
+        { name: "Exp", pos: 13310 },
+        { name: "Projects", pos: 17215 },
+        { name: "Leadership", pos: 21475 },
+        { name: "Thank You", pos: 27680 }
+      ]
+      var returnArr = [];
+      xxx.forEach(element => {
+        element.pos = element.pos
+        returnArr.push(element)
+      });
+      return returnArr;
     }
   }
 };

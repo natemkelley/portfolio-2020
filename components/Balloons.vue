@@ -24,7 +24,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      console.log(document.querySelectorAll(".balloon"));
+      //console.log(document.querySelectorAll(".balloon"));
       anime({
         targets: document.querySelectorAll(".balloon"),
         translateX: function() {
@@ -39,11 +39,6 @@ export default {
       if (!this.lifting) {
         this.lifting = true;
         let height = window.innerHeight + 300;
-        console.log(
-          "lifting!!!!!!!",
-          this.$el.querySelectorAll(".balloon"),
-          -height
-        );
         anime({
           targets: this.$el.querySelectorAll(".balloon"),
           easing: "linear",
@@ -55,7 +50,7 @@ export default {
             return anime.random(3500, 4500);
           },
           begin: function(anim) {
-            console.log("beggin loop");
+            //console.log("beggin loop");
           },
           complete: anim => {
             this.lifting = false;
@@ -69,7 +64,7 @@ export default {
     cheering(newVal) {
       if (newVal) {
         setTimeout(() => {
-          console.log("watching cheering", newVal);
+          //console.log("watching cheering", newVal);
           this.liftBalloons();
         }, 450);
       }
