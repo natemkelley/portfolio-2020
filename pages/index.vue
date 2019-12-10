@@ -1,13 +1,12 @@
 <template>
   <div>
-    <Preloader
+    <!--<Preloader
       v-if="renderPreloader"
       :loaded="loaded"
       @togglepreloader="togglePreloader"
-    />
+    />-->
     <main :style="{ height: height + 'px' }">
-      <MenuCartoon @overrideactive="overrideactive"         :offsetLeft="offsetLeft"
- />
+      <MenuCartoon @overrideactive="overrideactive" :offsetLeft="offsetLeft" />
       <BackgroundAll
         v-if="offsetLeft != 0"
         @informheight="updatePageHeight"
@@ -214,4 +213,3 @@ export default {
   }
 };
 </script>
-

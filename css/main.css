@@ -46,7 +46,7 @@ body {
     cursor: pointer !important;
 }
 
-.click-through{
+.click-through {
     pointer-events: none;
 }
 
@@ -89,7 +89,7 @@ h4 {
 
 .container-small {
     max-width: 560px;
-        width: 80%;
+    width: 80%;
     margin: 10% 0%;
     padding-right: 15px;
     padding-left: 15px;
@@ -97,10 +97,10 @@ h4 {
     margin-left: auto;
 }
 
-.container-small p{
-    font-size: 22px;
-    line-height: 30px;
-
+.container-small p {
+    font-size: 19.5px;
+    line-height: 25px;
+    margin: 17.5px 5%;
 }
 
 .summary-col {
@@ -218,28 +218,60 @@ h4 {
 }*/
 
 
-.modal img {
+.container-small img {
     border: 4px solid white;
     border-radius: 10px;
     margin: 10px 0px;
     cursor: zoom-in;
-  }
-  .lightbox__image {
+}
+
+.lightbox__image {
     text-align: center;
-  }
-  
-  .modal .lightbox__image img {
-    height: 90vh !important;
-    width: auto;
+}
+
+.container-small .lightbox__image img {
+
     text-align: center;
     cursor: default;
-  }
-  
-  .lightbox__close {
+}
+
+.lightbox__close {
     font-size: 3.5rem !important;
     margin-right: 25px;
-  }
-  
-  .modal p {
-    font-size: 18px;
-  }
+}
+
+.container-small h1 {
+    font-size: 34px;
+    ;
+}
+
+.container-small h3 {
+    font-size: 24px;
+    margin: -1px 0px;
+    margin-top: -10px;
+}
+
+
+.container-small h2 {
+    font-size: 33px;
+    margin: 25px 0px 0px 5%;
+}
+.lightbox__thumbnail img {
+    width: 100%;
+}
+
+.summary{
+    border: 3.5px solid white;
+    padding: 20px;
+    margin: 12.5px 2.5%;
+    border-radius: 7.5px;
+}
+
+.summary ul{
+    margin: 45px 5%;
+    font-size: 19.5px;
+    line-height: 25px;
+}
+.summary li{
+margin: 7.5px 0px;
+}

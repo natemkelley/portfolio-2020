@@ -1,46 +1,50 @@
 <template>
   <div class="container-small test-component">
     <h1 class="text-center">Awesome Content</h1>
+    <h3 class="text-center">DATE - LOCATION</h3>
     <div class="bar"></div>
-    <p>Works like magic! By clicking on the buttons you will get access to more in depth explanations about some of my projects.</p>
-    <div class="me-cheering bouncing">
-      <svg-icon :name="nateCheering" width="200px" height="200px" />
+    <div class="summary">
+    <ul>
+      <li>Coffee Coffee CoffeeCoffeeCoffeeCoffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
     </div>
+            <VuePureLightbox
+      thumbnail="https://via.placeholder.com/350x150"
+      :images="['https://placekitten.com/1080/910','https://placekitten.com/1000/910','https://placekitten.com/580/510']"
+    />
+    <h2>This is a section</h2>
+
+    <p>
+      Works like magic! By clicking on the buttons you will get access to more
+      in depth explanations about some of my projects.
+    </p>
+        <p>
+      Works like magic! By clicking on the buttons you will get access to more
+      in depth explanations about some of my projects.       Works like magic! By clicking on the buttons you will get access to more
+      in depth explanations about some of my projects.      Works like magic! By clicking on the buttons you will get access to more
+      in depth explanations about some of my projects.
+    </p>
   </div>
 </template>
 
 <script>
+import VuePureLightbox from "vue-pure-lightbox";
+import styles from "vue-pure-lightbox/dist/VuePureLightbox.css";
 export default {
   name: "ModalLarge",
-    layout: 'indipage',
-  data() {
-    return {
-      nateCheering: "nate/cheering_right"
-    };
+  layout: "indipage",
+  components: {
+    VuePureLightbox
   },
   mounted() {
-    this.toggleCheer("left");
     this.$emit("loaded");
-  },
-  methods: {
-    toggleCheer(direction) {
-      setTimeout(() => {
-        this.nateCheering = "nate/cheering_" + direction;
-        if(direction === "right"){
-        this.toggleCheer("left");
-
-        } else{
-        this.toggleCheer("right");
-        }
-      }, 450*2);
-    }
   }
 };
 </script>
 
-
 <style scoped>
-
 .me-cheering {
   margin-top: 45px;
 }

@@ -6,7 +6,6 @@
       :style="{ background: color }"
     >
       <div v-show="!loading">
-        <p>{{ component }}</p>
         <div class="container" v-if="component">
           <component :is="componentFile" @loaded="toggleLoading"></component>
         </div>
