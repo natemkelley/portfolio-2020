@@ -116,7 +116,7 @@ export default {
       if (this.height > 20000) {
         setTimeout(() => {
           this.loaded = true;
-        }, 550);
+        }, 650);
       }
     },
     updatePageHeight(val) {
