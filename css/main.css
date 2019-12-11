@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 @font-face {
     font-family: "Frankfurter";
@@ -33,7 +34,7 @@
 
 body {
     background: #1fbcff;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto','Source Sans Pro',sans-serif;
 }
 
 .squared-btn {

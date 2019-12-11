@@ -50,8 +50,8 @@ export default {
     this.setRight(arr);
     this.setLeft(arr);
 
-    console.log('left',this.left)
-    console.log('right',this.right)
+    //console.log('left',this.left)
+    //console.log('right',this.right)
   },
   methods: {
     eliminateIndexAndReturn(routes){
@@ -64,9 +64,9 @@ export default {
       return returnArr
     },
     setLeft(routes) {
-      console.log(routes)
+      //console.log(routes)
       routes.forEach((element,n) => {
-        console.log(element.path.toLowerCase(),this.current.toLowerCase())
+        //console.log(element.path.toLowerCase(),this.current.toLowerCase())
         if(element.path.toLowerCase() === this.current.toLowerCase()){
           if(n === 0){
             this.left = routes[routes.length-1].path;
