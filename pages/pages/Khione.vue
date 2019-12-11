@@ -1,109 +1,74 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">Graduate Research</h1>
-    <h3 class="text-center">Brigham Young University - 2015 - 2019</h3>
+    <h1 class="text-center">Khione Outdoor Gear</h1>
+    <h3 class="text-center">UX Engineer - 2017 - 2018</h3>
     <div class="bar"></div>
-    <div class="summary">
-      <ul>
-        <li>
-          <strong>Emphasis in Human Computer Interaction</strong> with a 3.62
-          GPA
-        </li>
-        <li>
-          Designed and coded 30+ Web, Mobile, and UX/UI projects including team
-          projects starting from wireframes to full-fledged prototypes
-        </li>
-        <li>
-          Two years experience performing user testing research (BYU Studio UX)
-        </li>
-        <li>
-          Team Lead in Studio UX directing design, interview, and presentation
-          efforts
-        </li>
-        <li>Three years experience in Node.js, Vue.js, and CSS frameworks</li>
-      </ul>
-    </div>
-    <VuePureLightbox
-      thumbnail="https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png"
+
+        <VuePureLightbox
+      :thumbnail="khione1"
       :images="[
-        'https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png'
+        khione1,khione2,khione3
       ]"
     />
-    <h2>Classes</h2>
-    <p>
-      Here is a list of relevant undergraduate classes taken to take to date:
-    </p>
+    <div class="summary">
+<ul>
+<li>Played crucial role in launch of startup as UX designer and developer</li>
+<li>Executed iterative user tests of web store, SEO channels, and gear to ensure quality and usability using surveys, interviews, and observations</li>
+<li>Raised $100,000 from sales, competitions, and kick starter in 6 months</li>
+<li>Competed as one of the top 20 teams in Utah Entrepreneur of the Year</li>
+</ul>
+    </div>
+    <p>In 2018 I worked in a team of four to kickstart a product which would eventually go on to compete in the Utah Entrepreneur of Year Competition. Although we all shared roles during the initial development of the product, I was primarily the UX designer and web developer.</p>
+    <h2>Problem</h2>
+<p>The purpose of this competition was to create an innovative product or service. As each us had a common interest in camping, hiking, and backpacking, we decided to develop a new product for the outdoor community. Instead of jumping straight into product development, our team decided to explore the pains that people experienced while backpacking. Although we were already familiar with this area, we spent approximately three weeks observing 50 backpackers and interviewing them about their most recent backpacking trip. After summarizing our notes, we found that almost all interviewees experienced pains in four areas:</p>
+<ul>
+<li>Heavy backpacks</li>
+<li>Staying warm and dry</li>
+<li>Simple</li>
+<li>Bugs</li>
+</ul>
+<BarChart :chartData="chartData"/>
 
-    <table class="">
-      <colgroup>
-        <col style="width: 25%" />
-        <col style="width: 75%" />
-      </colgroup>
-      <tbody>
-        <tr>
-          <th >Class</th>
-          <th >Description</th>
-        </tr>
-        <tr>
-          <td >CS 142</td>
-          <td >Intro to programming</td>
-        </tr>
-        <tr>
-          <td >CS 235</td>
-          <td >Data Structures</td>
-        </tr>
-        <tr>
-          <td >CS 236</td>
-          <td >Discrete Mathmatical Structures</td>
-        </tr>
-        <tr>
-          <td >CS 260</td>
-          <td >Web Programming and Frameworks</td>
-        </tr>
-        <tr>
-          <td >IT 124</td>
-          <td >Intro to Computer Systems</td>
-        </tr>
-        <tr>
-          <td >IT 210AB</td>
-          <td >Web Programming</td>
-        </tr>
-        <tr>
-          <td >IT 344</td>
-          <td >Operatings Systems</td>
-        </tr>
-        <tr>
-          <td >IT 347</td>
-          <td >Networking and Server Administration</td>
-        </tr>
-        <tr>
-          <td >IT 350</td>
-          <td >User Experience Desgin</td>
-        </tr>
-        <tr>
-          <td >IT 515</td>
-          <td >Studio UX</td>
-        </tr>
-        <tr>
-          <td >IT 555</td>
-          <td >Advanced Human Computer Interaction</td>
-        </tr>
-        <tr>
-          <td >TECH 312</td>
-          <td >Innovation Design</td>
-        </tr>
-        <tr>
-          <td >Eng 316</td>
-          <td >Technical Communication</td>
-        </tr>
-      </tbody>
-    </table>
+<h2>Process</h2>
+<p>We then spent the next few months iterating through different concepts that would address this problem. Our ideas ranged from carbon fiber tents, smaller backpacks, and even "tent-coats". After every iteration we would present low to medium fidelity prototypes to potential customers to get their feedback. Unfortunately, our first 12 ideas failed to gain the interest of backpackers on the grounds that our solutions were either too complicated or not unique enough. However, one idea seemed to have potential: hammock tents.</p>
+<p>Some preliminary market research led us to a variety of companies that were manufacturing hammock tents. However, none of their solutions seemed to address ALL the problems that we had initially identified during our backpacker interviews.</p>
+<img src="@/assets/projects/khionecomp.png"/>
+
+<h2>Solution</h2>
+<p>Our solution was The Shel Hammock Tent. A simple setup hammock that would keep you warm down to 32 degrees, dry in light rain, bug-free, and weighed just 2.2 pounds. What made our potential customers especially interested was the fact that it would eliminate the need for a tent, rainfly, and sleeping bag while they were on the trail.</p>
+    <VuePureLightbox
+      :thumbnail="khione1"
+      :images="[
+        khione1,khione2,khione3
+      ]"
+    />
+
+<h2>Additional Duties</h2>
+<p>In addition to conducting user interviews, prototyping the products, and presenting at competitions, I was solely responsible for creating the look and feel of the brand through marketing materials. As the company began to grow and more people began designing marketing materials, it became necessary to create a style guide. This guide was also the primary style of the company website which I designed and coded to drive online sales.</p>
+    <VuePureLightbox
+      :thumbnail="khione4"
+      :images="[
+        khione4,khione5
+      ]"
+    />
+        <VuePureLightbox
+      :thumbnail="khione5"
+      :images="[
+        khione5,khione4
+      ]"
+    />
   </div>
 </template>
 
 <script>
 import VuePureLightbox from "vue-pure-lightbox";
 import BarChart from "@/components/modalComponents/BarChart";
+import khione1 from '@/assets/projects/khione1.jpg'
+import khione2 from '@/assets/projects/khione2.jpg'
+import khione3 from '@/assets/projects/khione3.jpg'
+import khione4 from '@/assets/projects/khione4.jpg'
+import khione5 from '@/assets/projects/khione5.jpg'
+
 
 export default {
   name: "Test",
@@ -114,16 +79,40 @@ export default {
   },
   data() {
     return {
-      chartData: {
-        labels: ["January", "February"],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [40, 20]
-          }
-        ]
-      }
+      khione1:khione1,
+            khione2:khione2,
+      khione3:khione3,
+      khione4:khione4,
+      khione5:khione5,
+
+            chartData: {
+                labels: ["Warm", "Bugs", "Dry", "Simple", "Light-weight", "Food", 'Bigger Tent', 'Lights'],
+                datasets: [{
+                    label: 'Backingpacking Pains by % of People',
+                    data: [75, 65, 50, 50, 97, 35, 15, 10],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(71, 170, 48, 0.2)',
+                        'rgba(88, 68, 80, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1.2)',
+                        'rgba(54, 162, 235, 1.2)',
+                        'rgba(255, 206, 86, 1.2)',
+                        'rgba(75, 192, 192, 1.2)',
+                        'rgba(153, 102, 255, 1.2)',
+                        'rgba(255, 159, 64, 1.2)',
+                        'rgba(71, 170, 48, 1.2)',
+                        'rgba(88, 68, 80, 1.2)'
+                    ],
+                    borderWidth: 1
+                }]
+            }
     };
   },
   mounted() {
@@ -133,5 +122,7 @@ export default {
 </script>
 
 <style scoped>
-
+img{
+  width: 100%;
+}
 </style>

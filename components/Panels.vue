@@ -25,8 +25,8 @@ export default {
       if (newVal) {
         anime({
           targets: this.$el.querySelectorAll(".glow"),
-          opacity: [1, 0.15],
-          duration: 3150,
+          opacity: [1, 0.25],
+          duration: 1050,
           delay:150,
           loop: true,
           easing:'linear',

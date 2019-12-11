@@ -33,6 +33,7 @@
     "typed-js": "^0.2.3",
     "vue-chartjs": "^3.5.0",
     "vue-dynamic": "^0.3.1",
+    "vue-pdf": "^4.0.7",
     "vue-pure-lightbox": "^3.1.0",
     "vue-typed-js": "^0.1.2"
   },

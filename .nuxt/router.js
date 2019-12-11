@@ -12,7 +12,6 @@ const _949cfea2 = () => interopDefault(import('../pages/pages/GraduateResearch.v
 const _99266ada = () => interopDefault(import('../pages/pages/Intro.vue' /* webpackChunkName: "pages/pages/Intro" */))
 const _14f6b023 = () => interopDefault(import('../pages/pages/Khione.vue' /* webpackChunkName: "pages/pages/Khione" */))
 const _719456a4 = () => interopDefault(import('../pages/pages/Leadership.vue' /* webpackChunkName: "pages/pages/Leadership" */))
-const _84d26c12 = () => interopDefault(import('../pages/pages/ModalLarge.vue' /* webpackChunkName: "pages/pages/ModalLarge" */))
 const _9fe4e704 = () => interopDefault(import('../pages/pages/Smrts.vue' /* webpackChunkName: "pages/pages/Smrts" */))
 const _4af2ef42 = () => interopDefault(import('../pages/pages/StudioUx.vue' /* webpackChunkName: "pages/pages/StudioUx" */))
 const _3e8c2e8a = () => interopDefault(import('../pages/pages/Test.vue' /* webpackChunkName: "pages/pages/Test" */))
@@ -63,10 +62,6 @@ export const routerOptions = {
     path: "/pages/Leadership",
     component: _719456a4,
     name: "pages-Leadership"
-  }, {
-    path: "/pages/ModalLarge",
-    component: _84d26c12,
-    name: "pages-ModalLarge"
   }, {
     path: "/pages/Smrts",
     component: _9fe4e704,

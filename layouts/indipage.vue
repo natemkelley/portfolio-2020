@@ -124,4 +124,14 @@ export default {
   margin: 25px;
   margin-top: 215px;
 }
+@media only screen and (max-width: 600px) {
+.left-btn {
+  margin-top: 25px;
+    margin-right: 215px;
+}
+.right-btn {
+  margin-top: 25px;
+      margin-right: 120px;
+}
+}
 </style>

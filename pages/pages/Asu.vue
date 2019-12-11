@@ -1,104 +1,26 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">B.S. INFORMATION TECHNOLOGY</h1>
-    <h2 class="text-center secondary">MINOR: BUSINESS MANAGEMENT</h2>
-    <h3 class="text-center">Brigham Young University - 2015 - 2019</h3>
+    <h1 class="text-center">M.S. USER EXPERIENCE</h1>
+    <h3 class="text-center">Arizona State University - 2019 - 2020</h3>
     <div class="bar"></div>
     <div class="summary">
       <ul>
-        <li>
-          <strong>Emphasis in Human Computer Interaction</strong> with a 3.62
-          GPA
-        </li>
-        <li>
-          Designed and coded 30+ Web, Mobile, and UX/UI projects including team
-          projects starting from wireframes to full-fledged prototypes
-        </li>
-        <li>
-          Two years experience performing user testing research (BYU Studio UX)
-        </li>
-        <li>
-          Team Lead in Studio UX directing design, interview, and presentation
-          efforts
-        </li>
-        <li>Three years experience in Node.js, Vue.js, and CSS frameworks</li>
+      <li>4.0 GPA as of December 12, 2019</li>
+      <li><strong>Developed expertise in Vue.js</strong></li>
+      <li>Working with the United States Air Force on research focused on human-robot teaming</li>
+      <li>Completed 12 credit hours of courses related to product design </li>
+      <li>Studied UX focused Agile management methods, </li>
+      <li>Practiced user centered design thinking strategies</li>
+      <li>Created 12+ projects related to graphic and experience design</li>
       </ul>
     </div>
     <VuePureLightbox
-      thumbnail="https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png"
-      :images="[
-        'https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png'
+      thumbnail="https://www.entertainmentsolutionsinc.com/wp-content/uploads/2017/11/logo-asu-white-bg.jpg"
+      :images="['https://www.entertainmentsolutionsinc.com/wp-content/uploads/2017/11/logo-asu-white-bg.jpg','https://asunow.asu.edu/sites/default/files/styles/panopoly_image_full/public/nancy-cooke-lab.jpg?itok=2F1fmza3',
+        'https://www.aiatopten.org/sites/default/files/styles/popup/public/ASU%20COTE%20Top%2010%20images_Page_18.jpg?itok=floVFYo-'
       ]"
     />
-    <h2>Classes</h2>
-    <p>
-      Here is a list of relevant undergraduate classes taken to take to date:
-    </p>
-
-    <table class="">
-      <colgroup>
-        <col style="width: 25%" />
-        <col style="width: 75%" />
-      </colgroup>
-      <tbody>
-        <tr>
-          <th >Class</th>
-          <th >Description</th>
-        </tr>
-        <tr>
-          <td >CS 142</td>
-          <td >Intro to programming</td>
-        </tr>
-        <tr>
-          <td >CS 235</td>
-          <td >Data Structures</td>
-        </tr>
-        <tr>
-          <td >CS 236</td>
-          <td >Discrete Mathmatical Structures</td>
-        </tr>
-        <tr>
-          <td >CS 260</td>
-          <td >Web Programming and Frameworks</td>
-        </tr>
-        <tr>
-          <td >IT 124</td>
-          <td >Intro to Computer Systems</td>
-        </tr>
-        <tr>
-          <td >IT 210AB</td>
-          <td >Web Programming</td>
-        </tr>
-        <tr>
-          <td >IT 344</td>
-          <td >Operatings Systems</td>
-        </tr>
-        <tr>
-          <td >IT 347</td>
-          <td >Networking and Server Administration</td>
-        </tr>
-        <tr>
-          <td >IT 350</td>
-          <td >User Experience Desgin</td>
-        </tr>
-        <tr>
-          <td >IT 515</td>
-          <td >Studio UX</td>
-        </tr>
-        <tr>
-          <td >IT 555</td>
-          <td >Advanced Human Computer Interaction</td>
-        </tr>
-        <tr>
-          <td >TECH 312</td>
-          <td >Innovation Design</td>
-        </tr>
-        <tr>
-          <td >Eng 316</td>
-          <td >Technical Communication</td>
-        </tr>
-      </tbody>
-    </table>
+    
   </div>
 </template>
 

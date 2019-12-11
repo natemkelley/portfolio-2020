@@ -99,8 +99,8 @@ h4 {
 }
 
 .container-small p {
-    font-size: 21px;
-    line-height: 1.58;
+    font-size: 19px;
+    line-height: 1.55;
     margin: 17.5px 5%;
 }
 
@@ -257,14 +257,11 @@ h4 {
     font-size: 33px;
     margin: 35px 0px 0px 5%;
 }
-.lightbox__thumbnail img {
-    width: 100%;
-}
 
 ol,ul{
     margin: 35px 5%;
-    font-size: 21px;
-    line-height: 1.58;
+    font-size: 19px;
+    line-height: 1.55;
 }
 
 .summary{
@@ -301,7 +298,7 @@ tr{
 }
 table, th, td {
     border: none;
-    font-size: 21px;
+    font-size: 19px;
 }
 
 table.striped tr {
@@ -333,3 +330,21 @@ table.striped>tbody>tr>td {
     font-style: italic!important;
     margin: -10px 0px 20px 0px!important;
   }
+  .lightbox__image img {
+    width: auto!important;
+    max-height: 85vh!important;
+}
+
+.iframe{
+    width: 100%;
+    margin-top: 25px;
+}
+
+blockquote {
+    border-left: 5px solid #fcfcfc;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.55;
+    margin: 17.5px 5%;
+    padding-left: 17.5px;
+}
