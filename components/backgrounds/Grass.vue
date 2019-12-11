@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="interactive-container" ref="interactive">
-      <div class="clickable" @click="openModal('Test')">
+      <div class="clickable" @click="openModal('Intro')">
         <svg-icon
           class="item clickable"
           name="objects/World_Grass_CoolStuff"

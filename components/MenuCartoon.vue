@@ -179,6 +179,7 @@ export default {
   list-style: none;
   text-align: left;
   line-height: 61px;
+      margin-bottom: 0px;
 }
 .menu-list li:hover {
   color: #92cc41;

@@ -17,6 +17,7 @@
     "@nuxtjs/svg-sprite": "^0.4.3",
     "animated-scroll-to": "^2.0.5",
     "animejs": "^3.1.0",
+    "chart.js": "^2.9.3",
     "detect-browser": "^4.8.0",
     "fs": "0.0.1-security",
     "imports-loader": "^0.8.0",
@@ -30,6 +31,7 @@
     "snapsvg": "^0.5.1",
     "svg-sprite": "^1.5.0",
     "typed-js": "^0.2.3",
+    "vue-chartjs": "^3.5.0",
     "vue-dynamic": "^0.3.1",
     "vue-pure-lightbox": "^3.1.0",
     "vue-typed-js": "^0.1.2"

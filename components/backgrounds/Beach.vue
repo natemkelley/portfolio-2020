@@ -23,6 +23,7 @@
       />
       <Canopy :style="{ marginLeft: '-705px', marginBottom: '456px' }" />
             <div :style="{ marginLeft: '-672px', marginBottom: '830px' }" class="item jungletopcover"></div>
+                <div :style="{ marginLeft: '-672px', marginBottom: '-4104px' }" class="item junglebottom"></div>
     </div>
     <div class="nature-container" ref="nature">
       <svg-icon
@@ -201,6 +202,11 @@ export default {
 }
 .jungletopcover{
   background: #79864e;
+  width: 3500px;
+  height: 4000px;
+}
+.junglebottom{
+    background: #E8CFA8;
   width: 3500px;
   height: 4000px;
 }

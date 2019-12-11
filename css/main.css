@@ -98,8 +98,8 @@ h4 {
 }
 
 .container-small p {
-    font-size: 19.5px;
-    line-height: 25px;
+    font-size: 21px;
+    line-height: 1.58;
     margin: 17.5px 5%;
 }
 
@@ -254,10 +254,16 @@ h4 {
 
 .container-small h2 {
     font-size: 33px;
-    margin: 25px 0px 0px 5%;
+    margin: 35px 0px 0px 5%;
 }
 .lightbox__thumbnail img {
     width: 100%;
+}
+
+ol,ul{
+    margin: 35px 5%;
+    font-size: 21px;
+    line-height: 1.58;
 }
 
 .summary{
@@ -267,11 +273,12 @@ h4 {
     border-radius: 7.5px;
 }
 
-.summary ul{
+.summary ul,.summary ol{
     margin: 45px 5%;
-    font-size: 19.5px;
-    line-height: 25px;
+    line-height: 1.5;
 }
-.summary li{
-margin: 7.5px 0px;
+
+li{
+    margin-bottom: 10px;
 }
+

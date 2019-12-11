@@ -23,7 +23,7 @@
           />
         </a>
       </div>
-      <div class="close-btn link-btn" v-show="!loading">
+      <div class="close-btn link-btn" v-show="!loading && !intros">
         <a class="btn-floating">
           <svg-icon
             name="icons/external"
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       loading: true,
-      error: false
+      error: false,
     };
   },
   methods: {
@@ -68,6 +68,12 @@ export default {
       //return () => import(`../components/modalComponents/${this.component}.vue`);
 
       return () => import(`../pages/pages/${this.component}.vue`);
+    },
+    intros(){
+      if(this.component =='Test' || this.component =='Intro'){
+        return true
+      }
+      return false
     }
   },
   watch: {
