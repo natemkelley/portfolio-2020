@@ -46,13 +46,13 @@
         ref="bottle"
         @click="openModal('CocaCola')"
       />
-      <div class="submarine clickable float" @click="openModal('Test')">
+      <div class="submarine clickable float" @click="openModal('Byu')">
         <Submarine :introSub="introSub" />
       </div>
-      <div class="octopus clickable" @click="openModal('Test')">
+      <div class="octopus clickable" @click="openModal('Asu')">
         <Octopus :introOcto="introOcto" />
       </div>
-      <div class="shipwreck clickable" @click="openModal('Test')">
+      <div class="shipwreck clickable" @click="openModal('GraduateResearch')">
         <ShipWreck :introShip="introShip" />
       </div>
     </div>

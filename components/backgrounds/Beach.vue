@@ -54,34 +54,34 @@
       />
     </div>
     <div class="interactive-container" ref="interactive">
-      <div @click="openModal('Test')">
+      <div @click="openModal('Khione')">
         <Lighthouse
           class="item clickable"
           :style="{ marginLeft: '-1099px', marginBottom: '-55px' }"
           :introLighthouse="introLighthouse"
         />
       </div>
-      <div class="item clickable" @click="openModal('Test')">
+      <div class="item clickable" @click="openModal('CollegeWebDev')">
         <Scoreboard
           class="item clickable"
           :style="{ marginLeft: '56px', marginBottom: '-97px' }"
           :introScoreboard="introScoreboard"
         />
       </div>
-      <div class="item clickable" @click="openModal('Test')">
+      <div class="item clickable" @click="openModal('Smrts')">
         <House
           class="item clickable"
           :style="{ marginLeft: '1735px', marginBottom: '-141px' }"
         />
       </div>
-      <div class="item clickable" @click="openModal('Test')">
+      <div class="item clickable" @click="openModal('StudioUx')">
         <Temple
           class="item clickable"
           :introGod="introGod"
           :style="{ marginLeft: '3099px', marginBottom: '-50px' }"
         />
       </div>
-      <div class="item clickable" @click="openModal('Test')">
+      <div class="item clickable" @click="openModal('Github')">
         <Pig
           class="item clickable"
           :style="{ marginLeft: '4179px', marginBottom: '-80px' }"

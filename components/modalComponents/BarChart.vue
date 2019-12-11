@@ -19,13 +19,13 @@ export default {
           ]
         },
         maintainAspectRatio: true,
-                  layout: {
-            padding: {
-                left: 20,
-                right: 22,
-                top: 20,
-                bottom: 20
-            }
+        layout: {
+          padding: {
+            left: 20,
+            right: 22,
+            top: 20,
+            bottom: 20
+          }
         }
       }
     };
@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 canvas {
-   background-color: rgba(255, 255, 255, 0.89);
-   border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.94);
+  border-radius: 12px;
 }
 </style>

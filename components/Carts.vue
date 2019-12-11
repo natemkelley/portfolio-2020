@@ -7,21 +7,21 @@
       height="50"
     />
     <svg-icon
-      @click="openModal('Test')"
+      @click="openModal('Leadership')"
       class="clickable cart cart1"
       name="objects/World_Cave_Scouting"
       width="363"
       height="295"
     />
     <svg-icon
-      @click="openModal('Test')"
+      @click="openModal('Leadership')"
       class="clickable cart cart2"
       name="objects/World_Cave_SBO"
       width="312"
       height="264"
     />
     <svg-icon
-      @click="openModal('Test')"
+      @click="openModal('Leadership')"
       class="clickable cart cart3"
       name="objects/World_Cave_Italia"
       width="360"

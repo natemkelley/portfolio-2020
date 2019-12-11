@@ -1,43 +1,20 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">Awesome Content</h1>
-    <h3 class="text-center">DATE - LOCATION</h3>
+
+    <h1 class="text-center">Coca-Cola Scholarship</h1>
+    <h3 class="text-center">2013 - Atlanta, GA</h3>
     <div class="bar"></div>
     <div class="summary">
     <ul>
-      <li>Coffee Coffee CoffeeCoffeeCoffeeCoffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee Coffee</li>
-      <li>Tea</li>
-      <li>Milk</li>
+      <li>Honored as 1 of 200 students from a pool of 245,000+ applicants</li>
+        <li>Selected based on community service and academic performance</li>
     </ul>
     </div>
-            <VuePureLightbox
-      thumbnail="https://via.placeholder.com/350x150"
-      :images="['https://placekitten.com/1080/910','https://placekitten.com/1000/910','https://placekitten.com/580/510']"
+    <VuePureLightbox
+      :thumbnail="'https://res.cloudinary.com/real-times-media/image/upload/v1552241789/images_cocacola-scholar-foundation-which-focus-themselve-on-scholarship-for-students_aoxhtz.jpg'"
+      :images="['https://res.cloudinary.com/real-times-media/image/upload/v1552241789/images_cocacola-scholar-foundation-which-focus-themselve-on-scholarship-for-students_aoxhtz.jpg']"
     />
-    <h2>This is a section</h2>
-
-    <p>
-      Works like magic! By clicking on the buttons you will get access to more
-      in depth explanations about some of my projects.
-    </p>
-      <p>
-      Works like magic! By clicking on the buttons you will get access to more
-      in depth explanations about some of my projects.       Works like magic! By clicking on the buttons you will get access to more
-      in depth explanations about some of my projects.      Works like magic! By clicking on the buttons you will get access to more
-      in depth explanations about some of my projects.
-    </p>
-        <h2>This is a section</h2>
-      <p>
-      Works like magic! By clicking on the buttons you will get access to more
-      in depth explanations about some of my projects.       Works like magic! By clicking on the buttons you will get access to more
-      in depth explanations about some of my projects.      Works like magic! By clicking on the buttons you will get access to more
-      in depth explanations about some of my projects.
-    </p>
-    <ol>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ol> 
+    
   </div>
 </template>
 

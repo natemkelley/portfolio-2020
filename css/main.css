@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 @font-face {
@@ -272,14 +272,64 @@ ol,ul{
     padding: 20px;
     margin: 12.5px 2.5%;
     border-radius: 7.5px;
+
+    border: 3.5px solid white;
+     padding: 0px; 
+    margin: 12.5px -2.5%;
+    border-radius: 7.5px;
 }
 
 .summary ul,.summary ol{
     margin: 45px 5%;
-    line-height: 1.5;
+    line-height: 1.44;
 }
 
 li{
     margin-bottom: 10px;
 }
 
+
+/*table*/
+table{
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+tr{
+    border-bottom: 2px solid rgba(255, 255, 255, 0.42);
+}
+table, th, td {
+    border: none;
+    font-size: 21px;
+}
+
+table.striped tr {
+    border-bottom: none;
+}
+th{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+td, th {
+    padding: 15px 5px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+td, th {
+    padding: 15px 10px;
+}
+table.striped>tbody>tr:nth-child(odd) {
+    background-color: rgba(242,242,242,0.5);
+}
+table.striped>tbody>tr>td {
+    border-radius: 0;
+}
+
+.secondary {
+    font-size: 28px!important;
+    font-style: italic!important;
+    margin: -10px 0px 20px 0px!important;
+  }

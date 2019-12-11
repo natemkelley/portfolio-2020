@@ -39,7 +39,6 @@
     </div>
     <div class="interactive-container" ref="interactive">
       <Carts
-        @click="openModal('Test')"
         @openModal="openModal"
         class="clickable carts"
         :introCarts="introCarts"
