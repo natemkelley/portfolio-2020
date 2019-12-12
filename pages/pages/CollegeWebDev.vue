@@ -1,78 +1,70 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">Studio UX</h1>
-    <h3 class="text-center">UX Designer - 2018 - 2019</h3>
+    <h1 class="text-center">University Web Developer</h1>
+    <h3 class="text-center">Brigham Young University - 2019</h3>
     <div class="bar"></div>
-    <div class="summary">
-    </div>
-    <VuePureLightbox
-      thumbnail="https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png"
+        <VuePureLightbox
+      :thumbnail="dev1"
       :images="[
-        'https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png'
+        dev1,dev2,dev3
       ]"
     />
+    <div class="summary">
+      <ul>
+      <li>Developed modules in Vue, JavaScript, PHP, MongoDB, and SQL to be used by professors and staff in internal projects</li>
+      <li>Upgraded antiquated college website to new theme using Google Analytics, user interviews, and iterative tests with faculty and students</li>
+      <li>Created Vue.js university graduate seating chart software</li>
+      <li>Collaborated with UX teams to create user journey maps and interfaces</li>
+      </ul>
+    </div>
     
+<div>
+<p>As a developer for the College of Engineering and Technology at Brigham Young University, I was given the lead to upgrade the Civil and Environmental Engineering (CEEn) website from it's old theme. Being the primary programmer and designer, I was in charge of journey mapping, designing, prototyping, and eventually programming the site. My designs and code eventually become the standard for other department websites within the college.</p>
+</div>
+<div>
+<h2>Problem</h2>
+<p>The Department of Civil Engineering has been through many student developers in the past 7 years. Each student organized the site in their own way. This led to a monstrous 400+ page website with important information scattered on random pages. A Google Analytics journey map found that the majority of users were navigating roughly 10 different menus before they eventually got to what they were looking for. Additionally, 70% of those users were on a mobile device. This created problems as the website was not mobile friendly. Finally, there was no consistency in the site theme or design.</p>
+<img :src="dev1" />
 
-<h2>Introduction</h2>
-<p>This year I joined a flagship university-community involvement team called &ldquo;Studio UX&rdquo;. Similar to the Engagement Lab at the Corcoran, we act as a student consulting firm that entities approach with problems that need solutions. Roughly every four weeks we work with a different organization tackling a myriad of different issues from UI design, feature validation, and user testing.</p>
-<p>Although I have worked with many different organizations this year, I would like to showcase one project that I found particularly interesting.<br /><br /></p>
-
-<h2>PluralSight's Problem</h2>
-<p>PluralSight is a multimillion dollar startup that has seen rapid growth in the past few years. However, this rapid growth has created a problem in that many of the new hires and teams do not know PluralSight&rsquo;s design thinking process called "directed discovery". Additionally, rapid growth has lead to a lack of leadership and duplicate features are being developed by different teams.</p>
-<p>This is the problem statement provided to us by PluralSight&rsquo;s CXO (Chief Experience Officer):</p>
-<blockquote>Our current design thinking process that supports our ability to deliver user-centered experiences, called Directed Discovery, is manual and siloed. We need a proposed prototype for a web-based tool to centralize, automate and support cross-functional collaboration of experience design and validation testing.</blockquote>
-
-<h2>Modified GV Sprint</h2>
-<p>In order to produce a reliable product that would solve Pluralsight's problem, we followed a modified version of the&nbsp;<strong>Google Venture (GV) Sprint</strong>&nbsp;methodology which we adapted to this specific project. This "modified version", which is bulleted below, was used solely because we lacked the time to do a full sprint.</p>
-<ol>
-<li>Identify the pain points described by the CXO.</li>
-<li>Explore UX best practices (validate Directed Discovery) and explore existing solutions (notion.so, leankit, milanote)</li>
-<li>Map out PluralSight&rsquo;s directed discovery process and compare it with best design thinkings practices&nbsp;*</li>
-<li>Create individual paper prototypes</li>
-<li>Cluster analysis: Vote which features would be useful from individual prototypes*</li>
-<li>Iterate on group low-fidelity mockup (based on group discussions)</li>
-<li>Create high fidelity iterations: based on feedback from actual users</li>
-</ol>
-<p>(*) signifies a meeting with PluralSight</p>
-
-<img src="@/assets/projects/studioux1.jpg" />
-
+</div>
+<div>
+<h2>Process</h2>
+<p>As I was not familiar with the CEEn website, I started by creating a site map of all the pages and menus. I then conducted multiple tests with the primary stakeholders: CEEn faculty and staff. These tests consisted of me putting out the site map onto a table and then asking them to go to certain pages. The reason for using the site map instead of the actual website was due to the fact that these people were familiar with how the site was laid out and would get to certain pages by memory. This study helped me sympathize with the users and to better understand where certain pages should be organized.</p>
+<p>Sitting down with the secretaries from the CEEn department, we began drawing out a new site map with a simplified menu system. Over the next two months we printed off all the pages that were on the site and placed them into logical menus. Then, working with the whole CEEn faculty and staff, we validated the placement of certain pages. This exercise also helped update old information as well as eliminate outdated pages.</p>
+<div>
+<div>
+<div><img :src="dev2"/></div>
+</div>
+</div>
+<p>While mapping out the new site, I created multiple low-fidelity mobile-friendly wireframes to visualize our new menu system. After a few iteration with CEEn secretaries, I presented a medium fidelity mockup of our new theme to the professors. After some justification to the professors as to why the site needed to be mobile friendly, and few additional changes as per their request, the site was ready to be tested by prospective CEEn students.</p>
+<p>Similar to the tests with the faculty, I presented 30 students with a site map and had them try and go to certain pages. The new site map proved intuitive.</p>
+</div>
+<div>
 <h2>Solution</h2>
-<p>This project turned out to be a much bigger problem than could be solved in the 3 weeks we had to work on it. PluralSight recognized this and created a team of UX researchers at their own organization to take our prototype and expand on it. Although we created a product with many features, I will address the features that we implemented that directly relate to the pains expressed by the CXO.</p>
-<h3>Inconsistent Application of Directed Discovery</h3>
-<p>The CXO was insistent that teams should follow the design thinking (directed discover) process for all new features. Although we initially thought to have trainings on the process would solve the problem, it turned out that team leads were trained, but lacked the motivation or understanding to follow the process. Our solution to this problem, which was later confirmed by the CEO and various team leads, was a web application which would guide teams through the process and would provided searchable data from past and ongoing projects. This included templated design thinking strategies and tutorials on how to conduct research built into the application.&nbsp;<em>The irony behind this solution was that this company makes its money by creating online tutorials for IT professionals.</em></p>
-<h3>Siloed Data and Repeated Research</h3>
-<p>To eliminate siloed data and repeated research, we concluded that findings would need to be made available to the whole organization. Therefore a research tool was integrated into our prototype. Teams will conclude their findings at the end of each each section of the design thinking process and the project. These findings would then be cataloged into a database and made searchable across the whole organization.</p>
-<h3>Lack of Experience</h3>
-<p>To help teams stay aligned with the design thinking process, we implemented the idea of &lsquo;templates&rsquo;. Templates can be created by team leaders for any part of the process and can be edited at any time. Like the product "Notion", the user can pick a template to use and follow the instruction provided. This would guide the user into following the directed discovery process which could easily be adapated to different projects depending on the template used.</p>
+<p>The new website brought the average user&rsquo;s click rate from 10 down to 3. Additionally, we were able to consolidate the site from 400+ pages down to 42. Lastly, the site theme was well documented and organized as to prevent future student web developers from creating poorly designed and off-topic pages under certain menus.</p>
+</div>
+<div><img :src="dev3"/></div>
+
+
 
   </div>
 </template>
 
 <script>
 import VuePureLightbox from "vue-pure-lightbox";
-import BarChart from "@/components/modalComponents/BarChart";
 
 export default {
-  name: "Test",
+  name: "CollegeWebDev",
   layout: "indipage",
   components: {
-    VuePureLightbox,
-    BarChart
+    VuePureLightbox
   },
-  data() {
-    return {
-      chartData: {
-        labels: ["January", "February"],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [40, 20]
-          }
-        ]
-      }
-    };
+  data(){
+    return{
+      dev1: require('@/assets/projects/collegewebdev1.jpg'),
+            dev2: require('@/assets/projects/collegewebdev2.jpg'),
+                        dev3: require('@/assets/projects/collegewebdev3.jpg')
+    }
   },
   mounted() {
     this.$emit("loaded");
@@ -81,12 +73,13 @@ export default {
 </script>
 
 <style scoped>
-img{
-  width: 100%;
-}
 h3{
       font-size: 24px;
     margin-left: 5%;
     margin-top: 12.5px;
+}
+
+img{
+  width:100%;
 }
 </style>

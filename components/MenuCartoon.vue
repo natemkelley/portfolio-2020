@@ -54,7 +54,7 @@ export default {
           color: ""
         },
         {
-          src: "https://github.com/natemkelley",
+          src: "/pages/Github",
           icon: "github",
           color: ""
         },
