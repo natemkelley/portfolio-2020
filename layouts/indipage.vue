@@ -37,7 +37,7 @@ export default {
       ],
       left: "/",
       right: "/",
-      current:'/'
+      current: "/"
     };
   },
   created() {
@@ -45,44 +45,75 @@ export default {
     document.body.style.backgroundColor = this.backgrounds[
       Math.floor(Math.random() * this.backgrounds.length)
     ];
-    this.current = this.$router.history.current.path ||'/'
-    let arr = this.eliminateIndexAndReturn(this.$router.options.routes)
+  },
+  mounted() {
+    this.current = this.$router.history.current.path || "/";
+
+    if(this.current[this.current.length - 1]=='/'){
+      this.current = this.current.substring(0, this.current.length - 1)
+    }
+
+    let arr = this.eliminateIndexAndReturn(this.$router.options.routes);
     this.setRight(arr);
     this.setLeft(arr);
 
-    //console.log('left',this.left)
-    //console.log('right',this.right)
+    console.log("left", this.left);
+    console.log("right", this.right);
+    console.log("7:03");
   },
   methods: {
-    eliminateIndexAndReturn(routes){
-      var returnArr = []
+    eliminateIndexAndReturn(routes) {
+      var returnArr = [];
       routes.forEach(element => {
-        if(element.path != '/' && element.path != '/pages/Test' && element.path != '/pages/Intro'){
-          returnArr.push(element)
+        if (element.path[element.path.length - 1] == "/") {
+          element.path.substring(0, element.path.length - 1);
+        } else {
+          element.path;
+        }
+
+        if (
+          element.path != "/" &&
+          element.path != "/pages/Test" &&
+          element.path != "/pages/Intro"
+        ) {
+          returnArr.push(element);
         }
       });
-      return returnArr
+      return returnArr;
     },
     setLeft(routes) {
       //console.log(routes)
-      routes.forEach((element,n) => {
-        //console.log(element.path.toLowerCase(),this.current.toLowerCase())
-        if(element.path.toLowerCase() === this.current.toLowerCase()){
-          if(n === 0){
-            this.left = routes[routes.length-1].path;
-          } else{
-            this.left = routes[n-1].path;
+      routes.forEach((element, n) => {
+        let cur = this.current.toLowerCase();
+        let el = element.path.toLowerCase();
+        //console.log(cur,el)
+        if (el === cur) {
+          if (n === 0) {
+            this.left = routes[routes.length - 1].path;
+          } else {
+            this.left = routes[n - 1].path;
           }
+          console.warn(
+            "success",
+            element.path.toLowerCase(),
+            this.current.toLowerCase()
+          );
+        } else {
+          console.log(
+            "failed",
+            element.path.toLowerCase(),
+            this.current.toLowerCase()
+          );
         }
       });
     },
     setRight(routes) {
-      routes.forEach((element,n) => {
-        if(element.path.toLowerCase() === this.current.toLowerCase()){
-          if(n+1 === routes.length){
-            this.right = routes[0].path
-          } else{
-            this.right = routes[n+1].path
+      routes.forEach((element, n) => {
+        if (element.path.toLowerCase() === this.current.toLowerCase()) {
+          if (n + 1 === routes.length) {
+            this.right = routes[0].path;
+          } else {
+            this.right = routes[n + 1].path;
           }
         }
       });
@@ -125,13 +156,13 @@ export default {
   margin-top: 215px;
 }
 @media only screen and (max-width: 600px) {
-.left-btn {
-  margin-top: 25px;
+  .left-btn {
+    margin-top: 25px;
     margin-right: 215px;
-}
-.right-btn {
-  margin-top: 25px;
-      margin-right: 120px;
-}
+  }
+  .right-btn {
+    margin-top: 25px;
+    margin-right: 120px;
+  }
 }
 </style>

@@ -54,7 +54,7 @@
 import VuePureLightbox from "vue-pure-lightbox";
 
 export default {
-  name: "CollegeWebDev",
+  name: "collegewebdev",
   layout: "indipage",
   components: {
     VuePureLightbox

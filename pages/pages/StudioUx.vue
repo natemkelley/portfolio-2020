@@ -56,7 +56,7 @@ import BarChart from "@/components/modalComponents/BarChart";
 import logo from '@/assets/projects/studioux3.png';
 
 export default {
-  name: "Test",
+  name: "studioux",
   layout: "indipage",
   components: {
     VuePureLightbox,

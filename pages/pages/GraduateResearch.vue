@@ -34,7 +34,7 @@ import gra3 from '@/assets/projects/gra3.png'
 import gra4 from '@/assets/projects/gra4.png'
 
 export default {
-  name: "Test",
+  name: "graduateresearch",
   layout: "indipage",
   components: {
     VuePureLightbox,

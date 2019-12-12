@@ -133,7 +133,7 @@ export default {
       this.directionX =
         this.previousScrollPos > window.scrollY ? "left" : "right";
       this.previousScrollPos = window.scrollY;
-      console.log(this.previousScrollPos);
+      //console.log(this.previousScrollPos);
 
       //handle elevation change function which use previous scroll position
       if (this.checkElevationChange) {

@@ -74,7 +74,7 @@ import VuePureLightbox from "vue-pure-lightbox";
 import BarChart from "@/components/modalComponents/BarChart";
 
 export default {
-  name: "Test",
+  name: "smrts",
   layout: "indipage",
   components: {
     VuePureLightbox,

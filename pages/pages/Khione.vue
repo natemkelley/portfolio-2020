@@ -71,7 +71,7 @@ import khione5 from '@/assets/projects/khione5.jpg'
 
 
 export default {
-  name: "Test",
+  name: "khione",
   layout: "indipage",
   components: {
     VuePureLightbox,

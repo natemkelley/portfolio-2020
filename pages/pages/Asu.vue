@@ -29,25 +29,11 @@ import VuePureLightbox from "vue-pure-lightbox";
 import BarChart from "@/components/modalComponents/BarChart";
 
 export default {
-  name: "Test",
+  name: "asu",
   layout: "indipage",
   components: {
     VuePureLightbox,
     BarChart
-  },
-  data() {
-    return {
-      chartData: {
-        labels: ["January", "February"],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [40, 20]
-          }
-        ]
-      }
-    };
   },
   mounted() {
     this.$emit("loaded");

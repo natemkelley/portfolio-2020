@@ -3,18 +3,18 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _b4b0da2c = () => interopDefault(import('../pages/pages/Asu.vue' /* webpackChunkName: "pages/pages/Asu" */))
-const _366a3c36 = () => interopDefault(import('../pages/pages/Byu.vue' /* webpackChunkName: "pages/pages/Byu" */))
-const _900eea18 = () => interopDefault(import('../pages/pages/CocaCola.vue' /* webpackChunkName: "pages/pages/CocaCola" */))
-const _18750082 = () => interopDefault(import('../pages/pages/CollegeWebDev.vue' /* webpackChunkName: "pages/pages/CollegeWebDev" */))
-const _2f836168 = () => interopDefault(import('../pages/pages/Github.vue' /* webpackChunkName: "pages/pages/Github" */))
-const _949cfea2 = () => interopDefault(import('../pages/pages/GraduateResearch.vue' /* webpackChunkName: "pages/pages/GraduateResearch" */))
-const _99266ada = () => interopDefault(import('../pages/pages/Intro.vue' /* webpackChunkName: "pages/pages/Intro" */))
-const _14f6b023 = () => interopDefault(import('../pages/pages/Khione.vue' /* webpackChunkName: "pages/pages/Khione" */))
-const _719456a4 = () => interopDefault(import('../pages/pages/Leadership.vue' /* webpackChunkName: "pages/pages/Leadership" */))
-const _9fe4e704 = () => interopDefault(import('../pages/pages/Smrts.vue' /* webpackChunkName: "pages/pages/Smrts" */))
-const _4af2ef42 = () => interopDefault(import('../pages/pages/StudioUx.vue' /* webpackChunkName: "pages/pages/StudioUx" */))
-const _3e8c2e8a = () => interopDefault(import('../pages/pages/Test.vue' /* webpackChunkName: "pages/pages/Test" */))
+const _426efb0a = () => interopDefault(import('../pages/pages/asu.vue' /* webpackChunkName: "pages/pages/asu" */))
+const _fcdb6bf6 = () => interopDefault(import('../pages/pages/byu.vue' /* webpackChunkName: "pages/pages/byu" */))
+const _ab5a5a98 = () => interopDefault(import('../pages/pages/cocacola.vue' /* webpackChunkName: "pages/pages/cocacola" */))
+const _2ef6cbdf = () => interopDefault(import('../pages/pages/collegewebdev.vue' /* webpackChunkName: "pages/pages/collegewebdev" */))
+const _716c732c = () => interopDefault(import('../pages/pages/github.vue' /* webpackChunkName: "pages/pages/github" */))
+const _bfbe0f22 = () => interopDefault(import('../pages/pages/graduateresearch.vue' /* webpackChunkName: "pages/pages/graduateresearch" */))
+const _3bfaaab3 = () => interopDefault(import('../pages/pages/intro.vue' /* webpackChunkName: "pages/pages/intro" */))
+const _c3b657fa = () => interopDefault(import('../pages/pages/khione.vue' /* webpackChunkName: "pages/pages/khione" */))
+const _02ef088e = () => interopDefault(import('../pages/pages/leadership.vue' /* webpackChunkName: "pages/pages/leadership" */))
+const _389b6c9e = () => interopDefault(import('../pages/pages/smrts.vue' /* webpackChunkName: "pages/pages/smrts" */))
+const _77c2af02 = () => interopDefault(import('../pages/pages/studioux.vue' /* webpackChunkName: "pages/pages/studioux" */))
+const _4640f6ca = () => interopDefault(import('../pages/pages/test.vue' /* webpackChunkName: "pages/pages/test" */))
 const _01c62e24 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
@@ -27,53 +27,53 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/pages/Asu",
-    component: _b4b0da2c,
-    name: "pages-Asu"
+    path: "/pages/asu",
+    component: _426efb0a,
+    name: "pages-asu"
   }, {
-    path: "/pages/Byu",
-    component: _366a3c36,
-    name: "pages-Byu"
+    path: "/pages/byu",
+    component: _fcdb6bf6,
+    name: "pages-byu"
   }, {
-    path: "/pages/CocaCola",
-    component: _900eea18,
-    name: "pages-CocaCola"
+    path: "/pages/cocacola",
+    component: _ab5a5a98,
+    name: "pages-cocacola"
   }, {
-    path: "/pages/CollegeWebDev",
-    component: _18750082,
-    name: "pages-CollegeWebDev"
+    path: "/pages/collegewebdev",
+    component: _2ef6cbdf,
+    name: "pages-collegewebdev"
   }, {
-    path: "/pages/Github",
-    component: _2f836168,
-    name: "pages-Github"
+    path: "/pages/github",
+    component: _716c732c,
+    name: "pages-github"
   }, {
-    path: "/pages/GraduateResearch",
-    component: _949cfea2,
-    name: "pages-GraduateResearch"
+    path: "/pages/graduateresearch",
+    component: _bfbe0f22,
+    name: "pages-graduateresearch"
   }, {
-    path: "/pages/Intro",
-    component: _99266ada,
-    name: "pages-Intro"
+    path: "/pages/intro",
+    component: _3bfaaab3,
+    name: "pages-intro"
   }, {
-    path: "/pages/Khione",
-    component: _14f6b023,
-    name: "pages-Khione"
+    path: "/pages/khione",
+    component: _c3b657fa,
+    name: "pages-khione"
   }, {
-    path: "/pages/Leadership",
-    component: _719456a4,
-    name: "pages-Leadership"
+    path: "/pages/leadership",
+    component: _02ef088e,
+    name: "pages-leadership"
   }, {
-    path: "/pages/Smrts",
-    component: _9fe4e704,
-    name: "pages-Smrts"
+    path: "/pages/smrts",
+    component: _389b6c9e,
+    name: "pages-smrts"
   }, {
-    path: "/pages/StudioUx",
-    component: _4af2ef42,
-    name: "pages-StudioUx"
+    path: "/pages/studioux",
+    component: _77c2af02,
+    name: "pages-studioux"
   }, {
-    path: "/pages/Test",
-    component: _3e8c2e8a,
-    name: "pages-Test"
+    path: "/pages/test",
+    component: _4640f6ca,
+    name: "pages-test"
   }, {
     path: "/",
     component: _01c62e24,

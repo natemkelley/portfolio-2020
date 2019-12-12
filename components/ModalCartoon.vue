@@ -58,7 +58,7 @@ export default {
       this.loading = false;
     },
     external(){
-      window.open('/pages/'+this.component, '_blank');
+      window.open('/pages/'+this.component.toLowerCase(), '_blank');
     }
   },
   computed: {
@@ -67,7 +67,7 @@ export default {
       //      return () => import(`./modalComponents/${this.component}.vue`);
       //return () => import(`../components/modalComponents/${this.component}.vue`);
 
-      return () => import(`../pages/pages/${this.component}.vue`);
+      return () => import(`../pages/pages/${this.component.toLowerCase()}.vue`);
     },
     intros(){
       if(this.component =='Test' || this.component =='Intro'){
