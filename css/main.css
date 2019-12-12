@@ -223,7 +223,7 @@ h4 {
     border: 4px solid white;
     border-radius: 10px;
     margin: 10px 0px;
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
 .lightbox__image {

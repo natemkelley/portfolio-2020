@@ -95,12 +95,12 @@ export default {
     anime({
       targets: this.$refs.eyes.querySelectorAll(".eyes"),
       keyframes: [
-        { translateX: "7.75px", delay: 1100, duration: 1650 },
-        { translateX: "15px", delay: 500, duration: 1150 },
-        { translateX: "0px", delay: 1100, duration: 1350 },
-        { translateX: "15px", delay: 800, duration: 1050 },
-        { translateX: "-1px", delay: 1100, duration: 1850 },
-        { translateX: "16px", delay: 1100, duration: 850 }
+        { translateX: "7.75px", delay: 1000, duration: 1450 },
+        { translateX: "15px", delay: 500, duration: 1050 },
+        { translateX: "0px", delay: 1000, duration: 1250 },
+        { translateX: "15px", delay: 800, duration: 950 },
+        { translateX: "-1px", delay: 1000, duration: 1650 },
+        { translateX: "16px", delay: 1000, duration: 850 }
       ],
       easing: "linear",
       loop: true,
