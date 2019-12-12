@@ -83,13 +83,13 @@ export default {
   watch: {
     loaded() {
       this.showClouds();
+      this.animateClouds();
     }
   },
   mounted() {
     document.getElementsByTagName("body")[0].style.overflow = "hidden";
     this.checkBrowser();
     this.checkWidth();
-    this.animateClouds();
   },
   methods: {
     togglePreloader() {
@@ -150,7 +150,7 @@ export default {
       }
 
       //fallback if they resize the window
-      if (this.browser === "CHROME" && this.height > 668 && this.width > 749) {
+      if (this.browser === "CHROME" && this.height > 668 && this.width > 749 && this.loaded) {
         //console.log("fallback browser", this.browser);
         this.problemSize = false;
         this.problemBrowser = false;
