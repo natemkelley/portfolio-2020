@@ -4,12 +4,6 @@
     <h2 class="text-center secondary">MINOR: BUSINESS MANAGEMENT</h2>
     <h3 class="text-center">Brigham Young University - 2015 - 2019</h3>
     <div class="bar"></div>
-            <VuePureLightbox
-      :thumbnail="byupic"
-      :images="[byupic,
-        'https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png',byuit
-      ]"
-    />
     <div class="summary">
       <ul>
         <li>
@@ -29,6 +23,12 @@
       </ul>
     </div>
 
+            <VuePureLightbox
+      :thumbnail="'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Brigham_Young_University_medallion.svg/768px-Brigham_Young_University_medallion.svg.png'"
+      :images="['https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Brigham_Young_University_medallion.svg/768px-Brigham_Young_University_medallion.svg.png',byupic,
+        'https://miro.medium.com/max/5780/1*yktz1koGsQ1kV02GnF5K1A.png',byuit
+      ]"
+    />
     <!--<h2>Classes</h2>
     <p>Here is a list of relevant undergraduate classes taken to take to date:</p>
 

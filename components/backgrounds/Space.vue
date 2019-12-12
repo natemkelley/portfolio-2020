@@ -246,13 +246,13 @@ export default {
 }
 
 .tower {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-left: 2699px;
-  margin-bottom: 858px;
-  z-index: -1;
-  width: 724px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 2629px;
+    margin-bottom: 858px;
+    z-index: -1;
+    width: 799px;
 }
 
 .cavetopend {

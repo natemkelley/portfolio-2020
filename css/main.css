@@ -224,6 +224,7 @@ h4 {
     border-radius: 10px;
     margin: 10px 0px;
     cursor: pointer;
+    background: white;
 }
 
 .lightbox__image {

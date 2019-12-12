@@ -150,8 +150,8 @@ export default {
     },
     handleTextTyping(pixels) {
       var textArray = [
-        "Hello Friends! Welcome to my portfolio.",
-        "Feel free to use the menu button to jog between sections",
+        "Hello! I'm Nate and I'm a UX Designer and JavScript Developer.",
+        "Use the menu button to jump to my education and projects!",
         "You can drill more into a piece of content by clicking on it!"
       ];
       var typingNum = 0;

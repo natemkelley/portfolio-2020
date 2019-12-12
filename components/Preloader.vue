@@ -3,11 +3,6 @@
     <div class="preloader">
       <div v-if="problemBrowser || problemSize" class="problem">
         <div class="box">
-          <svg-icon
-            @click="togglePreloader"
-            class="clickable anyways"
-            name="objects/ContinueAnyways"
-          />
           <div class="row">
             <div class="column"><p>Current screen size:</p></div>
             <div class="column">
@@ -32,10 +27,17 @@
             </p>
           </div>
         </div>
+                  <svg-icon
+            @click="togglePreloader"
+            class="clickable anyways"
+            name="objects/ContinueAnyways"
+          />
       </div>
       <div v-else>
+        <div class="loading-outer">
         <div v-show="!loaded" class="box">
           <h1 class="text-center">LOADING...</h1>
+        </div>
         </div>
         <svg-icon
           @click="togglePreloader"
@@ -86,8 +88,9 @@ export default {
       this.animateClouds();
     }
   },
+  created(){    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+},
   mounted() {
-    document.getElementsByTagName("body")[0].style.overflow = "hidden";
     this.checkBrowser();
     this.checkWidth();
   },
@@ -170,6 +173,7 @@ export default {
           this.problemBrowser = true;
           this.colorBrowser = true;
         }
+
       }
     },
     animateClouds() {
@@ -232,31 +236,37 @@ export default {
       left: 0;
     top: 0;
 }
+.loading-outer{
+        padding: 12vh 10vw;
+
+}
+
 .box {
   border: 7px solid white;
   /* padding: 30% 2%; */
   /* padding: 25% 10%; */
-  margin: 20vh 10vw;
   height: 60vh;
-  min-height: 395px;
-}
+    min-height: 485px;}
 
 h1 {
   font-family: "Press Start 2P";
   color: white;
   font-size: 5vw;
-  margin-top: 25vh;
+  margin-top: 30vh;
 }
 .imgcenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  margin-top: 40vh;
-  transition: all 200ms;
+    margin-top: 17vh;  transition: all 200ms;
 }
 .imgcenter:hover {
   transform: scale(1.12);
+}
+
+.problem{
+      padding: 12vh 10vw;
 }
 
 .problem .box {
@@ -272,8 +282,8 @@ p {
 
 .column {
   float: left;
-  width: 50%;
-  padding: 0px 10px;
+  width: 47%;
+  padding: 0px 0px;
 }
 .row {
   margin: 35px 5%;
@@ -287,10 +297,9 @@ p {
 }
 
 .anyways {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  margin-bottom: 11vh;
+position: absolute;
+    right: 0;
+        margin-top: -55px;
 }
 
 .eightypercent {
@@ -302,16 +311,15 @@ p {
   }
 }
 @media screen and (max-width: 805px) {
+  .row{
+      margin: 5px 5%;
+}
   p {
     font-size: 1.3em;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .box {
-    margin: 10vh 10vw;
-    height: 80vh;
-  }
   .column {
     width: 100%;
     margin-top: 10px;
@@ -319,23 +327,20 @@ p {
   p {
     font-size: 18.5px;
   }
-  .anyways {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 15.3vh;
-    margin-right: 23vw;
+    .box {
+    height: 75vh;
   }
 }
 @media screen and (max-width: 490px) {
   p {
     font-size: 16.5px;
   }
-  .anyways {
-    position: absolute;
-    margin-bottom: 10.3vh;
-    margin-right: 10vw;
-  }
+.problem{
+  padding: 35px 30px;
+}
+.box{
+      height: 78vh;
+}
 }
 @media screen and (max-width: 390px) {
   p {
