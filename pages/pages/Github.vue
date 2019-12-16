@@ -4,12 +4,12 @@
     <h3 class="text-center">College and Personal Projects </h3>
     <div class="bar"></div>
 
-    <p>Link to my Github account: <a href="https://github.com/natemkelley" target="_blank">https://github.com/natemkelley</a>. H ere is a collection of projects that I am proud of ranked in order of preferences:</p>
+    <p>Link to my Github account: <a class="blahr" href="https://github.com/natemkelley" target="_blank">https://github.com/natemkelley</a>. Here is a collection of projects that I am proud of ranked in order of preferences:</p>
     
     <a href="https://github.com/natemkelley/portfolio-2020" target="_blank">
     <div class="clickable" >
       <h2>Portfolio 2020</h2>
-      <p>Showcases my skills in Vue.js, Nuxt, NPM packages, graphic design, and user experience.</p>
+      <p>This showcases my skills in Vue.js, Nuxt, NPM packages, graphic design, and user experience.</p>
       <img :src="dev1"/>
     </div>
     </a>
@@ -23,14 +23,14 @@
     <a href="https://github.com/natemkelley/Boud-Family-Cabin" target="_blank">
     <div class="clickable" href="https://github.com/natemkelley/portfolio-2020">
       <h2>Family Cabin Website</h2>
-      <p>This was my first project built using Vue.js. Although my skills have dramatically improved since then this shows that I love programming and solving problems in my spare time.</p>
+      <p>This was my first project built using Vue.js and looking back at my code, is quite poor. However, I have included this proejct because this shows that I love programming and solving problems in my spare time using new technologies.</p>
       <img :src="dev3"/>
     </div>
     </a>
     <a href="https://github.com/natemkelley/Theme-Park-Wait-Time-Generator" target="_blank">
     <div class="clickable" href="https://github.com/natemkelley/portfolio-2020">
       <h2>Theme Park Time Collector</h2>
-      <p>This project is currently under construction (December, 2019). However, this is a application that grabs the wait times at Disneyland and DisneyWorld and store them in a data base. I intend to use this data in meaningful ways to showcase wait time averages and suggestions.</p>
+      <p>This project is currently under construction (December, 2019). This is an application that grabs the wait times at Disneyland and DisneyWorld and stores them in a database. I intend to use this data in meaningful ways to showcase wait time averages and itinerary suggestions.</p>
       <img :src="dev4"/>
     </div>
     </a>
@@ -75,4 +75,11 @@ a{
     text-decoration: none;
     color: white;
 }
+
+.blahr{
+    margin-top: 12px;
+    text-decoration: underline;
+    color: white;
+}
+
 </style>

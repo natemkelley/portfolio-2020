@@ -12,14 +12,14 @@
     <div class="summary">
     </div>
 
-    
-
 <h2>Introduction</h2>
-<p>This year I joined a flagship university-community involvement team called &ldquo;Studio UX&rdquo;. Similar to the Engagement Lab at the Corcoran, we act as a student consulting firm that entities approach with problems that need solutions. Roughly every four weeks we work with a different organization tackling a myriad of different issues from UI design, feature validation, and user testing.</p>
-<p>Although I have worked with many different organizations this year, I would like to showcase one project that I found particularly interesting.<br /><br /></p>
+<p>In 2018 I joined a community involvement team called &ldquo;Studio UX&rdquo;. Here we acted as a student consulting firm that entities approached with user experience problems that needed solutions. Roughly every four weeks we worked with a different organization tackling a myriad of different issues from UI design, feature validation, and user testing.</p>
+<p>Although I have worked with many different organizations that year, I would like to showcase one project that I found particularly interesting.<br /><br /></p>
+
+<img src="@/assets/projects/pluralsight.png"/>
 
 <h2>PluralSight's Problem</h2>
-<p>PluralSight is a multimillion dollar startup that has seen rapid growth in the past few years. However, this rapid growth has created a problem in that many of the new hires and teams do not know PluralSight&rsquo;s design thinking process called "directed discovery". Additionally, rapid growth has lead to a lack of leadership and duplicate features are being developed by different teams.</p>
+<p>PluralSight is a multimillion dollar startup that has seen rapid growth in the past few years. However, this rapid growth has created a problem in that many of the new hires and teams do not know PluralSight&rsquo;s design thinking process called "directed discovery". Additionally, rapid growth has lead to a lack of leadership and duplicate features being developed by different teams.</p>
 <p>This is the problem statement provided to us by PluralSight&rsquo;s CXO (Chief Experience Officer):</p>
 <blockquote>Our current design thinking process that supports our ability to deliver user-centered experiences, called Directed Discovery, is manual and siloed. We need a proposed prototype for a web-based tool to centralize, automate and support cross-functional collaboration of experience design and validation testing.</blockquote>
 
