@@ -7,19 +7,17 @@
     <div class="summary">
       <ul>
         <li>
-          <strong>Emphasis in Human Computer Interaction</strong> with a 3.62
+          <strong>Emphasis in Web Development</strong> with a 3.63
           GPA
         </li>
         <li>
-          Designed and coded 30+ Web, Mobile, and UX/UI projects including team
-          projects starting from wireframes to full-fledged prototypes
+          Designed and coded 40+ Web, Mobile, and UX/UI projects including team
+          projects starting from wireframes to full-fledged websites.
         </li>
+        <li>Three years experience in Node.js, Vue.js, React, WebPack, and CSS frameworks.</li>
+        <li>Strong exposure to Python, SQL, NoSQL, PHP, and C++.</li>
         <li>Two years experience performing user testing research (BYU Studio UX)</li>
-        <li>
-          Team Lead in Studio UX directing design, interview, and presentation
-          efforts
-        </li>
-        <li>Three years experience in Node.js, Vue.js, and CSS frameworks</li>
+        <li>Pursued passion of UX through extracurricular courses on Graphic Design and involvement with BYU's UXD club.</li>
       </ul>
     </div>
 

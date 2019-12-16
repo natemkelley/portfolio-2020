@@ -6,8 +6,8 @@
     <div class="bar"></div>
     <div class="summary">
     <ul>
-      <li>Honored as 1 of 200 students from a pool of 245,000+ applicants</li>
-        <li>Selected based on community service and academic performance</li>
+      <li>Honored as 1 of 200 students from a pool of 245,000+ applicants from across the United States.</li>
+        <li>Selected based on community service and academic performance.</li>
     </ul>
     </div>
     <VuePureLightbox

@@ -5,12 +5,13 @@
     <div class="bar"></div>
     <div class="summary">
  <ul>
-<li>Worked with United States Airforce to develop models for human robot teaming</li>
-<li>Research project grant valued at over $2,500,000</li>
-<li>Created Minecraft environment to simulate a first responder emergency situation (burning building, bombed airfield, etc.)</li>
-<li>Tested four human-robot teaming strategies (explain all behavior, explain no behavior, explain when asked, pull-prime)</li>
-<li>Co-wrote research paper</li>
+<li>Worked with United States Airforce to develop models for human robot teaming.</li>
+<li>Created Minecraft environment to simulate first responder emergency situations (burning building, bombed airfield, etc.)</li>
+<li>Tested four human-robot teaming strategies (explain all behavior, explain no behavior, explain when asked, pull-prime).</li>
+<li>Co-wrote multiple research papers.</li>
 <li>Presented key findings to stakeholders and others researchers</li>
+<li>Research project grant valued at over $2,500,000.</li>
+
 </ul>
     </div>
     <VuePureLightbox

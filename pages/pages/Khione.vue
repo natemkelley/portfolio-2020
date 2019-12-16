@@ -14,19 +14,13 @@
 <ul>
 <li>Played crucial role in launch of startup as UX designer and developer</li>
 <li>Executed iterative user tests of web store, SEO channels, and gear to ensure quality and usability using surveys, interviews, and observations</li>
-<li>Raised $100,000 from sales, competitions, and kick starter in 6 months</li>
+<li>Raised $120,000 from sales, competitions, and kick starter in 6 months</li>
 <li>Competed as one of the top 20 teams in Utah Entrepreneur of the Year</li>
 </ul>
     </div>
-    <p>In 2018 I worked in a team of four to kickstart a product which would eventually go on to compete in the Utah Entrepreneur of Year Competition. Although we all shared roles during the initial development of the product, I was primarily the UX designer and web developer.</p>
+    <p>In 2018 I worked in a team of five to kickstart a product which would eventually go on to compete in the Utah Entrepreneur of Year Competition. Although we all shared roles during the initial development of the product, I was primarily the UX designer and web developer.</p>
     <h2>Problem</h2>
-<p>The purpose of this competition was to create an innovative product or service. As each us had a common interest in camping, hiking, and backpacking, we decided to develop a new product for the outdoor community. Instead of jumping straight into product development, our team decided to explore the pains that people experienced while backpacking. Although we were already familiar with this area, we spent approximately three weeks observing 50 backpackers and interviewing them about their most recent backpacking trip. After summarizing our notes, we found that almost all interviewees experienced pains in four areas:</p>
-<ul>
-<li>Heavy backpacks</li>
-<li>Staying warm and dry</li>
-<li>Simple</li>
-<li>Bugs</li>
-</ul>
+<p>Khione was founded as a company to change the way people go camping. In order to to do that, we explored the pains that people experienced while backpacking. Although we were already familiar with this area, we spent approximately three weeks observing backpackers and interviewing them about their most recent backpacking trip. After summarizing our notes, we found that almost all interviewees experienced pains in these areas:</p>
 <BarChart :chartData="chartData"/>
 
 <h2>Process</h2>
@@ -44,7 +38,7 @@
     />
 
 <h2>Additional Duties</h2>
-<p>In addition to conducting user interviews, prototyping the products, and presenting at competitions, I was solely responsible for creating the look and feel of the brand through marketing materials. As the company began to grow and more people began designing marketing materials, it became necessary to create a style guide. This guide was also the primary style of the company website which I designed and coded to drive online sales.</p>
+<p>As the UX designer I lead out on conducting user interviews, testing prototypes, and suggesting changes for future iterations. I was also solely responsible for creating the look and feel of the brand through marketing materials. As the company began to grow and more people began designing marketing materials, it became necessary to create a style guide. This guide was also the primary style of the company website which I designed and coded to drive online sales.</p>
     <VuePureLightbox
       :thumbnail="khione4"
       :images="[
