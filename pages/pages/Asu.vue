@@ -5,7 +5,7 @@
     <div class="bar"></div>
     <div class="summary">
       <ul>
-      <li>4.17 GPA as of December 17, 2019</li>
+      <li>4.25 GPA as of December 17, 2019</li>
       <li><strong>Developed expertise in Vue.js</strong></li>
       <li>Currently (until May 2020) working with the United States Air Force on research focused on human-robot teaming.</li>
       <li>Developed expertise in product design and development techniques.</li>
@@ -14,11 +14,15 @@
       <li>Created 12+ projects related to graphic and experience design</li>
       </ul>
     </div>
-    <VuePureLightbox
+        <VuePureLightbox
       thumbnail="https://www.entertainmentsolutionsinc.com/wp-content/uploads/2017/11/logo-asu-white-bg.jpg"
       :images="['https://www.entertainmentsolutionsinc.com/wp-content/uploads/2017/11/logo-asu-white-bg.jpg','https://asunow.asu.edu/sites/default/files/styles/panopoly_image_full/public/nancy-cooke-lab.jpg?itok=2F1fmza3',
         'https://www.aiatopten.org/sites/default/files/styles/popup/public/ASU%20COTE%20Top%2010%20images_Page_18.jpg?itok=floVFYo-'
       ]"
+    />
+    <VuePureLightbox
+      :thumbnail='img1'
+      :images="[img1,img2,img3,img4,img5]"
     />
     
   </div>
@@ -27,6 +31,12 @@
 <script>
 import VuePureLightbox from "vue-pure-lightbox";
 import BarChart from "@/components/modalComponents/BarChart";
+import img1 from '@/assets/projects/asucollective.jpg'
+import img2 from '@/assets/projects/asuprojects2.png'
+import img3 from '@/assets/projects/asuprojects3.png'
+import img4 from '@/assets/projects/asuprojects4.png'
+import img5 from '@/assets/projects/asuprojects5.png'
+
 
 export default {
   name: "asu",
@@ -34,6 +44,15 @@ export default {
   components: {
     VuePureLightbox,
     BarChart
+  },
+  data(){
+    return{
+      img1:img1,      img2:img2,
+      img3:img3,
+      img4:img4,
+      img5:img5,
+
+    }
   },
   mounted() {
     this.$emit("loaded");

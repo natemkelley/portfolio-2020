@@ -354,6 +354,7 @@ position: absolute;
   .anyways {
     margin-bottom: 1.3vh;
     margin-right: 1vw;
+    margin-top: -115px;
   }
 }
 </style>

@@ -14,6 +14,13 @@ export default {
         name: "Nate Kelley",
         content:
           "Portfolio of Nate Kelley 2020" || process.env.npm_package_description
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://natemkelley.github.io/portfolio.png',
+        type:'image',
+        url:'https://natemkelley.github.io/'
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
@@ -55,7 +62,19 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/svg", "@nuxtjs/svg-sprite"],
+  modules: ["@nuxtjs/svg", "@nuxtjs/svg-sprite", "nuxt-seo"],
+  seo: {
+    // Module options
+    name: 'Nate Kelley Portfolio 2020',
+    title: 'Nate Kelley Portfolio 2020',
+    templateTitle: '%title%',
+    description: 'This is the portfolio of Nate Kelley. This showcases his work up until the year 2020.',
+    image:'https://natemkelley.github.io/portfolio.png',
+    image:{url:'https://natemkelley.github.io/portfolio.png',alt:'Portfolio Intro Image'},
+    og:{image:{url:'https://natemkelley.github.io/portfolio.png'}}
+    //...
+},
+
   svgSprite: {
     // pass costum config
   },

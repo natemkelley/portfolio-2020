@@ -232,7 +232,7 @@ h4 {
 }
 
 .container-small .lightbox__image img {
-
+    max-width: 80vw;
     text-align: center;
     cursor: default;
 }

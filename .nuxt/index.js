@@ -11,6 +11,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
+import nuxt_plugin_NuxtSeo_51b37cab from 'nuxt_plugin_NuxtSeo_51b37cab' // Source: ./Nuxt-Seo.js (mode: 'all')
 import nuxt_plugin_nuxtsvgsprite_15d628d0 from 'nuxt_plugin_nuxtsvgsprite_15d628d0' // Source: ./nuxt-svg-sprite.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -144,6 +145,10 @@ async function createApp (ssrContext) {
   }
 
   // Plugin execution
+
+  if (typeof nuxt_plugin_NuxtSeo_51b37cab === 'function') {
+    await nuxt_plugin_NuxtSeo_51b37cab(app.context, inject)
+  }
 
   if (typeof nuxt_plugin_nuxtsvgsprite_15d628d0 === 'function') {
     await nuxt_plugin_nuxtsvgsprite_15d628d0(app.context, inject)
