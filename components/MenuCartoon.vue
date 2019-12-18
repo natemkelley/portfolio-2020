@@ -49,6 +49,11 @@ export default {
       clicked: false,
       socialLinks: [
         {
+          src: "/Resume_December_2019.pdf",
+          icon: "file",
+          color: ""
+        },
+        {
           src: "https://www.linkedin.com/in/nate-kelley/",
           icon: "linkedin",
           color: ""
