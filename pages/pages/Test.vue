@@ -1,6 +1,6 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">Awesome Content</h1>
+    <h1 class="text-center">Template Content</h1>
     <h3 class="text-center">DATE - LOCATION</h3>
     <div class="bar"></div>
     <div class="summary">
