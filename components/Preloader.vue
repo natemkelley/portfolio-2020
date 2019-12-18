@@ -341,6 +341,10 @@ position: absolute;
 .box{
       height: 78vh;
 }
+.anyways{
+  margin-top: -169px;
+      width: 100%;
+}
 }
 @media screen and (max-width: 390px) {
   p {
