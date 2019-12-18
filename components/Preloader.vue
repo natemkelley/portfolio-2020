@@ -27,17 +27,19 @@
             </p>
           </div>
         </div>
-                  <svg-icon
-            @click="togglePreloader"
-            class="clickable anyways"
-            name="objects/ContinueAnyways"
-          />
+        <svg-icon
+          @click="togglePreloader"
+          class="clickable anyways"
+          name="objects/ContinueAnyways"
+          width="555"
+          height="345"
+        />
       </div>
       <div v-else>
         <div class="loading-outer">
-        <div v-show="!loaded" class="box">
-          <h1 class="text-center">LOADING...</h1>
-        </div>
+          <div v-show="!loaded" class="box">
+            <h1 class="text-center">LOADING...</h1>
+          </div>
         </div>
         <svg-icon
           @click="togglePreloader"
@@ -88,8 +90,9 @@ export default {
       this.animateClouds();
     }
   },
-  created(){    document.getElementsByTagName("body")[0].style.overflow = "hidden";
-},
+  created() {
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+  },
   mounted() {
     this.checkBrowser();
     this.checkWidth();
@@ -101,7 +104,7 @@ export default {
           .querySelector("meta[name=viewport]")
           .setAttribute(
             "content",
-            "width=device-width, initial-scale=0.41, maximum-scale=1.0, user-scalable=0"
+            "width=device-width, initial-scale=0.58, maximum-scale=1.0, user-scalable=0"
           );
       }
 
@@ -153,7 +156,12 @@ export default {
       }
 
       //fallback if they resize the window
-      if (this.browser === "CHROME" && this.height > 668 && this.width > 749 && this.loaded) {
+      if (
+        this.browser === "CHROME" &&
+        this.height > 668 &&
+        this.width > 749 &&
+        this.loaded
+      ) {
         //console.log("fallback browser", this.browser);
         this.problemSize = false;
         this.problemBrowser = false;
@@ -173,7 +181,6 @@ export default {
           this.problemBrowser = true;
           this.colorBrowser = true;
         }
-
       }
     },
     animateClouds() {
@@ -233,12 +240,11 @@ export default {
   z-index: 9999;
   position: fixed;
   opacity: 1;
-      left: 0;
-    top: 0;
+  left: 0;
+  top: 0;
 }
-.loading-outer{
-        padding: 12vh 10vw;
-
+.loading-outer {
+  padding: 12vh 10vw;
 }
 
 .box {
@@ -246,7 +252,8 @@ export default {
   /* padding: 30% 2%; */
   /* padding: 25% 10%; */
   height: 60vh;
-    min-height: 485px;}
+  min-height: 485px;
+}
 
 h1 {
   font-family: "Press Start 2P";
@@ -259,14 +266,15 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-    margin-top: 17vh;  transition: all 200ms;
+  margin-top: 17vh;
+  transition: all 200ms;
 }
 .imgcenter:hover {
   transform: scale(1.12);
 }
 
-.problem{
-      padding: 12vh 10vw;
+.problem {
+  padding: 12vh 10vw;
 }
 
 .problem .box {
@@ -297,9 +305,10 @@ p {
 }
 
 .anyways {
-position: absolute;
-    right: 0;
-        margin-top: -55px;
+  position: absolute;
+  right: 0;
+  margin-top: -180px;
+width: 240px;
 }
 
 .eightypercent {
@@ -311,9 +320,9 @@ position: absolute;
   }
 }
 @media screen and (max-width: 805px) {
-  .row{
-      margin: 5px 5%;
-}
+  .row {
+    margin: 5px 5%;
+  }
   p {
     font-size: 1.3em;
   }
@@ -321,30 +330,31 @@ position: absolute;
 
 @media screen and (max-width: 600px) {
   .column {
-    width: 100%;
+    width: 50%;
     margin-top: 10px;
   }
   p {
     font-size: 18.5px;
   }
-    .box {
-    height: 75vh;
+  .box {
+    height: 89vh;
   }
 }
 @media screen and (max-width: 490px) {
   p {
     font-size: 16.5px;
   }
-.problem{
-  padding: 35px 30px;
-}
-.box{
-      height: 78vh;
-}
-.anyways{
-  margin-top: -169px;
-      width: 100%;
-}
+  .problem {
+    padding: 35px 30px;
+  }
+  .box {
+    height: 87vh;
+  }
+  .anyways {
+    margin-top: -269px;
+    width: 65%;
+    margin-right: 17.5%;
+  }
 }
 @media screen and (max-width: 390px) {
   p {
@@ -357,8 +367,7 @@ position: absolute;
   }
   .anyways {
     margin-bottom: 1.3vh;
-    margin-right: 1vw;
-    margin-top: -115px;
+    margin-top: -255px;
   }
 }
 </style>

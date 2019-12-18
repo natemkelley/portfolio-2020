@@ -68,7 +68,7 @@ export default {
     name: 'Nate Kelley Portfolio 2020',
     title: 'Nate Kelley Portfolio 2020',
     templateTitle: '%title%',
-    description: 'This is the portfolio of Nate Kelley. This showcases his work up until the year 2020.',
+    description: "This is the portfolio of Nate Kelley. This interactive experience showcases Nate's work up until the year 2020.",
     image:'https://natemkelley.github.io/portfolio.png',
     image:{url:'https://natemkelley.github.io/portfolio.png',alt:'Portfolio Intro Image'},
     og:{image:{url:'https://natemkelley.github.io/portfolio.png'}}

@@ -59,7 +59,7 @@ export default {
           color: ""
         },
         {
-          src: "/pages/Github",
+          src: "/pages/github",
           icon: "github",
           color: ""
         },
