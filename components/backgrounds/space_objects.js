@@ -40,13 +40,6 @@ module.exports = [
       posY: 4468,
       height: 105,
       width: 720
-    },
-    {
-      name: "World_Space_Planet2",
-      posX: 900,
-      posY: 2000,
-      height: 105,
-      width: 720
     }
   ];
   
