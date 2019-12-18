@@ -17,6 +17,11 @@
           <svg-icon name="icons/right-arrow" class="close-icon" />
         </a>
       </div>
+            <div class="close-btn resume-btn">
+        <a class="btn-floating" href="/Resume_December_2019.pdf">
+          <svg-icon name="icons/document" class="close-icon" />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -56,10 +61,6 @@ export default {
     let arr = this.eliminateIndexAndReturn(this.$router.options.routes);
     this.setRight(arr);
     this.setLeft(arr);
-
-    console.log("left", this.left);
-    console.log("right", this.right);
-    console.log("7:03");
   },
   methods: {
     eliminateIndexAndReturn(routes) {
@@ -155,7 +156,14 @@ export default {
   margin: 25px;
   margin-top: 215px;
 }
-@media only screen and (max-width: 600px) {
+.resume-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 25px;
+  margin-top: 310px;
+}
+@media only screen and (max-width: 780px) {
   .left-btn {
     margin-top: 25px;
     margin-right: 215px;
@@ -163,6 +171,10 @@ export default {
   .right-btn {
     margin-top: 25px;
     margin-right: 120px;
+  }
+  .resume-btn{
+        margin-top: 25px;
+    margin-right: 310px;
   }
 }
 </style>
