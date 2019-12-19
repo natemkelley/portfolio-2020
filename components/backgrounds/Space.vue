@@ -127,7 +127,7 @@ export default {
         .split(/\s+|,/)[2];
 
       this.$emit("informheight", {
-        width: totalWidth - 800,
+        width: totalWidth /*- 800*/,
         container: "space"
       });
     },

@@ -4,6 +4,7 @@
       v-if="renderPreloader"
       :loaded="loaded"
       @togglepreloader="togglePreloader"
+      @informheight="updateMobileOffset"
     />
     <main :style="{ height: height + 'px' }">
       <MenuCartoon @overrideactive="overrideactive" :offsetLeft="offsetLeft" />
@@ -202,10 +203,15 @@ export default {
       }
 
       //console.log(this.previousScrollPos + this.offsetLeft, this.height - this.offsetLeft);
+      console.log(this.previousScrollPos+this.offsetLeft,this.height,this.offsetLeft)
       this.cheering =
-        this.previousScrollPos + this.offsetLeft > 30482 ? true : false;
+        (this.previousScrollPos + this.offsetLeft>30850||this.previousScrollPos + this.offsetLeft > this.height-1000) ? true : false;
 
       //console.log('pixels',this.previousScrollPos)
+    },
+    updateMobileOffset(val){
+      this.height = this.height+ Number(val); //is modified by offsetLeft
+          console.log('mobile height offset',val,'new height',this.height)
     }
   },
   created() {

@@ -35,10 +35,17 @@ module.exports = [
       width: 720
     },
     {
-      name: "World_Space_HireMe",
+      name: "HireMe",
       posX: 2500,
       posY: 4468,
       height: 105,
+      width: 720
+    },
+    {
+      name: "TheEnd",
+      posX: 2994,
+      posY: 6270,
+      height: 305,
       width: 720
     }
   ];

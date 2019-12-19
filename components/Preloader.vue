@@ -106,6 +106,8 @@ export default {
             "content",
             "width=device-width, initial-scale=0.58, maximum-scale=1.0, user-scalable=0"
           );
+        //offset for mobile?
+        this.$emit("informheight", 400);
       }
 
       document.getElementsByTagName("body")[0].style.overflow = "auto";
@@ -308,7 +310,7 @@ p {
   position: absolute;
   right: 0;
   margin-top: -180px;
-width: 240px;
+  width: 240px;
 }
 
 .eightypercent {
