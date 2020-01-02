@@ -18,7 +18,7 @@
         </a>
       </div>
             <div class="close-btn resume-btn">
-        <a class="btn-floating" href="/Resume_December_2019.pdf">
+        <a class="btn-floating" download href="/Resume_December_2019.pdf">
           <svg-icon name="icons/document" class="close-icon" />
         </a>
       </div>
@@ -124,6 +124,10 @@ export default {
 </script>
 
 <style scoped>
+.indi-background{
+  margin-top: 135px;
+}
+
 .close-btn {
   position: fixed;
   top: 0;

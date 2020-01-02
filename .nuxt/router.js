@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _c1ae8858 = () => interopDefault(import('../pages/accessible.vue' /* webpackChunkName: "pages/accessible" */))
 const _426efb0a = () => interopDefault(import('../pages/pages/asu.vue' /* webpackChunkName: "pages/pages/asu" */))
 const _fcdb6bf6 = () => interopDefault(import('../pages/pages/byu.vue' /* webpackChunkName: "pages/pages/byu" */))
 const _ab5a5a98 = () => interopDefault(import('../pages/pages/cocacola.vue' /* webpackChunkName: "pages/pages/cocacola" */))
@@ -27,6 +28,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/accessible",
+    component: _c1ae8858,
+    name: "accessible"
+  }, {
     path: "/pages/asu",
     component: _426efb0a,
     name: "pages-asu"
