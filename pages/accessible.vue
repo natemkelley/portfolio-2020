@@ -1,5 +1,14 @@
 <template>
   <div>
+    <div class="clouds">
+      <svg-icon class="c c1" name="objects/World_Grass_Cloud" />
+      <svg-icon class="c c2" name="objects/World_Grass_Cloud" />
+      <svg-icon class="c c3" name="objects/World_Grass_Cloud" />
+      <svg-icon class="c c4" name="objects/World_Grass_Cloud" />
+            <svg-icon class="c c5" name="objects/World_Grass_Cloud" />
+                        <svg-icon class="c c6" name="objects/World_Grass_Cloud" />
+
+    </div>
     <div class="box">
       <div class="box-header">
         <div class="box-header-div">Portfolio of Nate Kelley</div>
@@ -28,8 +37,23 @@
           <div class="accordion-content">
             {{ content.description }}
 
-            <a href="#" class="btn-go"> More Info</a>
+            <a :href="content.link" class="btn-go"> More Info</a>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="accordion-header">
+        <div class="">
+          <p>
+            Check out my portfolio on a desktop computer for some more great
+            content!
+          </p>
+          <a href="/"
+            ><img
+              alt="image of my portfolio"
+              src="https://natemkelley.github.io/_nuxt/img/98b4a42.png"
+          /></a>
         </div>
       </div>
     </div>
@@ -45,36 +69,97 @@ export default {
     return {
       contents: [
         {
-          title: "Lorem ipsum dolor sit amet",
+          title: "Coca-Cola Scholar",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "In 2013 I was select as one of 200 candidates from a pool of 260,000 to be a Coca-Cola Scholar.",
           active: false,
+          link: "https://natemkelley.github.io/pages/cocacola/",
+          img:
+            "https://res.cloudinary.com/real-times-media/image/upload/v1552241789/images_cocacola-scholar-foundation-which-focus-themselve-on-scholarship-for-students_aoxhtz.jpg"
+        },
+        {
+          title: "B.S. Information Technology",
+          description:
+            "In 2019 I received my Bachelor's of Science in Information Technology from Brigham Young University.",
+          active: false,
+          link: "https://natemkelley.github.io/pages/byu/",
+
+          img:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Brigham_Young_University_medallion.svg/768px-Brigham_Young_University_medallion.svg.png"
+        },
+        {
+          title: "M.S. User Experience",
+          description:
+            "In 2020 I will receive my Master's in User Experience from Arizona State University.",
+          active: false,
+          link: "https://natemkelley.github.io/pages/asu/",
+
+          img:
+            "https://www.entertainmentsolutionsinc.com/wp-content/uploads/2017/11/logo-asu-white-bg.jpg"
+        },
+        {
+          title: "Graduate Research",
+          description:
+            "In 2019 and 2020 I while I was a graduate student I worked with United States Airforce to develop models for human robot teaming.",
+          active: false,
+          link: "https://natemkelley.github.io/pages/graduateresearch/",
+
+          img: "https://natemkelley.github.io/_nuxt/img/8b8dd20.png"
+        },
+        {
+          title: "Khione Outdoor Gear",
+          description:
+            "In 2017 I worked for a student startup creating hammock tents. This company went on to compete in the top 20 companies for the Utah Entreupreur of the Year award.",
+          active: false,
+          link: "https://natemkelley.github.io/pages/khione/",
+
+          img: "https://natemkelley.github.io/_nuxt/img/40dfc71.jpg"
+        },
+        {
+          title: "SMRTS",
+          description:
+            "In 2018 and 2019 I worked closely with Professor Amanda Hughes to build a social media simulator for her research.",
+          active: false,
+          link: "https://natemkelley.github.io/pages/smrts/",
+
+          img: "https://natemkelley.github.io/_nuxt/img/d32ddc7.gif"
+        },
+        {
+          title: "College of Engineering",
+          description: "",
+          active: false,
+          link: "https://natemkelley.github.io/pages/collegewebdev/",
+
           img:
             "https://knowpathology.com.au/app/uploads/2018/07/Happy-Test-Screen-01-825x510.png"
         },
         {
-          title: "Ut enim ad minim veniam",
+          title: "Studio UX",
           description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "As a senior in college I worked for Studio UX. This was a community outreach team that helped businesses solve user experience related problems.",
           active: false,
-          img:
-            "https://knowpathology.com.au/app/uploads/2018/07/Happy-Test-Screen-01-825x510.png"
+          link: "https://natemkelley.github.io/pages/studioux/",
+
+          img: "https://natemkelley.github.io/_nuxt/img/09a6f1f.png"
         },
         {
-          title: "Duis aute irure dolor in reprehenderit",
+          title: "Github Projects",
           description:
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+            "Follow the link below to see a highlight of some of my favorite projects.",
           active: false,
-          img:
-            "https://knowpathology.com.au/app/uploads/2018/07/Happy-Test-Screen-01-825x510.png"
+          link: "https://natemkelley.github.io/pages/github/",
+
+          img: "https://natemkelley.github.io/_nuxt/img/98b4a42.png"
         },
         {
-          title: "Excepteur sint occaecat cupidatat non proident",
+          title: "Leadership",
           description:
-            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Follow the link below to see some of my leadership experience.",
           active: false,
+          link: "https://natemkelley.github.io/pages/leadership/",
+
           img:
-            "https://knowpathology.com.au/app/uploads/2018/07/Happy-Test-Screen-01-825x510.png"
+            "https://i0.wp.com/blog.scoutingmagazine.org/wp-content/uploads/sites/2/2019/05/Trail-to-Eagle.jpg?resize=678%2C381&ssl=1"
         }
       ]
     };
@@ -88,8 +173,6 @@ export default {
 
       let start = this.contents[i].active ? "0px" : "100px";
       let stop = this.contents[i].active ? "100px" : "0px";
-      console.log(this.$refs["accordion-body-" + i]);
-      console.log(this.contents[i].active, start, stop);
       if (this.contents[i].active) {
         this.$refs["accordion-body-" + i][0].classList.add("active");
       } else {
@@ -103,6 +186,22 @@ export default {
         duration: 500
       });*/
     }
+  },
+  mounted(){
+            anime({
+        targets: ".c",
+        opacity: 1,
+        easing: "linear",
+        duration: 1000
+      });
+            anime({
+        targets: ".c",
+        translateX: 500,
+  easing: 'linear',
+        duration: 50 * 1000,
+        loop: true,
+        direction: "alternate"
+      });
   }
 };
 </script>
@@ -120,6 +219,7 @@ export default {
   overflow: auto;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
+  max-width: 450px;
 }
 
 .box {
@@ -248,5 +348,39 @@ img {
   text-align: center;
   margin-top: 18px;
   border-radius: 10px;
+}
+
+.c {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-300);
+  opacity: 0;
+}
+
+.c1 {
+  margin-left: 70vw;
+  margin-bottom: 57vh;
+}
+.c4 {
+  margin-left: -32vw;
+  margin-bottom: 37vh;
+}
+
+.c2 {
+  margin-bottom: 8vh;
+  margin-left: 18vw;
+}
+
+.c3 {
+  margin-bottom: 80vh;
+}
+
+.c5 {
+  margin-left: 56vw;
+  margin-bottom: -23vh;
+}
+.c6 {
+  margin-left: -16vw;
+  margin-bottom: -55vh;
 }
 </style>

@@ -26,14 +26,26 @@
               website.
             </p>
           </div>
+          <div class="row btn-row">
+            <a class="cont-anyways-btn" @click="togglePreloader"
+              >Continue Anyways</a
+            >
+          </div>
+          <div class="row btn-row">
+            <a class="cont-anyways-btn make-it-green" href="/accessible"
+              >Go To Accessible Site</a
+            >
+          </div>
+          <div class="spacer">
+            </div>
         </div>
-        <svg-icon
+        <!--<svg-icon
           @click="togglePreloader"
           class="clickable anyways"
           name="objects/ContinueAnyways"
           width="555"
           height="345"
-        />
+        />-->
       </div>
       <div v-else>
         <div class="loading-outer">
@@ -78,9 +90,6 @@ export default {
       colorBrowser: null
     };
   },
-  created() {
-    window.addEventListener("resize", this.checkWidth);
-  },
   destroyed() {
     window.removeEventListener("resize", this.checkWidth);
   },
@@ -96,6 +105,7 @@ export default {
   mounted() {
     this.checkBrowser();
     this.checkWidth();
+            window.addEventListener("resize", this.checkWidth);
   },
   methods: {
     togglePreloader() {
@@ -142,6 +152,7 @@ export default {
         window.innerHeight ||
         document.documentElement.clientHeight ||
         document.body.clientHeight;
+
 
       if (this.height < 664) {
         this.problemSize = true;
@@ -250,11 +261,17 @@ export default {
 }
 
 .box {
-  border: 7px solid white;
-  /* padding: 30% 2%; */
-  /* padding: 25% 10%; */
-  height: 60vh;
-  min-height: 485px;
+    border: 7px solid white;
+    /* padding: 30% 2%; */
+    /* padding: 25% 10%; */
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    /* min-height: 485px;*/
+}
+
+.spacer{
+  height: 30px;
 }
 
 h1 {
@@ -276,7 +293,9 @@ h1 {
 }
 
 .problem {
-  padding: 12vh 10vw;
+  padding: 10vh 10vw;
+      overflow-y: scroll;
+    height: 100%;
 }
 
 .problem .box {
@@ -296,7 +315,7 @@ p {
   padding: 0px 0px;
 }
 .row {
-  margin: 35px 5%;
+  margin: 20px 5%;
 }
 
 /* Clear floats after the columns */
@@ -316,9 +335,35 @@ p {
 .eightypercent {
   width: 99%;
 }
+
+.cont-anyways-btn {
+  font-family: "Press Start 2P";
+  background: orange;
+  box-shadow: 5px 7px rgb(209, 136, 1);
+  color: white;
+  padding: 18px;
+  width: auto;
+  border-radius: 7px;
+  margin-top: 10px;
+  display: block;
+  line-height: 23.5px;
+  text-decoration: none;
+}
+
+.make-it-green {
+  background: rgb(1, 167, 1);
+  box-shadow: 5px 7px green;
+  margin-top: 17px;
+}
+
+.btn-row{
+      margin-top: 0px;
+    margin-bottom: 10px;
+}
+
 @media screen and (max-width: 1005px) {
   p {
-    font-size: 1.4em;
+    font-size: 1em;
   }
 }
 @media screen and (max-width: 805px) {
@@ -326,31 +371,35 @@ p {
     margin: 5px 5%;
   }
   p {
-    font-size: 1.3em;
+    font-size: 1em;
+  }
+  .box {
+    height: 79vh;
   }
 }
 
 @media screen and (max-width: 600px) {
+
   .column {
     width: 50%;
     margin-top: 10px;
   }
   p {
-    font-size: 18.5px;
+    font-size: 14.5px;
   }
   .box {
-    height: 89vh;
+    height: 81vh;
   }
 }
 @media screen and (max-width: 490px) {
   p {
-    font-size: 16.5px;
+    font-size: 14.5px;
   }
   .problem {
     padding: 35px 30px;
   }
   .box {
-    height: 87vh;
+    height: 85vh;
   }
   .anyways {
     margin-top: -269px;
@@ -360,7 +409,7 @@ p {
 }
 @media screen and (max-width: 390px) {
   p {
-    font-size: 14.5px;
+    font-size: 16.5px;
   }
 }
 @media screen and (max-width: 340px) {
