@@ -5,9 +5,8 @@
       <svg-icon class="c c2" name="objects/World_Grass_Cloud" />
       <svg-icon class="c c3" name="objects/World_Grass_Cloud" />
       <svg-icon class="c c4" name="objects/World_Grass_Cloud" />
-            <svg-icon class="c c5" name="objects/World_Grass_Cloud" />
-                        <svg-icon class="c c6" name="objects/World_Grass_Cloud" />
-
+      <svg-icon class="c c5" name="objects/World_Grass_Cloud" />
+      <svg-icon class="c c6" name="objects/World_Grass_Cloud" />
     </div>
     <div class="box">
       <div class="box-header">
@@ -187,21 +186,21 @@ export default {
       });*/
     }
   },
-  mounted(){
-            anime({
-        targets: ".c",
-        opacity: 1,
-        easing: "linear",
-        duration: 1000
-      });
-            anime({
-        targets: ".c",
-        translateX: 500,
-  easing: 'linear',
-        duration: 50 * 1000,
-        loop: true,
-        direction: "alternate"
-      });
+  mounted() {
+    anime({
+      targets: ".c",
+      opacity: 1,
+      easing: "linear",
+      duration: 1000
+    });
+    anime({
+      targets: ".c",
+      translateX: 500,
+      easing: "linear",
+      duration: 50 * 1000,
+      loop: true,
+      direction: "alternate"
+    });
   }
 };
 </script>
@@ -382,5 +381,14 @@ img {
 .c6 {
   margin-left: -16vw;
   margin-bottom: -55vh;
+}
+
+@media screen and (max-width: 705px) {
+.clouds{
+    display:none
+}
+.box,.accordion{
+    width: 85%;
+}
 }
 </style>
