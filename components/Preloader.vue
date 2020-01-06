@@ -27,12 +27,12 @@
             </p>
           </div>
           <div class="row btn-row">
-            <a class="cont-anyways-btn" @click="togglePreloader"
+            <a class="cont-anyways-btn clickable" @click="togglePreloader"
               >Continue Anyways</a
             >
           </div>
           <div class="row btn-row">
-            <a class="cont-anyways-btn make-it-green" href="/accessible"
+            <a class="cont-anyways-btn make-it-green clickable" href="/accessible"
               >Go To Accessible Site</a
             >
           </div>
