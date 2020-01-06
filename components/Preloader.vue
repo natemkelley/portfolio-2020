@@ -348,6 +348,7 @@ p {
   display: block;
   line-height: 23.5px;
   text-decoration: none;
+  text-align: center;
 }
 
 .make-it-green {
