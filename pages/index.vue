@@ -110,7 +110,7 @@ export default {
       this.overrideactive2 = value;
     },
     togglePreloader() {
-      //this.renderPreloader = false;
+      this.renderPreloader = false;
     },
     handleLoader() {
       if (this.height > 20000) {

@@ -261,6 +261,7 @@ export default {
 .accordion-header-div,
 .box-header-div {
   padding: 1rem 1rem 1rem 1rem;
+      text-align: center;
 }
 .accordion-header-div:last-child {
   padding-left: 0;
@@ -354,6 +355,7 @@ img {
   bottom: 0;
   transform: translateX(-300);
   opacity: 0;
+  z-index: -1;
 }
 
 .c1 {
