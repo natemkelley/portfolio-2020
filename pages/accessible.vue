@@ -99,7 +99,7 @@ export default {
         {
           title: "Graduate Research",
           description:
-            "In 2019 and 2020 I while I was a graduate student I worked with United States Airforce to develop models for human robot teaming.",
+            "In 2019 and 2020 while I was a graduate student I worked with United States Air Force to develop models for human robot teaming.",
           active: false,
           link: "https://natemkelley.github.io/pages/graduateresearch/",
 
