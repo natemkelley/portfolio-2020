@@ -1,14 +1,14 @@
 <template>
-<div>
-  <div class="MeMoving">
-    <svg-icon
-      :name="svgNameFinal"
-      class="bignate"
-      v-bind:class="{ rocketo: outerspace, cheering: cheering }"
-      ref="nate"
-    />
-    <Balloons class="balloons" :cheering="cheering" />
-  </div>
+  <div>
+    <div class="MeMoving">
+      <svg-icon
+        :name="svgNameFinal"
+        class="bignate"
+        v-bind:class="{ rocketo: outerspace, cheering: cheering }"
+        ref="nate"
+      />
+      <Balloons class="balloons" :cheering="cheering" />
+    </div>
   </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
     "initialGroundElevation",
     "stillMoving",
     "underwater",
+    "beach",
     "outerspace",
     "cheering"
   ],
@@ -200,14 +201,18 @@ export default {
   computed: {
     svgNameFinal() {
       if (this.cheering) {
-        //alert('x')
-        return "nate/cheering_" + this.jumpDur;
+        return "nate/normal_cheering_" + this.jumpDur;
+      }else if (this.underwater) {
+        return "nate/scuba_" + this.position+ "_"+this.directionX + this.blink;
+      } else if (this.beach) {
+        return "nate/shirtless_" + this.position+ "_"+this.directionX + this.blink;
+      }else if (this.outerspace) {
+        return "nate/space_fire_" + this.directionX;
+      } else {
+        return (
+          "nate/normal_" + this.position + "_" + this.directionX + this.blink
+        );
       }
-      if (this.outerspace) {
-        return "nate/rocket_fire_" + this.directionX;
-      }
-
-      return "nate/" + this.position + "_" + this.directionX + this.blink;
     }
   },
   watch: {
@@ -223,7 +228,6 @@ export default {
     },
     cheering(newVal) {
       if (newVal) {
-        console.log('me moving cheering',newVal)
         this.startCheering();
       }
     }
@@ -280,8 +284,8 @@ export default {
   }
 }
 
-.balloons{
-      position: fixed;
-    bottom: -10px;
+.balloons {
+  position: fixed;
+  bottom: -10px;
 }
 </style>

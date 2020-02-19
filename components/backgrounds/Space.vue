@@ -74,7 +74,7 @@
       <svg-icon
         v-show="!outerspace"
         class="rocket"
-        name="nate/rocket_nofire_nonate_left"
+        name="nate/space_nofire_nonate_left"
         width="485"
         height="584"
       />

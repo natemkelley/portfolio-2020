@@ -27,6 +27,7 @@
         :initialGroundElevation="initialGroundElevationNate"
         :stillMoving="stillMoving"
         :underwater="underwater"
+        :beach="beach"
         :outerspace="outerspace"
         :cheering="cheering"
       />
@@ -76,6 +77,9 @@ export default {
       movingTimeoutVar: undefined,
       checkElevationChange: true,
       underwater: false,
+      beach: false,
+      jungle: false,
+      cave: false,
       outerspace: false,
       elevationChangePositionsNate: [
         { positionX: 0, positionY: 0 },
@@ -186,32 +190,35 @@ export default {
       this.modalOpen = !this.modalOpen;
     },
     handleSpecialEnviroments() {
-      if (
+      //underwater
+      this.underwater =
         this.previousScrollPos + this.offsetLeft > 6830 &&
         this.previousScrollPos + this.offsetLeft < 13685
-      ) {
-        this.underwater = true;
-        //console.log("underwahwah", this.underwater);
-      } else {
-        this.underwater = false;
-      }
+          ? true
+          : false;
 
-      if (this.previousScrollPos + this.offsetLeft > 28409) {
-        this.outerspace = true;
-      } else {
-        this.outerspace = false;
-      }
+      this.beach =
+        this.previousScrollPos + this.offsetLeft > 13686 &&
+        this.previousScrollPos + this.offsetLeft < 17291
+          ? true
+          : false;
 
-      //console.log(this.previousScrollPos + this.offsetLeft, this.height - this.offsetLeft);
-      console.log(this.previousScrollPos+this.offsetLeft,this.height,this.offsetLeft)
+      //space
+      this.outerspace =
+        this.previousScrollPos + this.offsetLeft > 28409 ? true : false;
+
+      //cheering
       this.cheering =
-        (this.previousScrollPos + this.offsetLeft>30850||this.previousScrollPos + this.offsetLeft > this.height-1000) ? true : false;
+        this.previousScrollPos + this.offsetLeft > 30850 ||
+        this.previousScrollPos + this.offsetLeft > this.height - 1000
+          ? true
+          : false;
 
       //console.log('pixels',this.previousScrollPos)
     },
-    updateMobileOffset(val){
-      this.height = this.height+ Number(val); //is modified by offsetLeft
-          console.log('mobile height offset',val,'new height',this.height)
+    updateMobileOffset(val) {
+      this.height = this.height + Number(val); //is modified by offsetLeft
+      console.log("mobile height offset", val, "new height", this.height);
     }
   },
   created() {
