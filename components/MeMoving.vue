@@ -26,6 +26,7 @@ export default {
     "stillMoving",
     "underwater",
     "beach",
+    "jungle","cave",
     "outerspace",
     "cheering"
   ],
@@ -206,6 +207,10 @@ export default {
         return "nate/scuba_" + this.position+ "_"+this.directionX + this.blink;
       } else if (this.beach) {
         return "nate/shirtless_" + this.position+ "_"+this.directionX + this.blink;
+      } else if (this.jungle) {
+        return "nate/jungle_" + this.position+ "_"+this.directionX + this.blink;
+      } else if (this.cave) {
+        return "nate/cave_" + this.position+ "_"+this.directionX + this.blink;
       }else if (this.outerspace) {
         return "nate/space_fire_" + this.directionX;
       } else {

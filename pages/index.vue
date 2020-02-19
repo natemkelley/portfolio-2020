@@ -28,6 +28,8 @@
         :stillMoving="stillMoving"
         :underwater="underwater"
         :beach="beach"
+        :jungle="jungle"
+        :cave="cave"
         :outerspace="outerspace"
         :cheering="cheering"
       />
@@ -197,9 +199,23 @@ export default {
           ? true
           : false;
 
+      //beach
       this.beach =
         this.previousScrollPos + this.offsetLeft > 13686 &&
         this.previousScrollPos + this.offsetLeft < 17291
+          ? true
+          : false;
+
+      //jungle
+      this.jungle =
+        this.previousScrollPos + this.offsetLeft > 17292 &&
+        this.previousScrollPos + this.offsetLeft < 21868
+          ? true
+          : false;
+
+      this.cave =
+        this.previousScrollPos + this.offsetLeft > 21869 &&
+        this.previousScrollPos + this.offsetLeft < 25655
           ? true
           : false;
 
