@@ -1,8 +1,8 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">Awesome Content</h1>
+    <h1 class="text-center">Nice Clicking</h1>
     <div class="bar"></div>
-    <p>Works like magic! By clicking on the buttons you will get access to more in depth explanations about some of my experiences.</p>
+    <p>By clicking on the buttons you will get access to more in depth explanations about some of my experiences.</p>
     <div class="me-cheering bouncing">
       <svg-icon :name="nateCheering" width="200px" height="200px" />
     </div>
