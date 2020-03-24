@@ -13,8 +13,8 @@
     </div>
 
 <h2>Introduction</h2>
-<p>In 2018 I joined a community involvement team called &ldquo;Studio UX&rdquo;. Here we acted as a student consulting firm that entities approached with user experience problems that needed solutions. Roughly every four weeks we worked with a different organization tackling a myriad of different issues from UI design, feature validation, and user testing.</p>
-<p>Although I have worked with many different organizations that year, I would like to showcase one project that I found particularly interesting.<br /><br /></p>
+<p>In 2018 I joined a community involvement team called &ldquo;Studio UX&rdquo; where we acted as a student consulting firm that entities approached with user experience problems that needed solutions. Roughly every four weeks we worked with a different organization tackling a myriad of different issues from UI design, feature validation, and user testing.</p>
+<p>Although I worked with many different organizations that year, I would like to showcase one project that I found particularly interesting.<br /><br /></p>
 
 <img src="@/assets/projects/pluralsight.png"/>
 

@@ -1,16 +1,15 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">Graduate Research</h1>
-    <h3 class="text-center">Arizona State University - 2019</h3>
+    <h1 class="text-center">Graduate Research Assistant</h1>
+    <h3 class="text-center">Arizona State University - 2020</h3>
     <div class="bar"></div>
     <div class="summary">
  <ul>
-<li>Worked with United States Airforce to develop models for human robot teaming.</li>
-<li>Created Minecraft environment to simulate first responder emergency situations (burning building, bombed airfield, etc.)</li>
-<li>Tested four human-robot teaming strategies (explain all behavior, explain no behavior, explain when asked, pull-prime).</li>
-<li>Co-wrote multiple research papers.</li>
+<li>Worked on behalf of the United States Airforce to develop models for human-robot teaming.</li>
+<li>Created Minecraft environments to simulate first responder emergency situations (burning building, bombed airfield, etc.)</li>
+<li>Participated in the writing of research papers.</li>
 <li>Presented key findings to stakeholders and others researchers</li>
-<li>Research project grant valued at over $2,500,000.</li>
+<!--<li>Research project grant valued at over $2,500,000.</li>-->
 
 </ul>
     </div>

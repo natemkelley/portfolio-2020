@@ -224,9 +224,10 @@ export default {
         this.previousScrollPos + this.offsetLeft > 28409 ? true : false;
 
       //cheering
+      console.log('scroll pos',this.previousScrollPos,'offsetLeft',this.offsetLeft,'height',this.height)
       this.cheering =
-        this.previousScrollPos + this.offsetLeft > 30850 ||
-        this.previousScrollPos + this.offsetLeft > this.height - 1000
+        this.previousScrollPos + this.offsetLeft > 30850 
+        //|| this.previousScrollPos + this.offsetLeft > this.height - 1000
           ? true
           : false;
 

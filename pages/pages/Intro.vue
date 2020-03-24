@@ -1,6 +1,6 @@
 <template>
   <div class="container-small test-component">
-    <h1 class="text-center">Nice Clicking</h1>
+    <h1 class="text-center">Nice Clicking!</h1>
     <div class="bar"></div>
     <p>By clicking on the buttons you will get access to more in depth explanations about some of my experiences.</p>
     <div class="me-cheering bouncing">

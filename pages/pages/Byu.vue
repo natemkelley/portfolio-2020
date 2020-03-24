@@ -7,7 +7,7 @@
     <div class="summary">
       <ul>
         <li>
-          <strong>Emphasis in Web Development</strong> with a 3.63
+          <strong>Emphasis in Web Development</strong> with a 3.64
           GPA
         </li>
         <li>

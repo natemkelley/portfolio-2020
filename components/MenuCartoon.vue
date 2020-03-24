@@ -88,7 +88,7 @@ export default {
   computed: {
     menulist() {
       var xxx = [
-        { name: "Intro", pos: 1420 },
+        { name: "Intro", pos: 1240 },
         { name: "Education", pos: 6100 },
         { name: "Exp", pos: 13310 },
         { name: "Projects", pos: 17215 },

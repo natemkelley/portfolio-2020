@@ -13,8 +13,9 @@
     <div class="summary">
 <ul>
 <li>Played crucial role in launch of startup as UX designer and developer</li>
-<li>Executed iterative user tests of web store, SEO channels, and gear to ensure quality and usability using surveys, interviews, and observations</li>
-<li>Raised $120,000 from sales, competitions, and kick starter in 6 months</li>
+<li>Executed iterative user tests of gear to ensure quality and usability using surveys, interviews, and observations</li>
+<li>Raised $120,000+ from sales, competitions, and Kickstarter in 6 months</li>
+<li>Successfully launched web store to take in pre-orders following Kick Starter campaign</li>
 <li>Competed as one of the top 20 teams in Utah Entrepreneur of the Year</li>
 </ul>
     </div>

@@ -187,7 +187,6 @@ export default {
     },
     startCheering() {
       if (this.cheering) {
-        console.log("cheering", this.cheering);
         setTimeout(() => {
           this.startCheering();
           if (this.jumpDur === "left") {

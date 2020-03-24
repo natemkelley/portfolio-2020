@@ -6,10 +6,18 @@
 
     <p>Link to my Github account: <a class="blahr" href="https://github.com/natemkelley" target="_blank">https://github.com/natemkelley</a>. Here is a collection of projects that I am proud of ranked in order of preferences:</p>
     
+    <a href="https://github.com/natemkelley/kelley-family-bank" target="_blank">
+    <div class="clickable" >
+      <h2>Family Banking</h2>
+      <p>This is a personal project that I am currently working on as of March 24, 2020. This application will assist families in teaching their children the importance of hard work and saving money through family style 401ks, loans, and chores. The application's basis being that "allowances" don't teach good principles and that money should be earned. The site will hopefully launch in the summer of 2020.</p>
+      <img :src="dev0"/>
+    </div>
+    </a>
+
     <a href="https://github.com/natemkelley/portfolio-2020" target="_blank">
     <div class="clickable" >
       <h2>Portfolio 2020</h2>
-      <p>This showcases my skills in Vue.js, Nuxt, NPM packages, graphic design, and user experience.</p>
+      <p>This showcases my skills in Vue.js, Nuxt, NPM packages, graphic design, and user experience. This portfolio is largely based on the ideas from one of my favorite designers Rob Leonardi.</p>
       <img :src="dev1"/>
     </div>
     </a>
@@ -52,6 +60,7 @@ export default {
   layout: "indipage",
   data() {
     return {
+                  dev0: require('@/assets/projects/family_bank.png'),
             dev1: require('@/assets/projects/github1.png'),
             dev2: require('@/assets/projects/github5.png'),
                         dev3: require('@/assets/projects/github3.png'),

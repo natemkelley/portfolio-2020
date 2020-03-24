@@ -3,12 +3,12 @@
     <h1 class="text-center">University Web Developer</h1>
     <h3 class="text-center">Brigham Young University - 2019</h3>
     <div class="bar"></div>
-        <VuePureLightbox
+        <!--<VuePureLightbox
       :thumbnail="dev1"
       :images="[
         dev1,dev2,dev3
       ]"
-    />
+    />-->
     <div class="summary">
       <ul>
       <li>Developed modules in Vue, JavaScript, PHP, MongoDB, and SQL to be used by professors and staff in internal projects</li>

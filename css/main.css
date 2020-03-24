@@ -211,14 +211,6 @@ h4 {
     animation: floatX 6.5s ease-in-out infinite;
 }
 
-/*Try to adjust this in Javascript for viewport and stuff
-@media only screen and (max-height: 638px) {
-    html {
-        zoom: 0.75;
-    }
-}*/
-
-
 .container-small img {
     border: 4px solid white;
     border-radius: 10px;
