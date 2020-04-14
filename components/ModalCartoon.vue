@@ -3,7 +3,6 @@
     <div
       class="modal"
       :class="{ hidden: !modalOpen }"
-      :style="{ background: color }"
     >
       <div v-show="!loading">
         <div class="container" v-if="component">
@@ -97,7 +96,7 @@ export default {
   height: 100%;
   min-height: 100vh;
   width: 100vw;
-  background: #f26522;
+  background: #df5b1e;
   color: white;
   transition: all 0.15s ease;
   z-index: 999;

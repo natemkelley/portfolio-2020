@@ -5,13 +5,13 @@
     <div class="bar"></div>
     <div class="summary">
       <ul>
-      <li>4.0 GPA as of January 13, 2019</li>
-      <li><strong>Developed expertise in Vue.js</strong></li>
-      <li>Currently (until May 2020) working with the United States Air Force on research focused on human-robot teaming.</li>
-      <li>Developed expertise in agile product design and development techniques.</li>
-      <li>Individual and Team UX research projects including heuristic evaluations, market research, individual and group user tests, and task analysis diagramming.</li>
-      <li>Practiced user centered design thinking strategies including UX-Agile best practices.</li>
-      <li>Created 14+ projects related to graphic and experience design</li>
+        <li>4.0 GPA as of January 13, 2019</li>
+        <li><strong>Developed expertise in Vue.js</strong></li>
+        <li>Currently (until May 2020) working with the United States Air Force on research focused on human-robot teaming.</li>
+        <li>Developed expertise in agile product design and development techniques.</li>
+        <li>Individual and Team UX research projects including heuristic evaluations, market research, individual and group user tests, and task analysis diagramming.</li>
+        <li>Practiced user centered design thinking strategies including UX-Agile best practices.</li>
+        <li>Created 14+ projects related to graphic and experience design</li>
       </ul>
     </div>
         <VuePureLightbox

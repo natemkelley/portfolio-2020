@@ -111,7 +111,7 @@ h4 {
     overflow-y: auto;
     position: fixed;
 }
-
+x
 .summary-col h1 {
     font-size: 50px;
     line-height: 49px;
@@ -249,6 +249,11 @@ h4 {
 .container-small h2 {
     font-size: 33px;
     margin: 35px 0px 0px 5%;
+}
+.container-small h4{
+    margin: 35px 0px 0px 5%;
+    transform: skewX(-20deg);
+    font-size: 20px;
 }
 
 ol,ul{

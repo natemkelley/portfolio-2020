@@ -49,8 +49,8 @@ export default {
       clicked: false,
       socialLinks: [
         {
-          src: "/Resume_December_2019.pdf",
-          icon: "file",
+          src: "/pages/github",
+          icon: "github",
           color: ""
         },
         {
@@ -59,8 +59,8 @@ export default {
           color: ""
         },
         {
-          src: "/pages/github",
-          icon: "github",
+          src: "/Resume_December_2019.pdf",
+          icon: "file",
           color: ""
         },
         {
