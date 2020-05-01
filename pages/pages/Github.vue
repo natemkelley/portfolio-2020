@@ -19,7 +19,7 @@
     <div class="clickable" >
       <h2>Portfolio 2020</h2>
       <h4>Vue.js, Animejs, Github Hosting</h4>
-      <p>This showcases my skills in Vue.js, Nuxt, NPM packages, graphic design, and user experience. This portfolio is largely based on the ideas from one of my favorite designers Rob Leonardi.</p>
+      <p>This showcases my skills in Vue.js, Nuxt, NPM packages, graphic design, and user experience. This portfolio is largely based on the ideas from one of my favorite designers Rob Leonardi and, if you look at his work, much of graphic design is based on things that he has done. However, this website has been created scalable using vue components and optimized for load time using SVG images.</p>
       <img :src="dev1"/>
     </div>
     </a>
