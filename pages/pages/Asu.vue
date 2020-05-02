@@ -31,7 +31,7 @@
     </div>
 
     <h1 class="text-center exp">My ASU Experience</h1>
-    <div class="data-viz">
+    <div class="sectiono data-viz">
       <p>
         While attending ASU I completed multiple courses related to product
         design and development as well as courses on analyzing and visualizing
@@ -73,7 +73,7 @@
       </p>
       <img class="responsive" src="@/assets/Google_Assistant.png" />
     </div>
-    <div class="graphic-design">
+    <div class=" sectiono graphic-design">
       <h2>Graphic Design</h2>
       <p>
         While I personally believe that information architecture has the most
@@ -107,7 +107,7 @@
         <img class="responsive" src="@/assets/projects/asuprojects5.png" />
       </div>
     </div>
-    <div class="user-research" style="margin-top:50px">
+    <div class="sectiono user-research" style="margin-top:50px">
       <h2>User Research</h2>
 
       <div class="">
@@ -199,5 +199,9 @@ export default {
 .project-img {
   margin-top: 40px;
   text-align: center;
+}
+
+.sectiono{
+  margin-top: 100px;
 }
 </style>
