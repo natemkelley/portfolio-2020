@@ -5,11 +5,7 @@
     <div class="bar"></div>
     <div class="summary">
       <ul>
-        <li>4.0 GPA as of January 13, 2019</li>
-        <li>
-          Currently (until May 2020) working with the United States Air Force on
-          research focused on human-robot teaming.
-        </li>
+        <li>4.0 GPA as of January, 2019</li>
         <li>
           Developed expertise in agile product design and development
           techniques.
