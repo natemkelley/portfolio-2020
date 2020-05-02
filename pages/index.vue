@@ -1,7 +1,7 @@
 <template>
   <div>
     <Preloader
-      v-if="renderPreloader"
+      v-if="renderPreloader || true"
       :loaded="loaded"
       @togglepreloader="togglePreloader"
       @informheight="updateMobileOffset"

@@ -4,15 +4,25 @@
       <svg-icon name="icons/menu" class="icon menu-icon" @click="toggleMenu" />
       <div class="menu-list">
         <svg-icon class="logo" name="objects/NateKelley" ref="logo" />
-        <ul>
-          <li
-            v-for="item in menulist"
-            :key="item.name"
-            @click="menuItemClicked(item)"
-          >
-            {{ item.name }}
-          </li>
-        </ul>
+        <div class="rest">
+          <ul>
+            <li
+              v-for="item in menulist"
+              :key="item.name"
+              @click="menuItemClicked(item)"
+            >
+              {{ item.name }}
+            </li>
+          </ul>
+          <div class="appendage">
+            <p>
+              This portfolio has been built off the work of
+              <a href="https://www.linkedin.com/in/rleonardi/">@rleonardi</a>.
+              Here's a link to the
+              <a href="https://dribbble.com/rleonardi">Dribbble</a>.
+            </p>
+          </div>
+        </div>
       </div>
       <div class="menu-icons-list">
         <div class="row">
@@ -25,10 +35,10 @@
           </a>
         </div>
         <div class="row" v-for="(icon, n) in socialLinks" :key="icon.icon">
-          <a class="btn-floating" :href="icon.src" target="_blank">
+          <a class="btn-floating " :href="icon.src" target="_blank">
             <svg-icon
               :name="'icons/' + icon.icon"
-              class="icon side-menu-icon"
+              class="icon side-menu-icon "
               @click="toggleMenu"
             />
           </a>
@@ -51,24 +61,24 @@ export default {
         {
           src: "/pages/github",
           icon: "github",
-          color: ""
+          color: "",
         },
         {
           src: "https://www.linkedin.com/in/nate-kelley/",
           icon: "linkedin",
-          color: ""
+          color: "",
         },
         {
           src: "/Resume_December_2019.pdf",
           icon: "file",
-          color: ""
+          color: "",
         },
         {
-          src: "https://www.instagram.com/n8kel/",
-          icon: "instagram",
-          color: ""
-        }
-      ]
+          src: "https://robertrita.github.io/",
+          icon: "leonardi",
+          color: "",
+        },
+      ],
     };
   },
   methods: {
@@ -80,10 +90,10 @@ export default {
       console.log(newitem, "has been clicked");
       console.log(item.pos);
       this.$emit("overrideactive", true);
-      animateScrollTo(item.pos).then(hasScrolledToPosition => {
-        this.$emit("overrideactive", false)
+      animateScrollTo(item.pos).then((hasScrolledToPosition) => {
+        this.$emit("overrideactive", false);
       });
-    }
+    },
   },
   computed: {
     menulist() {
@@ -93,16 +103,16 @@ export default {
         { name: "Exp", pos: 13310 },
         { name: "Projects", pos: 17215 },
         { name: "Leadership", pos: 21475 },
-        { name: "Thank You", pos: 27680 }
-      ]
+        { name: "Thank You", pos: 27680 },
+      ];
       var returnArr = [];
-      xxx.forEach(element => {
-        element.pos = element.pos
-        returnArr.push(element)
+      xxx.forEach((element) => {
+        element.pos = element.pos;
+        returnArr.push(element);
       });
       return returnArr;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -126,7 +136,6 @@ export default {
   border-radius: 7px;
   height: 77vh;
   max-height: 525px;
-  overflow-y: scroll;
   scrollbar-width: none;
   border: none;
 }
@@ -159,6 +168,10 @@ export default {
   margin-top: 100px;
   transition: all 150ms ease;
 }
+.rest{
+    overflow-y: auto;
+    height: 400px;
+}
 
 .menu-opened .menu-list {
   margin-top: 0px;
@@ -184,7 +197,7 @@ export default {
   list-style: none;
   text-align: left;
   line-height: 61px;
-      margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 .menu-list li:hover {
   color: #92cc41;
@@ -202,11 +215,27 @@ ul {
 }
 
 .menu-list .logo {
-width: 95%;
-    padding-left: 2.5%;
-    padding-bottom: 5px;
-    min-width: 300px;
-    margin-left: 0;
-    max-height: 100px;
+  width: 95%;
+  padding-left: 2.5%;
+  padding-bottom: 5px;
+  min-width: 300px;
+  margin-left: 0;
+  max-height: 100px;
+}
+
+.rounded {
+  border-radius: 100%;
+}
+
+.appendage {
+  font-family: "Frankfurter";
+  margin: 15px;
+  margin-top: 20px;
+  border: 4px solid rgb(148, 203, 75);
+  padding: 10px;
+  border-radius: 12.5px;
+}
+.appendage p {
+  margin: 0;
 }
 </style>

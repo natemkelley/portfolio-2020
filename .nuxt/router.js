@@ -8,7 +8,7 @@ const _426efb0a = () => interopDefault(import('../pages/pages/asu.vue' /* webpac
 const _fcdb6bf6 = () => interopDefault(import('../pages/pages/byu.vue' /* webpackChunkName: "pages/pages/byu" */))
 const _ab5a5a98 = () => interopDefault(import('../pages/pages/cocacola.vue' /* webpackChunkName: "pages/pages/cocacola" */))
 const _2ef6cbdf = () => interopDefault(import('../pages/pages/collegewebdev.vue' /* webpackChunkName: "pages/pages/collegewebdev" */))
-const _716c732c = () => interopDefault(import('../pages/pages/github.vue' /* webpackChunkName: "pages/pages/github" */))
+const _2f836168 = () => interopDefault(import('../pages/pages/Github.vue' /* webpackChunkName: "pages/pages/Github" */))
 const _bfbe0f22 = () => interopDefault(import('../pages/pages/graduateresearch.vue' /* webpackChunkName: "pages/pages/graduateresearch" */))
 const _3bfaaab3 = () => interopDefault(import('../pages/pages/intro.vue' /* webpackChunkName: "pages/pages/intro" */))
 const _c3b657fa = () => interopDefault(import('../pages/pages/khione.vue' /* webpackChunkName: "pages/pages/khione" */))
@@ -48,9 +48,9 @@ export const routerOptions = {
     component: _2ef6cbdf,
     name: "pages-collegewebdev"
   }, {
-    path: "/pages/github",
-    component: _716c732c,
-    name: "pages-github"
+    path: "/pages/Github",
+    component: _2f836168,
+    name: "pages-Github"
   }, {
     path: "/pages/graduateresearch",
     component: _bfbe0f22,
