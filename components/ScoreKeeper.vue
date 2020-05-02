@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span class="score">{{score}}</span>
+    <span class="score">{{ score }}</span>
   </div>
 </template>
 
@@ -10,9 +10,15 @@ export default {
   props: ["previousScrollPos"],
   computed: {
     score() {
-      return String(Math.min(6000,Math.round(this.previousScrollPos / 100) * 20)).padStart(5,"0");
-    }
-  }
+      const height =
+        document.body.clientHeight ||
+        document.documentElement.clientHeight ||
+        document.documentElement.scrollHeight;
+        return (this.previousScrollPos/height * 100).toFixed(0) + '%'
+      //return Math.round(this.previousScrollPos / 100) + "%";
+      //return String(Math.min(6000,Math.round(this.previousScrollPos / 100) * 20)).padStart(5,"0");
+    },
+  },
 };
 </script>
 

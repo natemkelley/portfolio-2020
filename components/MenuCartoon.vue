@@ -41,6 +41,12 @@
               class="icon side-menu-icon "
               @click="toggleMenu"
             />
+            <div class="appended-text" v-if="icon.append">
+              <div class="keep-it-left">
+                <img src="@/assets/left-arrow.png" />
+              </div>
+              <div class="move-it-left">{{ icon.append }}</div>
+            </div>
           </a>
         </div>
       </div>
@@ -69,14 +75,16 @@ export default {
           color: "",
         },
         {
-          src: "/Resume_December_2019.pdf",
-          icon: "file",
+          src: "/accessible",
+          icon: "notime2",
           color: "",
+          append: "Condensed version of this portfolio",
         },
         {
           src: "https://robertrita.github.io/",
           icon: "leonardi",
           color: "",
+          append: "Forked from the work of @rleonardi",
         },
       ],
     };
@@ -98,7 +106,7 @@ export default {
   computed: {
     menulist() {
       var xxx = [
-        { name: "Intro", pos: 1240 },
+        { name: "Intro", pos: 1240, sub: [{ name: "test", pos: 1500 }] },
         { name: "Education", pos: 6100 },
         { name: "Exp", pos: 13310 },
         { name: "Projects", pos: 17215 },
@@ -121,6 +129,9 @@ export default {
   position: fixed;
   margin: 45px;
   z-index: 998;
+}
+
+.btn-floating {
 }
 
 .btn-floating .icon {
@@ -168,9 +179,9 @@ export default {
   margin-top: 100px;
   transition: all 150ms ease;
 }
-.rest{
-    overflow-y: auto;
-    height: 400px;
+.rest {
+  overflow-y: auto;
+  height: 400px;
 }
 
 .menu-opened .menu-list {
@@ -237,5 +248,31 @@ ul {
 }
 .appendage p {
   margin: 0;
+}
+.appended-text {
+  position: absolute;
+  background: white;
+  color: black;
+  font-family: "Frankfurter";
+  margin-top: -77px;
+  margin-left: 90px;
+  width: 207px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 15px;
+      box-shadow: -7px 7px rgba(0, 0, 0, 0.158);
+}
+.keep-it-left {
+  width: 20px;
+  float: left;
+}
+.move-it-left {
+  margin-left: 30px;
+}
+
+.appended-text img {
+  height: 20px;
+  margin-top: 10px;
+  margin-left: 2px;
 }
 </style>
