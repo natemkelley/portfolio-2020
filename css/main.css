@@ -346,3 +346,11 @@ blockquote {
     margin: 17.5px 5%;
     padding-left: 17.5px;
 }
+
+.responsive-s{
+    width: 100%;
+}
+
+.responsive{
+    max-width: 100%;
+}
