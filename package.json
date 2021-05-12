@@ -17,7 +17,7 @@
     "@nuxtjs/svg-sprite": "^0.4.3",
     "animated-scroll-to": "^2.0.5",
     "animejs": "^3.1.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "detect-browser": "^4.8.0",
     "fs": "0.0.1-security",
     "imports-loader": "^0.8.0",
