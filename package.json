@@ -21,7 +21,7 @@
     "detect-browser": "^4.8.0",
     "fs": "0.0.1-security",
     "imports-loader": "^0.8.0",
-    "jsdom": "^15.2.0",
+    "jsdom": "^16.5.0",
     "line-reader": "^0.4.0",
     "material-colors": "^1.2.6",
     "material-icons": "^0.3.1",
